@@ -30,20 +30,18 @@
       --text-secondary: #94A3B8;
       --text-muted:     #475569;
       
-      /* Sentiment Theme: Soft Emerald Teal */
-      --bullish:        #34D399;
-      --bullish-bg:     rgba(16, 185, 129, 0.10);
-      --bullish-border: rgba(16, 185, 129, 0.25);
+      /* Updated Sentiment Colors (Precise Specifications) */
+      --bullish:        #19A56F;
+      --bullish-bg:     rgba(25, 165, 111, 0.10);
+      --bullish-border: rgba(25, 165, 111, 0.25);
       
-      /* Sentiment Theme: Muted Crimson Red */
-      --bearish:        #F87171;
-      --bearish-bg:     rgba(239, 68, 68, 0.10);
-      --bearish-border: rgba(239, 68, 68, 0.25);
+      --bearish:        #E25152;
+      --bearish-bg:     rgba(226, 81, 82, 0.10);
+      --bearish-border: rgba(226, 81, 82, 0.25);
       
-      /* Sentiment Theme: Soft Warm Gold / Amber */
-      --neutral:        #EAB308;
-      --neutral-bg:     rgba(234, 179, 8, 0.08);
-      --neutral-border: rgba(234, 179, 8, 0.22);
+      --neutral:        #F2B644;
+      --neutral-bg:     rgba(242, 182, 68, 0.10);
+      --neutral-border: rgba(242, 182, 68, 0.22);
       
       --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono:      'JetBrains Mono', monospace;
@@ -312,13 +310,19 @@
     }
 
     .overview-box {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border);
+      background-color: #141926;
+      border: 1px solid #222B3D;
       border-radius: 8px;
       padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 12px;
+    }
+
+    .overview-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .overview-box-label {
@@ -326,11 +330,12 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: var(--text-secondary);
+      color: #64748B;
+      font-family: var(--font-mono);
     }
 
     .overview-box-value {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
       font-family: var(--font-mono);
       line-height: 1;
@@ -643,6 +648,20 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
+    /* Sentiment-specific border classes (Precise Specifications) */
+    .compact-row.bullish, .card-item.bullish {
+      border: 1px solid rgba(25, 165, 111, 0.30);
+      border-left: 3px solid var(--bullish);
+    }
+    .compact-row.bearish, .card-item.bearish {
+      border: 1px solid rgba(226, 81, 82, 0.30);
+      border-left: 3px solid var(--bearish);
+    }
+    .compact-row.neutral, .card-item.neutral {
+      border: 1px solid rgba(242, 182, 68, 0.25);
+      border-left: 3px solid var(--neutral);
+    }
+
     .card-meta-top {
       display: flex;
       align-items: center;
@@ -835,6 +854,7 @@
     .slider-track {
       height: 6px;
       border-radius: 3px;
+      /* Continuous Red -> Amber -> Green Sentiment gradient (Precise Specifications) */
       background: linear-gradient(to right, var(--bearish), var(--neutral) 50%, var(--bullish));
       width: 100%;
     }
@@ -848,7 +868,7 @@
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
-      box-shadow: 0 0 8px rgba(218, 180, 107, 0.4);
+      box-shadow: 0 0 8px var(--accent);
       transition: left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -886,7 +906,7 @@
       font-family: var(--font-mono);
     }
 
-    /* Leaderboard progress bars */
+    /* Leaderboard gradient lines */
     .leaderboard-container {
       display: flex;
       flex-direction: column;
@@ -920,26 +940,18 @@
       height: 6px;
       border-radius: 3px;
       overflow: hidden;
-      background-color: var(--border);
-      display: flex;
+      /* Rounded track backgrounds #0F1420 (Precise Specifications) */
+      background-color: #0F1420;
+      position: relative;
       width: 100%;
     }
 
-    .split-bullish {
-      background-color: var(--bullish);
+    /* Multi-stop linear gradient fill (Precise Specifications) */
+    .split-fill {
       height: 100%;
-      transition: width 0.3s;
-    }
-
-    .split-bearish {
-      background-color: var(--bearish);
-      height: 100%;
-      transition: width 0.3s;
-    }
-
-    .split-neutral {
-      background-color: var(--neutral);
-      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #19A56F 0%, #F2B644 50%, #E25152 100%);
+      box-shadow: 0 0 6px rgba(218, 180, 107, 0.2);
       transition: width 0.3s;
     }
 
@@ -1127,7 +1139,7 @@
   <header>
     <div class="header-logo-group">
       <div class="logo">Crypto<span>Flash</span></div>
-      <div class="beta-badge">Terminal v3.0</div>
+      <div class="beta-badge">Terminal v3.1</div>
     </div>
 
     <!-- Navigation Tabs -->
@@ -1166,20 +1178,36 @@
   <!-- OVERVIEW SUMMARY PANEL -->
   <div style="max-width: 1400px; margin: 0 auto; padding: 0 24px;">
     <div class="overview-bar">
+      <!-- 1. Total Articles Box -->
       <div class="overview-box">
-        <div class="overview-box-label">Total Articles</div>
+        <div class="overview-title-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DAB46B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span class="overview-box-label">Total Articles</span>
+        </div>
         <div class="overview-box-value" style="color: var(--text-primary);" id="statTotal">0</div>
       </div>
+      <!-- 2. Bullish Catalysts Box -->
       <div class="overview-box">
-        <div class="overview-box-label">Bullish Catalysts</div>
+        <div class="overview-title-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#19A56F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          <span class="overview-box-label">Bullish Catalysts</span>
+        </div>
         <div class="overview-box-value" style="color: var(--bullish);" id="statBullish">0</div>
       </div>
+      <!-- 3. Bearish Risks Box -->
       <div class="overview-box">
-        <div class="overview-box-label">Bearish Risks</div>
+        <div class="overview-title-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E25152" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+          <span class="overview-box-label">Bearish Risks</span>
+        </div>
         <div class="overview-box-value" style="color: var(--bearish);" id="statBearish">0</div>
       </div>
+      <!-- 4. Neutral Updates Box -->
       <div class="overview-box">
-        <div class="overview-box-label">Neutral Updates</div>
+        <div class="overview-title-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F2B644" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="5" y1="7" x2="19" y2="7"/><path d="M5 7v10a7 7 0 0 0 14 0V7"/></svg>
+          <span class="overview-box-label">Neutral Updates</span>
+        </div>
         <div class="overview-box-value" style="color: var(--neutral);" id="statNeutral">0</div>
       </div>
     </div>
@@ -1326,7 +1354,10 @@
         <div class="lane-col bearish-lane">
           <div class="lane-header">
             <div class="lane-title-info">
-              <h3>Negative Catalysts</h3>
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom: 2px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E25152" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+                <h3 style="color: var(--bearish)">Negative Catalysts</h3>
+              </div>
               <p>Hacks, exploits, dumps & macro risk</p>
             </div>
             <div class="lane-pct-count">
@@ -1343,7 +1374,10 @@
         <div class="lane-col neutral-lane">
           <div class="lane-header">
             <div class="lane-title-info">
-              <h3>General / Neutral</h3>
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom: 2px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F2B644" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="5" y1="7" x2="19" y2="7"/><path d="M5 7v10a7 7 0 0 0 14 0V7"/></svg>
+                <h3 style="color: var(--neutral)">General / Neutral</h3>
+              </div>
               <p>Factual, general and mixed signals</p>
             </div>
             <div class="lane-pct-count">
@@ -1360,7 +1394,10 @@
         <div class="lane-col bullish-lane">
           <div class="lane-header">
             <div class="lane-title-info">
-              <h3>Positive Catalysts</h3>
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom: 2px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#19A56F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <h3 style="color: var(--bullish)">Positive Catalysts</h3>
+              </div>
               <p>Adoption, upgrades, burns & updates</p>
             </div>
             <div class="lane-pct-count">
@@ -1706,7 +1743,7 @@
                 const sourcesText = getSourcesDisplay(a);
                 
                 return `
-                  <div class="compact-row">
+                  <div class="compact-row ${sClass}">
                     <div class="col-time">${timeText}</div>
                     <div class="col-title">
                       <a href="${escHtml(a.url || '#')}" target="_blank" rel="noopener noreferrer">${escHtml(a.title)}</a>
@@ -1736,7 +1773,7 @@
                 const sourcesText = getSourcesDisplay(a);
                 
                 return `
-                  <article class="card-item">
+                  <article class="card-item ${sClass}">
                     <div class="card-meta-top">
                       <span class="card-source">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -1854,9 +1891,8 @@
           </div>`;
       } else {
         leaderboard.innerHTML = topLeaderboard.map(([coin, s]) => {
-          const bullP = (s.bullish / s.total) * 100;
-          const bearP = (s.bearish / s.total) * 100;
-          const neutP = (s.neutral / s.total) * 100;
+          // Dynamic gradient bar representing Bullish ratio (Precise Specifications)
+          const bullP = s.total > 0 ? Math.round((s.bullish / s.total) * 100) : 50;
 
           return `
             <div class="leaderboard-row">
@@ -1869,9 +1905,7 @@
                 </span>
               </div>
               <div class="sentiment-split-bar">
-                <div class="split-bullish" style="width: ${bullP}%"></div>
-                <div class="split-neutral" style="width: ${neutP}%"></div>
-                <div class="split-bearish" style="width: ${bearP}%"></div>
+                <div class="split-fill" style="width: ${bullP}%"></div>
               </div>
             </div>
           `;
