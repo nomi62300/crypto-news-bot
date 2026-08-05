@@ -866,7 +866,10 @@
       gap: 4px;
     }
 
-    .ticker-tag {
+    .badge-coin {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       font-size: 9px;
       font-weight: 600;
       color: var(--text-secondary);
@@ -874,6 +877,7 @@
       padding: 2px 6px;
       border-radius: 3px;
       border: 1px solid var(--border);
+      vertical-align: middle;
     }
 
     /* =====================================================================
@@ -1981,16 +1985,8 @@
     // ----------------------------------------------------------------
     // TICKER TAPE GENERATOR (Binance Prices + News Sentiment)
     // ----------------------------------------------------------------
-    function getCoinIcon(coin) {
-      const icons = {
-        BTC: `<span class="coin-icon btc-icon" style="background:#f7931a;">₿</span>`,
-        ETH: `<span class="coin-icon eth-icon" style="background:#627eea;">Ξ</span>`,
-        SOL: `<span class="coin-icon sol-icon" style="background:linear-gradient(135deg, #14f195, #9945ff);">S</span>`,
-        NEAR: `<span class="coin-icon near-icon" style="background:#FFF; color:#000; font-weight:800;">N</span>`,
-        SUI: `<span class="coin-icon sui-icon" style="background:#6fbcdb;">S</span>`,
-        KAS: `<span class="coin-icon kas-icon" style="background:#70e0cb; color:#000;">K</span>`
-      };
-      return icons[coin] || `<span class="coin-icon generic-icon" style="background:var(--accent);">•</span>`;
+    function getCoinIcon(symbol) {
+      return `<img src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/${symbol.toLowerCase()}.svg" alt="${symbol}" style="width:16px; height:16px; border-radius:50%; vertical-align:middle; margin-right:4px;" onerror="this.onerror=null; this.src='https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png'; this.onerror=function(){this.style.display='none';};" />`;
     }
 
     function buildTickerTape() {
@@ -2088,9 +2084,12 @@
 
       coinChips.innerHTML = sorted.map(([coin, count]) => {
         const isActive = activeCoins.has(coin);
+        const iconHtml = getCoinIcon(coin);
         return `
           <button class="chip${isActive ? ' active' : ''}" data-coin="${escHtml(coin)}" aria-pressed="${isActive}">
-            ${escHtml(coin)} <span class="chip-count">${count}</span>
+            ${iconHtml}
+            <span>${escHtml(coin)}</span>
+            <span class="chip-count">${count}</span>
           </button>
         `;
       }).join('');
@@ -2162,11 +2161,19 @@
                 const timeText = a.published ? formatTimeHM(a.published) : '—';
                 const sourcesText = getSourcesDisplay(a);
                 
+                const tickersHtml = (a.tickers || []).slice(0, 3).map(t => `
+                  <span class="badge-coin" style="margin-left: 6px;">
+                    ${getCoinIcon(t)}
+                    <span>${escHtml(t)}</span>
+                  </span>
+                `).join('');
+                
                 return `
                   <div class="compact-row ${sClass}">
                     <div class="col-time">${timeText}</div>
                     <div class="col-title">
                       <a href="${escHtml(a.url || '#')}" target="_blank" rel="noopener noreferrer">${escHtml(a.title)}</a>
+                      ${tickersHtml}
                     </div>
                     <div class="col-source" title="${escHtml(sourcesText)}">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -2188,7 +2195,7 @@
               ${dateArticles.map((a) => {
                 const sClass = (a.sentiment || 'Neutral').toLowerCase();
                 const score = a.confidence != null ? Math.round(a.confidence * 100) : 50;
-                const tickersHtml = (a.tickers || []).slice(0, 5).map(t => `<span class="ticker-tag">${escHtml(t)}</span>`).join('');
+                const tickersHtml = (a.tickers || []).slice(0, 5).map(t => `<span class="badge-coin">${getCoinIcon(t)}<span>${escHtml(t)}</span></span>`).join('');
                 const timeText = a.published ? formatTimeHM(a.published) : '—';
                 const sourcesText = getSourcesDisplay(a);
                 
@@ -2196,7 +2203,7 @@
                   <article class="card-item ${sClass}">
                     <div class="card-meta-top">
                       <span class="card-source">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                         ${escHtml(sourcesText)}
                       </span>
                       <span class="card-time">
