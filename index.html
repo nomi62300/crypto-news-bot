@@ -135,14 +135,20 @@
     .ticker-tape-scroll {
       display: flex;
       white-space: nowrap;
-      animation: ticker-animation 45s linear infinite;
+      animation: ticker 180s linear infinite;
     }
 
     .ticker-tape-scroll:hover {
       animation-play-state: paused;
     }
 
-    .ticker-item {
+    @keyframes ticker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    /* Tape Item layout classes */
+    .tape-item {
       display: inline-flex;
       align-items: center;
       padding: 0 24px;
@@ -150,44 +156,61 @@
       font-family: var(--font-mono);
       font-weight: 500;
       border-right: 1px solid rgba(255, 255, 255, 0.03);
+      gap: 6px;
     }
 
-    .ticker-coin {
+    .tape-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      vertical-align: middle;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .tape-symbol {
       color: var(--text-primary);
-      margin-right: 6px;
       font-weight: 700;
     }
 
-    .ticker-price {
+    .tape-price {
       color: var(--text-primary);
-      margin-right: 8px;
     }
 
-    .ticker-change {
+    .tape-change-val, .tape-change-pct {
       font-weight: 600;
     }
 
-    .ticker-change.up { color: var(--bullish); }
-    .ticker-change.down { color: var(--bearish); }
+    .tape-change-val.up, .tape-change-pct.up { color: var(--bullish); }
+    .tape-change-val.down, .tape-change-pct.down { color: var(--bearish); }
 
-    .coin-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      font-size: 10px;
-      font-weight: 800;
-      color: #FFF;
-      margin-right: 6px;
-      flex-shrink: 0;
-      line-height: 1;
+    .tape-badge {
+      font-size: 9px;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      display: inline-block;
+      vertical-align: middle;
     }
 
-    @keyframes ticker-animation {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
+    .tape-badge.bullish {
+      color: var(--bullish);
+      background: var(--bullish-bg);
+      border: 1px solid var(--bullish-border);
+    }
+
+    .tape-badge.bearish {
+      color: var(--bearish);
+      background: var(--bearish-bg);
+      border: 1px solid var(--bearish-border);
+    }
+
+    .tape-badge.neutral {
+      color: var(--neutral);
+      background: var(--neutral-bg);
+      border: 1px solid var(--neutral-border);
     }
 
     /* =====================================================================
@@ -1243,7 +1266,7 @@
        ===================================================================== */
     @media (max-width: 767px) {
       .ticker-tape-scroll {
-        animation-duration: 160s; /* Extremely slow and readable on mobile */
+        animation: ticker 120s linear infinite;
       }
 
       header {
@@ -1903,16 +1926,18 @@
     // ----------------------------------------------------------------
     async function fetchCoinCapPrices() {
       try {
-        const resp = await fetch('https://api.coincap.io/v2/assets?limit=100');
+        const resp = await fetch('https://api.coincap.io/v2/assets?limit=250');
         if (!resp.ok) throw new Error(`CoinCap status: ${resp.status}`);
         const json = await resp.json();
         if (json && json.data) {
           json.data.forEach(item => {
             const sym = item.symbol.toUpperCase();
-            coincapPrices[sym] = {
-              price: parseFloat(item.priceUsd),
-              change: parseFloat(item.changePercent24Hr)
-            };
+            if (!coincapPrices[sym]) {
+              coincapPrices[sym] = {
+                price: parseFloat(item.priceUsd),
+                change: parseFloat(item.changePercent24Hr)
+              };
+            }
           });
         }
       } catch (err) {
@@ -1968,69 +1993,61 @@
         });
       });
 
-      let coinsToRender = [...coinStats.keys()].sort((a, b) => coinStats.get(b).total - coinStats.get(a).total);
+      // Filter out non-crypto tickers (STRICT FILTER)
+      let coinsToRender = [...coinStats.keys()]
+        .filter(coin => coincapPrices[coin.toUpperCase()] !== undefined)
+        .sort((a, b) => coinStats.get(b).total - coinStats.get(a).total);
+
       if (coinsToRender.length === 0) {
-        coinsToRender = ["BTC", "ETH", "SOL", "NEAR", "SUI", "KAS"];
+        coinsToRender = ["BTC", "ETH", "SOL", "NEAR", "SUI", "KAS"].filter(c => coincapPrices[c] !== undefined);
       }
 
       const itemsHtml = coinsToRender.map(coin => {
-        const priceInfo = coincapPrices[coin.toUpperCase()];
-        const stats = coinStats.get(coin.toUpperCase());
+        const symbol = coin.toUpperCase();
+        const priceInfo = coincapPrices[symbol];
+        const stats = coinStats.get(symbol);
         
-        const logoHtml = getCoinIcon(coin);
-        let priceHtml = '';
+        const priceUsd = priceInfo.price;
+        const changePercent24Hr = priceInfo.change;
         
-        if (priceInfo) {
-          const isUp = priceInfo.change >= 0;
-          const dirClass = isUp ? 'up' : 'down';
-          const sign = isUp ? '+' : '';
-          const rawPrice = priceInfo.price;
-          
-          let priceStr = '';
-          if (rawPrice >= 1.0) {
-            priceStr = rawPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
-          } else {
-            priceStr = rawPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 });
-          }
-          
-          priceHtml = `
-            <span class="ticker-price">${priceStr}</span>
-            <span class="ticker-change ${dirClass}">(${sign}${priceInfo.change.toFixed(2)}%)</span>
-          `;
+        const isPositive = changePercent24Hr >= 0;
+        const changeVal = priceUsd * (changePercent24Hr / 100);
+        const absChangeVal = Math.abs(changeVal);
+        
+        let formattedPrice = '';
+        let formattedChangeVal = '';
+        
+        if (priceUsd >= 1.0) {
+          formattedPrice = priceUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          const rawVal = absChangeVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          formattedChangeVal = isPositive ? rawVal : '-' + rawVal;
         } else {
-          priceHtml = `<span style="color:var(--text-muted); margin-right: 8px;">Price N/A</span>`;
+          formattedPrice = priceUsd.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+          const rawVal = absChangeVal.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+          formattedChangeVal = isPositive ? rawVal : '-' + rawVal;
         }
-
-        let sentimentHtml = '';
+        
+        const formattedChangePct = changePercent24Hr.toFixed(2);
+        
+        let sentimentClass = 'neutral';
         if (stats && stats.total > 0) {
           const bullishPct = (stats.bullish / stats.total) * 100;
-          let mood = 'Neutral';
-          let color = 'var(--neutral)';
-          let bg = 'var(--neutral-bg)';
-          let border = 'var(--neutral-border)';
-          
-          if (bullishPct > 60) {
-            mood = 'Bullish';
-            color = 'var(--bullish)';
-            bg = 'var(--bullish-bg)';
-            border = 'var(--bullish-border)';
-          } else if (bullishPct < 40) {
-            mood = 'Bearish';
-            color = 'var(--bearish)';
-            bg = 'var(--bearish-bg)';
-            border = 'var(--bearish-border)';
-          }
-          sentimentHtml = `
-            <span class="ticker-score" style="color:${color}; background:${bg}; border:1px solid ${border}">${mood}</span>
-          `;
+          if (bullishPct > 60) sentimentClass = 'bullish';
+          else if (bullishPct < 40) sentimentClass = 'bearish';
         }
+        const sentimentText = sentimentClass.toUpperCase();
 
         return `
-          <div class="ticker-item">
-            ${logoHtml}
-            <span class="ticker-coin">${coin}</span>
-            ${priceHtml}
-            ${sentimentHtml}
+          <div class="tape-item">
+            <img src="https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png" 
+                 alt="${symbol}" 
+                 class="tape-icon" 
+                 onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/${symbol.toLowerCase()}.png'; this.onerror=function(){this.style.display='none';};" />
+            <span class="tape-symbol">${symbol}</span>
+            <span class="tape-price">$${formattedPrice}</span>
+            <span class="tape-change-val ${isPositive ? 'up' : 'down'}">${isPositive ? '+' : ''}$${formattedChangeVal}</span>
+            <span class="tape-change-pct ${isPositive ? 'up' : 'down'}">${isPositive ? '+' : ''}${formattedChangePct}%</span>
+            <span class="tape-badge ${sentimentClass}">${sentimentText}</span>
           </div>
         `;
       }).join('');
