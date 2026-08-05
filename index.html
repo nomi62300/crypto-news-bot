@@ -99,7 +99,7 @@
       padding-right: 90px;
     }
 
-    .ticker-live-badge {
+    .tape-live {
       position: absolute;
       right: 0;
       top: 0;
@@ -113,7 +113,8 @@
       font-size: 11px;
       font-weight: 700;
       font-family: var(--font-mono);
-      color: #5c70ff;
+      color: #DAB46B;
+      background-color: rgba(218, 180, 107, 0.15);
       z-index: 102;
     }
 
@@ -121,8 +122,8 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background-color: #5c70ff;
-      box-shadow: 0 0 8px #5c70ff;
+      background-color: #DAB46B;
+      box-shadow: 0 0 8px #DAB46B;
       animation: pulse 1.5s infinite;
     }
 
@@ -135,7 +136,7 @@
     .tape-inner {
       display: inline-flex;
       white-space: nowrap;
-      animation: ticker 180s linear infinite;
+      animation: ticker 240s linear infinite;
     }
 
     .tape-inner:hover {
@@ -904,15 +905,20 @@
       border-radius: 3px;
       border: 1px solid var(--border);
       vertical-align: middle;
+    }    /* =====================================================================
+       TAB 2: SENTIMENT DASHBOARD OVERHAUL
+       ===================================================================== */
+    .dashboard-top-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
     }
 
-    /* =====================================================================
-       TAB 2: SENTIMENT DASHBOARD
-       ===================================================================== */
-    .dashboard-grid {
+    .dashboard-bottom-row {
       display: grid;
-      grid-template-columns: 1.2fr 1.2fr 1fr;
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
       margin-bottom: 24px;
     }
 
@@ -920,49 +926,171 @@
       background-color: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 24px;
+      padding: 18px;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 230px;
     }
 
     .dashboard-card-title {
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: var(--text-secondary);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .card-tooltip-trigger {
+    .card-info-icon {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-left: 6px;
       cursor: help;
-      color: var(--text-muted);
+      position: relative;
       display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid var(--text-muted);
     }
 
-    /* Dual-Gauges styling */
-    .dual-gauge-container {
+    .card-info-icon:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Elegant CSS Tooltip */
+    .card-info-icon[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0b0e17;
+      color: var(--text-primary);
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-active);
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.4;
+      white-space: normal;
+      width: 220px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 1000;
+    }
+
+    .card-info-icon:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    /* Movers Layout */
+    .movers-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 24px;
+      gap: 16px;
+      margin-top: 10px;
+      flex-grow: 1;
     }
+
+    .movers-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .movers-header {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .movers-col.gainers-col .movers-header {
+      color: var(--bullish);
+    }
+
+    .movers-col.losers-col .movers-header {
+      color: var(--bearish);
+    }
+
+    .movers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mover-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+      font-size: 12px;
+    }
+
+    .mover-item:last-child {
+      border-bottom: none;
+    }
+
+    .mover-coin-info {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mover-symbol {
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--text-primary);
+    }
+
+    .mover-price {
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      margin-left: auto;
+      margin-right: 12px;
+    }
+
+    .mover-change {
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .mover-change.up {
+      color: var(--bullish);
+    }
+
+    .mover-change.down {
+      color: var(--bearish);
+    } }
 
     .gauge-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 10px 0;
+      padding: 5px 0;
+      flex-grow: 1;
     }
 
     .gauge-score {
-      font-size: 54px;
+      font-size: 42px;
       font-weight: 800;
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       font-family: var(--font-mono);
       background: linear-gradient(135deg, #fff 50%, var(--accent) 100%);
       -webkit-background-clip: text;
@@ -970,16 +1098,16 @@
     }
 
     .gauge-label {
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
     .slider-track-wrap {
       width: 100%;
-      margin: 16px 0;
+      margin: 8px 0;
       position: relative;
     }
 
@@ -1266,7 +1394,7 @@
        ===================================================================== */
     @media (max-width: 767px) {
       .tape-inner {
-        animation: ticker 120s linear infinite;
+        animation: ticker 180s linear infinite;
       }
 
       header {
@@ -1405,15 +1533,13 @@
       .card-item {
         min-height: auto;
         padding: 16px;
+      }       /* Dashboard Overhaul */
+      .dashboard-top-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
 
-      /* Dashboard */
-      .dashboard-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .dual-gauge-container {
+      .dashboard-bottom-row {
         grid-template-columns: 1fr;
         gap: 16px;
       }
@@ -1431,18 +1557,20 @@
         gap: 12px;
       }
 
-      .dashboard-grid {
-        grid-template-columns: 1fr 1fr;
+      .dashboard-top-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
 
-      .dashboard-card:nth-child(3) {
-        grid-column: span 2;
+      .dashboard-bottom-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
       }
 
       .lanes-grid {
         grid-template-columns: 1fr;
       }
-    }
+    } }
   </style>
 </head>
 
@@ -1453,7 +1581,7 @@
     <div class="tape-inner" id="tickerTape">
       <!-- Generated items will repeat here -->
     </div>
-    <div class="ticker-live-badge">
+    <div class="tape-live">
       <span class="live-dot"></span>
       <span>LIVE</span>
     </div>
@@ -1592,26 +1720,21 @@
          TAB 2: SENTIMENT DASHBOARD
          =================================================================== -->
     <section class="tab-section" id="dashboardTab">
-      
-      <!-- Live Index Dual-Gauge display -->
-      <div class="dual-gauge-container">
-        <!-- Gauge 1: Live Alternative.me Fear & Greed -->
+      <!-- 1. Top Row (4 Cards) -->
+      <div class="dashboard-top-row">
+        <!-- Card A: On-Chain Fear & Greed Index -->
         <div class="dashboard-card">
           <div class="dashboard-card-title">
             <span>On-Chain Fear & Greed Index</span>
-            <span class="card-tooltip-trigger" title="Fetched in real-time from Alternative.me API.">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            </span>
+            <span class="card-info-icon" data-tooltip="Multi-factor composite tracking market volatility, trading volume, social sentiment, and dominance metrics.">ⓘ</span>
           </div>
           <div class="gauge-wrapper">
             <div class="gauge-score" id="fngScore">50</div>
             <div class="gauge-label" id="fngLabel">Neutral</div>
-            
             <div class="slider-track-wrap">
               <div class="slider-track"></div>
               <div class="slider-thumb" id="fngThumb" style="left: 50%"></div>
             </div>
-            
             <div class="slider-labels" style="width: 100%">
               <span>Extreme Fear</span>
               <span>Neutral</span>
@@ -1620,23 +1743,19 @@
           </div>
         </div>
 
-        <!-- Gauge 2: Bot's Aggregate News Sentiment Score -->
+        <!-- Card B: Bot's Aggregate News Sentiment -->
         <div class="dashboard-card">
           <div class="dashboard-card-title">
             <span>Aggregate News Sentiment</span>
-            <span class="card-tooltip-trigger" title="Weighted ratio of Bullish vs Bearish articles in the current feed.">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            </span>
+            <span class="card-info-icon" data-tooltip="Weighted directional score (0–100) derived from positive, neutral, and negative Web3 news coverage.">ⓘ</span>
           </div>
           <div class="gauge-wrapper">
             <div class="gauge-score" id="moodScore">50</div>
             <div class="gauge-label" id="moodLabel">Neutral</div>
-            
             <div class="slider-track-wrap">
               <div class="slider-track"></div>
               <div class="slider-thumb" id="sliderThumb" style="left: 50%"></div>
             </div>
-            
             <div class="slider-labels" style="width: 100%">
               <span>Bearish</span>
               <span>Neutral</span>
@@ -1644,18 +1763,14 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="dashboard-grid">
-        <!-- Track Summary stats -->
+        <!-- Card C: Tracking Summary -->
         <div class="dashboard-card">
           <div class="dashboard-card-title">
             <span>Tracking Summary</span>
-            <span class="card-tooltip-trigger" title="Basic counts of news items and dates analyzed.">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            </span>
+            <span class="card-info-icon" data-tooltip="Overview of total unique articles scraped, active tracking timeframe, and monitored media outlets.">ⓘ</span>
           </div>
-          <div class="stats-item-box">
+          <div class="stats-item-box" style="margin-top: 10px;">
             <span class="stats-label">Scraped Stories</span>
             <span class="stats-value" id="totalStories">0</span>
           </div>
@@ -1669,43 +1784,64 @@
           </div>
         </div>
 
-        <!-- Dynamic SVG Sentiment Distribution -->
+        <!-- Card D: Sentiment Distribution -->
         <div class="dashboard-card">
           <div class="dashboard-card-title">
             <span>Sentiment Distribution</span>
-            <span class="card-tooltip-trigger" title="Total allocation of bullish, bearish, and neutral articles.">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            </span>
+            <span class="card-info-icon" data-tooltip="Total count breakdown of bullish catalysts, neutral updates, and bearish risks identified.">ⓘ</span>
           </div>
-          <div style="height: 130px; display: flex; align-items: flex-end; gap: 32px; justify-content: center; padding-top: 10px;">
-            <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
-              <span class="stats-value" style="color:var(--bullish); font-size:16px;" id="valBullish">0</span>
-              <div style="width:36px; background:var(--bullish); border-radius:4px 4px 0 0; transition: height 0.4s ease;" id="barBullish"></div>
-              <span style="font-size:10px; font-weight:700; color:var(--text-secondary)">BULLISH</span>
+          <div style="height: 120px; display: flex; align-items: flex-end; gap: 24px; justify-content: center; padding-top: 10px; margin-top: auto;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+              <span class="stats-value" style="color:var(--bullish); font-size:14px;" id="valBullish">0</span>
+              <div style="width:30px; background:var(--bullish); border-radius:4px 4px 0 0; transition: height 0.4s ease;" id="barBullish"></div>
+              <span style="font-size:9px; font-weight:700; color:var(--text-secondary)">BULLISH</span>
             </div>
-            <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
-              <span class="stats-value" style="color:var(--neutral); font-size:16px;" id="valNeutral">0</span>
-              <div style="width:36px; background:var(--neutral); border-radius:4px 4px 0 0; transition: height 0.4s ease;" id="barNeutral"></div>
-              <span style="font-size:10px; font-weight:700; color:var(--text-secondary)">NEUTRAL</span>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+              <span class="stats-value" style="color:var(--neutral); font-size:14px;" id="valNeutral">0</span>
+              <div style="width:30px; background:var(--neutral); border-radius:4px 4px 0 0; transition: height 0.4s ease;" id="barNeutral"></div>
+              <span style="font-size:9px; font-weight:700; color:var(--text-secondary)">NEUTRAL</span>
             </div>
-            <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
-              <span class="stats-value" style="color:var(--bearish); font-size:16px;" id="valBearish">0</span>
-              <div style="width:36px; background:var(--bearish); border-radius:4px 4px 0 0; transition: height 0.4s ease;" id="barBearish"></div>
-              <span style="font-size:10px; font-weight:700; color:var(--text-secondary)">BEARISH</span>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+              <span class="stats-value" style="color:var(--bearish); font-size:14px;" id="valBearish">0</span>
+              <div style="width:30px; background:var(--bearish); border-radius:4px 4px 0 0; transition: height 0.4s ease;" id="barBearish"></div>
+              <span style="font-size:9px; font-weight:700; color:var(--text-secondary)">BEARISH</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Coin Sentiment Leaderboard -->
+      <!-- 2. Bottom Row (2 Cards) -->
+      <div class="dashboard-bottom-row">
+        <!-- Card 1: Top Assets Leaderboard -->
         <div class="dashboard-card">
           <div class="dashboard-card-title">
             <span>Top Assets Leaderboard</span>
-            <span class="card-tooltip-trigger" title="Sentiment split breakdown for the most discussed assets.">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            </span>
+            <span class="card-info-icon" data-tooltip="Cryptocurrencies ranked by news coverage volume alongside their directional sentiment breakdown.">ⓘ</span>
           </div>
           <div class="leaderboard-container" id="leaderboard">
             <!-- Dyn rows -->
+          </div>
+        </div>
+
+        <!-- Card 2: Top 24h Market Movers -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-title">
+            <span>Top 24h Market Movers</span>
+            <span class="card-info-icon" data-tooltip="Real-time snapshot of top 5 market gainers and top 5 market losers over the last 24 hours.">ⓘ</span>
+          </div>
+          <div class="movers-layout" id="marketMovers">
+            <div class="movers-col gainers-col">
+              <div class="movers-header font-mono">▲ TOP 5 GAINERS</div>
+              <div class="movers-list" id="gainersList">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+            <div class="movers-col losers-col">
+              <div class="movers-header font-mono">▼ TOP 5 LOSERS</div>
+              <div class="movers-list" id="losersList">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1982,14 +2118,18 @@
       const coinStats = new Map();
       allArticles.forEach(a => {
         (a.tickers || []).forEach(t => {
-          const uTicker = t.toUpperCase();
-          if (!coinStats.has(uTicker)) {
-            coinStats.set(uTicker, { bullish: 0, bearish: 0, total: 0 });
-          }
-          const s = coinStats.get(uTicker);
-          s.total++;
-          if (a.sentiment === 'Bullish') s.bullish++;
-          if (a.sentiment === 'Bearish') s.bearish++;
+          const splitTickers = t.split(',');
+          splitTickers.forEach(sub => {
+            const uTicker = sub.trim().toUpperCase();
+            if (!uTicker) return;
+            if (!coinStats.has(uTicker)) {
+              coinStats.set(uTicker, { bullish: 0, bearish: 0, total: 0 });
+            }
+            const s = coinStats.get(uTicker);
+            s.total++;
+            if (a.sentiment === 'Bullish') s.bullish++;
+            if (a.sentiment === 'Bearish') s.bearish++;
+          });
         });
       });
 
@@ -2020,7 +2160,11 @@
       const itemsHtml = coinsToRender.map(coin => {
         const symbol = coin.toUpperCase();
         const priceInfo = coincapPrices[symbol];
-        const stats = coinStats.get(symbol);
+        
+        // Hide if CoinCap resolved but specific price is missing
+        if (hasPrices && !priceInfo) {
+          return '';
+        }
         
         let formattedPrice = '—.——';
         let formattedChangeVal = '0.00';
@@ -2047,14 +2191,6 @@
           
           formattedChangePct = changePercent24Hr.toFixed(2);
         }
-        
-        let sentimentClass = 'neutral';
-        if (stats && stats.total > 0) {
-          const bullishPct = (stats.bullish / stats.total) * 100;
-          if (bullishPct > 60) sentimentClass = 'bullish';
-          else if (bullishPct < 40) sentimentClass = 'bearish';
-        }
-        const sentimentText = sentimentClass.toUpperCase();
 
         return `
           <div class="tape-item">
@@ -2066,7 +2202,6 @@
             <span class="tape-price">$${formattedPrice}</span>
             <span class="tape-change-val ${isPositive ? 'up' : 'down'}">${isPositive ? '+' : ''}$${formattedChangeVal}</span>
             <span class="tape-change-pct ${isPositive ? 'up' : 'down'}">${isPositive ? '+' : ''}${formattedChangePct}%</span>
-            <span class="tape-badge ${sentimentClass}">${sentimentText}</span>
           </div>
         `;
       }).join('');
@@ -2131,12 +2266,16 @@
 
     // ----------------------------------------------------------------
     // TERMINAL: TICKER FILTER CHIPS
-    // ----------------------------------------------------------------
-    function buildCoinChips() {
+    // -----------------------------    function buildCoinChips() {
       const counts = new Map();
       allArticles.forEach(a => {
         (a.tickers || []).forEach(t => {
-          counts.set(t, (counts.get(t) || 0) + 1);
+          const splitTickers = t.split(',');
+          splitTickers.forEach(sub => {
+            const uTicker = sub.trim().toUpperCase();
+            if (!uTicker) return;
+            counts.set(uTicker, (counts.get(uTicker) || 0) + 1);
+          });
         });
       });
 
@@ -2176,15 +2315,22 @@
     // ----------------------------------------------------------------
     function getFiltered() {
       return allArticles.filter(a => {
+        // Flatten tickers list
+        const tickersSet = new Set(
+          (a.tickers || [])
+            .flatMap(t => t.split(','))
+            .map(t => t.trim().toUpperCase())
+            .filter(Boolean)
+        );
+
         if (activeCoins.size > 0) {
-          const tickersSet = new Set(a.tickers || []);
           const match = [...activeCoins].some(c => tickersSet.has(c));
           if (!match) return false;
         }
 
         if (searchQuery) {
           const q = searchQuery.toLowerCase();
-          const haystack = `${a.title} ${a.source} ${(a.tickers || []).join(' ')} ${a.summary || ''}`.toLowerCase();
+          const haystack = `${a.title} ${a.source} ${[...tickersSet].join(' ')} ${a.summary || ''}`.toLowerCase();
           if (!haystack.includes(q)) return false;
         }
         return true;
@@ -2221,12 +2367,17 @@
                 const timeText = a.published ? formatTimeHM(a.published) : '—';
                 const sourcesText = getSourcesDisplay(a);
                 
-                const tickersHtml = (a.tickers || []).slice(0, 3).map(t => `
-                  <span class="badge-coin" style="margin-left: 6px;">
-                    ${getCoinIcon(t)}
-                    <span>${escHtml(t)}</span>
-                  </span>
-                `).join('');
+                const tickersHtml = (a.tickers || [])
+                  .flatMap(t => t.split(','))
+                  .map(t => t.trim().toUpperCase())
+                  .filter(Boolean)
+                  .slice(0, 3)
+                  .map(t => `
+                    <span class="badge-coin" style="margin-left: 6px;">
+                      ${getCoinIcon(t)}
+                      <span>${escHtml(t)}</span>
+                    </span>
+                  `).join('');
                 
                 return `
                   <div class="compact-row ${sClass}">
@@ -2255,7 +2406,15 @@
               ${dateArticles.map((a) => {
                 const sClass = (a.sentiment || 'Neutral').toLowerCase();
                 const score = a.confidence != null ? Math.round(a.confidence * 100) : 50;
-                const tickersHtml = (a.tickers || []).slice(0, 5).map(t => `<span class="badge-coin">${getCoinIcon(t)}<span>${escHtml(t)}</span></span>`).join('');
+                
+                const tickersHtml = (a.tickers || [])
+                  .flatMap(t => t.split(','))
+                  .map(t => t.trim().toUpperCase())
+                  .filter(Boolean)
+                  .slice(0, 5)
+                  .map(t => `<span class="badge-coin">${getCoinIcon(t)}<span>${escHtml(t)}</span></span>`)
+                  .join('');
+                
                 const timeText = a.published ? formatTimeHM(a.published) : '—';
                 const sourcesText = getSourcesDisplay(a);
                 
@@ -2274,7 +2433,7 @@
                     <h3 class="card-title">
                       <a href="${escHtml(a.url || '#')}" target="_blank" rel="noopener noreferrer">
                         <span>${escHtml(a.title)}</span>
-                        <svg class="external-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <svg class="external-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                       </a>
                     </h3>
                     <p class="card-summary">${escHtml(a.summary || 'Click source to view the complete details and tokenomics outline.')}</p>
@@ -2341,7 +2500,7 @@
       valNeutral.textContent = neutral;
       valBearish.textContent = bearish;
 
-      const maxH = 90;
+      const maxH = 80;
       const maxCount = Math.max(bullish, neutral, bearish) || 1;
       barBullish.style.height = `${(bullish / maxCount) * maxH}px`;
       barNeutral.style.height = `${(neutral / maxCount) * maxH}px`;
@@ -2350,14 +2509,19 @@
       const coinStats = new Map();
       allArticles.forEach(a => {
         (a.tickers || []).forEach(t => {
-          if (!coinStats.has(t)) {
-            coinStats.set(t, { bullish: 0, bearish: 0, neutral: 0, total: 0 });
-          }
-          const s = coinStats.get(t);
-          s.total++;
-          if (a.sentiment === 'Bullish') s.bullish++;
-          else if (a.sentiment === 'Bearish') s.bearish++;
-          else s.neutral++;
+          const splitTickers = t.split(',');
+          splitTickers.forEach(sub => {
+            const uTicker = sub.trim().toUpperCase();
+            if (!uTicker) return;
+            if (!coinStats.has(uTicker)) {
+              coinStats.set(uTicker, { bullish: 0, bearish: 0, neutral: 0, total: 0 });
+            }
+            const s = coinStats.get(uTicker);
+            s.total++;
+            if (a.sentiment === 'Bullish') s.bullish++;
+            else if (a.sentiment === 'Bearish') s.bearish++;
+            else s.neutral++;
+          });
         });
       });
 
@@ -2394,6 +2558,57 @@
             </div>
           `;
         }).join('');
+      }
+
+      // Render Market Movers
+      const moversContainer = document.getElementById('marketMovers');
+      const gainersList = document.getElementById('gainersList');
+      const losersList = document.getElementById('losersList');
+
+      if (moversContainer && gainersList && losersList) {
+        const pricesList = Object.entries(coincapPrices).map(([sym, p]) => ({
+          symbol: sym,
+          price: p.price,
+          change: p.change
+        }));
+
+        const sortedPrices = pricesList.sort((a, b) => b.change - a.change);
+        const validMovers = sortedPrices.filter(p => !isNaN(p.change));
+
+        const gainers = validMovers.slice(0, 5);
+        const losers = [...validMovers].reverse().slice(0, 5);
+
+        const renderMoverItem = (item) => {
+          const isUp = item.change >= 0;
+          const sign = isUp ? '+' : '';
+          const logoHtml = getCoinIcon(item.symbol);
+          
+          let formattedPrice = '';
+          if (item.price >= 1.0) {
+            formattedPrice = item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          } else {
+            formattedPrice = item.price.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+          }
+
+          return `
+            <div class="mover-item">
+              <div class="mover-coin-info">
+                ${logoHtml}
+                <span class="mover-symbol">${item.symbol}</span>
+              </div>
+              <span class="mover-price">$${formattedPrice}</span>
+              <span class="mover-change ${isUp ? 'up' : 'down'}">${sign}${item.change.toFixed(2)}%</span>
+            </div>
+          `;
+        };
+
+        if (validMovers.length === 0) {
+          gainersList.innerHTML = `<span class="state-msg" style="font-size:11px; color:var(--text-muted); text-align:center; padding:10px 0; width:100%;">Loading movers…</span>`;
+          losersList.innerHTML = `<span class="state-msg" style="font-size:11px; color:var(--text-muted); text-align:center; padding:10px 0; width:100%;">Loading movers…</span>`;
+        } else {
+          gainersList.innerHTML = gainers.map(renderMoverItem).join('');
+          losersList.innerHTML = losers.map(renderMoverItem).join('');
+        }
       }
 
       const bullishArticles = allArticles.filter(a => a.sentiment === 'Bullish').slice(0, 10);
