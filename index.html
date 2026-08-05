@@ -99,23 +99,31 @@
       padding-right: 90px;
     }
 
-    .tape-live {
+    .tape-live-wrap {
       position: absolute;
       right: 0;
       top: 0;
       bottom: 0;
-      background: #07090F;
-      border-left: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+      padding-right: 12px;
+      background: linear-gradient(90deg, transparent 0%, #0B0E17 35%, #0B0E17 100%);
+      z-index: 10;
+    }
+
+    .tape-live {
+      background-color: rgba(218, 180, 107, 0.15);
+      border: 1px solid rgba(218, 180, 107, 0.35);
+      color: #DAB46B;
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 0 16px;
-      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 10px;
       font-weight: 700;
       font-family: var(--font-mono);
-      color: #DAB46B;
-      background-color: rgba(218, 180, 107, 0.15);
-      z-index: 102;
     }
 
     .live-dot {
@@ -1076,7 +1084,7 @@
 
     .mover-change.down {
       color: var(--bearish);
-    } }
+    }
 
     .gauge-wrapper {
       display: flex;
@@ -1314,6 +1322,41 @@
       color: var(--accent);
     }
 
+    /* Sentiment distribution chart classes */
+    .dist-container {
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+      justify-content: center;
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .dist-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dist-val {
+      color: inherit;
+      font-size: 14px;
+    }
+
+    .dist-bar {
+      width: 30px;
+      border-radius: 4px 4px 0 0;
+      transition: height 0.4s ease;
+    }
+
+    .dist-label {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
     /* Tracking summary boxes styling */
     .stats-item-box {
       display: flex;
@@ -1542,15 +1585,87 @@
       .card-item {
         min-height: auto;
         padding: 16px;
-      }       /* Dashboard Overhaul */
+      }      /* Dashboard Overhaul */
       .dashboard-top-row {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       .dashboard-bottom-row {
         grid-template-columns: 1fr;
         gap: 16px;
+      }
+
+      .dashboard-card {
+        padding: 10px 8px;
+        border-radius: 8px;
+        box-sizing: border-box;
+        min-height: 160px;
+      }
+
+      .dashboard-card-title {
+        font-size: 0.625rem;
+        line-height: 1.1;
+        margin-bottom: 6px;
+        letter-spacing: 0.02em;
+      }
+
+      .gauge-score {
+        font-size: 1.5rem;
+        line-height: 1;
+        margin: 4px 0;
+      }
+
+      .slider-labels {
+        font-size: 0.5rem;
+        letter-spacing: -0.02em;
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      .slider-labels span {
+        font-size: 0.5rem;
+      }
+
+      .slider-track-wrap {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Sentiment Distribution Mobile overrides */
+      .dist-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        width: 100%;
+        gap: 4px;
+        height: 100px;
+      }
+
+      .dist-bar {
+        max-width: 18px;
+        width: 100%;
+      }
+
+      .dist-label {
+        font-size: 0.55rem;
+      }
+
+      .dist-val {
+        font-size: 0.75rem;
+      }
+
+      /* Tracking Summary Mobile overrides */
+      .stats-label {
+        font-size: 0.65rem;
+        color: #94A3B8;
+      }
+
+      .stats-value {
+        font-size: 0.8rem;
+        font-weight: 700;
       }
 
       .lanes-grid {
@@ -1559,27 +1674,7 @@
       }
     }
 
-    /* Tablet breakpoints (768px - 1024px) */
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .overview-bar {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-
-      .dashboard-top-row {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-
-      .dashboard-bottom-row {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .lanes-grid {
-        grid-template-columns: 1fr;
-      }
-    } }
+    }
   </style>
 </head>
 
@@ -1590,9 +1685,11 @@
     <div class="tape-inner" id="tickerTape">
       <!-- Generated items will repeat here -->
     </div>
-    <div class="tape-live">
-      <span class="live-dot"></span>
-      <span>LIVE</span>
+    <div class="tape-live-wrap">
+      <div class="tape-live">
+        <span class="live-dot"></span>
+        <span>LIVE</span>
+      </div>
     </div>
   </div>
 
@@ -1799,21 +1896,21 @@
             <span>Sentiment Distribution</span>
             <span class="card-info-icon" data-tooltip="Total count breakdown of bullish catalysts, neutral updates, and bearish risks identified.">ⓘ</span>
           </div>
-          <div style="height: 120px; display: flex; align-items: flex-end; gap: 24px; justify-content: center; padding-top: 10px; margin-top: auto;">
-            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-              <span class="stats-value" style="color:var(--bullish); font-size:14px;" id="valBullish">0</span>
-              <div style="width:30px; background:var(--bullish); border-radius:4px 4px 0 0; transition: height 0.4s ease;" id="barBullish"></div>
-              <span style="font-size:9px; font-weight:700; color:var(--text-secondary)">BULLISH</span>
+          <div class="dist-container">
+            <div class="dist-item">
+              <span class="stats-value dist-val" style="color:var(--bullish);" id="valBullish">0</span>
+              <div class="dist-bar" style="background:var(--bullish);" id="barBullish"></div>
+              <span class="dist-label">BULLISH</span>
             </div>
-            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-              <span class="stats-value" style="color:var(--neutral); font-size:14px;" id="valNeutral">0</span>
-              <div style="width:30px; background:var(--neutral); border-radius:4px 4px 0 0; transition: height 0.4s ease;" id="barNeutral"></div>
-              <span style="font-size:9px; font-weight:700; color:var(--text-secondary)">NEUTRAL</span>
+            <div class="dist-item">
+              <span class="stats-value dist-val" style="color:var(--neutral);" id="valNeutral">0</span>
+              <div class="dist-bar" style="background:var(--neutral);" id="barNeutral"></div>
+              <span class="dist-label">NEUTRAL</span>
             </div>
-            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-              <span class="stats-value" style="color:var(--bearish); font-size:14px;" id="valBearish">0</span>
-              <div style="width:30px; background:var(--bearish); border-radius:4px 4px 0 0; transition: height 0.4s ease;" id="barBearish"></div>
-              <span style="font-size:9px; font-weight:700; color:var(--text-secondary)">BEARISH</span>
+            <div class="dist-item">
+              <span class="stats-value dist-val" style="color:var(--bearish);" id="valBearish">0</span>
+              <div class="dist-bar" style="background:var(--bearish);" id="barBearish"></div>
+              <span class="dist-label">BEARISH</span>
             </div>
           </div>
         </div>
