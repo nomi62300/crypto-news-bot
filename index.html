@@ -549,7 +549,7 @@
       grid-template-columns: 80px 1fr 180px 120px;
       align-items: center;
       padding: 14px 20px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       transition: background-color 0.15s;
     }
 
@@ -582,7 +582,7 @@
     }
 
     .compact-row:hover {
-      background-color: var(--bg-card);
+      background-color: #181F2E;
     }
 
     .col-time {
@@ -644,22 +644,29 @@
 
     .card-item:hover {
       transform: translateY(-2px);
-      border-color: var(--border-active);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     /* Sentiment-specific border classes (Precise Specifications) */
-    .compact-row.bullish, .card-item.bullish {
-      border: 1px solid rgba(25, 165, 111, 0.30);
-      border-left: 3px solid var(--bullish);
+    .card-item.bullish {
+      border: 1px solid rgba(25, 165, 111, 0.35);
+      box-shadow: 0 0 12px rgba(25, 165, 111, 0.12);
     }
-    .compact-row.bearish, .card-item.bearish {
-      border: 1px solid rgba(226, 81, 82, 0.30);
-      border-left: 3px solid var(--bearish);
+    .card-item.bullish:hover {
+      box-shadow: 0 0 18px rgba(25, 165, 111, 0.20);
     }
-    .compact-row.neutral, .card-item.neutral {
-      border: 1px solid rgba(242, 182, 68, 0.25);
-      border-left: 3px solid var(--neutral);
+    .card-item.bearish {
+      border: 1px solid rgba(226, 81, 82, 0.35);
+      box-shadow: 0 0 12px rgba(226, 81, 82, 0.12);
+    }
+    .card-item.bearish:hover {
+      box-shadow: 0 0 18px rgba(226, 81, 82, 0.20);
+    }
+    .card-item.neutral {
+      border: 1px solid rgba(242, 182, 68, 0.30);
+      box-shadow: 0 0 12px rgba(242, 182, 68, 0.10);
+    }
+    .card-item.neutral:hover {
+      box-shadow: 0 0 18px rgba(242, 182, 68, 0.18);
     }
 
     .card-meta-top {
@@ -984,9 +991,18 @@
       flex-direction: column;
     }
 
-    .lane-col.bullish-lane { border-top: 3px solid var(--bullish); }
-    .lane-col.bearish-lane { border-top: 3px solid var(--bearish); }
-    .lane-col.neutral-lane { border-top: 3px solid var(--neutral); }
+    .lane-col.bullish-lane {
+      border: 1px solid rgba(25, 165, 111, 0.30);
+      box-shadow: 0 0 16px rgba(25, 165, 111, 0.08);
+    }
+    .lane-col.bearish-lane {
+      border: 1px solid rgba(226, 81, 82, 0.30);
+      box-shadow: 0 0 16px rgba(226, 81, 82, 0.08);
+    }
+    .lane-col.neutral-lane {
+      border: 1px solid rgba(242, 182, 68, 0.25);
+      box-shadow: 0 0 16px rgba(242, 182, 68, 0.06);
+    }
 
     .lane-header {
       display: flex;
