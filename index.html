@@ -160,7 +160,7 @@
 
     .ticker-price {
       color: var(--text-primary);
-      margin-right: 6px;
+      margin-right: 8px;
     }
 
     .ticker-change {
@@ -170,13 +170,19 @@
     .ticker-change.up { color: var(--bullish); }
     .ticker-change.down { color: var(--bearish); }
 
-    .ticker-score {
-      font-size: 9px;
-      padding: 1px 5px;
-      border-radius: 3px;
-      margin-left: 8px;
-      font-weight: 700;
-      text-transform: uppercase;
+    .coin-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 800;
+      color: #FFF;
+      margin-right: 6px;
+      flex-shrink: 0;
+      line-height: 1;
     }
 
     @keyframes ticker-animation {
@@ -1875,42 +1881,68 @@
     // API INTEGRATION: BINANCE 24HR PRICES & FEAR AND GREED
     // ----------------------------------------------------------------
     async function fetchBinancePrices() {
+      // Fetch 5 majors from Binance in one query
       try {
-        const url = 'https://api.binance.com/api/v3/ticker/24hr?symbols=["BTCUSDT","ETHUSDT","SOLUSDT","NEARUSDT","SUIUSDT","KASUSDT"]';
-        const resp = await fetch(url);
-        if (!resp.ok) throw new Error(`Binance price status: ${resp.status}`);
-        const data = await resp.json();
-        
-        data.forEach(item => {
-          const symbolMap = {
-            "BTCUSDT": "BTC",
-            "ETHUSDT": "ETH",
-            "SOLUSDT": "SOL",
-            "NEARUSDT": "NEAR",
-            "SUIUSDT": "SUI",
-            "KASUSDT": "KAS"
-          };
-          const ticker = symbolMap[item.symbol];
-          if (ticker) {
-            const lastPrice = parseFloat(item.lastPrice);
-            const changePercent = parseFloat(item.priceChangePercent);
-            
-            let priceStr = '';
-            if (lastPrice >= 1.0) {
-              priceStr = lastPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
-            } else {
-              priceStr = lastPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 });
-            }
-            
-            binancePrices[ticker] = {
-              price: priceStr,
-              change: changePercent.toFixed(2),
-              isUp: changePercent >= 0
+        const binanceUrl = 'https://api.binance.com/api/v3/ticker/24hr?symbols=' + encodeURIComponent('["BTCUSDT","ETHUSDT","SOLUSDT","NEARUSDT","SUIUSDT"]');
+        const resp = await fetch(binanceUrl);
+        if (resp.ok) {
+          const data = await resp.json();
+          data.forEach(item => {
+            const symbolMap = {
+              "BTCUSDT": "BTC",
+              "ETHUSDT": "ETH",
+              "SOLUSDT": "SOL",
+              "NEARUSDT": "NEAR",
+              "SUIUSDT": "SUI"
             };
-          }
-        });
+            const ticker = symbolMap[item.symbol];
+            if (ticker) {
+              const lastPrice = parseFloat(item.lastPrice);
+              const changePercent = parseFloat(item.priceChangePercent);
+              const priceChange = parseFloat(item.priceChange);
+              
+              const priceStr = lastPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+              
+              const sign = priceChange >= 0 ? '+' : '';
+              const priceChangeStr = sign + priceChange.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+              
+              binancePrices[ticker] = {
+                price: priceStr,
+                numberChange: priceChangeStr,
+                change: changePercent.toFixed(2),
+                isUp: changePercent >= 0
+              };
+            }
+          });
+        }
       } catch (err) {
         console.warn('Could not retrieve Binance ticker prices:', err);
+      }
+
+      // Fetch Kaspa (KAS) from MEXC
+      try {
+        const mexcUrl = 'https://api.mexc.com/api/v3/ticker/24hr?symbol=KASUSDT';
+        const resp = await fetch(mexcUrl);
+        if (resp.ok) {
+          const item = await resp.json();
+          const lastPrice = parseFloat(item.lastPrice);
+          const changePercent = parseFloat(item.priceChangePercent) * 100;
+          const priceChange = parseFloat(item.priceChange);
+          
+          const priceStr = lastPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 });
+          
+          const sign = priceChange >= 0 ? '+' : '';
+          const priceChangeStr = sign + priceChange.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 });
+          
+          binancePrices["KAS"] = {
+            price: priceStr,
+            numberChange: priceChangeStr,
+            change: changePercent.toFixed(2),
+            isUp: changePercent >= 0
+          };
+        }
+      } catch (err) {
+        console.warn('Could not retrieve KAS price from MEXC:', err);
       }
     }
 
@@ -1943,6 +1975,18 @@
     // ----------------------------------------------------------------
     // TICKER TAPE GENERATOR (Binance Prices + News Sentiment)
     // ----------------------------------------------------------------
+    function getCoinIcon(coin) {
+      const icons = {
+        BTC: `<span class="coin-icon btc-icon" style="background:#f7931a;">₿</span>`,
+        ETH: `<span class="coin-icon eth-icon" style="background:#627eea;">Ξ</span>`,
+        SOL: `<span class="coin-icon sol-icon" style="background:linear-gradient(135deg, #14f195, #9945ff);">S</span>`,
+        NEAR: `<span class="coin-icon near-icon" style="background:#FFF; color:#000; font-weight:800;">N</span>`,
+        SUI: `<span class="coin-icon sui-icon" style="background:#6fbcdb;">S</span>`,
+        KAS: `<span class="coin-icon kas-icon" style="background:#70e0cb; color:#000;">K</span>`
+      };
+      return icons[coin] || `<span class="coin-icon generic-icon" style="background:var(--accent);">•</span>`;
+    }
+
     function buildTickerTape() {
       const tickersToRender = ["BTC", "ETH", "SOL", "NEAR", "SUI", "KAS"];
 
@@ -1959,12 +2003,14 @@
 
         const dirClass = priceInfo.isUp ? 'up' : 'down';
         const arrow = priceInfo.isUp ? '↑' : '↓';
+        const iconHtml = getCoinIcon(coin);
         
         return `
           <div class="ticker-item">
+            ${iconHtml}
             <span class="ticker-coin">${coin}</span>
             <span class="ticker-price">${priceInfo.price}</span>
-            <span class="ticker-change ${dirClass}">${arrow} ${priceInfo.change}%</span>
+            <span class="ticker-change ${dirClass}">${arrow} ${priceInfo.numberChange} (${priceInfo.change}%)</span>
           </div>
         `;
       }).join('');
