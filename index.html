@@ -1033,7 +1033,7 @@
         let data;
         
         try {
-          const resp = await fetch(`${NEWS_URL}?t=${Date.now()}`);
+          const resp = await fetch('news.json?t=' + Date.now());
           if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
           data = await resp.json();
         } catch (fetchErr) {
@@ -1083,7 +1083,7 @@
     function buildCoinChips() {
       const coinSet = new Map();
       for (const a of allArticles) {
-        for (const c of (a.coins || [])) {
+        for (const c of (a.tickers || [])) {
           coinSet.set(c, (coinSet.get(c) || 0) + 1);
         }
       }
@@ -1142,14 +1142,14 @@
         if (activeSentiment !== 'all' && a.sentiment !== activeSentiment) return false;
         // Coin
         if (activeCoins.size > 0) {
-          const coinSet = new Set(a.coins || []);
+          const coinSet = new Set(a.tickers || []);
           const match   = [...activeCoins].some(c => coinSet.has(c));
           if (!match) return false;
         }
         // Search
         if (searchQuery) {
           const q = searchQuery.toLowerCase();
-          const haystack = `${a.title} ${a.source} ${(a.coins||[]).join(' ')}`.toLowerCase();
+          const haystack = `${a.title} ${a.source} ${(a.tickers||[]).join(' ')}`.toLowerCase();
           if (!haystack.includes(q)) return false;
         }
         return true;
@@ -1179,7 +1179,7 @@
       const toggleId    = `toggle-${idx}`;
       const listId      = `list-${idx}`;
 
-      const coinTagsHtml = (a.coins || []).slice(0, 6).map(c =>
+      const coinTagsHtml = (a.tickers || []).slice(0, 6).map(c =>
         `<span class="coin-tag">${escHtml(c)}</span>`
       ).join('');
 

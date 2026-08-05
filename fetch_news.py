@@ -4,75 +4,19 @@ from __future__ import annotations
 fetch_news.py
 -------------
 Fetches crypto news from 30+ RSS feeds, deduplicates titles with fuzzy matching,
-classifies sentiment via Hugging Face FinBERT (ProsusAI/finbert), and writes
-the result to news.json.
+classifies sentiment via Groq Llama 3 API, and writes the result to news.json.
 """
 
 import json
 import os
 import re
 import time
-import socket
 from datetime import datetime, timezone, timedelta
 from difflib import SequenceMatcher
 
 from typing import Optional
 import feedparser
 import requests
-import urllib3.util.connection as urllib3_cn
-
-# ---------------------------------------------------------------------------
-# CUSTOM DNS RESOLVER MONKEYPATCH
-# ---------------------------------------------------------------------------
-# Workaround for local network/ISP DNS blocking router.huggingface.co
-def resolve_dns_udp(host: str, dns_servers: list[str] = ["8.8.8.8", "1.1.1.1"]) -> Optional[str]:
-    # Standard DNS query for A record
-    packet = b"\x12\x34\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00"
-    qname = b""
-    for part in host.split("."):
-        qname += len(part).to_bytes(1, "big") + part.encode()
-    qname += b"\x00"
-    packet += qname + b"\x00\x01\x00\x01" # QTYPE=A, QCLASS=IN
-
-    for dns_ip in dns_servers:
-        try:
-            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            s.settimeout(2)
-            s.sendto(packet, (dns_ip, 53))
-            resp, _ = s.recvfrom(1024)
-            s.close()
-            ancount = int.from_bytes(resp[6:8], "big")
-            if ancount == 0:
-                continue
-            idx = 12 + len(qname) + 4
-            for _ in range(ancount):
-                if resp[idx] & 0xc0 == 0xc0:
-                    idx += 2
-                else:
-                    while resp[idx] != 0:
-                        idx += resp[idx] + 1
-                    idx += 1
-                rtype = int.from_bytes(resp[idx:idx+2], "big")
-                rdlength = int.from_bytes(resp[idx+8:idx+10], "big")
-                rdata = resp[idx+10:idx+10+rdlength]
-                idx += 10 + rdlength
-                if rtype == 1 and rdlength == 4:
-                    return ".".join(str(b) for b in rdata)
-        except Exception:
-            continue
-    return None
-
-# Resolve router.huggingface.co IP and patch urllib3 connection pool
-HF_IP = resolve_dns_udp("router.huggingface.co")
-org_create_connection = urllib3_cn.create_connection
-
-def patched_create_connection(address, *args, **kwargs):
-    host, port = address
-    if host == "router.huggingface.co" and HF_IP:
-        address = (HF_IP, port)
-    return org_create_connection(address, *args, **kwargs)
-
-urllib3_cn.create_connection = patched_create_connection
 
 # ---------------------------------------------------------------------------
 # 1. RSS FEED REGISTRY
@@ -114,83 +58,168 @@ RSS_FEEDS = [
 ]
 
 # ---------------------------------------------------------------------------
-# 2. COIN TAG EXTRACTION
+# 2. DYNAMIC COIN REGISTRY & EXTRACTION
 # ---------------------------------------------------------------------------
-# Map of ticker -> list of keywords to match (ticker + common name variants)
-COIN_KEYWORDS: dict[str, list[str]] = {
-    "BTC":   ["btc", "bitcoin"],
-    "ETH":   ["eth", "ethereum", "ether"],
-    "SOL":   ["sol", "solana"],
-    "XRP":   ["xrp", "ripple"],
-    "ADA":   ["ada", "cardano"],
-    "DOGE":  ["doge", "dogecoin"],
-    "AVAX":  ["avax", "avalanche"],
-    "LINK":  ["link", "chainlink"],
-    "DOT":   ["dot", "polkadot"],
-    "NEAR":  ["near", "near protocol"],
-    "BNB":   ["bnb", "binance coin", "binance smart chain", "bsc"],
-    "SUI":   ["sui"],
-    "PEPE":  ["pepe"],
-    "SHIB":  ["shib", "shiba", "shiba inu"],
-    "LTC":   ["ltc", "litecoin"],
-    "TRX":   ["trx", "tron"],
-    "TON":   ["ton", "the open network", "toncoin"],
-    "ATOM":  ["atom", "cosmos"],
-    "MATIC": ["matic", "polygon"],
-    "ARB":   ["arb", "arbitrum"],
-    "OP":    ["optimism"],
-    "UNI":   ["uni", "uniswap"],
-    "AAVE":  ["aave"],
-    "MKR":   ["mkr", "maker"],
-    "CRV":   ["crv", "curve"],
-    "LDO":   ["ldo", "lido"],
-    "WIF":   ["wif", "dogwifhat"],
-    "BONK":  ["bonk"],
-    "INJ":   ["inj", "injective"],
-    "SEI":   ["sei"],
-    "APT":   ["apt", "aptos"],
-    "FTM":   ["ftm", "fantom"],
-    "ALGO":  ["algo", "algorand"],
-    "HBAR":  ["hbar", "hedera"],
-    "VET":   ["vet", "vechain"],
-    "FIL":   ["fil", "filecoin"],
-    "ICP":   ["icp", "internet computer"],
-    "GRT":   ["grt", "the graph"],
-    "SAND":  ["sand", "sandbox"],
-    "MANA":  ["mana", "decentraland"],
-    "AXS":   ["axs", "axie infinity"],
-    "XLM":   ["xlm", "stellar", "stellar lumens"],
-    "XMR":   ["xmr", "monero"],
-    "BCH":   ["bch", "bitcoin cash"],
-    "ETC":   ["etc", "ethereum classic"],
-    "FLOKI": ["floki"],
-    "WLD":   ["wld", "worldcoin"],
-    "STX":   ["stx", "stacks"],
-    "RUNE":  ["rune", "thorchain"],
-    "DEFI":  ["defi", "decentralized finance"],
-    "NFT":   ["nft", "nfts"],
+# Blacklist of common English noise words, modal verbs, or general abbreviations to ignore as tickers
+NOISE_WORDS = {
+    "FOR", "AND", "ON", "OUT", "THE", "BUT", "ARE", "YOU", "ITS", "NOT", "HER", "HIS", "HIM",
+    "WHO", "OUT", "GET", "PAY", "RUN", "KEY", "NEW", "BIG", "LOW", "TAX", "MAP", "NET", "WEB",
+    "CAP", "DOT", "ETF", "SEC", "CEO", "USA", "FED", "LPs", "TVL", "APY", "APR", "ALL", "ANY",
+    "ASK", "BAD", "BOY", "DAY", "DUE", "END", "FLY", "FUN", "GUY", "JOB", "LED", "LET", "LOT",
+    "MAN", "MAY", "ONE", "OWN", "RED", "SAD", "SEE", "TRY", "TWO", "USE", "WAR", "WAY", "WIN",
+    "YES", "YET", "AIR", "BOX", "CAR", "CAT", "DOG", "EAT", "EYE", "FIX", "HOT", "ICE", "MIX",
+    "OFF", "OIL", "OLD", "RAW", "SEA", "SKY", "SON", "SUN", "TOY", "PRO", "WOULD", "COULD",
+    "SHOULD", "WILL", "SHALL", "GAS", "HAS", "HAD", "HAVE", "ME", "GO", "BY", "IF", "OR", "TO",
+    "AM", "AN", "AS", "BE", "MY", "NO", "SO", "OK", "NOW", "OUR", "WHY", "HOW", "FEW"
 }
 
-# Words that should only match as whole words (avoid false positives)
-WHOLE_WORD_ONLY = {"ton", "sei", "op", "uni", "grt", "fil", "sol", "link", "near"}
+# Rich fallback dictionary in case of API rate limits
+FALLBACK_COINS = {
+    "BTC":    ["btc", "bitcoin"],
+    "ETH":    ["eth", "ethereum", "ether"],
+    "SOL":    ["sol", "solana"],
+    "TIA":    ["tia", "celestia"],
+    "KAS":    ["kas", "kaspa"],
+    "TAO":    ["tao", "bittensor"],
+    "RENDER": ["render"],
+    "FET":    ["fet", "artificial superintelligence", "fetch.ai"],
+    "SUI":    ["sui"],
+    "PEPE":   ["pepe"],
+    "XRP":    ["xrp", "ripple"],
+    "ADA":    ["ada", "cardano"],
+    "DOGE":   ["doge", "dogecoin"],
+    "AVAX":   ["avax", "avalanche"],
+    "LINK":   ["link", "chainlink"],
+    "DOT":    ["dot", "polkadot"],
+    "NEAR":   ["near", "near protocol"],
+    "BNB":    ["bnb", "binance coin", "binance"],
+    "SHIB":   ["shib", "shiba inu", "shiba"],
+    "LTC":    ["ltc", "litecoin"],
+    "TRX":    ["trx", "tron"],
+    "TON":    ["ton", "toncoin"],
+    "ATOM":   ["atom", "cosmos"],
+    "MATIC":  ["matic", "polygon"],
+    "ARB":    ["arb", "arbitrum"],
+    "OP":     ["op", "optimism"],
+    "UNI":    ["uni", "uniswap"],
+    "AAVE":   ["aave"],
+    "MKR":    ["mkr", "maker"],
+    "CRV":    ["crv", "curve"],
+    "LDO":    ["ldo", "lido"],
+    "WIF":    ["wif", "dogwifhat"],
+    "BONK":   ["bonk"],
+    "INJ":    ["inj", "injective"],
+    "SEI":    ["sei"],
+    "APT":    ["apt", "aptos"],
+    "FTM":    ["ftm", "fantom"],
+    "ALGO":   ["algo", "algorand"],
+    "HBAR":   ["hbar", "hedera"],
+    "VET":    ["vet", "vechain"],
+    "FIL":    ["fil", "filecoin"],
+    "ICP":    ["icp", "internet computer"],
+    "GRT":    ["grt", "the graph"],
+    "SAND":   ["sand", "sandbox"],
+    "MANA":   ["mana", "decentraland"],
+    "AXS":    ["axs", "axie infinity"],
+    "XLM":    ["xlm", "stellar"],
+    "XMR":    ["xmr", "monero"],
+    "BCH":    ["bch", "bitcoin cash"],
+    "ETC":    ["etc", "ethereum classic"],
+    "FLOKI":  ["floki"],
+    "WLD":    ["wld", "worldcoin"],
+    "STX":    ["stx", "stacks"],
+    "RUNE":   ["rune", "thorchain"],
+}
 
 
-def extract_coin_tags(text: str) -> list[str]:
+def fetch_top_500_coingecko() -> dict[str, list[str]]:
+    """
+    Fetch the top 500 coins dynamically from CoinGecko markets API.
+    Returns a dictionary mapping Symbol -> list of name variations (lowercased).
+    """
+    coins_map = {}
+    fallback = {s: [kw.lower() for kw in kws] for s, kws in FALLBACK_COINS.items()}
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+    fetched_coins = []
+    success = False
+
+    try:
+        # Fetch pages 1 and 2 (250 items per page = 500 total)
+        for page in [1, 2]:
+            url = f"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page={page}"
+            resp = requests.get(url, headers=headers, timeout=5)
+            resp.raise_for_status()
+            fetched_coins.extend(resp.json())
+        success = True
+    except Exception as exc:
+        print(f"  [WARN] CoinGecko API request failed: {exc}. Using fallback list.")
+
+    if not success or not fetched_coins:
+        return fallback
+
+    # Process dynamic list
+    for coin in fetched_coins:
+        symbol = coin.get("symbol", "").upper()
+        name = coin.get("name", "")
+        if not symbol or not name:
+            continue
+
+        if len(symbol) < 2:
+            continue
+
+        if symbol not in coins_map:
+            coins_map[symbol] = []
+
+        name_lower = name.lower()
+        symbol_lower = symbol.lower()
+        variations = {name_lower, symbol_lower}
+
+        # Strip common decorations like " (old)" or " Token"
+        cleaned = re.sub(r"\s*\(.*?\)\s*", "", name_lower)
+        cleaned = re.sub(r"\b(token|coin|protocol)\b", "", cleaned).strip()
+        if len(cleaned) >= 3:
+            variations.add(cleaned)
+
+        for var in variations:
+            if var not in coins_map[symbol]:
+                coins_map[symbol].append(var)
+
+    # Ensure fallback coins are fully merged
+    for symbol, keywords in fallback.items():
+        if symbol not in coins_map:
+            coins_map[symbol] = keywords
+        else:
+            for kw in keywords:
+                if kw not in coins_map[symbol]:
+                    coins_map[symbol].append(kw)
+
+    print(f"  ✓ Dynamic coin registry initialized with {len(coins_map)} tickers.")
+    return coins_map
+
+
+def extract_coin_tags(text: str, coin_keywords: dict[str, list[str]]) -> list[str]:
     """Return a deduplicated list of coin tickers found in *text*."""
     text_lower = text.lower()
     found = []
-    for ticker, keywords in COIN_KEYWORDS.items():
+
+    for symbol, keywords in coin_keywords.items():
+        # 1. Case-sensitive ticker search to avoid noise/lowercase clashes (e.g. SUI vs sui)
+        if symbol not in NOISE_WORDS:
+            pattern = r"\b" + re.escape(symbol) + r"\b"
+            if re.search(pattern, text):
+                found.append(symbol)
+                continue
+
+        # 2. Case-insensitive search on name variations/keywords
         for kw in keywords:
-            if kw in WHOLE_WORD_ONLY:
-                pattern = r"\b" + re.escape(kw) + r"\b"
-                if re.search(pattern, text_lower):
-                    found.append(ticker)
-                    break
-            else:
-                if kw in text_lower:
-                    found.append(ticker)
-                    break
-    return list(dict.fromkeys(found))  # preserve insertion order, dedupe
+            if kw.upper() in NOISE_WORDS or len(kw) < 3:
+                continue
+            pattern = r"\b" + re.escape(kw) + r"\b"
+            if re.search(pattern, text_lower):
+                found.append(symbol)
+                break
+
+    return list(dict.fromkeys(found))  # preserve order, deduplicate
 
 
 # ---------------------------------------------------------------------------
@@ -210,7 +239,7 @@ def parse_published(entry) -> Optional[datetime]:
     return None
 
 
-def fetch_all_feeds() -> list[dict]:
+def fetch_all_feeds(coin_keywords: dict[str, list[str]]) -> list[dict]:
     """Fetch articles from all RSS_FEEDS within the past CUTOFF_HOURS."""
     cutoff = datetime.now(timezone.utc) - timedelta(hours=CUTOFF_HOURS)
     articles: list[dict] = []
@@ -239,14 +268,14 @@ def fetch_all_feeds() -> list[dict]:
             # Strip HTML tags from summary for coin-tag extraction
             summary_clean = re.sub(r"<[^>]+>", " ", summary)
 
-            tags = extract_coin_tags(f"{title} {summary_clean}")
+            tickers = extract_coin_tags(f"{title} {summary_clean}", coin_keywords)
 
             articles.append({
                 "title":     title,
                 "url":       link,
                 "source":    feed_meta["name"],
                 "published": pub.isoformat() if pub else None,
-                "coins":     tags,
+                "tickers":   tickers,
                 "summary":   summary_clean[:300].strip(),
             })
 
@@ -274,15 +303,15 @@ def deduplicate(articles: list[dict]) -> list[dict]:
 
     for article in articles:
         title = article["title"]
-        coins = set(article["coins"])
+        tickers = set(article["tickers"])
         matched = False
 
         for existing in primary:
             # Only fuzz-match within shared coin context (or both global)
-            existing_coins = set(existing["coins"])
-            shares_coin = bool(coins & existing_coins) or (not coins and not existing_coins)
+            existing_tickers = set(existing["tickers"])
+            shares_ticker = bool(tickers & existing_tickers) or (not tickers and not existing_tickers)
 
-            if shares_coin and titles_are_similar(title, existing["title"]):
+            if shares_ticker and titles_are_similar(title, existing["title"]):
                 # Duplicate – add as an alternate source
                 existing["other_sources"].append({
                     "source":    article["source"],
@@ -298,7 +327,7 @@ def deduplicate(articles: list[dict]) -> list[dict]:
                 "url":          article["url"],
                 "source":       article["source"],
                 "published":    article["published"],
-                "coins":        article["coins"],
+                "tickers":      article["tickers"],
                 "summary":      article.get("summary", ""),
                 "sentiment":    None,
                 "confidence":   None,
@@ -309,107 +338,116 @@ def deduplicate(articles: list[dict]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# 5. FINBERT SENTIMENT ANALYSIS  (Hugging Face Serverless Inference API)
+# 5. GROQ LLAMA 3 SENTIMENT ANALYSIS
 # ---------------------------------------------------------------------------
-# HF migrated to router.huggingface.co/hf-inference/models/
-HF_MODEL_ID   = "ProsusAI/finbert"
-HF_API_URL    = f"https://router.huggingface.co/hf-inference/models/{HF_MODEL_ID}"
-HF_TOKEN      = os.environ.get("HF_TOKEN", "")
-
-LABEL_MAP = {
-    "positive": "Bullish",
-    "negative": "Bearish",
-    "neutral":  "Neutral",
-}
-
-MAX_TITLE_LEN  = 512   # char proxy for BERT token limit
-
-
 def classify_sentiments(articles: list[dict]) -> list[dict]:
     """
-    POST all article titles in a single batch payload to HF Serverless Inference API
-    with a strict 5-second timeout. Falls back to Neutral=0.0 on any error, timeout,
-    or model loading response.
+    POST article titles to Groq API (llama-3.1-8b-instant) in batches of 15.
+    Falls back to Neutral=0.50 on any error, timeout, or missing key.
     """
-    if not articles:
-        return articles
-
-    if not HF_TOKEN:
-        print("[WARN] HF_TOKEN not set — skipping sentiment, defaulting to Neutral.")
+    groq_key = os.environ.get("GROQ_API_KEY", "")
+    if not groq_key:
+        print("[WARN] GROQ_API_KEY not set — skipping sentiment, defaulting to Neutral (0.50).")
         for a in articles:
             a["sentiment"]  = "Neutral"
-            a["confidence"] = 0.0
+            a["confidence"] = 0.50
         return articles
-
-    headers = {
-        "Authorization": f"Bearer {HF_TOKEN}",
-        "Content-Type":  "application/json",
-    }
-
-    titles  = [a["title"][:MAX_TITLE_LEN] for a in articles]
-    payload = {
-        "inputs":  titles,
-        "options": {"wait_for_model": False},  # Do not hang if model is loading
-    }
 
     try:
-        print(f"Sending batch of {len(articles)} headlines to Hugging Face Inference API...")
-        resp = requests.post(
-            HF_API_URL,
-            headers=headers,
-            json=payload,
-            timeout=5,  # strict 5-second timeout
-        )
-        
-        if resp.status_code != 200:
-            print(f"[WARN] HF API returned status code {resp.status_code}. Defaulting batch to Neutral.")
-            for a in articles:
-                a["sentiment"]  = "Neutral"
-                a["confidence"] = 0.0
-            return articles
-
-        results = resp.json()
-        
-        if isinstance(results, dict) and "error" in results:
-            print(f"[WARN] HF API returned error: {results['error']}. Defaulting batch to Neutral.")
-            for a in articles:
-                a["sentiment"]  = "Neutral"
-                a["confidence"] = 0.0
-            return articles
-
+        from groq import Groq
+        client = Groq(api_key=groq_key)
     except Exception as exc:
-        print(f"[WARN] HF API connection error or timeout: {exc}. Defaulting batch to Neutral.")
+        print(f"[WARN] Failed to initialize Groq client: {exc}. Defaulting to Neutral (0.50).")
         for a in articles:
             a["sentiment"]  = "Neutral"
-            a["confidence"] = 0.0
+            a["confidence"] = 0.50
         return articles
 
-    # FinBERT returns results in different structures depending on the model/pipeline:
-    # Format 1: [[{'label': 'pos', 'score': X}, {'label': 'neg', 'score': Y}, ...]] (batch top labels under results[0])
-    # Format 2: [[{'label': 'pos', 'score': X}, ...], [{'label': 'neg', 'score': Y}, ...]] (list of lists, one per article)
-    for idx, article in enumerate(articles):
-        article["sentiment"]  = "Neutral"
-        article["confidence"] = 0.0
+    BATCH_SIZE = 15
+    for idx_start in range(0, len(articles), BATCH_SIZE):
+        batch = articles[idx_start : idx_start + BATCH_SIZE]
+        
+        # Format batch content for prompt
+        items_prompt = []
+        for idx, a in enumerate(batch):
+            items_prompt.append({
+                "id": idx,
+                "title": a["title"],
+                "summary": a.get("summary", "")[:250]
+            })
 
-        if not isinstance(results, list) or len(results) == 0:
-            continue
+        system_prompt = (
+            "You are a professional cryptocurrency sentiment analyzer and tokenomics researcher.\n"
+            "Analyze the provided list of crypto news items and evaluate their Web3 mechanics "
+            "(e.g., fee burns, token unlocks, exploits, mainnet launches, ETF news).\n\n"
+            "For each item, classify the sentiment as 'Bullish', 'Bearish', or 'Neutral', "
+            "provide a confidence score (0.0 to 1.0), and extract all relevant crypto token tickers (e.g. BTC, ETH, SOL, TIA).\n"
+            "Only return capitalized tickers. Ignore general abbreviations (like ETF, SEC, CEO, LPs).\n\n"
+            "You MUST respond with a strict, valid JSON object containing a single key \"results\" mapping to an array of objects.\n"
+            "Each object in the array must correspond to one of the input items and have these exact keys:\n"
+            "- \"id\": integer (matching the input ID)\n"
+            "- \"sentiment\": \"Bullish\" | \"Bearish\" | \"Neutral\"\n"
+            "- \"confidence\": float (value between 0.0 and 1.0)\n"
+            "- \"tickers\": list of strings\n\n"
+            "Example output:\n"
+            "{\n"
+            "  \"results\": [\n"
+            "    {\"id\": 0, \"sentiment\": \"Bullish\", \"confidence\": 0.95, \"tickers\": [\"ETH\"]},\n"
+            "    {\"id\": 1, \"sentiment\": \"Bearish\", \"confidence\": 0.85, \"tickers\": [\"AAVE\"]}\n"
+            "  ]\n"
+            "}"
+        )
 
-        # Check Format 1: results is [[dict, dict, ...]] where length of results[0] matches articles
-        if len(results) == 1 and isinstance(results[0], list) and len(results[0]) == len(articles):
-            item = results[0][idx]
-            if isinstance(item, dict):
-                article["sentiment"]  = LABEL_MAP.get(item.get("label", "").lower(), "Neutral")
-                article["confidence"] = round(item.get("score", 0.0), 4)
+        user_prompt = f"Analyze these news items:\n{json.dumps(items_prompt, indent=2)}"
 
-        # Check Format 2: results is a list of lists, one list of dicts per article
-        elif idx < len(results) and isinstance(results[idx], list):
-            label_scores = results[idx]
-            if label_scores:
-                best = max(label_scores, key=lambda x: x.get("score", 0.0) if isinstance(x, dict) else 0.0)
-                article["sentiment"]  = LABEL_MAP.get(best.get("label", "").lower(), "Neutral")
-                article["confidence"] = round(best.get("score", 0.0), 4)
+        # Default values for batch in case of error
+        for a in batch:
+            if a.get("sentiment") is None:
+                a["sentiment"]  = "Neutral"
+                a["confidence"] = 0.50
 
-    print("✓ Batch sentiment classification completed successfully.")
+        try:
+            print(f"Sending batch of {len(batch)} headlines to Groq API...")
+            completion = client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                response_format={"type": "json_object"},
+                timeout=15,
+            )
+            
+            response_text = completion.choices[0].message.content
+            data = json.loads(response_text)
+            results = data.get("results", [])
+            
+            # Map results back to the batch articles using the 'id'
+            results_map = {}
+            for r in results:
+                if isinstance(r, dict) and "id" in r:
+                    results_map[r["id"]] = r
+                    
+            for idx, a in enumerate(batch):
+                r = results_map.get(idx)
+                if r:
+                    sentiment = r.get("sentiment", "Neutral")
+                    if sentiment not in ["Bullish", "Bearish", "Neutral"]:
+                        sentiment = "Neutral"
+                    a["sentiment"] = sentiment
+                    a["confidence"] = round(float(r.get("confidence", 0.50)), 4)
+                    
+                    # Merge Groq-detected tickers with our regex-detected tickers for maximum coverage
+                    if "tickers" in r and isinstance(r["tickers"], list):
+                        groq_tickers = [str(t).upper() for t in r["tickers"] if t]
+                        merged_tickers = list(dict.fromkeys(a.get("tickers", []) + groq_tickers))
+                        a["tickers"] = [t for t in merged_tickers if t not in NOISE_WORDS]
+        except Exception as exc:
+            print(f"[WARN] Groq API call error or rate limit hit on batch: {exc}. Defaulting batch to Neutral (0.50).")
+            
+        time.sleep(0.5)
+
+    print("✓ All sentiment classifications completed.")
     return articles
 
 
@@ -420,8 +458,11 @@ OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "news.json")
 
 
 def main():
+    print(f"[{datetime.now().isoformat()}] Fetching CoinGecko coin registry…")
+    coin_keywords = fetch_top_500_coingecko()
+
     print(f"[{datetime.now().isoformat()}] Fetching RSS feeds…")
-    raw = fetch_all_feeds()
+    raw = fetch_all_feeds(coin_keywords)
     print(f"  → {len(raw)} raw articles fetched.")
 
     print("Deduplicating…")
@@ -431,22 +472,9 @@ def main():
     # Sort deduplicated stories newest first
     deduped.sort(key=lambda x: x["published"] or "", reverse=True)
 
-    # Process sentiment for top 25 most recent headlines
-    to_classify = deduped[:25]
-    remaining = deduped[25:]
-
-    if to_classify:
-        print(f"Classifying sentiments for top {len(to_classify)} most recent headlines…")
-        classified = classify_sentiments(to_classify)
-    else:
-        classified = []
-
-    # For the remaining headlines, default to Neutral gracefully
-    for a in remaining:
-        a["sentiment"]  = "Neutral"
-        a["confidence"] = 0.0
-
-    final = classified + remaining
+    # Process sentiment for all deduplicated articles in batches of 50
+    print(f"Classifying sentiments for all {len(deduped)} headlines…")
+    final = classify_sentiments(deduped)
 
     # Final sort newest first
     final.sort(key=lambda x: x["published"] or "", reverse=True)
@@ -470,4 +498,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
