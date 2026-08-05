@@ -132,19 +132,19 @@
       100% { opacity: 0.4; }
     }
 
-    .ticker-tape-scroll {
-      display: flex;
+    .tape-inner {
+      display: inline-flex;
       white-space: nowrap;
       animation: ticker 180s linear infinite;
     }
 
-    .ticker-tape-scroll:hover {
+    .tape-inner:hover {
       animation-play-state: paused;
     }
 
     @keyframes ticker {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* Tape Item layout classes */
@@ -1265,7 +1265,7 @@
        MOBILE-FIRST RESPONSIVE MEDIA QUERIES (<768px)
        ===================================================================== */
     @media (max-width: 767px) {
-      .ticker-tape-scroll {
+      .tape-inner {
         animation: ticker 120s linear infinite;
       }
 
@@ -1450,7 +1450,7 @@
 
   <!-- 1. LIVE MARQUEE Ticker Tape -->
   <div class="ticker-tape">
-    <div class="ticker-tape-scroll" id="tickerTape">
+    <div class="tape-inner" id="tickerTape">
       <!-- Generated items will repeat here -->
     </div>
     <div class="ticker-live-badge">
@@ -1993,13 +1993,28 @@
         });
       });
 
-      // Filter out non-crypto tickers (STRICT FILTER)
-      let coinsToRender = [...coinStats.keys()]
-        .filter(coin => coincapPrices[coin.toUpperCase()] !== undefined)
-        .sort((a, b) => coinStats.get(b).total - coinStats.get(a).total);
+      // Default fallback coins
+      const fallbackCoins = ["BTC", "ETH", "SOL", "NEAR", "SUI", "KAS", "XRP", "ADA", "DOGE", "AVAX"];
+      let newsCoins = [...coinStats.keys()];
+
+      const hasPrices = Object.keys(coincapPrices).length > 0;
+      let coinsToRender = [];
+
+      if (hasPrices) {
+        // Filter out non-crypto tickers (STRICT FILTER)
+        coinsToRender = [...new Set([...newsCoins, ...fallbackCoins])]
+          .filter(coin => coincapPrices[coin.toUpperCase()] !== undefined)
+          .sort((a, b) => {
+            const countA = coinStats.get(a.toUpperCase())?.total || 0;
+            const countB = coinStats.get(b.toUpperCase())?.total || 0;
+            return countB - countA;
+          });
+      } else {
+        coinsToRender = [...new Set([...newsCoins, ...fallbackCoins])];
+      }
 
       if (coinsToRender.length === 0) {
-        coinsToRender = ["BTC", "ETH", "SOL", "NEAR", "SUI", "KAS"].filter(c => coincapPrices[c] !== undefined);
+        coinsToRender = fallbackCoins;
       }
 
       const itemsHtml = coinsToRender.map(coin => {
@@ -2007,27 +2022,31 @@
         const priceInfo = coincapPrices[symbol];
         const stats = coinStats.get(symbol);
         
-        const priceUsd = priceInfo.price;
-        const changePercent24Hr = priceInfo.change;
-        
-        const isPositive = changePercent24Hr >= 0;
-        const changeVal = priceUsd * (changePercent24Hr / 100);
-        const absChangeVal = Math.abs(changeVal);
-        
-        let formattedPrice = '';
-        let formattedChangeVal = '';
-        
-        if (priceUsd >= 1.0) {
-          formattedPrice = priceUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-          const rawVal = absChangeVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-          formattedChangeVal = isPositive ? rawVal : '-' + rawVal;
-        } else {
-          formattedPrice = priceUsd.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 });
-          const rawVal = absChangeVal.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 });
-          formattedChangeVal = isPositive ? rawVal : '-' + rawVal;
+        let formattedPrice = '—.——';
+        let formattedChangeVal = '0.00';
+        let formattedChangePct = '0.00';
+        let isPositive = true;
+
+        if (priceInfo) {
+          const priceUsd = priceInfo.price;
+          const changePercent24Hr = priceInfo.change;
+          isPositive = changePercent24Hr >= 0;
+          
+          const changeVal = priceUsd * (changePercent24Hr / 100);
+          const absChangeVal = Math.abs(changeVal);
+          
+          if (priceUsd >= 1.0) {
+            formattedPrice = priceUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            const rawVal = absChangeVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            formattedChangeVal = isPositive ? rawVal : '-' + rawVal;
+          } else {
+            formattedPrice = priceUsd.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+            const rawVal = absChangeVal.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+            formattedChangeVal = isPositive ? rawVal : '-' + rawVal;
+          }
+          
+          formattedChangePct = changePercent24Hr.toFixed(2);
         }
-        
-        const formattedChangePct = changePercent24Hr.toFixed(2);
         
         let sentimentClass = 'neutral';
         if (stats && stats.total > 0) {
@@ -2052,7 +2071,8 @@
         `;
       }).join('');
 
-      tickerTape.innerHTML = itemsHtml + itemsHtml + itemsHtml + itemsHtml; 
+      // Duplicate list twice to allow seamless CSS infinite loop
+      tickerTape.innerHTML = itemsHtml + itemsHtml; 
     }
 
     // ----------------------------------------------------------------
