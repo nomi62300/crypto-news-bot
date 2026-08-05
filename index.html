@@ -96,6 +96,40 @@
       display: flex;
       align-items: center;
       z-index: 101;
+      padding-right: 90px;
+    }
+
+    .ticker-live-badge {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: #07090F;
+      border-left: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 16px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: #5c70ff;
+      z-index: 102;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #5c70ff;
+      box-shadow: 0 0 8px #5c70ff;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
     }
 
     .ticker-tape-scroll {
@@ -1343,6 +1377,10 @@
     <div class="ticker-tape-scroll" id="tickerTape">
       <!-- Generated items will repeat here -->
     </div>
+    <div class="ticker-live-badge">
+      <span class="live-dot"></span>
+      <span>LIVE</span>
+    </div>
   </div>
 
   <!-- HEADER -->
@@ -1356,11 +1394,11 @@
     <div class="nav-tabs" role="tablist">
       <button class="tab-btn active" data-target="terminalTab" data-short="Terminal" role="tab" aria-selected="true">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-        <span>⚡ News Terminal</span>
+        <span>News Terminal</span>
       </button>
       <button class="tab-btn" data-target="dashboardTab" data-short="Dashboard" role="tab" aria-selected="false">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        <span>📊 Sentiment Dashboard</span>
+        <span>Sentiment Dashboard</span>
       </button>
     </div>
 
@@ -1876,77 +1914,32 @@
     // TICKER TAPE GENERATOR (Binance Prices + News Sentiment)
     // ----------------------------------------------------------------
     function buildTickerTape() {
-      const coinStats = new Map();
-      allArticles.forEach(a => {
-        (a.tickers || []).forEach(t => {
-          if (!coinStats.has(t)) {
-            coinStats.set(t, { bullish: 0, bearish: 0, total: 0 });
-          }
-          const s = coinStats.get(t);
-          s.total++;
-          if (a.sentiment === 'Bullish') s.bullish++;
-          if (a.sentiment === 'Bearish') s.bearish++;
-        });
-      });
-
-      const topNewsCoins = [...coinStats.entries()]
-        .sort((a, b) => b[1].total - a[1].total)
-        .slice(0, 10);
-
       const tickersToRender = ["BTC", "ETH", "SOL", "NEAR", "SUI", "KAS"];
-      topNewsCoins.forEach(([coin]) => {
-        if (!tickersToRender.includes(coin)) {
-          tickersToRender.push(coin);
-        }
-      });
 
       const itemsHtml = tickersToRender.map(coin => {
         const priceInfo = binancePrices[coin];
-        let priceHtml = '';
-        if (priceInfo) {
-          const dirClass = priceInfo.isUp ? 'up' : 'down';
-          const sign = priceInfo.isUp ? '+' : '';
-          priceHtml = `
-            <span class="ticker-price">${priceInfo.price}</span>
-            <span class="ticker-change ${dirClass}">${sign}${priceInfo.change}%</span>
+        if (!priceInfo) {
+          return `
+            <div class="ticker-item">
+              <span class="ticker-coin">${coin}</span>
+              <span style="color:var(--text-secondary)">Loading…</span>
+            </div>
           `;
         }
 
-        const stats = coinStats.get(coin);
-        let sentimentHtml = '';
-        if (stats && stats.total > 0) {
-          const bullishPct = (stats.bullish / stats.total) * 100;
-          let mood = 'Neutral';
-          let color = 'var(--neutral)';
-          let bg = 'var(--neutral-bg)';
-          let border = 'var(--neutral-border)';
-          
-          if (bullishPct > 60) {
-            mood = 'Bullish';
-            color = 'var(--bullish)';
-            bg = 'var(--bullish-bg)';
-            border = 'var(--bullish-border)';
-          } else if (bullishPct < 40) {
-            mood = 'Bearish';
-            color = 'var(--bearish)';
-            bg = 'var(--bearish-bg)';
-            border = 'var(--bearish-border)';
-          }
-          sentimentHtml = `
-            <span class="ticker-score" style="color:${color}; background:${bg}; border:1px solid ${border}">${mood}</span>
-          `;
-        }
-
+        const dirClass = priceInfo.isUp ? 'up' : 'down';
+        const arrow = priceInfo.isUp ? '↑' : '↓';
+        
         return `
           <div class="ticker-item">
             <span class="ticker-coin">${coin}</span>
-            ${priceHtml}
-            ${sentimentHtml}
+            <span class="ticker-price">${priceInfo.price}</span>
+            <span class="ticker-change ${dirClass}">${arrow} ${priceInfo.change}%</span>
           </div>
         `;
       }).join('');
 
-      tickerTape.innerHTML = itemsHtml + itemsHtml + itemsHtml; 
+      tickerTape.innerHTML = itemsHtml + itemsHtml + itemsHtml + itemsHtml; 
     }
 
     // ----------------------------------------------------------------
