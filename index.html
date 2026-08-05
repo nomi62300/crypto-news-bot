@@ -2044,11 +2044,6 @@
     async function fetchNews() {
       btnRefresh.classList.add('spinning');
       try {
-        await Promise.all([
-          fetchCoinCapPrices(),
-          fetchFearAndGreed()
-        ]);
-
         let data;
         try {
           const resp = await fetch('news.json?t=' + Date.now());
@@ -2071,11 +2066,20 @@
           updatedAt.textContent = `Updated ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
         }
 
+        // Render articles and chips instantly
         buildTickerTape();
         buildCoinChips();
         renderFeed();
         renderDashboard();
         resetCountdown();
+
+        // Progressive background enhancement for external APIs
+        fetchCoinCapPrices().then(() => {
+          buildTickerTape();
+          renderDashboard();
+        }).catch(e => console.warn("Background prices fetch failed:", e));
+
+        fetchFearAndGreed().catch(e => console.warn("Background Fear & Greed fetch failed:", e));
         
         const syncIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
         showToast(`${allArticles.length} active updates parsed`, syncIcon);
