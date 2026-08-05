@@ -197,6 +197,32 @@ def fetch_top_500_coingecko() -> dict[str, list[str]]:
     return coins_map
 
 
+def clean_tickers(tickers_list: list[str]) -> list[str]:
+    """
+    Format all coin tickers cleanly:
+    1. Strip leading '$' or '#' characters.
+    2. Convert to uppercase.
+    3. Remove any whitespace.
+    4. Remove noise words.
+    5. Return unique list (preserving order).
+    """
+    cleaned = []
+    for t in tickers_list:
+        if not t:
+            continue
+        # Convert to string, strip whitespace, uppercase
+        t_str = str(t).strip().upper()
+        # Strip leading '$' or '#'
+        t_str = t_str.lstrip("$#")
+        # Remove any inner whitespace
+        t_str = t_str.replace(" ", "")
+        
+        if t_str and t_str not in NOISE_WORDS:
+            cleaned.append(t_str)
+            
+    return list(dict.fromkeys(cleaned))
+
+
 def extract_coin_tags(text: str, coin_keywords: dict[str, list[str]]) -> list[str]:
     """Return a deduplicated list of coin tickers found in *text*."""
     text_lower = text.lower()
@@ -219,7 +245,7 @@ def extract_coin_tags(text: str, coin_keywords: dict[str, list[str]]) -> list[st
                 found.append(symbol)
                 break
 
-    return list(dict.fromkeys(found))  # preserve order, deduplicate
+    return clean_tickers(found)
 
 
 # ---------------------------------------------------------------------------
@@ -460,9 +486,7 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
                     
                     # Merge Groq-detected tickers with our regex-detected tickers for maximum coverage
                     if "tickers" in r and isinstance(r["tickers"], list):
-                        groq_tickers = [str(t).upper() for t in r["tickers"] if t]
-                        merged_tickers = list(dict.fromkeys(a.get("tickers", []) + groq_tickers))
-                        a["tickers"] = [t for t in merged_tickers if t not in NOISE_WORDS]
+                        a["tickers"] = clean_tickers(a.get("tickers", []) + r["tickers"])
         except Exception as exc:
             print(f"[WARN] Groq API call error or rate limit hit on batch: {exc}. Defaulting batch to Neutral (0.50).")
             
