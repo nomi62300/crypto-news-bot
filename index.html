@@ -530,8 +530,14 @@
     }
 
     .toggle-btn.active {
-      background-color: var(--bg-card);
+      background-color: var(--accent);
+      color: #0B0E17;
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .toggle-btn:hover:not(.active) {
       color: var(--text-primary);
+      background-color: rgba(255, 255, 255, 0.04);
     }
 
     /* Collapsible chips container styling */
