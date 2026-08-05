@@ -251,7 +251,18 @@ def extract_coin_tags(text: str, coin_keywords: dict[str, list[str]]) -> list[st
 # ---------------------------------------------------------------------------
 # 3. RSS FETCHING
 # ---------------------------------------------------------------------------
-CUTOFF_HOURS = 24  # only keep articles published within this window
+CUTOFF_HOURS = 48  # only keep articles published within this window
+
+CRYPTO_KEYWORDS = [
+    'btc', 'bitcoin', 'eth', 'ethereum', 'crypto', 'web3', 'defi', 'nft', 'token', 'blockchain',
+    'sec', 'fed', 'binance', 'coinbase', 'solana', 'altcoin', 'etf', 'prediction market',
+    'stablecoin', 'yield', 'staking', 'dao', 'governance', 'hack', 'exploit', 'airdrop'
+]
+
+
+def matches_crypto_prefilter(title: str, summary: str) -> bool:
+    combined = f"{title} {summary}".lower()
+    return any(kw in combined for kw in CRYPTO_KEYWORDS)
 
 
 def parse_published(entry) -> Optional[datetime]:
@@ -292,7 +303,11 @@ def fetch_all_feeds(coin_keywords: dict[str, list[str]]) -> list[dict]:
             link = entry.get("link") or entry.get("id") or ""
             summary = entry.get("summary") or entry.get("description") or ""
             # Strip HTML tags from summary for coin-tag extraction
-            summary_clean = re.sub(r"<[^>]+>", " ", summary)
+            summary_clean = re.sub(r"<[^>]+>", " ", summary).strip()
+
+            # Stage 1 Python Pre-Filter (Remove Non-Crypto Noise)
+            if not matches_crypto_prefilter(title, summary_clean):
+                continue
 
             tickers = extract_coin_tags(f"{title} {summary_clean}", coin_keywords)
 
@@ -377,6 +392,7 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
         for a in articles:
             a["sentiment"]  = "Neutral"
             a["confidence"] = 0.50
+            a["is_crypto_relevant"] = True
         return articles
 
     try:
@@ -387,6 +403,7 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
         for a in articles:
             a["sentiment"]  = "Neutral"
             a["confidence"] = 0.50
+            a["is_crypto_relevant"] = True
         return articles
 
     BATCH_SIZE = 15
@@ -403,44 +420,41 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
             })
 
         system_prompt = (
-            "You are an elite cryptocurrency trader, sentiment analyst, and tokenomics researcher.\n"
-            "Analyze the provided list of crypto news items. Evaluate the underlying economic, tokenomics, "
-            "and fundamental implications for the potential of the mentioned coins.\n\n"
-            "BE OPINIONATED and analyze the actual impact. Do not default to 'Neutral' for news that has "
-            "a clear positive or negative fundamental implication. Classify as 'Bullish', 'Bearish', or 'Neutral' "
+            "You are an expert Web3 quantitative sentiment analyst and elite tokenomics researcher.\n"
+            "Evaluate news items based on direct economic and tokenomics impact on the mentioned coins, NOT journalistic writing tone.\n\n"
+            "BE OPINIONATED and analyze the actual fundamental impact. Do not default to 'Neutral' for news that has "
+            "clear positive or negative fundamental implications. Classify as 'Bullish', 'Bearish', or 'Neutral' "
             "based on these guidelines:\n\n"
-            "🟢 BULLISH catalysts (classify as Bullish):\n"
-            "- Capital inflows, venture capital funding rounds, investment stakes.\n"
-            "- Product upgrades, mainnet/testnet launches, successful forks, developer activity.\n"
-            "- Tokenomics upgrades: supply burns, fee-burning mechanisms, lock-up extensions, buyback programs.\n"
-            "- Integration and adoption: major ecosystem partnerships, real-world utility, protocol integrations.\n"
-            "- Market accessibility: exchange listing announcements, ETF approvals, new derivative contracts, retail/institutional integration.\n"
-            "- Positive regulatory/court updates (e.g., legal wins against regulators).\n\n"
-            "🔴 BEARISH risks (classify as Bearish):\n"
-            "- Protocol sunsetting, project shutdowns, discontinuation of key interfaces/services.\n"
+            "🟢 BULLISH catalysts:\n"
+            "- Token burns, fee burn proposals, supply sinks, lock-up extensions, deflationary actions.\n"
+            "- Mainstream corporate adoption (e.g. SpaceX, BlackRock, MicroStrategy entering or expanding).\n"
+            "- Capital inflows, large venture funding rounds, investment stakes.\n"
+            "- Product upgrades, mainnet/testnet launches, prediction market volume surges, major ecosystem partnerships.\n"
+            "- Exchange listing announcements, ETF approvals, or regulatory wins against enforcement agencies.\n\n"
+            "🔴 BEARISH risks:\n"
             "- Security incidents: hacks, exploits, smart contract vulnerabilities, funds stolen.\n"
-            "- Tokenomics inflation: supply diluting token unlocks, treasury liquidations, massive whale transfers to exchanges.\n"
-            "- Outages, network downtime, consensus failures, transaction congestion.\n"
-            "- Regulatory crackdowns: SEC lawsuits, warning letters, exchange bans, restrictive policies.\n"
-            "- Delistings, major team/founder departures, internal discord, or protocol forks due to disagreements.\n\n"
-            "⚪ NEUTRAL indicators (classify as Neutral ONLY if):\n"
-            "- General market recaps, weekly summaries, educational/macro discussions.\n"
-            "- Mild delays, standard industry interviews, generic market opinions, or mixed/equal bullish and bearish signals.\n\n"
-            "For each item:\n"
-            "1. Classify sentiment as 'Bullish', 'Bearish', or 'Neutral'.\n"
-            "2. Provide a confidence score (float 0.0 to 1.0) showing your certainty.\n"
-            "3. Extract all relevant crypto tickers (e.g., BTC, ETH, SOL). Tickers must be capitalized. Ignore non-crypto terms.\n\n"
+            "- Tokenomics inflation: massive token unlocks, supply diluting unlocks, treasury liquidations, whale dumps.\n"
+            "- Regulatory crackdowns: SEC lawsuits, delistings, bans, warning letters.\n"
+            "- Protocol sunsetting, project shutdowns, network downtime, consensus failures.\n\n"
+            "⚪ NEUTRAL indicators:\n"
+            "- Routine node updates, scheduled maintenance, standard industry interviews, generic macro recaps, or articles with zero market directional bias.\n\n"
+            "Few-Shot Examples:\n"
+            "- \"NEAR Governance Votes to Scrap Developer Gas Rebate\" -> Sentiment: \"Bullish\", Reason: \"100% gas burn creates deflationary pressure.\"\n"
+            "- \"SpaceX revenue nearly doubles... crypto markets paying attention\" -> Sentiment: \"Bullish\", Reason: \"Mainstream corporate growth driving crypto adoption.\"\n"
+            "- \"DeFi Access Point SummerFi to Sunsets UI due to exploit\" -> Sentiment: \"Bearish\", Reason: \"Exploit and shutdown harms user trust and protocol activity.\"\n\n"
+            "For each item, determine if it is relevant to cryptocurrencies (set is_crypto_relevant to true/false).\n\n"
             "You MUST respond with a strict, valid JSON object containing a single key \"results\" mapping to an array of objects.\n"
             "Each object in the array must correspond to one of the input items and have these exact keys:\n"
             "- \"id\": integer (matching the input ID)\n"
             "- \"sentiment\": \"Bullish\" | \"Bearish\" | \"Neutral\"\n"
             "- \"confidence\": float\n"
-            "- \"tickers\": list of strings\n\n"
+            "- \"is_crypto_relevant\": boolean\n"
+            "- \"tickers\": list of strings (capitalized tickers only)\n\n"
             "Example output:\n"
             "{\n"
             "  \"results\": [\n"
-            "    {\"id\": 0, \"sentiment\": \"Bullish\", \"confidence\": 0.95, \"tickers\": [\"ETH\"]},\n"
-            "    {\"id\": 1, \"sentiment\": \"Bearish\", \"confidence\": 0.85, \"tickers\": [\"AAVE\"]}\n"
+            "    {\"id\": 0, \"sentiment\": \"Bullish\", \"confidence\": 0.95, \"is_crypto_relevant\": true, \"tickers\": [\"NEAR\"]},\n"
+            "    {\"id\": 1, \"sentiment\": \"Bearish\", \"confidence\": 0.90, \"is_crypto_relevant\": true, \"tickers\": [\"AAVE\"]}\n"
             "  ]\n"
             "}"
         )
@@ -452,6 +466,7 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
             if a.get("sentiment") is None:
                 a["sentiment"]  = "Neutral"
                 a["confidence"] = 0.50
+                a["is_crypto_relevant"] = True
 
         try:
             print(f"Sending batch of {len(batch)} headlines to Groq API...")
@@ -478,11 +493,18 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
             for idx, a in enumerate(batch):
                 r = results_map.get(idx)
                 if r:
+                    # Filter out any article where is_crypto_relevant is false
+                    is_relevant = r.get("is_crypto_relevant", True)
+                    if not is_relevant:
+                        a["is_crypto_relevant"] = False
+                        continue
+                    
                     sentiment = str(r.get("sentiment", "Neutral")).strip().capitalize()
                     if sentiment not in ["Bullish", "Bearish", "Neutral"]:
                         sentiment = "Neutral"
                     a["sentiment"] = sentiment
                     a["confidence"] = round(float(r.get("confidence", 0.50)), 4)
+                    a["is_crypto_relevant"] = True
                     
                     # Merge Groq-detected tickers with our regex-detected tickers for maximum coverage
                     if "tickers" in r and isinstance(r["tickers"], list):
@@ -506,6 +528,25 @@ def main():
     print(f"[{datetime.now().isoformat()}] Fetching CoinGecko coin registry…")
     coin_keywords = fetch_top_500_coingecko()
 
+    # 1. Read existing articles from news.json (if present)
+    existing_articles = []
+    if os.path.exists(OUTPUT_FILE):
+        try:
+            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                old_data = json.load(f)
+                existing_articles = old_data.get("articles", [])
+                print(f"  ✓ Loaded {len(existing_articles)} existing articles from news.json.")
+        except Exception as exc:
+            print(f"  [WARN] Failed to load existing news.json: {exc}")
+
+    # Build lookup table by URL and Title
+    existing_map = {}
+    for a in existing_articles:
+        if a.get("url"):
+            existing_map[a["url"]] = a
+        if a.get("title"):
+            existing_map[a["title"]] = a
+
     print(f"[{datetime.now().isoformat()}] Fetching RSS feeds…")
     raw = fetch_all_feeds(coin_keywords)
     print(f"  → {len(raw)} raw articles fetched.")
@@ -517,11 +558,55 @@ def main():
     # Sort deduplicated stories newest first
     deduped.sort(key=lambda x: x["published"] or "", reverse=True)
 
-    # Process sentiment for all deduplicated articles in batches of 50
-    print(f"Classifying sentiments for all {len(deduped)} headlines…")
-    final = classify_sentiments(deduped)
+    # 2. Merge incoming newly scraped articles by unique URL/title
+    classified_stories = []
+    to_classify = []
 
-    # Final sort newest first
+    for story in deduped:
+        existing_story = existing_map.get(story["url"]) or existing_map.get(story["title"])
+        if existing_story:
+            # Reuse calculated fields
+            story["sentiment"] = existing_story.get("sentiment", "Neutral")
+            story["confidence"] = existing_story.get("confidence", 0.50)
+            story["tickers"] = clean_tickers(list(set(story["tickers"] + existing_story.get("tickers", []))))
+            # Merge alternate sources uniquely
+            existing_alts = {alt["url"]: alt for alt in existing_story.get("other_sources", [])}
+            for alt in story["other_sources"]:
+                if alt["url"] not in existing_alts:
+                    existing_story["other_sources"].append(alt)
+            story["other_sources"] = existing_story["other_sources"]
+            story["is_crypto_relevant"] = True  # Verified by virtue of existence
+            classified_stories.append(story)
+        else:
+            to_classify.append(story)
+
+    print(f"  → {len(to_classify)} new stories need Groq sentiment classification.")
+    
+    # 3. Classify brand new stories
+    newly_classified = []
+    if to_classify:
+        classified_raw = classify_sentiments(to_classify)
+        # Filter out any article where is_crypto_relevant is false
+        newly_classified = [a for a in classified_raw if a.get("is_crypto_relevant", True)]
+
+    # Combine old-reused and new-classified stories
+    combined = classified_stories + newly_classified
+
+    # 4. Discard articles with timestamps older than 48 hours
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=CUTOFF_HOURS)
+    final = []
+    for a in combined:
+        if a.get("published"):
+            try:
+                pub_dt = datetime.fromisoformat(a["published"])
+                if pub_dt >= cutoff:
+                    final.append(a)
+            except Exception:
+                final.append(a)  # Keep if parsing fails
+        else:
+            final.append(a)
+
+    # Sort newest first
     final.sort(key=lambda x: x["published"] or "", reverse=True)
 
     output = {
@@ -533,7 +618,6 @@ def main():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    # Also write to news.js for direct file:// protocol browsing without CORS issues
     JS_FILE = os.path.join(os.path.dirname(__file__), "news.js")
     with open(JS_FILE, "w", encoding="utf-8") as f:
         f.write(f"window.newsData = {json.dumps(output, ensure_ascii=False, indent=2)};")
