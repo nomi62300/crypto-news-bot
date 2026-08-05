@@ -1243,7 +1243,7 @@
        ===================================================================== */
     @media (max-width: 767px) {
       .ticker-tape-scroll {
-        animation-duration: 90s; /* Much slower scroll speed on mobile */
+        animation-duration: 160s; /* Extremely slow and readable on mobile */
       }
 
       header {
@@ -2063,7 +2063,7 @@
 
         if (data.updated_at) {
           const d = new Date(data.updated_at);
-          updatedAt.textContent = `Updated ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+          updatedAt.textContent = `Updated ${d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}`;
         }
 
         // Render articles and chips instantly
