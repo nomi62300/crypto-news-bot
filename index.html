@@ -187,6 +187,145 @@
     /* =====================================================================
        HEADER (Sticky & Mobile-First Responsive)
        ===================================================================== */
+    /* Desktop Refresh controls */
+    .refresh-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .updated-time {
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+
+    .btn-refresh {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 0 14px;
+      height: 44px; /* Touch target size */
+      min-width: 90px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-refresh:hover {
+      background-color: var(--bg-card-hover);
+      border-color: var(--border-hover);
+    }
+
+    .btn-refresh svg {
+      transition: transform 0.5s ease;
+    }
+
+    .btn-refresh.spinning svg {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .countdown-ring-wrap {
+      position: relative;
+      width: 24px;
+      height: 24px;
+    }
+
+    .countdown-ring-wrap svg {
+      transform: rotate(-90deg);
+    }
+
+    .ring-bg {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 2.5;
+    }
+
+    .ring-fill {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 2.5;
+      stroke-dasharray: 69.1;
+      stroke-dashoffset: 0;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s linear;
+    }
+
+    /* =====================================================================
+       OVERVIEW SUMMARY PANEL (Responsive Grid Layouts)
+       ===================================================================== */
+    .overview-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .overview-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .overview-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .overview-box-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+
+    .overview-box-value {
+      font-size: 26px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      line-height: 1;
+    }
+
+    /* =====================================================================
+       MAIN CONTENT WRAPPER
+       ===================================================================== */
+    main {
+      padding: 0 24px 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .tab-section {
+      display: none;
+    }
+
+    .tab-section.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     header {
       background-color: var(--bg-surface);
       border-bottom: 1px solid var(--border);
@@ -283,82 +422,24 @@
       gap: 16px;
     }
 
-    .refresh-container {
+    /* =====================================================================
+       TAB 1: NEWS TERMINAL
+       ===================================================================== */
+    .terminal-controls-row {
       display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
       align-items: center;
-      gap: 10px;
+      width: 100%;
     }
 
-    .updated-time {
-      font-size: 11px;
-      color: var(--text-secondary);
-      font-family: var(--font-mono);
-    }
-
-    .btn-refresh {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-primary);
-      padding: 0 14px;
-      height: 44px; /* Touch target size */
-      min-width: 90px;
-      border-radius: 6px;
-      cursor: pointer;
+    .controls-right-group {
       display: flex;
-      align-items: center;
-      justify-content: center;
       gap: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      transition: all 0.2s;
+      align-items: center;
     }
 
-    .btn-refresh:hover {
-      background-color: var(--bg-card-hover);
-      border-color: var(--border-hover);
-    }
-
-    .btn-refresh svg {
-      transition: transform 0.5s ease;
-    }
-
-    .btn-refresh.spinning svg {
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .countdown-ring-wrap {
-      position: relative;
-      width: 24px;
-      height: 24px;
-    }
-
-    .countdown-ring-wrap svg {
-      transform: rotate(-90deg);
-    }
-
-    .ring-bg {
-      fill: none;
-      stroke: var(--border);
-      stroke-width: 2.5;
-    }
-
-    .ring-fill {
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 2.5;
-      stroke-dasharray: 69.1;
-      stroke-dashoffset: 0;
-      stroke-linecap: round;
-      transition: stroke-dashoffset 1s linear;
-    }
-
-    /* Mobile Menu Buttons (Hidden on desktop) */
-    .mobile-filter-trigger {
-      display: none;
+    .btn-filter-toggle {
       background: var(--bg-card);
       border: 1px solid var(--border);
       color: var(--text-primary);
@@ -366,90 +447,26 @@
       height: 44px;
       border-radius: 6px;
       cursor: pointer;
+      display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.2s;
     }
 
-    /* =====================================================================
-       OVERVIEW SUMMARY PANEL (Responsive Grid Layouts)
-       ===================================================================== */
-    .overview-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin: 20px 0;
+    .btn-filter-toggle:hover {
+      background-color: var(--bg-card-hover);
+      border-color: var(--border-hover);
     }
 
-    .overview-box {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .overview-title-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .overview-box-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-secondary);
-      font-family: var(--font-mono);
-    }
-
-    .overview-box-value {
-      font-size: 26px;
-      font-weight: 700;
-      font-family: var(--font-mono);
-      line-height: 1;
-    }
-
-    /* =====================================================================
-       MAIN CONTENT WRAPPER
-       ===================================================================== */
-    main {
-      padding: 0 24px 24px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .tab-section {
-      display: none;
-    }
-
-    .tab-section.active {
-      display: block;
-      animation: fadeIn 0.25s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* =====================================================================
-       TAB 1: NEWS TERMINAL
-       ===================================================================== */
-    .terminal-controls {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
-      margin-bottom: 20px;
-      align-items: center;
+    .btn-filter-toggle.active {
+      background-color: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     .search-box-wrap {
+      flex: 1;
       position: relative;
-      width: 100%;
     }
 
     .search-input {
@@ -511,13 +528,19 @@
       color: var(--text-primary);
     }
 
-    /* Filter Drawer for Mobile & Chips container */
-    .filter-drawer {
-      margin-bottom: 24px;
-      transition: all 0.3s ease;
-    }
-
+    /* Collapsible chips container styling */
     .filter-chips-bar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      overflow-x: auto;
+      transition: all 0.2s ease;
+    }
       display: flex;
       align-items: center;
       gap: 12px;
@@ -1236,11 +1259,22 @@
       }
 
       .refresh-container {
-        display: none; /* Hide desktop refresh bar */
+        display: flex;
       }
 
-      .mobile-filter-trigger {
-        display: flex; /* Show mobile filter trigger */
+      .updated-time {
+        display: none;
+      }
+
+      .btn-refresh span {
+        display: none;
+      }
+
+      .btn-refresh {
+        min-width: auto;
+        padding: 0;
+        width: 44px;
+        height: 44px;
       }
 
       main {
@@ -1263,36 +1297,32 @@
         font-size: 20px;
       }
 
-      /* Collapsible filter drawer styling for mobile */
-      .filter-drawer {
-        display: none; /* JS toggles display block */
-        background: var(--bg-surface);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 12px;
-        margin-bottom: 12px;
+      /* Collapsible filter chips styling for mobile */
+      .terminal-controls-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
       }
 
-      .filter-drawer.open {
-        display: block;
-        animation: slideDown 0.2s ease-out;
+      .controls-right-group {
+        justify-content: space-between;
       }
 
-      @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+      .density-toggle-wrap {
+        flex: 1;
       }
 
-      .terminal-controls {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin-bottom: 12px;
+      .toggle-btn {
+        flex: 1;
+        justify-content: center;
       }
 
       .filter-chips-bar {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+        padding: 10px;
+        margin-bottom: 16px;
       }
 
       .chips-container {
@@ -1422,12 +1452,6 @@
         </svg>
       </div>
 
-      <!-- Mobile Filter Trigger -->
-      <button class="mobile-filter-trigger" id="mobileFilterBtn" title="Filter & Search" aria-label="Toggle filters">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
-        </svg>
-      </button>
     </div>
   </header>
 
@@ -1478,15 +1502,16 @@
     <section class="tab-section active" id="terminalTab">
       
       <!-- Collapsible Search & Filters Wrapper -->
-      <div class="filter-drawer" id="filterDrawer">
-        <div class="terminal-controls">
-          <div class="search-box-wrap">
-            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input type="text" class="search-input" id="searchInput" placeholder="Search headlines, tickers, sources, summaries…" />
-          </div>
+      <!-- Controls Row: Search, Toggle & Filter -->
+      <div class="terminal-controls-row">
+        <div class="search-box-wrap">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" class="search-input" id="searchInput" placeholder="Search headlines, tickers, sources, summaries…" />
+        </div>
 
+        <div class="controls-right-group">
           <div class="density-toggle-wrap">
             <button class="toggle-btn active" id="btnCompact" title="Compact List View">
               Compact
@@ -1495,14 +1520,19 @@
               Cards
             </button>
           </div>
+          <button class="btn-filter-toggle" id="btnFilterToggle" title="Filter Tickers" aria-label="Toggle ticker filters">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+          </button>
         </div>
+      </div>
 
-        <!-- Filter chips -->
-        <div class="filter-chips-bar">
-          <span class="filter-label">Filter Tickers:</span>
-          <div class="chips-container" id="coinChips">
-            <!-- Dyn chips -->
-          </div>
+      <!-- Filter chips (Collapsible) -->
+      <div class="filter-chips-bar" id="filterChipsBar" style="display: none;">
+        <span class="filter-label">Filter Tickers:</span>
+        <div class="chips-container" id="coinChips">
+          <!-- Dyn chips -->
         </div>
       </div>
 
@@ -1735,8 +1765,8 @@
     const toastMsg         = document.getElementById('toastMsg');
     const toastIcon        = document.getElementById('toastIcon');
     const tickerTape       = document.getElementById('tickerTape');
-    const mobileFilterBtn  = document.getElementById('mobileFilterBtn');
-    const filterDrawer     = document.getElementById('filterDrawer');
+    const btnFilterToggle  = document.getElementById('btnFilterToggle');
+    const filterChipsBar   = document.getElementById('filterChipsBar');
 
     // Stats bar Refs
     const statTotal        = document.getElementById('statTotal');
@@ -2316,9 +2346,11 @@
       renderFeed();
     });
 
-    // Mobile filter trigger slide-down toggler
-    mobileFilterBtn.addEventListener('click', () => {
-      filterDrawer.classList.toggle('open');
+    // Filter toggle button to slide-down/toggle ticker filter chips
+    btnFilterToggle.addEventListener('click', () => {
+      const isHidden = filterChipsBar.style.display === 'none' || filterChipsBar.style.display === '';
+      filterChipsBar.style.display = isHidden ? 'flex' : 'none';
+      btnFilterToggle.classList.toggle('active', isHidden);
     });
 
     // Search input (debounced)
