@@ -1239,6 +1239,10 @@
        MOBILE-FIRST RESPONSIVE MEDIA QUERIES (<768px)
        ===================================================================== */
     @media (max-width: 767px) {
+      .ticker-tape-scroll {
+        animation-duration: 90s; /* Much slower scroll speed on mobile */
+      }
+
       header {
         height: 50px;
         padding: 0 12px;
@@ -1755,6 +1759,7 @@
     <span id="toastMsg">Feed refreshed</span>
   </div>
 
+  <script src="news.js"></script>
   <script>
     // ----------------------------------------------------------------
     // CONSTANTS & STATE
@@ -2051,7 +2056,8 @@
             console.log("Fallback to window.newsData script.");
             data = window.newsData;
           } else {
-            throw fetchErr;
+            console.error("Fetch failed and newsData not loaded yet. Using empty state.");
+            data = { articles: [], updated_at: new Date().toISOString() };
           }
         }
 
