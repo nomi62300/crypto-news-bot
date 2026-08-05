@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CryptoFlash — Terminal & Sentiment Dashboard</title>
-  <meta name="description" content="CryptoSlate-inspired Crypto News Terminal and Sentiment Dashboard featuring real-time Llama 3 analysis, coin tags, and dynamic market mood index." />
+  <title>CryptoFlash — Terminal & Sentiment Intelligence</title>
+  <meta name="description" content="CryptoSlate-inspired Crypto News Terminal and Sentiment Dashboard featuring real-time Llama 3 analysis, live prices, and Fear & Greed gauges." />
+  
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -12,12 +14,12 @@
   <style>
     /* =====================================================================
        DESIGN SYSTEM & TOKENS
-    ===================================================================== */
+       ===================================================================== */
     :root {
       --bg-base:        #0B0E17;
       --bg-surface:     #111622;
-      --bg-card:        #161C2A;
-      --bg-card-hover:  #1E2638;
+      --bg-card:        #141926;
+      --bg-card-hover:  #1B2234;
       
       --border:         rgba(255, 255, 255, 0.08);
       --border-hover:   rgba(255, 255, 255, 0.15);
@@ -30,18 +32,24 @@
       --text-secondary: #94A3B8;
       --text-muted:     #475569;
       
-      /* Updated Sentiment Colors (Precise Specifications) */
+      /* Sentiment Specifications */
       --bullish:        #19A56F;
       --bullish-bg:     rgba(25, 165, 111, 0.10);
-      --bullish-border: rgba(25, 165, 111, 0.25);
+      --bullish-border: rgba(25, 165, 111, 0.35);
+      --bullish-glow:   rgba(25, 165, 111, 0.10);
+      --bullish-glow-h: rgba(25, 165, 111, 0.20);
       
       --bearish:        #E25152;
       --bearish-bg:     rgba(226, 81, 82, 0.10);
-      --bearish-border: rgba(226, 81, 82, 0.25);
+      --bearish-border: rgba(226, 81, 82, 0.35);
+      --bearish-glow:   rgba(226, 81, 82, 0.10);
+      --bearish-glow-h: rgba(226, 81, 82, 0.20);
       
       --neutral:        #F2B644;
       --neutral-bg:     rgba(242, 182, 68, 0.10);
-      --neutral-border: rgba(242, 182, 68, 0.22);
+      --neutral-border: rgba(242, 182, 68, 0.30);
+      --neutral-glow:   rgba(242, 182, 68, 0.08);
+      --neutral-glow-h: rgba(242, 182, 68, 0.18);
       
       --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono:      'JetBrains Mono', monospace;
@@ -66,6 +74,10 @@
       text-decoration: none;
     }
 
+    button, input {
+      font-family: inherit;
+    }
+
     /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg-base); }
@@ -73,8 +85,8 @@
     ::-webkit-scrollbar-thumb:hover { background: #334155; }
 
     /* =====================================================================
-       LIVE MARQUEE TICKER
-    ===================================================================== */
+       LIVE TICKER TAPE (Binance + News Sentiment)
+       ===================================================================== */
     .ticker-tape {
       background: #07090F;
       border-bottom: 1px solid var(--border);
@@ -83,6 +95,7 @@
       position: relative;
       display: flex;
       align-items: center;
+      z-index: 101;
     }
 
     .ticker-tape-scroll {
@@ -98,7 +111,7 @@
     .ticker-item {
       display: inline-flex;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 24px;
       font-size: 11px;
       font-family: var(--font-mono);
       font-weight: 500;
@@ -108,14 +121,28 @@
     .ticker-coin {
       color: var(--text-primary);
       margin-right: 6px;
+      font-weight: 700;
+    }
+
+    .ticker-price {
+      color: var(--text-primary);
+      margin-right: 6px;
+    }
+
+    .ticker-change {
       font-weight: 600;
     }
 
+    .ticker-change.up { color: var(--bullish); }
+    .ticker-change.down { color: var(--bearish); }
+
     .ticker-score {
-      font-size: 10px;
+      font-size: 9px;
       padding: 1px 5px;
       border-radius: 3px;
-      margin-left: 6px;
+      margin-left: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
     @keyframes ticker-animation {
@@ -124,65 +151,61 @@
     }
 
     /* =====================================================================
-       HEADER
-    ===================================================================== */
+       HEADER (Sticky & Mobile-First Responsive)
+       ===================================================================== */
     header {
       background-color: var(--bg-surface);
       border-bottom: 1px solid var(--border);
-      padding: 0 24px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 100;
+      height: 64px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
     }
 
-    .header-logo-group {
+    .header-left {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
     .logo {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      text-transform: uppercase;
+      color: #FFF;
     }
 
     .logo span {
-      background: linear-gradient(135deg, var(--accent), #f3e8ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--accent);
     }
 
     .beta-badge {
       font-size: 9px;
-      text-transform: uppercase;
+      font-weight: 700;
       font-family: var(--font-mono);
+      background-color: rgba(255, 255, 255, 0.04);
       color: var(--accent);
-      background: var(--accent-glow);
-      border: 1px solid var(--border-active);
-      padding: 1px 5px;
+      border: 1px solid var(--accent);
+      padding: 2px 6px;
       border-radius: 4px;
-      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     /* Navigation Tabs */
     .nav-tabs {
       display: flex;
-      gap: 6px;
-      background: #080b11;
-      padding: 4px;
-      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.2);
       border: 1px solid var(--border);
+      padding: 3px;
+      border-radius: 8px;
+      gap: 2px;
     }
 
     .tab-btn {
@@ -191,7 +214,8 @@
       color: var(--text-secondary);
       font-size: 13px;
       font-weight: 600;
-      padding: 8px 16px;
+      padding: 0 16px;
+      height: 38px;
       border-radius: 6px;
       cursor: pointer;
       display: flex;
@@ -204,14 +228,14 @@
       color: var(--text-primary);
     }
 
-    .tab-btn svg {
-      opacity: 0.7;
-    }
-
     .tab-btn.active {
       background-color: var(--bg-card);
       color: var(--text-primary);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-btn svg {
+      opacity: 0.7;
     }
 
     .tab-btn.active svg {
@@ -242,11 +266,13 @@
       border: 1px solid var(--border);
       color: var(--text-primary);
       padding: 0 14px;
-      height: 32px;
+      height: 44px; /* Touch target size */
+      min-width: 90px;
       border-radius: 6px;
       cursor: pointer;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       font-size: 12px;
       font-weight: 600;
@@ -263,10 +289,13 @@
     }
 
     .btn-refresh.spinning svg {
-      transform: rotate(360deg);
+      animation: spin 1s linear infinite;
     }
 
-    /* Countdown Ring Container */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     .countdown-ring-wrap {
       position: relative;
       width: 24px;
@@ -293,9 +322,24 @@
       transition: stroke-dashoffset 1s linear;
     }
 
+    /* Mobile Menu Buttons (Hidden on desktop) */
+    .mobile-filter-trigger {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
     /* =====================================================================
-       OVERVIEW SUMMARY PANEL
-    ===================================================================== */
+       OVERVIEW SUMMARY PANEL (Responsive Grid Layouts)
+       ===================================================================== */
     .overview-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -303,15 +347,9 @@
       margin: 20px 0;
     }
 
-    @media (max-width: 768px) {
-      .overview-bar {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     .overview-box {
-      background-color: #141926;
-      border: 1px solid #222B3D;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 16px;
       display: flex;
@@ -330,7 +368,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #64748B;
+      color: var(--text-secondary);
       font-family: var(--font-mono);
     }
 
@@ -342,8 +380,8 @@
     }
 
     /* =====================================================================
-       MAIN WRAPPER & SECTIONS
-    ===================================================================== */
+       MAIN CONTENT WRAPPER
+       ===================================================================== */
     main {
       padding: 0 24px 24px;
       max-width: 1400px;
@@ -365,20 +403,14 @@
     }
 
     /* =====================================================================
-       TAB 1: NEWS TERMINAL UI
-    ===================================================================== */
+       TAB 1: NEWS TERMINAL
+       ===================================================================== */
     .terminal-controls {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 16px;
       margin-bottom: 20px;
       align-items: center;
-    }
-
-    @media (max-width: 768px) {
-      .terminal-controls {
-        grid-template-columns: 1fr;
-      }
     }
 
     .search-box-wrap {
@@ -391,7 +423,8 @@
       background-color: #1A2132;
       border: 1px solid #2A344B;
       border-radius: 8px;
-      padding: 12px 16px 12px 42px;
+      padding: 0 16px 0 42px;
+      height: 44px; /* Touch target */
       font-size: 14px;
       color: var(--text-primary);
       outline: none;
@@ -400,7 +433,7 @@
 
     .search-input:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 2px rgba(218, 180, 107, 0.25);
+      box-shadow: 0 0 0 2px var(--accent-glow);
     }
 
     .search-icon {
@@ -412,7 +445,6 @@
       pointer-events: none;
     }
 
-    /* Views & Density Toggles */
     .density-toggle-wrap {
       display: flex;
       background: var(--bg-surface);
@@ -420,15 +452,18 @@
       padding: 3px;
       border-radius: 6px;
       gap: 2px;
+      height: 44px;
+      align-items: center;
     }
 
     .toggle-btn {
       background: none;
       border: none;
       color: var(--text-secondary);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
-      padding: 6px 12px;
+      height: 38px;
+      padding: 0 16px;
       border-radius: 4px;
       cursor: pointer;
       display: flex;
@@ -442,12 +477,16 @@
       color: var(--text-primary);
     }
 
-    /* Filter Chips bar */
+    /* Filter Drawer for Mobile & Chips container */
+    .filter-drawer {
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+
     .filter-chips-bar {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 24px;
+      gap: 12px;
       overflow-x: auto;
       padding-bottom: 8px;
     }
@@ -463,23 +502,25 @@
 
     .chips-container {
       display: flex;
-      gap: 6px;
+      gap: 8px;
     }
 
     .chip {
       background-color: var(--bg-surface);
       border: 1px solid var(--border);
       color: var(--text-secondary);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
       font-family: var(--font-mono);
-      padding: 4px 10px;
+      padding: 0 14px;
+      height: 40px; /* Enhanced touch target */
       border-radius: 20px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       transition: all 0.2s;
+      white-space: nowrap;
     }
 
     .chip:hover {
@@ -506,7 +547,7 @@
       color: var(--accent);
     }
 
-    /* Date Headings & Articles List */
+    /* Date Headings */
     .date-group {
       margin-bottom: 32px;
     }
@@ -543,38 +584,14 @@
       overflow: hidden;
     }
 
-    /* --- Compact Row styling --- */
+    /* Compact Row Styling */
     .compact-row {
       display: grid;
-      grid-template-columns: 80px 1fr 180px 120px;
+      grid-template-columns: 80px 1fr 200px 130px;
       align-items: center;
       padding: 14px 20px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       transition: background-color 0.15s;
-    }
-
-    @media (max-width: 900px) {
-      .compact-row {
-        grid-template-columns: 70px 1fr 100px;
-      }
-      .compact-row .col-source {
-        display: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .compact-row {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 16px;
-      }
-      .compact-row .col-time {
-        font-size: 10px;
-        color: var(--text-muted);
-      }
-      .compact-row .col-right {
-        justify-content: flex-start !important;
-      }
     }
 
     .compact-row:last-child {
@@ -623,7 +640,7 @@
       gap: 12px;
     }
 
-    /* --- Card View styling --- */
+    /* Card View Styling */
     .feed-container.view-cards {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -631,42 +648,46 @@
     }
 
     .card-item {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border);
+      background-color: var(--bg-card);
       border-radius: 8px;
       padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 220px;
-      transition: all 0.2s;
+      transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     .card-item:hover {
       transform: translateY(-2px);
     }
 
-    /* Sentiment-specific border classes (Precise Specifications) */
+    /* Sentiment specific glow borders (No thick edges) */
     .card-item.bullish {
-      border: 1px solid rgba(25, 165, 111, 0.35);
-      box-shadow: 0 0 12px rgba(25, 165, 111, 0.12);
+      border: 1px solid var(--bullish-border);
+      box-shadow: 0 0 14px var(--bullish-glow);
     }
     .card-item.bullish:hover {
-      box-shadow: 0 0 18px rgba(25, 165, 111, 0.20);
+      box-shadow: 0 0 18px var(--bullish-glow-h);
+      background-color: var(--bg-card-hover);
     }
+
     .card-item.bearish {
-      border: 1px solid rgba(226, 81, 82, 0.35);
-      box-shadow: 0 0 12px rgba(226, 81, 82, 0.12);
+      border: 1px solid var(--bearish-border);
+      box-shadow: 0 0 14px var(--bearish-glow);
     }
     .card-item.bearish:hover {
-      box-shadow: 0 0 18px rgba(226, 81, 82, 0.20);
+      box-shadow: 0 0 18px var(--bearish-glow-h);
+      background-color: var(--bg-card-hover);
     }
+
     .card-item.neutral {
-      border: 1px solid rgba(242, 182, 68, 0.30);
-      box-shadow: 0 0 12px rgba(242, 182, 68, 0.10);
+      border: 1px solid var(--neutral-border);
+      box-shadow: 0 0 14px var(--neutral-glow);
     }
     .card-item.neutral:hover {
-      box-shadow: 0 0 18px rgba(242, 182, 68, 0.18);
+      box-shadow: 0 0 18px var(--neutral-glow-h);
+      background-color: var(--bg-card-hover);
     }
 
     .card-meta-top {
@@ -707,6 +728,7 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      min-height: 24px; /* Better click targeting */
     }
 
     .card-title a:hover {
@@ -738,7 +760,7 @@
       border-top: 1px solid rgba(255, 255, 255, 0.02);
     }
 
-    /* Common Badges */
+    /* Badges & Tags */
     .sentiment-badge {
       display: inline-flex;
       align-items: center;
@@ -747,26 +769,26 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      padding: 3px 8px;
+      padding: 4px 8px;
       border-radius: 4px;
       font-family: var(--font-sans);
     }
 
     .sentiment-badge.bullish {
       background-color: var(--bullish-bg);
-      border: 1px solid var(--bullish-border);
+      border: 1px solid rgba(25, 165, 111, 0.2);
       color: var(--bullish);
     }
 
     .sentiment-badge.bearish {
       background-color: var(--bearish-bg);
-      border: 1px solid var(--bearish-border);
+      border: 1px solid rgba(226, 81, 82, 0.2);
       color: var(--bearish);
     }
 
     .sentiment-badge.neutral {
       background-color: var(--neutral-bg);
-      border: 1px solid var(--neutral-border);
+      border: 1px solid rgba(242, 182, 68, 0.18);
       color: var(--neutral);
     }
 
@@ -786,23 +808,17 @@
     }
 
     /* =====================================================================
-       TAB 2: SENTIMENT DASHBOARD UI
-    ===================================================================== */
+       TAB 2: SENTIMENT DASHBOARD
+       ===================================================================== */
     .dashboard-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1.3fr;
+      grid-template-columns: 1.2fr 1.2fr 1fr;
       gap: 20px;
       margin-bottom: 24px;
     }
 
-    @media (max-width: 1024px) {
-      .dashboard-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .dashboard-card {
-      background-color: var(--bg-surface);
+      background-color: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 24px;
@@ -827,8 +843,15 @@
       display: inline-flex;
     }
 
-    /* Mood/Index scale */
-    .mood-score-wrap {
+    /* Dual-Gauges styling */
+    .dual-gauge-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .gauge-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -836,7 +859,7 @@
       padding: 10px 0;
     }
 
-    .mood-number {
+    .gauge-score {
       font-size: 54px;
       font-weight: 800;
       line-height: 1;
@@ -847,9 +870,12 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .mood-label {
-      margin-bottom: 24px;
+    .gauge-label {
+      margin-bottom: 20px;
       font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .slider-track-wrap {
@@ -861,7 +887,6 @@
     .slider-track {
       height: 6px;
       border-radius: 3px;
-      /* Continuous Red -> Amber -> Green Sentiment gradient (Precise Specifications) */
       background: linear-gradient(to right, var(--bearish), var(--neutral) 50%, var(--bullish));
       width: 100%;
     }
@@ -882,38 +907,14 @@
     .slider-labels {
       display: flex;
       justify-content: space-between;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--text-secondary);
       margin-top: 10px;
     }
 
-    /* Overall stats list */
-    .stats-item-box {
-      border-bottom: 1px solid var(--border);
-      padding: 12px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .stats-item-box:last-child {
-      border-bottom: none;
-    }
-
-    .stats-label {
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-
-    .stats-value {
-      font-size: 14px;
-      font-weight: 700;
-      font-family: var(--font-mono);
-    }
-
-    /* Leaderboard gradient lines */
+    /* Leaderboard progress bars (CSS Linear Gradients) */
     .leaderboard-container {
       display: flex;
       flex-direction: column;
@@ -947,22 +948,20 @@
       height: 6px;
       border-radius: 3px;
       overflow: hidden;
-      /* Rounded track backgrounds #0F1420 (Precise Specifications) */
       background-color: #0F1420;
       position: relative;
       width: 100%;
     }
 
-    /* Multi-stop linear gradient fill (Precise Specifications) */
     .split-fill {
       height: 100%;
       border-radius: 3px;
-      background: linear-gradient(90deg, #19A56F 0%, #F2B644 50%, #E25152 100%);
+      background: linear-gradient(90deg, #19A56F, #F2B644, #E25152);
       box-shadow: 0 0 6px rgba(218, 180, 107, 0.2);
       transition: width 0.3s;
     }
 
-    /* Sentiment lanes section */
+    /* Sentiment Lanes (Negative, Neutral, Positive) */
     .dashboard-lanes-title {
       font-size: 18px;
       font-weight: 800;
@@ -976,31 +975,26 @@
       gap: 20px;
     }
 
-    @media (max-width: 900px) {
-      .lanes-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .lane-col {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border);
+      background-color: var(--bg-card);
       border-radius: 12px;
       padding: 20px;
       display: flex;
       flex-direction: column;
+      transition: all 0.25s;
     }
 
+    /* Ambient glows instead of top borders */
     .lane-col.bullish-lane {
-      border: 1px solid rgba(25, 165, 111, 0.30);
+      border: 1px solid var(--bullish-border);
       box-shadow: 0 0 16px rgba(25, 165, 111, 0.08);
     }
     .lane-col.bearish-lane {
-      border: 1px solid rgba(226, 81, 82, 0.30);
+      border: 1px solid var(--bearish-border);
       box-shadow: 0 0 16px rgba(226, 81, 82, 0.08);
     }
     .lane-col.neutral-lane {
-      border: 1px solid rgba(242, 182, 68, 0.25);
+      border: 1px solid var(--neutral-border);
       box-shadow: 0 0 16px rgba(242, 182, 68, 0.06);
     }
 
@@ -1051,7 +1045,7 @@
     }
 
     .lane-story-card {
-      background-color: rgba(255,255,255,0.01);
+      background-color: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(255, 255, 255, 0.03);
       padding: 12px;
       border-radius: 6px;
@@ -1063,7 +1057,7 @@
     }
 
     .lane-story-card:hover {
-      background-color: rgba(255, 255, 255, 0.03);
+      background-color: rgba(255, 255, 255, 0.05);
       border-color: rgba(255, 255, 255, 0.06);
     }
 
@@ -1081,11 +1075,39 @@
       line-height: 1.35;
     }
 
+    .lane-story-title a {
+      display: inline-block;
+      min-height: 20px;
+    }
+
     .lane-story-title a:hover {
       color: var(--accent);
     }
 
-    /* Empty state */
+    /* Tracking summary boxes styling */
+    .stats-item-box {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .stats-item-box:last-child {
+      border-bottom: none;
+    }
+
+    .stats-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .stats-value {
+      font-size: 14px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
     .state-box {
       padding: 60px 20px;
       text-align: center;
@@ -1139,6 +1161,178 @@
       font-size: 12px;
       font-weight: 500;
     }
+
+    /* =====================================================================
+       MOBILE-FIRST RESPONSIVE MEDIA QUERIES (<768px)
+       ===================================================================== */
+    @media (max-width: 767px) {
+      header {
+        height: 50px;
+        padding: 0 12px;
+      }
+
+      .logo {
+        font-size: 14px;
+      }
+
+      .beta-badge {
+        display: none;
+      }
+
+      .nav-tabs {
+        border-radius: 6px;
+      }
+
+      .tab-btn {
+        height: 32px;
+        padding: 0 8px;
+        font-size: 11px;
+        gap: 4px;
+      }
+
+      .tab-btn span {
+        display: none; /* Hide tab label text on extra small devices if needed, keep icons */
+      }
+      .tab-btn::after {
+        content: attr(data-short);
+      }
+
+      .header-actions {
+        gap: 8px;
+      }
+
+      .refresh-container {
+        display: none; /* Hide desktop refresh bar */
+      }
+
+      .mobile-filter-trigger {
+        display: flex; /* Show mobile filter trigger */
+      }
+
+      main {
+        padding: 0 12px 24px;
+      }
+
+      /* Overview bar 2x2 grid */
+      .overview-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin: 12px 0;
+      }
+
+      .overview-box {
+        padding: 10px;
+        gap: 6px;
+      }
+
+      .overview-box-value {
+        font-size: 20px;
+      }
+
+      /* Collapsible filter drawer styling for mobile */
+      .filter-drawer {
+        display: none; /* JS toggles display block */
+        background: var(--bg-surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 12px;
+      }
+
+      .filter-drawer.open {
+        display: block;
+        animation: slideDown 0.2s ease-out;
+      }
+
+      @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .terminal-controls {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .filter-chips-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .chips-container {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      /* Feed containers full-width single column */
+      .feed-container.view-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .compact-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 14px 16px;
+      }
+
+      .col-title {
+        font-size: 13px;
+        padding-right: 0;
+      }
+
+      .col-source {
+        justify-content: flex-start;
+      }
+
+      .col-right {
+        justify-content: space-between;
+        margin-top: 4px;
+      }
+
+      .card-item {
+        min-height: auto;
+        padding: 16px;
+      }
+
+      /* Dashboard */
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .dual-gauge-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .lanes-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    /* Tablet breakpoints (768px - 1024px) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .overview-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .dashboard-card:nth-child(3) {
+        grid-column: span 2;
+      }
+
+      .lanes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1153,24 +1347,25 @@
 
   <!-- HEADER -->
   <header>
-    <div class="header-logo-group">
+    <div class="header-left">
       <div class="logo">Crypto<span>Flash</span></div>
-      <div class="beta-badge">Terminal v3.1</div>
+      <div class="beta-badge">Terminal v3.2</div>
     </div>
 
     <!-- Navigation Tabs -->
     <div class="nav-tabs" role="tablist">
-      <button class="tab-btn active" data-target="terminalTab" role="tab" aria-selected="true">
+      <button class="tab-btn active" data-target="terminalTab" data-short="Terminal" role="tab" aria-selected="true">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-        News Terminal
+        <span>⚡ News Terminal</span>
       </button>
-      <button class="tab-btn" data-target="dashboardTab" role="tab" aria-selected="false">
+      <button class="tab-btn" data-target="dashboardTab" data-short="Dashboard" role="tab" aria-selected="false">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        Sentiment Dashboard
+        <span>📊 Sentiment Dashboard</span>
       </button>
     </div>
 
     <div class="header-actions">
+      <!-- Desktop Refresh controls -->
       <div class="refresh-container">
         <span class="updated-time" id="updatedAt">Loading…</span>
         <button class="btn-refresh" id="btnRefresh" title="Refresh data" aria-label="Refresh data">
@@ -1188,6 +1383,13 @@
           <circle class="ring-fill" id="ringFill" cx="12" cy="12" r="11" />
         </svg>
       </div>
+
+      <!-- Mobile Filter Trigger -->
+      <button class="mobile-filter-trigger" id="mobileFilterBtn" title="Filter & Search" aria-label="Toggle filters">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -1236,29 +1438,33 @@
          TAB 1: NEWS TERMINAL
          =================================================================== -->
     <section class="tab-section active" id="terminalTab">
-      <div class="terminal-controls">
-        <div class="search-box-wrap">
-          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-          <input type="text" class="search-input" id="searchInput" placeholder="Search news by titles, tickers, sources, or summaries…" />
+      
+      <!-- Collapsible Search & Filters Wrapper -->
+      <div class="filter-drawer" id="filterDrawer">
+        <div class="terminal-controls">
+          <div class="search-box-wrap">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search headlines, tickers, sources, summaries…" />
+          </div>
+
+          <div class="density-toggle-wrap">
+            <button class="toggle-btn active" id="btnCompact" title="Compact List View">
+              Compact
+            </button>
+            <button class="toggle-btn" id="btnCards" title="Card Grid View">
+              Cards
+            </button>
+          </div>
         </div>
 
-        <div class="density-toggle-wrap">
-          <button class="toggle-btn active" id="btnCompact" title="Compact List View">
-            Compact
-          </button>
-          <button class="toggle-btn" id="btnCards" title="Card Grid View">
-            Cards
-          </button>
-        </div>
-      </div>
-
-      <!-- Filter chips -->
-      <div class="filter-chips-bar">
-        <span class="filter-label">Filter Tickers:</span>
-        <div class="chips-container" id="coinChips">
-          <!-- Dyn chips -->
+        <!-- Filter chips -->
+        <div class="filter-chips-bar">
+          <span class="filter-label">Filter Tickers:</span>
+          <div class="chips-container" id="coinChips">
+            <!-- Dyn chips -->
+          </div>
         </div>
       </div>
 
@@ -1272,19 +1478,45 @@
          TAB 2: SENTIMENT DASHBOARD
          =================================================================== -->
     <section class="tab-section" id="dashboardTab">
-      <div class="dashboard-grid">
-        
-        <!-- 1. Market Mood Meter -->
+      
+      <!-- Live Index Dual-Gauge display -->
+      <div class="dual-gauge-container">
+        <!-- Gauge 1: Live Alternative.me Fear & Greed -->
         <div class="dashboard-card">
           <div class="dashboard-card-title">
-            <span>Sentiment Score</span>
-            <span class="card-tooltip-trigger" title="Weighted ratio of Bullish vs Bearish articles.">
+            <span>On-Chain Fear & Greed Index</span>
+            <span class="card-tooltip-trigger" title="Fetched in real-time from Alternative.me API.">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
             </span>
           </div>
-          <div class="mood-score-wrap">
-            <div class="mood-number" id="moodScore">50</div>
-            <div class="mood-label" id="moodLabel">Neutral</div>
+          <div class="gauge-wrapper">
+            <div class="gauge-score" id="fngScore">50</div>
+            <div class="gauge-label" id="fngLabel">Neutral</div>
+            
+            <div class="slider-track-wrap">
+              <div class="slider-track"></div>
+              <div class="slider-thumb" id="fngThumb" style="left: 50%"></div>
+            </div>
+            
+            <div class="slider-labels" style="width: 100%">
+              <span>Extreme Fear</span>
+              <span>Neutral</span>
+              <span>Extreme Greed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gauge 2: Bot's Aggregate News Sentiment Score -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-title">
+            <span>Aggregate News Sentiment</span>
+            <span class="card-tooltip-trigger" title="Weighted ratio of Bullish vs Bearish articles in the current feed.">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </span>
+          </div>
+          <div class="gauge-wrapper">
+            <div class="gauge-score" id="moodScore">50</div>
+            <div class="gauge-label" id="moodLabel">Neutral</div>
             
             <div class="slider-track-wrap">
               <div class="slider-track"></div>
@@ -1298,8 +1530,10 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- 2. Track Summary stats -->
+      <div class="dashboard-grid">
+        <!-- Track Summary stats -->
         <div class="dashboard-card">
           <div class="dashboard-card-title">
             <span>Tracking Summary</span>
@@ -1313,15 +1547,15 @@
           </div>
           <div class="stats-item-box">
             <span class="stats-label">Tracking Window</span>
-            <span class="stats-value">24 Hours</span>
+            <span class="stats-value">48 Hours</span>
           </div>
           <div class="stats-item-box">
             <span class="stats-label">Evaluated Feeds</span>
-            <span class="stats-value">32 Sources</span>
+            <span class="stats-value">33 Sources</span>
           </div>
         </div>
 
-        <!-- 3. Dynamic SVG Sentiment Distribution -->
+        <!-- Dynamic SVG Sentiment Distribution -->
         <div class="dashboard-card">
           <div class="dashboard-card-title">
             <span>Sentiment Distribution</span>
@@ -1347,18 +1581,18 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Coin Sentiment Leaderboard -->
-      <div class="dashboard-card" style="margin-bottom: 24px;">
-        <div class="dashboard-card-title">
-          <span>Top Assets Sentiment Leaderboard</span>
-          <span class="card-tooltip-trigger" title="Sentiment split breakdown for the most discussed assets.">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-          </span>
-        </div>
-        <div class="leaderboard-container" id="leaderboard">
-          <!-- Dyn rows -->
+        <!-- Coin Sentiment Leaderboard -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-title">
+            <span>Top Assets Leaderboard</span>
+            <span class="card-tooltip-trigger" title="Sentiment split breakdown for the most discussed assets.">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </span>
+          </div>
+          <div class="leaderboard-container" id="leaderboard">
+            <!-- Dyn rows -->
+          </div>
         </div>
       </div>
 
@@ -1450,6 +1684,7 @@
     let currentView      = 'compact'; // 'compact' | 'cards'
     let countdownTimer   = null;
     let countdownRemain  = REFRESH_SECS;
+    let binancePrices    = {}; // Map of ticker -> price and change%
 
     // DOM Refs
     const feed             = document.getElementById('newsFeed');
@@ -1462,6 +1697,8 @@
     const toastMsg         = document.getElementById('toastMsg');
     const toastIcon        = document.getElementById('toastIcon');
     const tickerTape       = document.getElementById('tickerTape');
+    const mobileFilterBtn  = document.getElementById('mobileFilterBtn');
+    const filterDrawer     = document.getElementById('filterDrawer');
 
     // Stats bar Refs
     const statTotal        = document.getElementById('statTotal');
@@ -1481,6 +1718,11 @@
     const barNeutral       = document.getElementById('barNeutral');
     const barBearish       = document.getElementById('barBearish');
     const leaderboard      = document.getElementById('leaderboard');
+    
+    // Fear & Greed Index Refs
+    const fngScore         = document.getElementById('fngScore');
+    const fngLabel         = document.getElementById('fngLabel');
+    const fngThumb         = document.getElementById('fngThumb');
 
     // Lanes Refs
     const laneBullishCount = document.getElementById('laneBullishCount');
@@ -1524,6 +1766,7 @@
       return `${Math.floor(diff / 86400)}d ago`;
     }
 
+    // format clock time cleanly
     function formatTimeHM(isoStr) {
       if (!isoStr) return '—';
       const d = new Date(isoStr);
@@ -1540,8 +1783,10 @@
       const main = a.source || '';
       const others = a.other_sources || [];
       if (others.length === 0) return main;
-      if (others.length === 1) return `${main} | ${others[0].source}`;
-      return `${main} + ${others.length} others`;
+      
+      const list = [main, ...others.map(o => o.source)].filter(Boolean);
+      const uniqueList = [...new Set(list)];
+      return uniqueList.slice(0, 3).join(' | ') + (uniqueList.length > 3 ? ' +' : '');
     }
 
     function groupArticlesByDate(articlesList) {
@@ -1559,7 +1804,76 @@
     }
 
     // ----------------------------------------------------------------
-    // TICKER TAPE GENERATOR
+    // API INTEGRATION: BINANCE 24HR PRICES & FEAR AND GREED
+    // ----------------------------------------------------------------
+    async function fetchBinancePrices() {
+      try {
+        const url = 'https://api.binance.com/api/v3/ticker/24hr?symbols=["BTCUSDT","ETHUSDT","SOLUSDT","NEARUSDT","SUIUSDT","KASUSDT"]';
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error(`Binance price status: ${resp.status}`);
+        const data = await resp.json();
+        
+        data.forEach(item => {
+          const symbolMap = {
+            "BTCUSDT": "BTC",
+            "ETHUSDT": "ETH",
+            "SOLUSDT": "SOL",
+            "NEARUSDT": "NEAR",
+            "SUIUSDT": "SUI",
+            "KASUSDT": "KAS"
+          };
+          const ticker = symbolMap[item.symbol];
+          if (ticker) {
+            const lastPrice = parseFloat(item.lastPrice);
+            const changePercent = parseFloat(item.priceChangePercent);
+            
+            let priceStr = '';
+            if (lastPrice >= 1.0) {
+              priceStr = lastPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            } else {
+              priceStr = lastPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 });
+            }
+            
+            binancePrices[ticker] = {
+              price: priceStr,
+              change: changePercent.toFixed(2),
+              isUp: changePercent >= 0
+            };
+          }
+        });
+      } catch (err) {
+        console.warn('Could not retrieve Binance ticker prices:', err);
+      }
+    }
+
+    async function fetchFearAndGreed() {
+      try {
+        const resp = await fetch('https://api.alternative.me/fng/?limit=1');
+        if (!resp.ok) throw new Error(`FNG status: ${resp.status}`);
+        const data = await resp.json();
+        if (data && data.data && data.data[0]) {
+          const val = parseInt(data.data[0].value);
+          const label = data.data[0].value_classification;
+          
+          fngScore.textContent = val;
+          fngLabel.textContent = label;
+          fngThumb.style.left = `${val}%`;
+          
+          if (val >= 60) {
+            fngLabel.style.color = 'var(--bullish)';
+          } else if (val <= 40) {
+            fngLabel.style.color = 'var(--bearish)';
+          } else {
+            fngLabel.style.color = 'var(--neutral)';
+          }
+        }
+      } catch (err) {
+        console.warn('Could not fetch Fear and Greed Index:', err);
+      }
+    }
+
+    // ----------------------------------------------------------------
+    // TICKER TAPE GENERATOR (Binance Prices + News Sentiment)
     // ----------------------------------------------------------------
     function buildTickerTape() {
       const coinStats = new Map();
@@ -1575,50 +1889,64 @@
         });
       });
 
-      const topCoins = [...coinStats.entries()]
+      const topNewsCoins = [...coinStats.entries()]
         .sort((a, b) => b[1].total - a[1].total)
-        .slice(0, 15);
+        .slice(0, 10);
 
-      if (topCoins.length === 0) {
-        const dummy = ['BTC', 'ETH', 'SOL', 'TIA', 'SUI', 'PEPE', 'NEAR', 'AAVE'];
-        tickerTape.innerHTML = dummy.map(coin => `
-          <div class="ticker-item">
-            <span class="ticker-coin">${coin}</span>
-            <span style="color:var(--text-secondary)">NO DATA</span>
-          </div>
-        `).join('');
-        return;
-      }
+      const tickersToRender = ["BTC", "ETH", "SOL", "NEAR", "SUI", "KAS"];
+      topNewsCoins.forEach(([coin]) => {
+        if (!tickersToRender.includes(coin)) {
+          tickersToRender.push(coin);
+        }
+      });
 
-      const tapeHtml = topCoins.map(([coin, stats]) => {
-        const bullishPct = stats.total > 0 ? (stats.bullish / stats.total) * 100 : 50;
-        let mood = 'Neutral';
-        let color = 'var(--neutral)';
-        let bg = 'var(--neutral-bg)';
-        let border = 'var(--neutral-border)';
-        
-        if (bullishPct > 60) {
-          mood = 'Bullish';
-          color = 'var(--bullish)';
-          bg = 'var(--bullish-bg)';
-          border = 'var(--bullish-border)';
-        } else if (bullishPct < 40) {
-          mood = 'Bearish';
-          color = 'var(--bearish)';
-          bg = 'var(--bearish-bg)';
-          border = 'var(--bearish-border)';
+      const itemsHtml = tickersToRender.map(coin => {
+        const priceInfo = binancePrices[coin];
+        let priceHtml = '';
+        if (priceInfo) {
+          const dirClass = priceInfo.isUp ? 'up' : 'down';
+          const sign = priceInfo.isUp ? '+' : '';
+          priceHtml = `
+            <span class="ticker-price">${priceInfo.price}</span>
+            <span class="ticker-change ${dirClass}">${sign}${priceInfo.change}%</span>
+          `;
+        }
+
+        const stats = coinStats.get(coin);
+        let sentimentHtml = '';
+        if (stats && stats.total > 0) {
+          const bullishPct = (stats.bullish / stats.total) * 100;
+          let mood = 'Neutral';
+          let color = 'var(--neutral)';
+          let bg = 'var(--neutral-bg)';
+          let border = 'var(--neutral-border)';
+          
+          if (bullishPct > 60) {
+            mood = 'Bullish';
+            color = 'var(--bullish)';
+            bg = 'var(--bullish-bg)';
+            border = 'var(--bullish-border)';
+          } else if (bullishPct < 40) {
+            mood = 'Bearish';
+            color = 'var(--bearish)';
+            bg = 'var(--bearish-bg)';
+            border = 'var(--bearish-border)';
+          }
+          sentimentHtml = `
+            <span class="ticker-score" style="color:${color}; background:${bg}; border:1px solid ${border}">${mood}</span>
+          `;
         }
 
         return `
           <div class="ticker-item">
             <span class="ticker-coin">${coin}</span>
-            <span style="color:var(--text-secondary)">${stats.total} mentions</span>
-            <span class="ticker-score" style="color:${color}; background:${bg}; border:1px solid ${border}">${mood}</span>
+            ${priceHtml}
+            ${sentimentHtml}
           </div>
         `;
       }).join('');
 
-      tickerTape.innerHTML = tapeHtml + tapeHtml + tapeHtml;
+      tickerTape.innerHTML = itemsHtml + itemsHtml + itemsHtml; 
     }
 
     // ----------------------------------------------------------------
@@ -1627,6 +1955,11 @@
     async function fetchNews() {
       btnRefresh.classList.add('spinning');
       try {
+        await Promise.all([
+          fetchBinancePrices(),
+          fetchFearAndGreed()
+        ]);
+
         let data;
         try {
           const resp = await fetch('news.json?t=' + Date.now());
@@ -1643,13 +1976,11 @@
 
         allArticles = data.articles || [];
 
-        // Save updated header timestamp
         if (data.updated_at) {
           const d = new Date(data.updated_at);
           updatedAt.textContent = `Updated ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
         }
 
-        // Render views
         buildTickerTape();
         buildCoinChips();
         renderFeed();
@@ -1689,7 +2020,6 @@
         `;
       }).join('');
 
-      // Listeners
       coinChips.querySelectorAll('.chip').forEach(btn => {
         btn.addEventListener('click', () => {
           const coin = btn.dataset.coin;
@@ -1754,7 +2084,6 @@
               ${dateArticles.map((a) => {
                 const sClass = (a.sentiment || 'Neutral').toLowerCase();
                 const score = a.confidence != null ? Math.round(a.confidence * 100) : 50;
-                const tickersHtml = (a.tickers || []).slice(0, 4).map(t => `<span class="ticker-tag">${escHtml(t)}</span>`).join('');
                 const timeText = a.published ? formatTimeHM(a.published) : '—';
                 const sourcesText = getSourcesDisplay(a);
                 
@@ -1838,7 +2167,6 @@
     function renderDashboard() {
       const total = allArticles.length;
       
-      // Update Overview Summary bar
       const bullish = allArticles.filter(a => a.sentiment === 'Bullish').length;
       const bearish = allArticles.filter(a => a.sentiment === 'Bearish').length;
       const neutral = allArticles.filter(a => a.sentiment === 'Neutral' || !a.sentiment).length;
@@ -1850,7 +2178,6 @@
 
       totalStories.textContent = total;
 
-      // Calculate Market Mood Index
       const totalRated = bullish + bearish;
       const scoreValue = totalRated > 0 ? Math.round((bullish / totalRated) * 100) : 50;
 
@@ -1864,24 +2191,20 @@
       else if (scoreValue < 45) label = 'Bearish';
       moodLabel.textContent = label;
 
-      // Set colors for Mood label
       if (label.includes('Bullish')) moodLabel.style.color = 'var(--bullish)';
       else if (label.includes('Bearish')) moodLabel.style.color = 'var(--bearish)';
       else moodLabel.style.color = 'var(--neutral)';
 
-      // Distributions
       valBullish.textContent = bullish;
       valNeutral.textContent = neutral;
       valBearish.textContent = bearish;
 
-      // Heights in px (max 90px)
       const maxH = 90;
       const maxCount = Math.max(bullish, neutral, bearish) || 1;
       barBullish.style.height = `${(bullish / maxCount) * maxH}px`;
       barNeutral.style.height = `${(neutral / maxCount) * maxH}px`;
       barBearish.style.height = `${(bearish / maxCount) * maxH}px`;
 
-      // Leaderboard
       const coinStats = new Map();
       allArticles.forEach(a => {
         (a.tickers || []).forEach(t => {
@@ -1907,7 +2230,6 @@
           </div>`;
       } else {
         leaderboard.innerHTML = topLeaderboard.map(([coin, s]) => {
-          // Dynamic gradient bar representing Bullish ratio (Precise Specifications)
           const bullP = s.total > 0 ? Math.round((s.bullish / s.total) * 100) : 50;
 
           return `
@@ -1928,12 +2250,10 @@
         }).join('');
       }
 
-      // Lanes Stories
       const bullishArticles = allArticles.filter(a => a.sentiment === 'Bullish').slice(0, 10);
       const bearishArticles = allArticles.filter(a => a.sentiment === 'Bearish').slice(0, 10);
       const neutralArticles = allArticles.filter(a => a.sentiment === 'Neutral' || !a.sentiment).slice(0, 10);
 
-      // Counts
       laneBullishCount.textContent = bullish;
       laneBullishPct.textContent = total > 0 ? `${((bullish / total) * 100).toFixed(1)}%` : '0.0%';
 
@@ -2003,6 +2323,11 @@
       renderFeed();
     });
 
+    // Mobile filter trigger slide-down toggler
+    mobileFilterBtn.addEventListener('click', () => {
+      filterDrawer.classList.toggle('open');
+    });
+
     // Search input (debounced)
     let searchDebounce = null;
     searchInput.addEventListener('input', () => {
@@ -2035,7 +2360,7 @@
       ringFill.style.strokeDashoffset = offset;
     }
 
-    // Init
+    // Init load
     fetchNews();
   </script>
 </body>

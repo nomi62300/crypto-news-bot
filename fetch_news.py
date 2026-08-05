@@ -132,6 +132,13 @@ FALLBACK_COINS = {
 }
 
 
+DEFAULT_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+}
+
+
 def fetch_top_500_coingecko() -> dict[str, list[str]]:
     """
     Fetch the top 500 coins dynamically from CoinGecko markets API.
@@ -139,7 +146,6 @@ def fetch_top_500_coingecko() -> dict[str, list[str]]:
     """
     coins_map = {}
     fallback = {s: [kw.lower() for kw in kws] for s, kws in FALLBACK_COINS.items()}
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
     fetched_coins = []
     success = False
 
@@ -147,7 +153,7 @@ def fetch_top_500_coingecko() -> dict[str, list[str]]:
         # Fetch pages 1 and 2 (250 items per page = 500 total)
         for page in [1, 2]:
             url = f"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page={page}"
-            resp = requests.get(url, headers=headers, timeout=5)
+            resp = requests.get(url, headers=DEFAULT_HEADERS, timeout=5)
             resp.raise_for_status()
             fetched_coins.extend(resp.json())
         success = True
@@ -284,7 +290,7 @@ def fetch_all_feeds(coin_keywords: dict[str, list[str]]) -> list[dict]:
     for feed_meta in RSS_FEEDS:
         try:
             # Fetch feed with a strict 3-second network timeout
-            resp = requests.get(feed_meta["url"], timeout=3, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"})
+            resp = requests.get(feed_meta["url"], timeout=3, headers=DEFAULT_HEADERS)
             resp.raise_for_status()
             feed = feedparser.parse(resp.content)
         except Exception as exc:
