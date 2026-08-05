@@ -431,7 +431,7 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
             for idx, a in enumerate(batch):
                 r = results_map.get(idx)
                 if r:
-                    sentiment = r.get("sentiment", "Neutral")
+                    sentiment = str(r.get("sentiment", "Neutral")).strip().capitalize()
                     if sentiment not in ["Bullish", "Bearish", "Neutral"]:
                         sentiment = "Neutral"
                     a["sentiment"] = sentiment
