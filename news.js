@@ -1,7 +1,170 @@
 window.newsData = {
-  "updated_at": "2026-08-10T03:12:02.305705+00:00",
-  "total": 148,
+  "updated_at": "2026-08-10T04:53:09.749297+00:00",
+  "total": 145,
   "articles": [
+    {
+      "title": "Australia suspends Cryptolink’s registration over reporting failures",
+      "url": "https://cryptobriefing.com/australia-suspends-cryptolink-registration-reporting-failures/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-10T04:50:52+00:00",
+      "tickers": [
+        "CRYPTOLINK"
+      ],
+      "summary": "Australia's regulatory crackdown on Cryptolink highlights increasing scrutiny on crypto operations, signaling stricter compliance demands ahead. \n The post  Australia suspends Cryptolink&#8217;s registration over reporting failures  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.8,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "South Korea’s Regulators Accidentally Triggered a 30% Small-Cap Rally",
+      "url": "https://beincrypto.com/korea-regulators-kosdaq-small-cap-rally-leveraged-etf/",
+      "source": "BeInCrypto",
+      "published": "2026-08-10T04:40:00+00:00",
+      "tickers": [
+        "CASH",
+        "SAMSUNG",
+        "SKHYNIX"
+      ],
+      "summary": "South Korea&#8217;s financial regulators wanted to calm a volatile stock market as they cracked down on leveraged ETFs. However, they have made it more chaotic instead. Crackdowns on leveraged ETFs tied to Samsung Electronics and SK Hynix, which required retail investors to post higher cash deposits",
+      "sentiment": "Neutral",
+      "confidence": 0.2,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Bitcoin tops $65,000 with US inflation data due this week",
+      "url": "https://www.coindesk.com/markets/2026/08/10/bitcoin-tops-usd65-000-with-us-inflation-data-due-this-week",
+      "source": "CoinDesk",
+      "published": "2026-08-10T04:39:37+00:00",
+      "tickers": [
+        "BTC",
+        "US",
+        "DATA"
+      ],
+      "summary": "",
+      "sentiment": "Bullish",
+      "confidence": 0.9,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "NYSE builds onchain settlement platform for tokenized securities",
+      "url": "https://cryptobriefing.com/nyse-onchain-settlement-tokenized-securities/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-10T04:35:10+00:00",
+      "tickers": [
+        "REAL",
+        "XUSDT"
+      ],
+      "summary": "The NYSE's blockchain platform could revolutionize securities trading by enabling real-time settlement and continuous market access. \n The post  NYSE builds onchain settlement platform for tokenized securities  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.9,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Australia orders Cryptolink Bitcoin ATMs offline over ‘basic reporting’ failures",
+      "url": "https://cointelegraph.com/news/australia-orders-cryptolink-bitcoin-atms-offline-over-basic-reporting-failures?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "CoinTelegraph",
+      "published": "2026-08-10T04:32:36+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "summary": "Australia’s financial watchdog has suspended Cryptolink’s registration for three months, adding to a crackdown that previously saw the Bitcoin ATM operator fined $56,340.",
+      "sentiment": "Bearish",
+      "confidence": 0.8,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Esper Warns Senate to Pass CLARITY Act for National Security",
+      "url": "https://news.bitcoin.com/regulation-and-legal/esper-warns-senate-to-pass-clarity-act-for-national-security/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-10T04:30:46+00:00",
+      "tickers": [
+        "BILL"
+      ],
+      "summary": "Mark Esper, former U.S. Secretary of Defense, stresses the CLARITY Act would extend Patriot Act provisions to digital assets, modernizing the identification and special measures apparatus against foreign institutions to target threat actors such as North Korea and criminal organizations. Mark Esper:",
+      "sentiment": "Bearish",
+      "confidence": 0.8,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "XRP is getting left behind in the crypto bounce even as ETFs keep attracting investor money",
+      "url": "https://www.coindesk.com/markets/2026/08/10/xrp-is-getting-left-behind-in-the-crypto-bounce-even-as-etfs-keep-attracting-investor-money",
+      "source": "CoinDesk",
+      "published": "2026-08-10T04:26:01+00:00",
+      "tickers": [
+        "XRP"
+      ],
+      "summary": "",
+      "sentiment": "Bearish",
+      "confidence": 0.8,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Grayscale withdraws ETF registration applications for ADA, HBAR, and DOT",
+      "url": "https://cryptobriefing.com/grayscale-withdraws-etf-ada-hbar-dot/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-10T03:57:24+00:00",
+      "tickers": [
+        "ADA",
+        "HBAR"
+      ],
+      "summary": "Grayscale's ETF withdrawal highlights a strategic focus shift, potentially impacting investor confidence in altcoin market diversification. \n The post  Grayscale withdraws ETF registration applications for ADA, HBAR, and DOT  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.8,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Beijing rules out launch of yuan stablecoin, doubles down on state-controlled digital currency",
+      "url": "https://cryptobriefing.com/beijing-bans-yuan-stablecoin-issuance/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-10T03:41:18+00:00",
+      "tickers": [
+        "BAN"
+      ],
+      "summary": "China's ban on yuan stablecoins reinforces state control over digital currency, limiting private sector innovation and centralizing financial power. \n The post  Beijing rules out launch of yuan stablecoin, doubles down on state-controlled digital currency  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.8,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "BTC, ETH, XRP Whales Step Up Accumulation as CryptoQuant Sees the Bear Market Nearing Its End",
+      "url": "https://cryptopotato.com/btc-eth-xrp-whales-step-up-accumulation-as-cryptoquant-sees-the-bear-market-nearing-its-end/",
+      "source": "CryptoPotato",
+      "published": "2026-08-10T03:41:14+00:00",
+      "tickers": [
+        "BTC",
+        "ETH",
+        "XRP",
+        "NEAR"
+      ],
+      "summary": "The firm said whale accumulation near realized prices aligns with the late stage of a bear market.",
+      "sentiment": "Bullish",
+      "confidence": 0.9,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Crypto’s first quantum attack will look like unexplained breach: Quantus founder",
+      "url": "https://cointelegraph.com/news/cryptos-first-quantum-attack-look-like-ordinary-key-theft-quantus-founder?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "CoinTelegraph",
+      "published": "2026-08-10T03:34:53+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "summary": "Bad actors with access to a cryptography-breaking quantum computer probably won’t try to announce it to the world by hacking Satoshi Nakamoto’s high-profile Bitcoin wallets, crypto executives say.",
+      "sentiment": "Bearish",
+      "confidence": 0.8,
+      "other_sources": [],
+      "is_crypto_relevant": true
+    },
     {
       "title": "US stocks’ open interest hits $2B on crypto exchanges, surpassing precious metals for the first time",
       "url": "https://cryptobriefing.com/us-stocks-open-interest-surpasses-precious-metals-crypto/",
@@ -52,9 +215,9 @@ window.newsData = {
       "source": "Crypto Briefing",
       "published": "2026-08-10T02:09:11+00:00",
       "tickers": [
+        "TUT",
         "BTC",
-        "ETH",
-        "TUT"
+        "ETH"
       ],
       "summary": "The TUT liquidation highlights the risks of leverage in altcoin markets, urging exchanges to reassess risk management for volatile tokens. \n The post  $TUT sees $44M in liquidations, outpacing $BTC and $ETH  appeared first on  Crypto Briefing .",
       "sentiment": "Bearish",
@@ -97,8 +260,8 @@ window.newsData = {
       "published": "2026-08-10T01:23:23+00:00",
       "tickers": [
         "BTC",
-        "INC",
-        "STRC"
+        "STRC",
+        "INC"
       ],
       "summary": "Strategy Inc.'s financial stability could enhance STRC's market confidence, potentially unlocking significant capacity and influencing Bitcoin investments. \n The post  Strategy&#8217;s $4B reserve backs STRC at $95, eyes $18B capacity reopening  appeared first on  Crypto Briefing .",
       "sentiment": "Bullish",
@@ -112,8 +275,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-10T01:20:52+00:00",
       "tickers": [
-        "XRP",
-        "ROSE"
+        "ROSE",
+        "XRP"
       ],
       "summary": "Unrealized XRP depreciation erased nearly twice the value added by net capital-share activity as token holdings rose 31.7%. \n The post  Investors poured $82 million into Canary’s XRP ETF, but falling prices erased double what they put in  appeared first on  CryptoSlate .",
       "sentiment": "Bearish",
@@ -133,8 +296,8 @@ window.newsData = {
       "source": "Crypto Briefing",
       "published": "2026-08-10T01:02:34+00:00",
       "tickers": [
-        "BTC",
         "US",
+        "BTC",
         "BILL"
       ],
       "summary": "The proposed bill could signal a shift in U.S. crypto policy, potentially influencing Bitcoin's institutional adoption and market dynamics. \n The post  US congressman proposes strategic Bitcoin reserve, no capital gains tax  appeared first on  Crypto Briefing .",
@@ -176,8 +339,8 @@ window.newsData = {
       "source": "Crypto Briefing",
       "published": "2026-08-10T00:35:08+00:00",
       "tickers": [
-        "NVIDIA",
-        "NVDAON"
+        "NVDAON",
+        "NVIDIA"
       ],
       "summary": "Cuban's warning highlights potential instability in AI investments, urging caution as financial practices reminiscent of the dot-com era resurface. \n The post  Mark Cuban compares Nvidia to dot-com IPO machine, warning of AI sector fragility  appeared first on  Crypto Briefing .",
       "sentiment": "Bearish",
@@ -191,9 +354,9 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-10T00:31:34+00:00",
       "tickers": [
-        "CLARITY",
         "US",
-        "BILL"
+        "BILL",
+        "CLARITY"
       ],
       "summary": "Former US Defense Secretary Mark Esper says the CLARITY Act is not merely a financial services bill, its a national security one.",
       "sentiment": "Bearish",
@@ -207,8 +370,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-10T00:30:56+00:00",
       "tickers": [
-        "REAL",
-        "BTC"
+        "BTC",
+        "REAL"
       ],
       "summary": "Arthur Hayes argues the artificial intelligence buildout is a leveraged real estate bubble that he says will end in a government bailout larger than 2008. He expects the resulting liquidity creation to carry bitcoin past $1 million. What Hayes Thinks the AI Buildout Really Is Arthur Hayes, co-founde",
       "sentiment": "Bullish",
@@ -223,8 +386,8 @@ window.newsData = {
       "published": "2026-08-10T00:20:16+00:00",
       "tickers": [
         "POLY",
-        "HBAR",
         "JST",
+        "HBAR",
         "ADA"
       ],
       "summary": "Cardano, Hedera and Polkadot registration withdrawals gave no reason for the retreat, while five other Grayscale altcoin filings remained preliminary. \n The post  In just 190 seconds, Grayscale quietly pulled the plug on three major altcoin ETFs  appeared first on  CryptoSlate .",
@@ -240,27 +403,15 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Gold steadies after biggest weekly gain since January",
-      "url": "https://cryptobriefing.com/gold-steadies-biggest-weekly-gain-since-january/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-10T00:20:07+00:00",
-      "tickers": [],
-      "summary": "Gold's stabilization amid labor market shifts suggests potential for non-yielding assets to thrive if monetary policy remains accommodative. \n The post  Gold steadies after biggest weekly gain since January  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.7,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Shiba Inu (SHIB), Solana (SOL), Hyperliquid (HYPE) and Binance Coin (BNB) Price Analysis for August 10: Can Bulls Establish Control?",
       "url": "https://u.today/shiba-inu-shib-solana-sol-hyperliquid-hype-and-binance-coin-bnb-price-analysis-for-august-10-can",
       "source": "U.Today",
       "published": "2026-08-10T00:01:00+00:00",
       "tickers": [
-        "SOL",
-        "BNB",
         "HYPE",
-        "SHIB"
+        "SHIB",
+        "BNB",
+        "SOL"
       ],
       "summary": "The market is certainly far from being ready for a proper retrace, even though some assets show a bullish dynamic.",
       "sentiment": "Bullish",
@@ -283,34 +434,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Washington lobbyists skeptical of prediction market limits before Congress ends",
-      "url": "https://cryptobriefing.com/lobbyists-skeptical-prediction-market-limits-congress/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-09T23:45:01+00:00",
-      "tickers": [],
-      "summary": "Lobbyists' skepticism highlights the enduring influence of prediction markets, potentially shaping future regulatory landscapes and political strategies. \n The post  Washington lobbyists skeptical of prediction market limits before Congress ends  appeared first on  Crypto Briefing .",
-      "sentiment": "Neutral",
-      "confidence": 0.6,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Gold steadies near $4,345 as US jobs data dampens Fed rate hike outlook",
-      "url": "https://cryptobriefing.com/gold-steadies-near-4345-as-us-jobs-data-dampens-fed-rate-hike-outlook/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-09T23:39:13+00:00",
-      "tickers": [
-        "NEAR",
-        "US",
-        "DATA"
-      ],
-      "summary": "Gold's stability amid weaker US jobs data suggests a potential shift in Fed policy, impacting inflation hedging strategies and market dynamics. \n The post  Gold steadies near $4,345 as US jobs data dampens Fed rate hike outlook  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
       "title": "CLARITY Act Odds Sink as Senate Delay Threatens 2026 Crypto Vote",
       "url": "https://news.bitcoin.com/regulation-and-legal/clarity-act-odds-sink-as-senate-delay-threatens-2026-crypto-vote/",
       "source": "Bitcoin.com News",
@@ -321,21 +444,6 @@ window.newsData = {
       "summary": "Polymarket traders now price the CLARITY Act at a 21% chance of becoming law this year. The Senate filed a cloture motion on Aug. 8 after missing its pre-recess vote, pushing the fight into September. Why Is the CLARITY Act Priced at 21%? Polymarket traders assigned the Digital Asset Market Clarity",
       "sentiment": "Bearish",
       "confidence": 0.9,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Chinese brokerages tighten account checks amid regulatory scrutiny",
-      "url": "https://cryptobriefing.com/chinese-brokerages-tighten-account-checks-regulatory-crackdown/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-09T23:15:19+00:00",
-      "tickers": [
-        "ETH",
-        "BTC"
-      ],
-      "summary": "The crackdown on unauthorized trading reshapes China's financial landscape, increasing compliance costs and limiting mainland investor access. \n The post  Chinese brokerages tighten account checks amid regulatory scrutiny  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.85,
       "other_sources": [],
       "is_crypto_relevant": true
     },
@@ -357,21 +465,6 @@ window.newsData = {
           "published": "2026-08-09T23:05:47+00:00"
         }
       ],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "US-Japan yen intervention signals waning dollar dominance, boosts gold demand",
-      "url": "https://cryptobriefing.com/us-japan-yen-intervention-signals-waning-dollar-dominance-boosts-gold-demand/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-09T22:48:31+00:00",
-      "tickers": [
-        "SAFE",
-        "US"
-      ],
-      "summary": "The intervention may accelerate shifts in global reserve strategies, enhancing gold's role as a safe-haven amid currency instability. \n The post  US-Japan yen intervention signals waning dollar dominance, boosts gold demand  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.9,
-      "other_sources": [],
       "is_crypto_relevant": true
     },
     {
@@ -397,8 +490,8 @@ window.newsData = {
       "tickers": [
         "ZRO",
         "CC",
-        "BEAT",
-        "BSV"
+        "BSV",
+        "BEAT"
       ],
       "summary": "This week, bears took the lead while bulls managed only minor gains.",
       "sentiment": "Neutral",
@@ -412,8 +505,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-09T22:00:12+00:00",
       "tickers": [
-        "CASH",
-        "BTC"
+        "BTC",
+        "CASH"
       ],
       "summary": "Only 800 million of those shares raised $700,000 in cash as the inactive miner searched for an operating restart. \n The post  With $0 in revenue and 35 idle machines in storage, an inactive Bitcoin miner printed 1.65 billion shares to stay alive  appeared first on  CryptoSlate .",
       "sentiment": "Bearish",
@@ -433,8 +526,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-09T21:48:23+00:00",
       "tickers": [
-        "FLOW",
-        "BTC"
+        "BTC",
+        "FLOW"
       ],
       "summary": "Institutions are concentrating liquidity into fewer tokens instead of spreading capital across the wider market.",
       "sentiment": "Bullish",
@@ -448,8 +541,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-09T21:29:08+00:00",
       "tickers": [
-        "NEAR",
-        "21TOKENS"
+        "21TOKENS",
+        "NEAR"
       ],
       "summary": "Kraken is entering the final stage of its latest delisting cycle, giving holders of 21 tokens until August 27 at 14:00 UTC to withdraw their assets. Afterwards, the exchange begins automatically liquidating remaining balances into markets it warns may have limited or no liquidity. The scheduled deli",
       "sentiment": "Bearish",
@@ -463,8 +556,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-09T21:03:53+00:00",
       "tickers": [
-        "BIP-110",
-        "BTC"
+        "BTC",
+        "BIP-110"
       ],
       "summary": "BIP-110 proponents are debating whether to change the proof-of-work algorithm on their stalled minority chain after it managed to mine only two blocks before Bitcoin’s enormous difficulty effectively brought activity to a signficant crawl. The BIP-110 chain split from Bitcoin after mandatory signali",
       "sentiment": "Neutral",
@@ -478,9 +571,9 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-09T21:00:13+00:00",
       "tickers": [
+        "ETH",
         "21",
-        "XRP",
-        "ETH"
+        "XRP"
       ],
       "summary": "Withdrawals close at 14:00 UTC, then thin markets could determine what automatic liquidation returns. \n The post  Crypto holders face an Aug 27 deadline to save 21 tokens before Kraken liquidates them into thin order books  appeared first on  CryptoSlate .",
       "sentiment": "Neutral",
@@ -536,12 +629,12 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-09T19:43:10+00:00",
       "tickers": [
-        "USDC",
-        "ARC",
-        "OPEN",
         "AAVE",
+        "OPEN",
         "BTC",
-        "ETH"
+        "ARC",
+        "ETH",
+        "USDC"
       ],
       "summary": "This week’s stories highlighted regulatory delays, security concerns, institutional growth, and market experimentation. The Senate pushed the CLARITY Act vote to September, while a Bitcoin security team uncovered thousands of potential flaws across open-source projects. Circle reported stronger USDC",
       "sentiment": "Neutral",
@@ -556,8 +649,8 @@ window.newsData = {
       "published": "2026-08-09T19:38:14+00:00",
       "tickers": [
         "USDT",
-        "USDC",
-        "CARDS"
+        "CARDS",
+        "USDC"
       ],
       "summary": "Dollar-backed stablecoins have taken over crypto payment cards. USDC (USDC) and Tether (USDT) together account for roughly 84% of card spending. The split reverses a market that was dominated by euro tokens less than two years ago. The shift coincided with a wave of new card programs and settlement",
       "sentiment": "Neutral",
@@ -571,8 +664,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-09T19:33:09+00:00",
       "tickers": [
-        "JST",
-        "BTC"
+        "BTC",
+        "JST"
       ],
       "summary": "The breakaway chain drew just 2.53% of mining support, leaving its blocks hours apart and roughly 350 days from a difficulty adjustment while the main network powered ahead.",
       "sentiment": "Neutral",
@@ -592,8 +685,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-09T19:29:23+00:00",
       "tickers": [
-        "SOL",
-        "ETH"
+        "ETH",
+        "SOL"
       ],
       "summary": "Ethereum dominated RWA markets as Solana strengthened, while tokenized assets expanded despite weakening DeFi and crypto-native trading activity.",
       "sentiment": "Neutral",
@@ -607,8 +700,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-09T19:28:34+00:00",
       "tickers": [
-        "SAFE",
-        "BTC"
+        "BTC",
+        "SAFE"
       ],
       "summary": "Robin Brooks has renewed his criticism of Bitcoin’s safe-haven credentials, arguing that its underperformance against precious metals during the so-called “debasement trade” shows it has failed to establish itself as a digital equivalent of gold.",
       "sentiment": "Bearish",
@@ -622,8 +715,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-09T19:02:36+00:00",
       "tickers": [
-        "FORM",
-        "BTC"
+        "BTC",
+        "FORM"
       ],
       "summary": "Japan&#8217;s exit from decades of ultra-low interest rates is beginning to expose the hidden costs of higher borrowing costs. The country&#8217;s four largest life insurers are now sitting on roughly $96 billion in unrealized losses on Japanese government bonds (JGBs). On their own, the losses are",
       "sentiment": "Neutral",
@@ -637,8 +730,8 @@ window.newsData = {
       "source": "Investing.com Crypto",
       "published": "2026-08-09T19:02:19+00:00",
       "tickers": [
-        "NEAR",
-        "BTC"
+        "BTC",
+        "NEAR"
       ],
       "summary": "",
       "sentiment": "Bearish",
@@ -730,8 +823,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-09T18:00:50+00:00",
       "tickers": [
-        "SOL",
-        "BITW"
+        "BITW",
+        "SOL"
       ],
       "summary": "$262.9 million of unrealized SOL depreciation drove most of a $316 million operational loss. \n The post  Investors poured $267 million into Bitwise’s Solana ETF, but market losses erased every cent  appeared first on  CryptoSlate .",
       "sentiment": "Bearish",
@@ -751,8 +844,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-09T18:00:24+00:00",
       "tickers": [
-        "SPK",
-        "BTC"
+        "BTC",
+        "SPK"
       ],
       "summary": "Bitcoin risks a slide to $57K as unliquidated longs stack below price and demand stays weak.",
       "sentiment": "Neutral",
@@ -766,24 +859,12 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-09T17:31:53+00:00",
       "tickers": [
-        "MMT",
-        "BTC"
+        "BTC",
+        "MMT"
       ],
       "summary": "Bitcoin remains trapped in a broader consolidation structure, with the latest recovery failing to generate convincing bullish momentum. The price is again approaching overhead supply, but buyers have yet to produce the type of breakout needed to signal a meaningful structural shift. Bitcoin Price An",
       "sentiment": "Bearish",
       "confidence": 0.9,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Fed Hike Bets Crack as September Hold Odds Storm Into Lead",
-      "url": "https://news.bitcoin.com/finance/fed-hike-bets-crack-as-september-hold-odds-storm-into-lead/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-09T17:30:02+00:00",
-      "tickers": [],
-      "summary": "Prediction markets and the CME Fedwatch tool are lining up behind the U.S. Federal Reserve holding rates steady in September, but anyone watching the board knows this is hardly a done deal. Traders have moved toward a pause, yet the pricing still leaves plenty of room for another hike. Across some o",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
       "other_sources": [],
       "is_crypto_relevant": true
     },
@@ -805,11 +886,11 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-09T17:03:53+00:00",
       "tickers": [
-        "US",
+        "DATA",
         "XRP",
-        "BILL",
         "BTC",
-        "DATA"
+        "US",
+        "BILL"
       ],
       "summary": "The growing delay in the passage of the CLARITY Act has heightened anxieties among prominent figures in the cryptocurrency industry. Data shared today by market analyst BSCN showed that Michael Saylor’s is dissatisfied with the progress of the legislative bill. The crypto market structure bill is a",
       "sentiment": "Bullish",
@@ -836,8 +917,8 @@ window.newsData = {
       "published": "2026-08-09T17:03:11+00:00",
       "tickers": [
         "XRP",
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "summary": "XRP price hovered at $1.059 on Sunday after holding above the crucial $1.00 psychological support level.  The XRP price traded around 1.8% higher, although weekly performance remained negative following recent selling pressure.  Its recovery reflects improving cryptocurrency sentiment as Bitcoin rec",
       "sentiment": "Neutral",
@@ -863,22 +944,6 @@ window.newsData = {
           "published": "2026-08-09T17:00:18+00:00"
         }
       ],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Roughnecks Quits BIP-110 Mining as Ocean Hashrate Collapses",
-      "url": "https://news.bitcoin.com/crypto-news/roughnecks-quits-bip-110-mining-as-ocean-hashrate-collapses/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-09T16:20:27+00:00",
-      "tickers": [
-        "BIP-110",
-        "JST",
-        "BTC"
-      ],
-      "summary": "Roughnecks, the mining group responsible for the only two blocks on Bitcoin’s new BIP-110 minority chain, has stopped mining under its name and urged others to stand down as the breakaway network remains stuck just two blocks beyond its split from Bitcoin. Roughnecks Pulls the Plug as the Fork Freez",
-      "sentiment": "Bearish",
-      "confidence": 0.9,
-      "other_sources": [],
       "is_crypto_relevant": true
     },
     {
@@ -921,26 +986,12 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-09T16:00:00+00:00",
       "tickers": [
-        "US",
-        "DATA"
+        "DATA",
+        "US"
       ],
       "summary": "European stock exchange-traded funds (ETFs) recorded a month of positive net flows in July, their first since the US-Iran conflict began in late February, according to Bloomberg data. The return of capital signals renewed investor appetite for the region. A strong earnings season and easing oil pric",
       "sentiment": "Bullish",
       "confidence": 0.8,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Crypto Made a $9.6 Billion Record, But It’s Hiding a Crucial Truth",
-      "url": "https://beincrypto.com/crypto-ma-record-value-deal-count/",
-      "source": "BeInCrypto",
-      "published": "2026-08-09T15:17:29+00:00",
-      "tickers": [
-        "ROSE"
-      ],
-      "summary": "Crypto mergers and acquisitions (M&#38;A) reached a record $9.66 billion in disclosed value in the first half of 2026, even as the number of announced deals fell 25% to 87.&#160; The finding comes from CryptoRank Research, which tracked 87 acquisition announcements between January and June. Disclose",
-      "sentiment": "Bullish",
-      "confidence": 0.9,
       "other_sources": [],
       "is_crypto_relevant": true
     },
@@ -994,11 +1045,11 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-09T14:57:43+00:00",
       "tickers": [
+        "ROSE",
         "MMT",
-        "SOL",
         "BTC",
         "JST",
-        "ROSE"
+        "SOL"
       ],
       "summary": "Solana price rose 1.40% to $76.47 over 24 hours, outperforming Bitcoin as institutional accumulation strengthened market demand. SOL has just crossed a significant downward trendline, still with a higher-low pattern around key support.  This formation implies that the bullish momentum is still in ef",
       "sentiment": "Neutral",
@@ -1024,8 +1075,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-09T14:19:35+00:00",
       "tickers": [
-        "IBIT",
-        "BTC"
+        "BTC",
+        "IBIT"
       ],
       "summary": "",
       "sentiment": "Bullish",
@@ -1053,8 +1104,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-09T13:38:30+00:00",
       "tickers": [
-        "CASH",
-        "BTC"
+        "BTC",
+        "CASH"
       ],
       "summary": "Saylor triggers Bitcoin buying speculation with a fresh 'Doing Business' chart as Strategy balances a $4 billion cash hoard against a $9 billion paper loss.",
       "sentiment": "Neutral",
@@ -1110,32 +1161,13 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-09T13:00:00+00:00",
       "tickers": [
-        "SOL",
+        "BTC",
         "ETH",
-        "BTC"
+        "SOL"
       ],
       "summary": "",
       "sentiment": "Bearish",
       "confidence": 0.7,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "The US Magnificent 7 Stocks are Losing Wall Street Interest",
-      "url": "https://beincrypto.com/magnificent-seven-wall-street-attention-decline/",
-      "source": "BeInCrypto",
-      "published": "2026-08-09T12:46:52+00:00",
-      "tickers": [
-        "US",
-        "AMZN",
-        "GOOGL",
-        "AAPL",
-        "MSFT",
-        "FB"
-      ],
-      "summary": "Monthly mentions of the Magnificent Seven (Mag 7) in Bloomberg Terminal news stories have fallen roughly 70% from their Q1 2024 peak. This points to a notable shift in investor attention away from the megacap technology group. Magnificent 7 Mentions Fall to Lowest Level Since Late 2023 The Kobeissi",
-      "sentiment": "Neutral",
-      "confidence": 0.6,
       "other_sources": [],
       "is_crypto_relevant": true
     },
@@ -1145,10 +1177,10 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-09T12:30:46+00:00",
       "tickers": [
+        "BTC",
         "BILL",
-        "SOL",
         "ETH",
-        "BTC"
+        "SOL"
       ],
       "summary": "The crypto market shows a mixed outlook today, August 9, with Bitcoin (BTC) and Ethereum (ETH) registering slight drops while Solana (SOL) trades in the green. The mixed outlook comes amid fresh speculation about whether the CLARITY Act bill might pass in 2026 after Senator John Thune filed cloture",
       "sentiment": "Bearish",
@@ -1162,8 +1194,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-09T12:13:15+00:00",
       "tickers": [
-        "ZEC",
-        "BTC"
+        "BTC",
+        "ZEC"
       ],
       "summary": "ZEC/BTC breakout past its 200-period SMA officially ends a 9-year capitulation trend and rewrites the crypto market playbook.",
       "sentiment": "Neutral",
@@ -1187,26 +1219,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "3 Crypto Earnings to Watch This Week After Q1 Losses",
-      "url": "https://beincrypto.com/crypto-earnings-to-watch-in-august/",
-      "source": "BeInCrypto",
-      "published": "2026-08-09T11:14:38+00:00",
-      "tickers": [
-        "FWDI",
-        "BTDR",
-        "DEEP",
-        "SOL",
-        "BTC",
-        "ETH",
-        "BTBT"
-      ],
-      "summary": "Three crypto companies, Bitdeer (BTDR), Forward Industries (FWDI), and Bit Digital (BTBT), report quarterly earnings this week, each coming off a quarter deep in the red.&#160; The three prints span exposure to major tokens, including Bitcoin (BTC), Solana (SOL), and Ethereum (ETH). All three assets",
-      "sentiment": "Neutral",
-      "confidence": 0.4,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
       "title": "BIP-110 Bitcoin branch stalls after two blocks as gap widens",
       "url": "https://cointelegraph.com/news/bitcoin-bip-110-branch-stalls-miner-support?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "source": "CoinTelegraph",
@@ -1226,8 +1238,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-09T11:00:41+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "summary": "Could these ETF inflows propel Bitcoin, Ethereum, and other altcoin prices towards a much-needed rally in August?",
       "sentiment": "Bullish",
@@ -1241,8 +1253,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-09T10:30:00+00:00",
       "tickers": [
-        "MKR",
-        "ETH"
+        "ETH",
+        "MKR"
       ],
       "summary": "An Ethereum ICO-era whale has resurfaced after seven years of inactivity, moving 3,510 MKR worth roughly $4.41 million to a new address.",
       "sentiment": "Bullish",
@@ -1256,10 +1268,10 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-09T10:11:26+00:00",
       "tickers": [
-        "CRO",
-        "BTCPUMP",
         "PUMP",
-        "BTC"
+        "BTCPUMP",
+        "BTC",
+        "CRO"
       ],
       "summary": "PUMP is the other notable gainer over the past 24 hours, while CRO is trying to recover some of the recent losses.",
       "sentiment": "Neutral",
@@ -1301,8 +1313,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-09T09:45:33+00:00",
       "tickers": [
-        "SENT",
-        "SHIB"
+        "SHIB",
+        "SENT"
       ],
       "summary": "Shiba Inu secures 439% rise in burn rate with millions of token sent to dead wallets.",
       "sentiment": "Bullish",
@@ -1316,8 +1328,8 @@ window.newsData = {
       "source": "The Daily Hodl",
       "published": "2026-08-09T09:15:36+00:00",
       "tickers": [
-        "TRUMP",
-        "POLYM"
+        "POLYM",
+        "TRUMP"
       ],
       "summary": "A user is suing Polymarket for denying a $170,000 payout on a bet about whether President Trump would say 'Khamenei' or 'Ayatollah' in a specific week. \n The post  Prediction Market Platform Polymarket Confronts $170,000 Lawsuit Over Disputed Trump Statement Wager  appeared first on  The Daily Hodl",
       "sentiment": "Bearish",
@@ -1331,10 +1343,10 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-09T09:10:39+00:00",
       "tickers": [
-        "ETC",
-        "ETH",
+        "BTC",
         "SENT",
-        "BTC"
+        "ETC",
+        "ETH"
       ],
       "summary": "The rules, effective Jan. 1, 2027, cover transactions above $10,000 sent to overseas providers or self-custody wallets, along with other transfers flagged for review.",
       "sentiment": "Bearish",
@@ -1348,8 +1360,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-09T09:09:00+00:00",
       "tickers": [
-        "AU",
-        "BTC"
+        "BTC",
+        "AU"
       ],
       "summary": "Gold continues to perform a lot better on a YTD scale than BTC.",
       "sentiment": "Neutral",
@@ -1377,8 +1389,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-09T07:43:54+00:00",
       "tickers": [
-        "JST",
-        "BTC"
+        "BTC",
+        "JST"
       ],
       "summary": "Bitcoin's implied volatility has fallen to a new 2026 low just as U.S. Treasury yields have climbed to their highest levels of the year.",
       "sentiment": "Neutral",
@@ -1470,20 +1482,6 @@ window.newsData = {
       "summary": "Senate Majority Leader John Thune filed cloture on the CLARITY Act bill on August 8, suggesting that voting for the crypto legislation could occur in September after senators resume session after their summer recess. Crypto stocks for US-listed companies face a surge in volatility as investors weigh",
       "sentiment": "Neutral",
       "confidence": 0.5,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "OKB nears $100 resistance as volume and network activity rise",
-      "url": "https://ambcrypto.com/okb-nears-100-resistance-as-volume-and-network-activity-rise/",
-      "source": "AMBCrypto",
-      "published": "2026-08-09T04:00:06+00:00",
-      "tickers": [
-        "OKB"
-      ],
-      "summary": "OKB’s rally has volume behind it. The $100 level will reveal whether buyers have enough follow-through.",
-      "sentiment": "Neutral",
-      "confidence": 0.6,
       "other_sources": [],
       "is_crypto_relevant": true
     },
@@ -1592,8 +1590,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-08T18:02:28+00:00",
       "tickers": [
-        "PI",
-        "BTC"
+        "BTC",
+        "PI"
       ],
       "summary": "Pi Network price has strengthened as Bitcoin trades above $65,000 and broader crypto sentiment improves. PI coin price gained 2.80% to $0.0910 during the past day, outperforming Bitcoin’s modest advance. The action follows Protocol 26 and new utility developments as well as potential future listings",
       "sentiment": "Bullish",
@@ -1607,8 +1605,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-08T17:48:02+00:00",
       "tickers": [
-        "NEAR",
-        "BTC"
+        "BTC",
+        "NEAR"
       ],
       "summary": "",
       "sentiment": "Bullish",
@@ -1622,8 +1620,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-08T17:38:31+00:00",
       "tickers": [
-        "MMT",
-        "SHIB"
+        "SHIB",
+        "MMT"
       ],
       "summary": "Shiba Inu selling pressure appears to be easing as traders begin to return fewer SHIB tokens to exchanges, hinting at a potential recovery.",
       "sentiment": "Bullish",
@@ -1637,26 +1635,12 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-08T17:31:03+00:00",
       "tickers": [
-        "OPEN",
-        "BTC"
+        "BTC",
+        "OPEN"
       ],
       "summary": "A volunteer security effort says it has scanned 150 Bitcoin repositories, disclosed more than a dozen vulnerabilities, and is building an open-source AI platform to automate software security reviews.",
       "sentiment": "Bearish",
       "confidence": 0.9,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Here’s what happened in crypto today",
-      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "CoinTelegraph",
-      "published": "2026-08-08T17:19:56+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "summary": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
-      "sentiment": "Neutral",
-      "confidence": 0.7,
       "other_sources": [],
       "is_crypto_relevant": true
     },
@@ -1666,8 +1650,8 @@ window.newsData = {
       "source": "The Daily Hodl",
       "published": "2026-08-08T16:55:06+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "summary": "A Georgia man has been arrested after allegedly impersonating a bank employee and tricking a Connecticut business into handing over $50,000. Junior Astre, 41, of Loganville, Georgia, faces charges including first-degree identity theft, second-degree money laundering, first-degree larceny, criminal i",
       "sentiment": "Neutral",
@@ -1681,9 +1665,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-08T16:52:14+00:00",
       "tickers": [
-        "NEAR",
         "GBTC",
-        "BTC"
+        "BTC",
+        "NEAR"
       ],
       "summary": "The Senate’s decision to delay the CLARITY Act vote has raised doubts about 2026 passage, but Grayscale says crypto activity can continue without the legislation. Ad Ad Grayscale Sees Limited Near-Term Effect Grayscale said the delay would not immediately disrupt major blockchain networks, Bitcoin d",
       "sentiment": "Neutral",
@@ -1698,8 +1682,8 @@ window.newsData = {
       "published": "2026-08-08T16:33:02+00:00",
       "tickers": [
         "BTCX",
-        "XRP",
-        "BILL"
+        "BILL",
+        "XRP"
       ],
       "summary": "Senate Majority Leader John Thune filed the motion to proceed early Saturday, setting up a mid-September showdown.",
       "sentiment": "Bullish",
@@ -1713,9 +1697,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-08T16:28:38+00:00",
       "tickers": [
+        "BTC",
         "ETHX",
-        "ETH",
-        "BTC"
+        "ETH"
       ],
       "summary": "Meanwhile, the spot Ethereum ETFs extended their consecutive weekly streak to five in a row.",
       "sentiment": "Bullish",
@@ -1729,10 +1713,10 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-08T16:20:17+00:00",
       "tickers": [
-        "BTCX",
-        "MMT",
         "US",
-        "BTC"
+        "BTC",
+        "BTCX",
+        "MMT"
       ],
       "summary": "The spot Bitcoin exchange-traded funds registered their third-strongest showing since October as institutional demand showed signs of renewed momentum.",
       "sentiment": "Bullish",
@@ -1760,8 +1744,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-08T16:00:57+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "summary": "XRP turns corner against BTC after entering oversold territory with traders watching what comes next.",
       "sentiment": "Bullish",
@@ -1823,8 +1807,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-08T14:52:11+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "summary": "Bloomberg analyst Eric Balchunas tied the run to the Coldcard wallet exploit, noting several Bitcoin funds have drawn inflows daily since the hack.",
       "sentiment": "Bullish",
@@ -1838,8 +1822,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-08T14:50:28+00:00",
       "tickers": [
-        "BNB",
-        "BSC"
+        "BSC",
+        "BNB"
       ],
       "summary": "BSC’s next upgrade shows its muscle with 88% throughput gain.",
       "sentiment": "Bullish",
@@ -1881,9 +1865,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-08T14:02:29+00:00",
       "tickers": [
+        "DATA",
         "BNB",
-        "XRP",
-        "DATA"
+        "XRP"
       ],
       "summary": "Ripple (XRP) price is up by 0.46% today, August 8, to trade at $1.04 at the time of writing. XRP gains come as on-chain data shows that whale activity for XRP remains elevated as XRPL releases a major upgrade seeking to improve privacy and tokenization on the network. Ad Ad Binance Whale Activity Re",
       "sentiment": "Bullish",
@@ -1911,8 +1895,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-08T14:00:00+00:00",
       "tickers": [
-        "FLOW",
-        "BTC"
+        "BTC",
+        "FLOW"
       ],
       "summary": "",
       "sentiment": "Bullish",
@@ -1926,9 +1910,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-08T13:30:09+00:00",
       "tickers": [
-        "OP",
         "SOON",
-        "BILL"
+        "BILL",
+        "OP"
       ],
       "summary": "The Senate is set to hold a cloture vote on the CLARITY Act as soon as it returns from its August recess, a move that will mark the first procedural step towards passing the bill into law. Despite Majority Leader John Thune&#8217;s filing for a cloture vote, optimism remains low that the crypto bill",
       "sentiment": "Bullish",
@@ -1942,8 +1926,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-08T13:30:00+00:00",
       "tickers": [
-        "REAL",
-        "BTC"
+        "BTC",
+        "REAL"
       ],
       "summary": "Crypto is growing up thanks to trading in real world assets, and Bitcoin will never dip below $60K again, says Nansen founder founder Alex Svanevik.",
       "sentiment": "Bullish",
@@ -1971,10 +1955,10 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-08T12:54:18+00:00",
       "tickers": [
-        "SPCXB",
-        "SPCE",
         "CRVL",
-        "COIN"
+        "COIN",
+        "SPCE",
+        "SPCXB"
       ],
       "summary": "Cathie Wood&#8217;s investment company has recently increased its investments in SpaceX, Coinbase and Circle. The three stock additions accounted for roughly $45.4 million, as of the latest prices available. Ad Ad Cathie Wood&#8217;s ARK Buys More SpaceX, Coinbase, Circle Shares After Cathie Wood&#8",
       "sentiment": "Bullish",
@@ -1988,10 +1972,10 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-08T12:30:05+00:00",
       "tickers": [
-        "PI",
-        "US",
         "DATA",
-        "BTC"
+        "US",
+        "BTC",
+        "PI"
       ],
       "summary": "The crypto market is up today, August 8, after a decline in the US nonfarm payrolls data for July 2026 reduced the odds of the Federal Reserve hiking interest rates in September. Bitcoin (BTC) price moved above $65,000 while Strategy (NASDAQ: MSTR) stock closed trading at $100. Pi Network (PI) is al",
       "sentiment": "Bullish",
@@ -2005,9 +1989,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-08T12:10:38+00:00",
       "tickers": [
+        "BTC",
         "FORM",
-        "ETH",
-        "BTC"
+        "ETH"
       ],
       "summary": "Ethereum price held above $1,918 after a modest rebound supported by improving sentiment across the broader cryptocurrency market.  Bitcoin price also remained above $64,900 as major digital assets recovered from recent weakness.  The Ethereum exchange-traded funds registered a record weekly inflow",
       "sentiment": "Neutral",
@@ -2064,9 +2048,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-08T10:24:03+00:00",
       "tickers": [
+        "BTC",
         "PI",
-        "BEAT",
-        "BTC"
+        "BEAT"
       ],
       "summary": "BEAT continues to be highly volatile, skyrocketing by over 18% in the past 24 hours.",
       "sentiment": "Neutral",
@@ -2109,10 +2093,10 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-08T09:46:32+00:00",
       "tickers": [
-        "NEAR",
         "XRP",
-        "ETH",
-        "BTC"
+        "BTC",
+        "NEAR",
+        "ETH"
       ],
       "summary": "Bitcoin price held above $64,900 as the crypto market gained 0.81% to $2.21 trillion over 24 hours. XRP price was trading at around $1.03 as the market rallied, while Ethereum was trading at near $1,915. Kalshi markets indicated Bitcoin could climb toward $68,000 during August. In Washington, the Se",
       "sentiment": "Bullish",
@@ -2154,9 +2138,9 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-08T09:07:24+00:00",
       "tickers": [
-        "ETH",
+        "BTC",
         "BILL",
-        "BTC"
+        "ETH"
       ],
       "summary": "",
       "sentiment": "Neutral",
@@ -2226,8 +2210,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-08T06:21:08+00:00",
       "tickers": [
-        "USDT",
-        "CROSS"
+        "CROSS",
+        "USDT"
       ],
       "summary": "IMF first deputy managing director Dan Katz says users may favor digital dollars for their liquidity, network effects and cross-border acceptance.",
       "sentiment": "Bullish",
@@ -2247,36 +2231,6 @@ window.newsData = {
       "summary": "CRO slumped below $0.05 for the first time since late 2023.",
       "sentiment": "Bearish",
       "confidence": 0.85,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "US court backs Bybit’s bid to trace funds from $1.5B North Korea hack",
-      "url": "https://cointelegraph.com/news/bybit-us-court-trace-funds-north-korea-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "CoinTelegraph",
-      "published": "2026-08-08T04:11:53+00:00",
-      "tickers": [
-        "BYT",
-        "US",
-        "BTC"
-      ],
-      "summary": "Expedited discovery allows the exchange to seek account identities, balances and transaction histories from platforms with US operations.",
-      "sentiment": "Bearish",
-      "confidence": 0.8,
-      "other_sources": [],
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "New XRP Ledger amendments target $530 million in tokenized Wall Street assets",
-      "url": "https://www.coindesk.com/tech/2026/08/07/new-xrp-ledger-amendments-target-usd530-million-in-tokenized-wall-street-assets",
-      "source": "CoinDesk",
-      "published": "2026-08-08T03:30:00+00:00",
-      "tickers": [
-        "XRP"
-      ],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
       "other_sources": [],
       "is_crypto_relevant": true
     }
