@@ -8,6 +8,69 @@ additive fields are MINOR; bug fixes with no schema change are PATCH.
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-08-13 (branch: snitch-backend, not yet merged to main)
+### Added
+- `asset_class` field (`"crypto"` | `"forex"` | `"stocks"`) — lowercase,
+  additive, distinct from the existing uppercase `category` field (which
+  stays more granular: MARKETS/ECONOMIC/REGULATORY/etc.). Derived directly
+  from each feed's coarse RSS_FEEDS category, no extra classification cost.
+- `currency_pairs` field — populated only for `asset_class == "forex"` with
+  constituent currency codes found in the article (not full pairs; `tickers`
+  stays populated for crypto/stocks as before). Backed by a new static
+  `FOREX_CURRENCIES` registry (9 major currencies) and `extract_currency_codes()`.
+- `STOCK_TICKERS` registry, seeded with the 11 tickers currently live on
+  Bybit's tokenized-stock ("xStocks") universe (AAPL, AMZN, COIN, CRCL,
+  GOOGL, HOOD, MCD, META, NVDA, SPCX, TSLA) — confirmed via Bybit's
+  instruments-info API (`symbolType: "xstocks"`) rather than assumed, so tag
+  coverage matches what the downstream Wicktor frontend can actually display.
+- **FinBERT (`ProsusAI/finbert`) as the forex/stocks primary sentiment
+  engine**, replacing v0.2.0's tier-based routing for forex/stocks
+  specifically: `asset_class in ("forex", "stocks")` now always routes to
+  FinBERT regardless of source tier (ending Groq calls for tier-1 forex/stock
+  sources like Fed/ECB/SEC/MarketWatch — that Groq budget now goes entirely
+  to crypto), falling back to the existing VADER/keyword chain
+  (`classify_fallback()`) on FinBERT unavailability or a per-article error.
+  Crypto's tier-based Groq/VADER routing (`classify_crypto()`) is
+  byte-for-byte unchanged. New `sentiment_engine: "finbert"` value.
+- `finbert_training_log.jsonl` — append-only log of every FinBERT
+  classification (headline, summary, label, score, timestamp), committed by
+  GitHub Actions alongside `news.json`/`news.js`/`token_usage.json`. Exists
+  to enable a **separate, future** task: calibrating VADER's finance lexicon
+  against FinBERT's own historical judgments, with the eventual goal of
+  retiring the `torch`/`transformers` dependency once VADER's accuracy is
+  proven close enough. That calibration script is *not* built in this phase —
+  this only accumulates the data it would need.
+- `actions/cache` step in the GitHub Actions workflow, keyed on
+  `hf-model-finbert-ProsusAI-v1`, caching `~/.cache/huggingface` so the
+  ~438MB FinBERT model isn't re-downloaded every 15-minute run.
+
+### Fixed
+- STOCKS-category articles previously never got any `tickers` populated,
+  because ticker extraction always searched the crypto coin registry
+  regardless of feed category. `fetch_all_feeds()` now routes extraction by
+  feed category: CRYPTO → crypto registry (unchanged), STOCKS → the new
+  `STOCK_TICKERS` registry, FOREX → no tickers (uses `currency_pairs` instead).
+
+### Ops
+- `requirements.txt`: added `torch`, `transformers`, `numpy<2` (the pin
+  avoids a real NumPy 2.x/torch ABI incompatibility — `numpy>=2` breaks
+  `torch`'s compiled extensions, manifesting as `RuntimeError: Numpy is not
+  available` at inference time, not at install time).
+- Workflow: `finbert_training_log.jsonl` added to the existing guarded
+  commit step (same pattern as `token_usage.json`).
+
+### Known limitations
+- FinBERT reads company/asset tone well (its actual training distribution —
+  earnings beats/misses, recalls, etc.) but doesn't do macro-economic
+  directional reasoning: in testing it classified "ECB cuts interest rates
+  amid slowing inflation" as negative, when rate cuts are often bullish for
+  risk assets depending on framing. VADER has the same blind spot, so this
+  is a shared limitation across both non-Groq engines, not specific to
+  choosing FinBERT over VADER for forex/stocks.
+- This version lives on the `snitch-backend` branch only. `main` (and the
+  live GitHub Actions schedule / Wicktor's production feed) still runs
+  `v0.2.0` until this branch is explicitly merged.
+
 ## [0.2.0] - 2026-08-13
 ### Added
 - `category` field on articles (`CRYPTO`, `FOREX`, `STOCKS`, `MARKETS`, `ECONOMIC`,

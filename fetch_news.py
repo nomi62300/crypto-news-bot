@@ -79,6 +79,11 @@ RSS_FEEDS = [
     {"name": "Seeking Alpha",      "url": "https://seekingalpha.com/market_currents.xml", "category": "STOCKS", "tier": 3},
 ]
 
+# Maps a feed's coarse category to the asset_class output field (lowercase,
+# distinct from the more granular `category` field which can be
+# ECONOMIC/REGULATORY/etc. — asset_class is always one of these three).
+ASSET_CLASS_BY_CATEGORY = {"CRYPTO": "crypto", "FOREX": "forex", "STOCKS": "stocks"}
+
 # ---------------------------------------------------------------------------
 # 2. DYNAMIC COIN REGISTRY & EXTRACTION
 # ---------------------------------------------------------------------------
@@ -157,6 +162,40 @@ FALLBACK_COINS = {
     "WLD":    ["wld", "worldcoin"],
     "STX":    ["stx", "stacks"],
     "RUNE":   ["rune", "thorchain"],
+}
+
+# Major currencies for forex article tagging. Static/small by design (unlike
+# the dynamic CoinGecko-backed crypto registry) — populates `currency_pairs`
+# with constituent currency codes found in the text, not full pairs.
+FOREX_CURRENCIES: dict[str, list[str]] = {
+    "USD": ["dollar", "us dollar", "greenback"],
+    "EUR": ["euro"],
+    "GBP": ["pound", "sterling", "british pound"],
+    "JPY": ["yen", "japanese yen"],
+    "AUD": ["aussie", "australian dollar"],
+    "CAD": ["loonie", "canadian dollar"],
+    "CHF": ["swiss franc", "franc"],
+    "NZD": ["kiwi", "new zealand dollar"],
+    "CNY": ["yuan", "renminbi"],
+}
+
+# Stock tickers for STOCKS-category article tagging. Seeded with the live
+# Bybit "xStocks" tokenized-stock universe (confirmed via Bybit's
+# instruments-info API, symbolType == "xstocks", Aug 2026) so tag coverage
+# matches what Wicktor's frontend can actually display. Keep easy to extend
+# as that universe grows — same pattern as FALLBACK_COINS/NOISE_WORDS.
+STOCK_TICKERS: dict[str, list[str]] = {
+    "AAPL": ["aapl", "apple"],
+    "AMZN": ["amzn", "amazon"],
+    "COIN":  ["coin", "coinbase"],
+    "CRCL": ["crcl", "circle"],
+    "GOOGL": ["googl", "google", "alphabet"],
+    "HOOD": ["hood", "robinhood"],
+    "MCD":  ["mcd", "mcdonald's", "mcdonalds"],
+    "META": ["meta", "facebook"],
+    "NVDA": ["nvda", "nvidia"],
+    "SPCX": ["spcx"],
+    "TSLA": ["tsla", "tesla"],
 }
 
 # Source credibility lookup — surfaced via `source_flag`, not filtered on.
@@ -291,6 +330,12 @@ def extract_coin_tags(text: str, coin_keywords: dict[str, list[str]]) -> list[st
     return clean_tickers(found)
 
 
+def extract_currency_codes(text: str) -> list[str]:
+    """Return deduplicated forex currency codes found in *text* (constituent
+    currencies, not full pairs — e.g. "EUR/USD" -> ["EUR", "USD"])."""
+    return extract_coin_tags(text, FOREX_CURRENCIES)
+
+
 # ---------------------------------------------------------------------------
 # 3. RSS FETCHING
 # ---------------------------------------------------------------------------
@@ -390,7 +435,20 @@ def fetch_all_feeds(coin_keywords: dict[str, list[str]]) -> list[dict]:
             if feed_category == "CRYPTO" and not matches_crypto_prefilter(title, summary_clean):
                 continue
 
-            tickers = extract_coin_tags(f"{title} {summary_clean}", coin_keywords)
+            combined_text = f"{title} {summary_clean}"
+            # Ticker extraction routes by the feed's own asset class rather
+            # than always searching the crypto registry — STOCKS feeds search
+            # STOCK_TICKERS (previously always searched crypto and so never
+            # matched anything), FOREX feeds populate currency_pairs instead
+            # of tickers (a currency isn't a ticker).
+            currency_pairs: list[str] = []
+            if feed_category == "STOCKS":
+                tickers = extract_coin_tags(combined_text, STOCK_TICKERS)
+            elif feed_category == "FOREX":
+                tickers = []
+                currency_pairs = extract_currency_codes(combined_text)
+            else:
+                tickers = extract_coin_tags(combined_text, coin_keywords)
 
             articles.append({
                 "title":     title,
@@ -398,9 +456,11 @@ def fetch_all_feeds(coin_keywords: dict[str, list[str]]) -> list[dict]:
                 "source":    feed_meta["name"],
                 "published": pub.isoformat() if pub else None,
                 "tickers":   tickers,
+                "currency_pairs": currency_pairs,
                 "summary":   summary_clean[:300].strip(),
                 "_category": feed_category,
                 "_tier":     feed_meta.get("tier", 3),
+                "_asset_class": ASSET_CLASS_BY_CATEGORY.get(feed_category, "crypto"),
             })
 
     return articles
@@ -452,12 +512,14 @@ def deduplicate(articles: list[dict]) -> list[dict]:
                 "source":       article["source"],
                 "published":    article["published"],
                 "tickers":      article["tickers"],
+                "currency_pairs": article.get("currency_pairs", []),
                 "summary":      article.get("summary", ""),
                 "sentiment":    None,
                 "confidence":   None,
                 "other_sources": [],
                 "category":     article.get("_category", "CRYPTO"),
                 "region":       "GLOBAL",
+                "asset_class":  article.get("_asset_class", "crypto"),
                 "source_flag":  SOURCE_FLAGS.get(article["source"]),
                 "sentiment_engine": None,
                 "_tier":        article.get("_tier", 3),
@@ -591,6 +653,96 @@ def classify_fallback(article: dict) -> None:
     article["sentiment_engine"] = engine
     article["category"] = infer_category(text, article.get("category", "CRYPTO"))
     article["region"] = infer_region(text)
+
+
+# ---------------------------------------------------------------------------
+# 6b. FINBERT (forex/stocks primary engine)
+# ---------------------------------------------------------------------------
+# Optional dependency, same graceful-degradation pattern as VADER above —
+# torch/transformers must never become a hard requirement that breaks the
+# script if unavailable (e.g. not installed, or the model fails to download).
+try:
+    from transformers import pipeline as _hf_pipeline
+    _finbert_classifier = _hf_pipeline("sentiment-analysis", model="ProsusAI/finbert")
+    _FINBERT_AVAILABLE = True
+except Exception as exc:
+    print(f"  [WARN] FinBERT unavailable ({exc}). Forex/stocks will fall back to VADER/keyword.")
+    _finbert_classifier = None
+    _FINBERT_AVAILABLE = False
+
+_FINBERT_LABEL_MAP = {"positive": "Bullish", "negative": "Bearish", "neutral": "Neutral"}
+
+# Logs every FinBERT classification for future VADER-lexicon calibration
+# (a separate, later task — this only accumulates the training data it would
+# need). Append-only, one JSON object per line; committed by GH Actions
+# alongside news.json/news.js/token_usage.json so it persists across runs.
+FINBERT_TRAINING_LOG_FILE = os.path.join(os.path.dirname(__file__), "finbert_training_log.jsonl")
+
+
+def classify_with_finbert(text: str) -> tuple[str, float]:
+    # FinBERT's tokenizer truncates internally, but capping the raw string
+    # keeps tokenization fast and avoids pathologically long summaries.
+    result = _finbert_classifier(text[:2000], truncation=True, max_length=512)[0]
+    sentiment = _FINBERT_LABEL_MAP.get(result["label"].lower(), "Neutral")
+    confidence = round(float(result["score"]), 4)
+    return sentiment, confidence
+
+
+def _log_finbert_classification(article: dict, sentiment: str, confidence: float) -> None:
+    """Best-effort append; a logging failure must never break the scrape run."""
+    try:
+        record = {
+            "headline": article["title"],
+            "summary": article.get("summary", ""),
+            "finbert_label": sentiment,
+            "finbert_score": confidence,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+        }
+        with open(FINBERT_TRAINING_LOG_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except Exception as exc:
+        print(f"  [WARN] Failed to append to FinBERT training log: {exc}")
+
+
+def classify_fx_stock(articles: list[dict]) -> None:
+    """
+    Forex/stocks primary engine chain: FinBERT (its Reuters/earnings-style
+    training distribution fits this content far better than Groq's
+    crypto-tuned prompt) -> classify_fallback()'s VADER/keyword chain on
+    FinBERT unavailability or a per-article error. Runs regardless of source
+    tier — unlike crypto, forex/stocks doesn't route any of this through Groq.
+    """
+    if not _FINBERT_AVAILABLE:
+        for a in articles:
+            classify_fallback(a)
+        return
+
+    for a in articles:
+        try:
+            # FinBERT is classified on the title alone, not title+summary —
+            # verified empirically (not assumed) that appending the summary
+            # measurably hurts it here: e.g. one real headline flipped from
+            # confident Positive (0.78) to uncertain Neutral (0.37) once a
+            # one-sentence summary was appended, and another kept its label
+            # but confidence collapsed from 0.82 to 0.47. Matches FinBERT's
+            # actual training data (Financial PhraseBank — short single
+            # financial statements, not headline+summary concatenations).
+            combined_text = f"{a['title']}. {a.get('summary', '')}"
+            sentiment, confidence = classify_with_finbert(a["title"])
+            a["sentiment"] = sentiment
+            a["confidence"] = confidence
+            a["is_crypto_relevant"] = True
+            a["sentiment_engine"] = "finbert"
+            # FinBERT doesn't return category/region the way Groq does —
+            # same heuristic inference classify_fallback() already uses.
+            # Category/region inference benefits from the fuller text, so
+            # this (unlike the sentiment call above) still uses title+summary.
+            a["category"] = infer_category(combined_text, a.get("category", "CRYPTO"))
+            a["region"] = infer_region(combined_text)
+            _log_finbert_classification(a, sentiment, confidence)
+        except Exception as exc:
+            print(f"  [WARN] FinBERT classification error on one article: {exc}. Falling back to VADER.")
+            classify_fallback(a)
 
 
 # ---------------------------------------------------------------------------
@@ -745,14 +897,13 @@ def classify_batch_with_groq(client, batch: list[dict], usage: dict) -> bool:
     return False
 
 
-def classify_sentiments(articles: list[dict]) -> list[dict]:
+def classify_crypto(articles: list[dict]) -> None:
     """
-    Tiered sentiment routing:
+    Crypto sentiment routing — tiered by source prestige, unchanged from
+    the pre-FinBERT design:
       - Tier 1/2 sources -> Groq primary, VADER fallback (rate limit/budget/error).
       - Tier 3/4 sources -> VADER primary by design (not just a fallback).
       - VADER unavailable -> keyword scorer as final fallback, any tier.
-    Tags every article with which engine actually classified it via
-    `sentiment_engine` ("groq" | "vader" | "keyword").
     """
     groq_key = os.environ.get("GROQ_API_KEY", "")
     client = None
@@ -764,10 +915,10 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
             print(f"[WARN] Failed to initialize Groq client: {exc}. Tier 1/2 will fall back to VADER.")
             client = None
     else:
-        print("[WARN] GROQ_API_KEY not set — all articles will route to VADER/keyword engines.")
+        print("[WARN] GROQ_API_KEY not set — all crypto articles will route to VADER/keyword engines.")
 
     usage = _load_token_usage()
-    print(f"  Token usage today: {usage['tokens_used']}/{DAILY_TOKEN_LIMIT} "
+    print(f"  Groq token usage today: {usage['tokens_used']}/{DAILY_TOKEN_LIMIT} "
           f"({usage['tokens_used'] / DAILY_TOKEN_LIMIT:.1%})")
 
     tier12 = [a for a in articles if a.get("_tier", 3) <= 2]
@@ -790,6 +941,24 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
     # Tier 3/4: VADER primary by design — skip Groq entirely to conserve budget.
     for a in tier34:
         classify_fallback(a)
+
+
+def classify_sentiments(articles: list[dict]) -> list[dict]:
+    """
+    Dual sentiment pipeline, routed by asset_class (not by tier):
+      - crypto          -> classify_crypto() — Groq/VADER tiered as before.
+      - forex/stocks     -> classify_fx_stock() — FinBERT primary regardless
+                             of tier, VADER/keyword fallback.
+    Tags every article with which engine actually classified it via
+    `sentiment_engine` ("groq" | "finbert" | "vader" | "keyword").
+    """
+    crypto_articles = [a for a in articles if a.get("asset_class", "crypto") == "crypto"]
+    fx_stock_articles = [a for a in articles if a.get("asset_class", "crypto") != "crypto"]
+
+    if crypto_articles:
+        classify_crypto(crypto_articles)
+    if fx_stock_articles:
+        classify_fx_stock(fx_stock_articles)
 
     print("✓ All sentiment classifications completed.")
     return articles
@@ -852,6 +1021,8 @@ def main():
             story["region"] = existing_story.get("region", story.get("region", "GLOBAL"))
             story["sentiment_engine"] = existing_story.get("sentiment_engine")
             story["source_flag"] = existing_story.get("source_flag", story.get("source_flag"))
+            story["asset_class"] = existing_story.get("asset_class", story.get("asset_class", "crypto"))
+            story["currency_pairs"] = existing_story.get("currency_pairs", story.get("currency_pairs", []))
             # Merge alternate sources uniquely
             existing_alts = {alt["url"]: alt for alt in existing_story.get("other_sources", [])}
             for alt in story["other_sources"]:
