@@ -1180,10 +1180,79 @@ def _fetch_commodities_fmp() -> Optional[list[dict]]:
         return None
 
 
+def _fetch_commodities_alpha_vantage() -> Optional[list[dict]]:
+    """Fallback for when FMP's commodity quotes aren't available on the
+    user's plan (confirmed via live testing: FMP's /stable/quote returns
+    402 Payment Required for commodity symbols on the free tier). Alpha
+    Vantage has real, documented endpoints for WTI/BRENT/NATURAL_GAS/COPPER
+    (time series, % change derived from the two most recent points) and
+    treats gold/silver as currency pairs via CURRENCY_EXCHANGE_RATE (spot
+    rate only, no historical point in that same call, so no % change for
+    those two — the frontend already renders tiles fine without one)."""
+    api_key = os.environ.get("ALPHA_VANTAGE_API_KEY", "")
+    if not api_key:
+        return None
+
+    def _series_quote(function: str) -> tuple[Optional[float], Optional[float]]:
+        resp = requests.get(ALPHA_VANTAGE_BASE, params={"function": function, "interval": "daily", "apikey": api_key}, timeout=10)
+        resp.raise_for_status()
+        series = resp.json().get("data")
+        if not isinstance(series, list) or len(series) < 1:
+            return None, None
+        try:
+            latest = float(series[0]["value"])
+        except (KeyError, ValueError, TypeError):
+            return None, None
+        if len(series) < 2:
+            return latest, None
+        try:
+            prev = float(series[1]["value"])
+            pct = ((latest - prev) / prev) * 100 if prev else None
+        except (KeyError, ValueError, TypeError, ZeroDivisionError):
+            pct = None
+        return latest, pct
+
+    def _metal_quote(currency_code: str) -> Optional[float]:
+        resp = requests.get(ALPHA_VANTAGE_BASE, params={
+            "function": "CURRENCY_EXCHANGE_RATE", "from_currency": currency_code,
+            "to_currency": "USD", "apikey": api_key,
+        }, timeout=10)
+        resp.raise_for_status()
+        rate = resp.json().get("Realtime Currency Exchange Rate", {}).get("5. Exchange Rate")
+        try:
+            return float(rate) if rate is not None else None
+        except (ValueError, TypeError):
+            return None
+
+    try:
+        items = []
+        for watch, av_function in [
+            (COMMODITY_WATCHLIST[0], "WTI"),
+            (COMMODITY_WATCHLIST[1], "BRENT"),
+            (COMMODITY_WATCHLIST[4], "NATURAL_GAS"),
+            (COMMODITY_WATCHLIST[5], "COPPER"),
+        ]:
+            price, pct = _series_quote(av_function)
+            if price is not None:
+                items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
+
+        gold_price = _metal_quote("XAU")
+        if gold_price is not None:
+            items.append({"symbol": COMMODITY_WATCHLIST[2]["symbol"], "label": COMMODITY_WATCHLIST[2]["label"], "price": gold_price, "changes_percentage": None})
+        silver_price = _metal_quote("XAG")
+        if silver_price is not None:
+            items.append({"symbol": COMMODITY_WATCHLIST[3]["symbol"], "label": COMMODITY_WATCHLIST[3]["label"], "price": silver_price, "changes_percentage": None})
+
+        return items if items else None
+    except Exception as exc:
+        print(f"  [WARN] Alpha Vantage commodities fetch failed: {exc}")
+        return None
+
+
 def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
-    """Daily-gated, FMP-only (no fallback provider for commodities). Keeps
-    the previous snapshot (flagged stale) if today's fetch fails, mirroring
-    fetch_macro_snapshot's degradation pattern."""
+    """Daily-gated: FMP primary, Alpha Vantage fallback (mirrors
+    fetch_macro_snapshot). Keeps the previous snapshot (flagged stale) if
+    both providers fail today."""
     previous = old_data.get("commodity_snapshot")
     today = datetime.now(timezone.utc).date().isoformat()
     if previous and previous.get("updated_at", "").startswith(today):
@@ -1194,7 +1263,12 @@ def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
         print("  [INFO] commodity_snapshot: using FMP")
         return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "fmp", "items": items}
 
-    print("  [WARN] commodity_snapshot: FMP failed, keeping previous snapshot (stale)")
+    av_items = _fetch_commodities_alpha_vantage()
+    if av_items is not None:
+        print("  [INFO] commodity_snapshot: FMP failed, using Alpha Vantage (fallback)")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "alpha_vantage", "items": av_items}
+
+    print("  [WARN] commodity_snapshot: both FMP and Alpha Vantage failed, keeping previous snapshot (stale)")
     if previous:
         return {**previous, "stale": True}
     return None
