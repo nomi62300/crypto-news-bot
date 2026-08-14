@@ -1,12 +1,224 @@
 # Changelog
 
-All notable changes to CryptoFlash's `fetch_news.py` scraper are documented here.
-Versions follow [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`).
-`news.json`'s existing field names and casing are a stability contract with
-Wicktor's `Api.coinNews()` — breaking that contract is a MAJOR bump; new
-additive fields are MINOR; bug fixes with no schema change are PATCH.
+All notable changes to the Snitch project (formerly CryptoFlash) are documented
+here — the `fetch_news.py`/`fetch_econ_calendar.py` backend scrapers and the
+`index.html` frontend. Versions follow [Semantic Versioning](https://semver.org/)
+(`MAJOR.MINOR.PATCH`). `news.json`'s existing field names and casing are a
+stability contract with Wicktor's `Api.coinNews()` — breaking that contract is
+a MAJOR bump; new additive fields/features are MINOR; bug fixes with no schema
+change are PATCH.
 
 ## [Unreleased]
+
+## [0.5.0] - 2026-08-14 (branch: snitch-backend, not yet merged to main)
+### Added — Backend: non-RSS scraping, geopolitical events, X/Twitter cashtag search
+Evaluated 16 external repos surfaced by the user as candidates to improve
+`fetch_news.py`'s data gathering. Most were ruled out — several need
+persistent server infrastructure Snitch's GitHub-Actions-cron architecture
+deliberately avoids (HeadlessX, wigolo, OpenStock, MiroFish), some are
+AGPLv3-licensed (a real constraint on direct code reuse), one is
+non-automatable (ai-berkshire's scraper needs interactive login), and three
+X/Twitter alternatives (`twscrape`, `twitter-web-exporter`, `tweetclaw`) were
+evaluated and rejected (real-account credential/suspension risk,
+browser-only/non-automatable, and paid-vendor dependency respectively). Three
+things survived, all free/keyless/no-persistent-server:
+- **Scrapling** (`fetch_scrapling_sources()`) — adaptive HTML parsing (base
+  package only, no browser) for two confirmed non-RSS sources:
+  **InvestingLive** (formerly ForexLive — the domain now redirects entirely;
+  server-renders real headlines, no RSS available) and **Watcher.Guru**
+  (crypto/stocks news, `/feed` blocked by Cloudflare). Selectors use
+  attribute-*contains* matching rather than exact CSS-module hash names
+  where the site's build system generates per-deploy hashes, so they survive
+  redeploys better than an exact-class-name selector would. (Wu Blockchain,
+  originally considered, was dropped — its real domain already publishes a
+  working Atom feed in Chinese; the "English" domain some sources pointed to
+  is an unrelated parked/for-sale placeholder, not a live site.)
+- **Geopolitical/disaster events** (`fetch_geopolitical_events()`) — new
+  4th `asset_class` value `"geopolitics"`, feeding the `GEOPOLITICS`
+  category (previously only arose incidentally from RSS text matching, never
+  had a dedicated source). **GDELT** DOC 2.0 API (article `tone` mapped
+  deterministically to sentiment — no Groq/FinBERT call, neither is trained
+  for structured event records) and **USGS** earthquake GeoJSON feed
+  (magnitude-based mapping), both free/keyless. New fields: `event_source`
+  (`"gdelt"|"usgs"`), `magnitude` (USGS only), `sentiment_engine` values
+  `"gdelt_tone"`/`"usgs_magnitude"`.
+- **X/Twitter cashtag search** (`fetch_x_cashtags()`) — searches FxTwitter's
+  public mirror (`api.fxtwitter.com/2/search`, no login, no official paid
+  API) for tweets containing `$TICKER` cashtags for a fixed list of major
+  coins, rather than a fixed account watchlist — directly matches the need
+  (tweeter's name + full tweet text, filtered to actual cashtag mentions).
+  New `source_type: "x"` value (extends the previously-dormant field —
+  `"rss"` was the only real value before this; a Reddit integration was
+  scoped then shelved in Phase 2 for unrelated reasons). New fields `likes`,
+  `reposts`, `replies`.
+
+### Fixed
+- `deduplicate()` previously hard-coded `sentiment`/`confidence`/
+  `sentiment_engine` to `None` on every new story record, which would have
+  silently discarded GDELT/USGS's pre-computed deterministic sentiment the
+  moment it passed through dedup — now preserves any pre-set values from the
+  source article instead of always overwriting them.
+
+### Known limitations / real risks found during implementation, not just documented
+- **GDELT rate-limiting**: hit persistent `HTTP 429`s during development
+  testing that outlasted their documented "one request per 5 seconds" policy
+  by several minutes, and timed out entirely during full-pipeline testing —
+  `_fetch_gdelt_events()` is wrapped fail-soft (catches, logs, returns `[]`)
+  and should be treated as best-effort, not a reliable source. USGS had no
+  such issues.
+- **X cashtag search signal-to-noise**: unrestricted cashtag search surfaced
+  mostly low-quality content in testing (presale/shill accounts, bot-style
+  "top gainers" spam, airdrop-phishing patterns, non-English chatter) —
+  152 raw results narrowed to 16 after adding a follower-count gate
+  (`X_MIN_FOLLOWERS = 10,000`, found to be a far more reliable quality
+  signal than like/repost counts, which stayed near-zero across nearly all
+  results regardless of legitimacy) plus expanded spam-keyword and
+  non-Latin-script filtering, and restricting the cashtag list to 20
+  well-established tickers (`X_MAJOR_TICKERS`) rather than the full ~500-coin
+  registry. This is real, live-tuned filtering, not a theoretical design —
+  still expect some residual noise; crypto-Twitter is inherently noisy.
+- Scrapling's "self-healing" auto-match needs persisted storage across runs
+  to provide real cross-run value — not configured this phase (selectors are
+  plain CSS selectors that will need manual updates if either site
+  redesigns; see code comments in the Scrapling section).
+- ACLED (armed-conflict event data) was considered for the geopolitical
+  events source but not implemented — its free-tier registration terms need
+  a separate feasibility check first.
+
+## [0.4.0] - 2026-08-13 (branch: snitch-backend, not yet merged to main)
+### Added — Frontend rebuild (Phase 3)
+- Full rebrand: CryptoFlash → **Snitch**, new wordmark logo (JetBrains Mono,
+  `#f5cc01` accent), new `favicon.svg` + PNG fallbacks, updated title/meta
+  description.
+- Site-wide Fincept Terminal-inspired dark theme: near-black background,
+  off-white/muted-gray text, monospace throughout (dropped Inter), `#f5cc01`
+  accent replacing the previous gold, sentiment colors (green/red/gray for
+  Bullish/Bearish/Neutral) kept visually distinct from the accent.
+- Simplified navigation to 3 tabs: **Dashboard** (all-asset-class news feed +
+  overview stats + category filter strip), **Crypto Market**, and
+  **Forex/Stocks Market** — replaced the old 2-tab Terminal/Dashboard layout
+  and an earlier 5-tab iteration; per-asset-class news browsing now happens
+  via the category filter strip on Dashboard rather than separate tabs.
+- New category filter strip (ALL/CRYPTO/FOREX/STOCKS/ECONOMIC/REGULATORY,
+  driven by the `category` field) alongside the existing ticker-chip filter.
+- New per-article detail panel (slide-over on desktop, full-screen overlay on
+  mobile/tablet) opening on row click, with OPEN (external link), COPY URL,
+  and SAVE (bookmark, `localStorage`-persisted) actions — replaces the old
+  direct-external-link row behavior.
+- `source_flag` warning icon, `sentiment_engine` hover tooltip, and a dormant
+  (untestable — no live Reddit data) `source_type`/`upvotes`/`num_comments`
+  row-rendering branch, all additive to the existing row template.
+- **Crypto Market tab**: CoinGecko-powered (free, keyless) global stats strip
+  (market cap, 24h volume, BTC dominance, Fear & Greed) and a 100-coin table
+  (price/24h%/market cap/volume/7D sparkline) with client-side-only
+  ALL/GAINERS/LOSERS/MOST ACTIVE re-sorting (one cached fetch, no extra API
+  calls per toggle). Crypto ticker tape (previously global) now lives here.
+- **Forex/Stocks Market tab**: Frankfurter-powered (free, keyless) FX
+  cross-pair Top Gainers/Losers with pips, a Relative Currency Strength
+  chart, an approximate USD-index card (weighted geometric mean vs. majors,
+  explicitly labeled "not the official ICE DXY"), a Finnhub-powered
+  stocks/ETF-index watchlist (gracefully skips itself if no
+  `FINNHUB_API_KEY` is configured — client-embedded key is an inherent
+  tradeoff of a static/no-backend site, documented in code), and an economic
+  calendar reader for `econ_calendar.json` (honest empty state, not an error,
+  when the file doesn't exist yet). Forex ticker tape lives here.
+- New backend script `fetch_econ_calendar.py` + new GitHub Actions workflow
+  `fetch_econ_calendar.yml` (daily cron, separate from the 15-minute news
+  scrape) — calls Financial Modeling Prep's free-tier economic-calendar
+  endpoint, fails soft (preserves last-good data) on missing key/quota/error.
+  Needs a user-provided `FMP_API_KEY` GitHub secret to actually populate data
+  (same self-managed-secret pattern as `GROQ_API_KEY`).
+- `.gitignore` added (excludes the `fincept design/` visual-reference
+  screenshots from version control — session reference material, not a
+  deliverable).
+
+### Fixed
+- FX pip-size calculation used `pair.includes('JPY')` (matched JPY appearing
+  *anywhere* in a cross-pair, e.g. `JPY/CAD`) instead of checking whether JPY
+  is specifically the *quote* currency — caused several JPY-as-base cross
+  pairs to display "0.0 pips" despite a real, non-zero % change. Now checks
+  `pair.split('/')[1] === 'JPY'`.
+
+### Known limitations
+- No free API exists for central bank policy rates, sovereign bond yields, or
+  CDS risk (confirmed via research) — not included on the Forex/Stocks Market
+  page. Myfxbook-style crowd long/short positioning also excluded (its API
+  requires a login-derived session unsafe to embed client-side, and neither
+  its public-page accessibility nor its Terms of Service could be confirmed
+  permit scraping) — Relative Currency Strength (real, computed data) is the
+  built alternative.
+- Economic calendar requires a user-supplied `FMP_API_KEY`; without one the
+  Forex/Stocks Market page shows an honest empty state rather than data.
+- Stocks/ETF watchlist requires a user-supplied `FINNHUB_API_KEY`, embedded
+  client-side (visible in page source) since this is a static site with no
+  backend to hide it behind — same tradeoff already accepted for other
+  client-side-only integrations on this page.
+- This version lives on the `snitch-backend` branch only; `main` still runs
+  the pre-Phase-3 frontend and `v0.2.0` backend until this branch is
+  explicitly merged.
+
+## [0.3.0] - 2026-08-13 (branch: snitch-backend, not yet merged to main)
+### Added
+- `asset_class` field (`"crypto"` | `"forex"` | `"stocks"`) — lowercase,
+  additive, distinct from the existing uppercase `category` field (which
+  stays more granular: MARKETS/ECONOMIC/REGULATORY/etc.). Derived directly
+  from each feed's coarse RSS_FEEDS category, no extra classification cost.
+- `currency_pairs` field — populated only for `asset_class == "forex"` with
+  constituent currency codes found in the article (not full pairs; `tickers`
+  stays populated for crypto/stocks as before). Backed by a new static
+  `FOREX_CURRENCIES` registry (9 major currencies) and `extract_currency_codes()`.
+- `STOCK_TICKERS` registry, seeded with the 11 tickers currently live on
+  Bybit's tokenized-stock ("xStocks") universe (AAPL, AMZN, COIN, CRCL,
+  GOOGL, HOOD, MCD, META, NVDA, SPCX, TSLA) — confirmed via Bybit's
+  instruments-info API (`symbolType: "xstocks"`) rather than assumed, so tag
+  coverage matches what the downstream Wicktor frontend can actually display.
+- **FinBERT (`ProsusAI/finbert`) as the forex/stocks primary sentiment
+  engine**, replacing v0.2.0's tier-based routing for forex/stocks
+  specifically: `asset_class in ("forex", "stocks")` now always routes to
+  FinBERT regardless of source tier (ending Groq calls for tier-1 forex/stock
+  sources like Fed/ECB/SEC/MarketWatch — that Groq budget now goes entirely
+  to crypto), falling back to the existing VADER/keyword chain
+  (`classify_fallback()`) on FinBERT unavailability or a per-article error.
+  Crypto's tier-based Groq/VADER routing (`classify_crypto()`) is
+  byte-for-byte unchanged. New `sentiment_engine: "finbert"` value.
+- `finbert_training_log.jsonl` — append-only log of every FinBERT
+  classification (headline, summary, label, score, timestamp), committed by
+  GitHub Actions alongside `news.json`/`news.js`/`token_usage.json`. Exists
+  to enable a **separate, future** task: calibrating VADER's finance lexicon
+  against FinBERT's own historical judgments, with the eventual goal of
+  retiring the `torch`/`transformers` dependency once VADER's accuracy is
+  proven close enough. That calibration script is *not* built in this phase —
+  this only accumulates the data it would need.
+- `actions/cache` step in the GitHub Actions workflow, keyed on
+  `hf-model-finbert-ProsusAI-v1`, caching `~/.cache/huggingface` so the
+  ~438MB FinBERT model isn't re-downloaded every 15-minute run.
+
+### Fixed
+- STOCKS-category articles previously never got any `tickers` populated,
+  because ticker extraction always searched the crypto coin registry
+  regardless of feed category. `fetch_all_feeds()` now routes extraction by
+  feed category: CRYPTO → crypto registry (unchanged), STOCKS → the new
+  `STOCK_TICKERS` registry, FOREX → no tickers (uses `currency_pairs` instead).
+
+### Ops
+- `requirements.txt`: added `torch`, `transformers`, `numpy<2` (the pin
+  avoids a real NumPy 2.x/torch ABI incompatibility — `numpy>=2` breaks
+  `torch`'s compiled extensions, manifesting as `RuntimeError: Numpy is not
+  available` at inference time, not at install time).
+- Workflow: `finbert_training_log.jsonl` added to the existing guarded
+  commit step (same pattern as `token_usage.json`).
+
+### Known limitations
+- FinBERT reads company/asset tone well (its actual training distribution —
+  earnings beats/misses, recalls, etc.) but doesn't do macro-economic
+  directional reasoning: in testing it classified "ECB cuts interest rates
+  amid slowing inflation" as negative, when rate cuts are often bullish for
+  risk assets depending on framing. VADER has the same blind spot, so this
+  is a shared limitation across both non-Groq engines, not specific to
+  choosing FinBERT over VADER for forex/stocks.
+- This version lives on the `snitch-backend` branch only. `main` (and the
+  live GitHub Actions schedule / Wicktor's production feed) still runs
+  `v0.2.0` until this branch is explicitly merged.
 
 ## [0.2.0] - 2026-08-13
 ### Added

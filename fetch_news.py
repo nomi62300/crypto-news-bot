@@ -14,6 +14,7 @@ import re
 import time
 from datetime import datetime, timezone, timedelta
 from difflib import SequenceMatcher
+from urllib.parse import urljoin
 
 from typing import Optional
 import feedparser
@@ -78,6 +79,15 @@ RSS_FEEDS = [
     {"name": "MarketWatch",        "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories", "category": "STOCKS", "tier": 2},
     {"name": "Seeking Alpha",      "url": "https://seekingalpha.com/market_currents.xml", "category": "STOCKS", "tier": 3},
 ]
+
+# Maps a feed's coarse category to the asset_class output field (lowercase,
+# distinct from the more granular `category` field which can be
+# ECONOMIC/REGULATORY/etc.). "geopolitics" is a 4th value used only by
+# structured-event sources (GDELT/USGS) — those don't go through Groq/FinBERT
+# text-sentiment classification at all (see classify_geo_events()), so this
+# is kept separate from the crypto/forex/stocks routing rather than folded
+# into one of them.
+ASSET_CLASS_BY_CATEGORY = {"CRYPTO": "crypto", "FOREX": "forex", "STOCKS": "stocks", "GEOPOLITICS": "geopolitics"}
 
 # ---------------------------------------------------------------------------
 # 2. DYNAMIC COIN REGISTRY & EXTRACTION
@@ -157,6 +167,40 @@ FALLBACK_COINS = {
     "WLD":    ["wld", "worldcoin"],
     "STX":    ["stx", "stacks"],
     "RUNE":   ["rune", "thorchain"],
+}
+
+# Major currencies for forex article tagging. Static/small by design (unlike
+# the dynamic CoinGecko-backed crypto registry) — populates `currency_pairs`
+# with constituent currency codes found in the text, not full pairs.
+FOREX_CURRENCIES: dict[str, list[str]] = {
+    "USD": ["dollar", "us dollar", "greenback"],
+    "EUR": ["euro"],
+    "GBP": ["pound", "sterling", "british pound"],
+    "JPY": ["yen", "japanese yen"],
+    "AUD": ["aussie", "australian dollar"],
+    "CAD": ["loonie", "canadian dollar"],
+    "CHF": ["swiss franc", "franc"],
+    "NZD": ["kiwi", "new zealand dollar"],
+    "CNY": ["yuan", "renminbi"],
+}
+
+# Stock tickers for STOCKS-category article tagging. Seeded with the live
+# Bybit "xStocks" tokenized-stock universe (confirmed via Bybit's
+# instruments-info API, symbolType == "xstocks", Aug 2026) so tag coverage
+# matches what Wicktor's frontend can actually display. Keep easy to extend
+# as that universe grows — same pattern as FALLBACK_COINS/NOISE_WORDS.
+STOCK_TICKERS: dict[str, list[str]] = {
+    "AAPL": ["aapl", "apple"],
+    "AMZN": ["amzn", "amazon"],
+    "COIN":  ["coin", "coinbase"],
+    "CRCL": ["crcl", "circle"],
+    "GOOGL": ["googl", "google", "alphabet"],
+    "HOOD": ["hood", "robinhood"],
+    "MCD":  ["mcd", "mcdonald's", "mcdonalds"],
+    "META": ["meta", "facebook"],
+    "NVDA": ["nvda", "nvidia"],
+    "SPCX": ["spcx"],
+    "TSLA": ["tsla", "tesla"],
 }
 
 # Source credibility lookup — surfaced via `source_flag`, not filtered on.
@@ -291,6 +335,12 @@ def extract_coin_tags(text: str, coin_keywords: dict[str, list[str]]) -> list[st
     return clean_tickers(found)
 
 
+def extract_currency_codes(text: str) -> list[str]:
+    """Return deduplicated forex currency codes found in *text* (constituent
+    currencies, not full pairs — e.g. "EUR/USD" -> ["EUR", "USD"])."""
+    return extract_coin_tags(text, FOREX_CURRENCIES)
+
+
 # ---------------------------------------------------------------------------
 # 3. RSS FETCHING
 # ---------------------------------------------------------------------------
@@ -390,7 +440,20 @@ def fetch_all_feeds(coin_keywords: dict[str, list[str]]) -> list[dict]:
             if feed_category == "CRYPTO" and not matches_crypto_prefilter(title, summary_clean):
                 continue
 
-            tickers = extract_coin_tags(f"{title} {summary_clean}", coin_keywords)
+            combined_text = f"{title} {summary_clean}"
+            # Ticker extraction routes by the feed's own asset class rather
+            # than always searching the crypto registry — STOCKS feeds search
+            # STOCK_TICKERS (previously always searched crypto and so never
+            # matched anything), FOREX feeds populate currency_pairs instead
+            # of tickers (a currency isn't a ticker).
+            currency_pairs: list[str] = []
+            if feed_category == "STOCKS":
+                tickers = extract_coin_tags(combined_text, STOCK_TICKERS)
+            elif feed_category == "FOREX":
+                tickers = []
+                currency_pairs = extract_currency_codes(combined_text)
+            else:
+                tickers = extract_coin_tags(combined_text, coin_keywords)
 
             articles.append({
                 "title":     title,
@@ -398,12 +461,1069 @@ def fetch_all_feeds(coin_keywords: dict[str, list[str]]) -> list[dict]:
                 "source":    feed_meta["name"],
                 "published": pub.isoformat() if pub else None,
                 "tickers":   tickers,
+                "currency_pairs": currency_pairs,
                 "summary":   summary_clean[:300].strip(),
                 "_category": feed_category,
                 "_tier":     feed_meta.get("tier", 3),
+                "_asset_class": ASSET_CLASS_BY_CATEGORY.get(feed_category, "crypto"),
             })
 
     return articles
+
+
+# ---------------------------------------------------------------------------
+# 3b. SCRAPLING SOURCES (non-RSS sites, adaptive HTML parsing)
+# ---------------------------------------------------------------------------
+# Optional dependency, same graceful-degradation pattern as VADER/FinBERT —
+# base package only (NOT scrapling[fetchers], which pulls a full browser and
+# is unnecessary here since these targets are server-rendered HTML fetched
+# via plain requests).
+try:
+    from scrapling.parser import Adaptor as _ScraplingAdaptor
+    _SCRAPLING_AVAILABLE = True
+except Exception as exc:
+    print(f"  [WARN] Scrapling unavailable ({exc}). Non-RSS sources will be skipped.")
+    _ScraplingAdaptor = None
+    _SCRAPLING_AVAILABLE = False
+
+# Each entry's selectors were hand-verified against a live fetch of the site
+# (not guessed) — title/link selectors use attribute-*contains* matching
+# (`[class*="..."]`) rather than exact hashed class names where the site uses
+# a CSS-modules/webpack build, since those hashes change on every redeploy;
+# the stable substring is kept, the build-specific prefix is not matched.
+SCRAPLING_SOURCES = [
+    {
+        "name": "InvestingLive", "url": "https://investinglive.com/",
+        "category": "FOREX", "tier": 2,
+        "title_selector": 'h3[class*="articleSlotHeader__title"]::text',
+        "link_selector":  'a[class*="articleSlotHeader"]::attr(href)',
+    },
+    {
+        "name": "Watcher.Guru", "url": "https://watcher.guru/news/",
+        "category": "CRYPTO", "tier": 3,
+        "title_selector": '.cs-entry__title a::text',
+        "link_selector":  '.cs-entry__title a::attr(href)',
+    },
+]
+
+
+def fetch_scrapling_sources(coin_keywords: dict[str, list[str]]) -> list[dict]:
+    """Fetch article listings from non-RSS sites via Scrapling's adaptive
+    CSS-selector parsing. Emits the exact same article dict shape as
+    fetch_all_feeds() so deduplicate()/classify_sentiments()/main()'s
+    dedup-reuse logic all handle these identically to an RSS article — only
+    the fetch mechanism differs."""
+    if not _SCRAPLING_AVAILABLE:
+        return []
+
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=CUTOFF_HOURS)
+    articles: list[dict] = []
+
+    def _as_text(value) -> str:
+        # Scrapling's .css() with a `::text`/`::attr()` pseudo-selector can
+        # return plain strings, or Selector/TextHandler-like wrapper objects
+        # depending on version/match shape — normalize defensively via
+        # .get() (Scrapy/parsel-style) before falling back to str().
+        if value is None:
+            return ""
+        if isinstance(value, str):
+            return value
+        getter = getattr(value, "get", None)
+        if callable(getter):
+            try:
+                got = getter()
+                return got if isinstance(got, str) else str(got or "")
+            except Exception:
+                pass
+        return str(value)
+
+    for source_meta in SCRAPLING_SOURCES:
+        try:
+            resp = requests.get(source_meta["url"], timeout=5, headers=DEFAULT_HEADERS)
+            resp.raise_for_status()
+            page = _ScraplingAdaptor(resp.text, url=source_meta["url"])
+            titles = page.css(source_meta["title_selector"])
+            links = page.css(source_meta["link_selector"])
+        except Exception as exc:
+            print(f"[WARN] Failed to fetch {source_meta['name']}: {exc}")
+            continue
+
+        source_category = source_meta.get("category", "CRYPTO")
+        seen_urls_this_source = set()  # listing pages often repeat a "featured" item
+
+        try:
+            for title, link in zip(titles, links):
+                title = _as_text(title).strip()
+                link = _as_text(link).strip()
+                if not title or not link:
+                    continue
+                url = urljoin(source_meta["url"], link)
+                if url in seen_urls_this_source:
+                    continue
+                seen_urls_this_source.add(url)
+
+                if source_category == "CRYPTO" and not matches_crypto_prefilter(title, ""):
+                    continue
+
+                currency_pairs: list[str] = []
+                if source_category == "STOCKS":
+                    tickers = extract_coin_tags(title, STOCK_TICKERS)
+                elif source_category == "FOREX":
+                    tickers = []
+                    currency_pairs = extract_currency_codes(title)
+                else:
+                    tickers = extract_coin_tags(title, coin_keywords)
+
+                # Listing pages don't reliably expose per-article timestamps in a
+                # consistent, parseable format across sites — omit `published`
+                # (None) rather than guess; downstream sorting/cutoff logic
+                # already tolerates a missing published date (see main()).
+                articles.append({
+                    "title":     title,
+                    "url":       url,
+                    "source":    source_meta["name"],
+                    "published": None,
+                    "tickers":   tickers,
+                    "currency_pairs": currency_pairs,
+                    "summary":   "",
+                    "_category": source_category,
+                    "_tier":     source_meta.get("tier", 3),
+                    "_asset_class": ASSET_CLASS_BY_CATEGORY.get(source_category, "crypto"),
+                })
+        except Exception as exc:
+            # A single source's selector breaking (site redesign, etc.) must
+            # not take down the whole scrape run — same fail-soft posture
+            # used everywhere else in this file.
+            print(f"[WARN] Failed to parse {source_meta['name']} listing: {exc}")
+            continue
+
+    return articles
+
+
+# ---------------------------------------------------------------------------
+# 3c. GEOPOLITICAL / DISASTER EVENTS (GDELT + USGS — structured, keyless APIs)
+# ---------------------------------------------------------------------------
+GDELT_QUERY_TERMS = ["war", "conflict", "sanctions", "invasion", "coup", "ceasefire"]
+GDELT_TIMESPAN = "1h"   # GDELT rejects windows shorter than this ("Timespan is too short")
+GDELT_MAX_RECORDS = 50
+
+
+def classify_gdelt_tone(tone) -> tuple[str, float]:
+    """Starting heuristic — GDELT docs cite -5..5 as the "typical" tone
+    range; thresholds should be re-tuned against real observed values from a
+    production run (the rate-limit issue below prevented sampling a live
+    distribution during development)."""
+    try:
+        tone = float(tone)
+    except (TypeError, ValueError):
+        return "Neutral", 0.5
+    if tone >= 1.5:
+        return "Bullish", round(min(0.5 + abs(tone) / 20, 0.95), 4)
+    if tone <= -1.5:
+        return "Bearish", round(min(0.5 + abs(tone) / 20, 0.95), 4)
+    return "Neutral", 0.5
+
+
+def classify_usgs_magnitude(mag) -> tuple[str, float]:
+    """Starting heuristic, not authoritative seismology — only large
+    quakes are treated as market-relevant/risk-off."""
+    try:
+        mag = float(mag)
+    except (TypeError, ValueError):
+        return "Neutral", 0.5
+    if mag >= 6.0:
+        return "Bearish", round(min(0.5 + (mag - 6.0) / 8, 0.95), 4)
+    return "Neutral", 0.5
+
+
+def _fetch_gdelt_events() -> list[dict]:
+    """GDELT DOC 2.0 API — free, keyless. Enforces a real (and, in testing,
+    stricter-than-documented) rate limit — wrapped defensively so a 429/error
+    here never breaks the run; treat GDELT as best-effort, not reliable."""
+    query = " OR ".join(GDELT_QUERY_TERMS)
+    params = {
+        "query": f"({query}) sourcelang:eng",
+        "mode": "artlist",
+        "format": "json",
+        "timespan": GDELT_TIMESPAN,
+        "maxrecords": GDELT_MAX_RECORDS,
+    }
+    try:
+        resp = requests.get(
+            "https://api.gdeltproject.org/api/v2/doc/doc",
+            params=params, timeout=8, headers=DEFAULT_HEADERS,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception as exc:
+        print(f"  [WARN] GDELT fetch failed (best-effort source, continuing): {exc}")
+        return []
+
+    events = []
+    for item in data.get("articles", []):
+        title = (item.get("title") or "").strip()
+        url = item.get("url") or ""
+        if not title or not url:
+            continue
+        sentiment, confidence = classify_gdelt_tone(item.get("tone"))
+        events.append({
+            "title": title,
+            "url": url,
+            "source": item.get("domain") or "GDELT",
+            "published": None,  # GDELT's seendate format needs its own parser; omit rather than guess
+            "tickers": [],
+            "currency_pairs": [],
+            "summary": "",
+            "_category": "GEOPOLITICS",
+            "_tier": 2,
+            "_asset_class": "geopolitics",
+            "sentiment": sentiment,
+            "confidence": confidence,
+            "sentiment_engine": "gdelt_tone",
+            "event_source": "gdelt",
+            "is_crypto_relevant": True,
+        })
+    return events
+
+
+def _fetch_usgs_events() -> list[dict]:
+    """USGS Earthquake GeoJSON feed — free, keyless, confirmed stable."""
+    try:
+        resp = requests.get(
+            "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson",
+            timeout=8, headers=DEFAULT_HEADERS,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception as exc:
+        print(f"  [WARN] USGS fetch failed: {exc}")
+        return []
+
+    events = []
+    for feature in data.get("features", []):
+        props = feature.get("properties", {})
+        title = (props.get("title") or "").strip()
+        url = props.get("url") or ""
+        if not title or not url:
+            continue
+        mag = props.get("mag")
+        sentiment, confidence = classify_usgs_magnitude(mag)
+        time_ms = props.get("time")
+        published = None
+        if time_ms:
+            try:
+                published = datetime.fromtimestamp(time_ms / 1000, tz=timezone.utc).isoformat()
+            except Exception:
+                published = None
+        events.append({
+            "title": title,
+            "url": url,
+            "source": "USGS",
+            "published": published,
+            "tickers": [],
+            "currency_pairs": [],
+            "summary": props.get("place") or "",
+            "_category": "GEOPOLITICS",
+            "_tier": 1,
+            "_asset_class": "geopolitics",
+            "sentiment": sentiment,
+            "confidence": confidence,
+            "sentiment_engine": "usgs_magnitude",
+            "event_source": "usgs",
+            "magnitude": mag,
+            "is_crypto_relevant": True,
+        })
+    return events
+
+
+def fetch_geopolitical_events() -> list[dict]:
+    """Combines GDELT + USGS, each independently isolated so one API being
+    down/rate-limited never blocks the other or the run."""
+    events = []
+    events.extend(_fetch_gdelt_events())
+    events.extend(_fetch_usgs_events())
+    # ACLED (armed-conflict event data) was considered but not implemented —
+    # its free-tier registration terms need a separate feasibility check.
+    return events
+
+
+# ---------------------------------------------------------------------------
+# 3d. X / TWITTER CASHTAG SEARCH (FxTwitter public mirror — free, keyless)
+# ---------------------------------------------------------------------------
+# Batched cashtag search rather than a fixed account watchlist — directly
+# matches the actual need (tweets that mention a specific $TICKER, with the
+# author's name and full tweet text), confirmed live against a real query
+# during planning. No login, no official paid API, no persistent server.
+#
+# Quality note (found via live testing, not theoretical): unrestricted
+# cashtag search on X is dominated by low-signal noise — presale/shill
+# accounts, "top gainers" bot spam, airdrop-claim phishing patterns, and
+# non-English pump chatter. A live A/B check of FxTwitter's "Top" vs default
+# sort showed no meaningful difference (crypto-Twitter's cashtag firehose is
+# just noisy by nature). Follower count proved a far more useful quality
+# signal than like/repost counts, which were near-zero across nearly all
+# results regardless of legitimacy (search results skew toward
+# very-recently-posted tweets that haven't accumulated engagement yet).
+X_CASHTAG_BATCH_SIZE = 6  # tickers per query; conservative starting point, tune after observing result relevance
+X_MIN_FOLLOWERS = 10_000  # primary quality gate — filters the smallest shill/bot accounts
+# Restrict to well-established tickers rather than the full ~500-symbol
+# registry — small-cap/presale coins attracted disproportionately more
+# pump/shill content in testing than majors like BTC/ETH/SOL.
+X_MAJOR_TICKERS = [
+    "BTC", "ETH", "SOL", "XRP", "ADA", "DOGE", "AVAX", "LINK", "DOT", "BNB",
+    "MATIC", "LTC", "TRX", "TON", "ATOM", "UNI", "NEAR", "APT", "ARB", "OP",
+]
+
+
+def _build_cashtag_batches(tickers: list[str]) -> list[list[str]]:
+    return [tickers[i:i + X_CASHTAG_BATCH_SIZE] for i in range(0, len(tickers), X_CASHTAG_BATCH_SIZE)]
+
+
+def _looks_like_spam(text: str) -> bool:
+    """Keyword layer on top of the follower-count gate — catches obvious
+    scam/promo patterns even from accounts that clear the follower
+    threshold (e.g. a compromised account posting a phishing link)."""
+    text_lower = text.lower()
+    spam_markers = [
+        "t.me/", "join our telegram", "🎯 target", "🚀🚀🚀", "airdrop", "pump signal",
+        "claim page", "claim your", "allocation is", "presale", "whitelist spot",
+        "biggest daily gainers", "top gainers on", "morning bell", "24h  总市值",
+    ]
+    return any(marker in text_lower for marker in spam_markers)
+
+
+def _is_mostly_non_latin(text: str) -> bool:
+    """Cheap language filter — Snitch's sentiment engines (VADER's lexicon
+    especially) are English-tuned, and non-Latin-script spam (Chinese/
+    Russian/etc. bot accounts) was common in live cashtag-search testing.
+    Not true language detection, just a fast heuristic: if most letters
+    fall outside the basic Latin range, treat it as non-English."""
+    letters = [c for c in text if c.isalpha()]
+    if len(letters) < 8:
+        return False  # too short to judge, don't false-positive on cashtags/emoji-only tweets
+    non_latin = sum(1 for c in letters if ord(c) > 0x24F)  # beyond extended Latin
+    return (non_latin / len(letters)) > 0.3
+
+
+def fetch_x_cashtags(coin_keywords: dict[str, list[str]]) -> list[dict]:
+    """Search FxTwitter for tweets containing known crypto ticker cashtags,
+    batched via OR queries to minimize request count. Restricted to major
+    tickers and filtered by follower count + spam markers + language —
+    see the quality note above for why (found via live testing)."""
+    tickers = [t for t in X_MAJOR_TICKERS if t in coin_keywords]
+    batches = _build_cashtag_batches(tickers)
+
+    articles: list[dict] = []
+    for batch in batches:
+        query = " OR ".join(f"${t}" for t in batch)
+        try:
+            resp = requests.get(
+                "https://api.fxtwitter.com/2/search",
+                params={"q": query}, timeout=8, headers=DEFAULT_HEADERS,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+        except Exception as exc:
+            print(f"  [WARN] FxTwitter search failed for batch {batch}: {exc}")
+            time.sleep(0.5)
+            continue
+
+        for item in data.get("results", []):
+            text = (item.get("text") or "").strip()
+            url = item.get("url") or ""
+            if not text or not url:
+                continue
+            if _looks_like_spam(text) or _is_mostly_non_latin(text):
+                continue
+
+            author = item.get("author", {})
+            if (author.get("followers") or 0) < X_MIN_FOLLOWERS:
+                continue
+
+            handle = author.get("screen_name") or author.get("name") or "unknown"
+            tickers_found = extract_coin_tags(text, coin_keywords)
+            if not tickers_found:
+                continue  # matched the OR query on a substring but no clean ticker extracted
+
+            created_ts = item.get("created_timestamp")
+            published = None
+            if created_ts:
+                try:
+                    published = datetime.fromtimestamp(created_ts, tz=timezone.utc).isoformat()
+                except Exception:
+                    published = None
+
+            articles.append({
+                "title":     text[:120],
+                "url":       url,
+                "source":    f"@{handle}",
+                "published": published,
+                "tickers":   tickers_found,
+                "currency_pairs": [],
+                "summary":   text[:300],
+                "_category": "CRYPTO",
+                "_tier":     3,  # individual tweets are inherently less vetted than curated RSS sources -> VADER-primary
+                "_asset_class": "crypto",
+                "source_type": "x",
+                "likes":   item.get("likes"),
+                "reposts": item.get("reposts"),
+                "replies": item.get("replies"),
+                "follower_count": author.get("followers"),
+            })
+        time.sleep(0.5)
+
+    return articles
+
+
+# ---------------------------------------------------------------------------
+# 3b. MYFXBOOK COMMUNITY OUTLOOK (retail positioning sentiment)
+# ---------------------------------------------------------------------------
+# Official, documented, free myfxbook API — not scraping. Session-token auth,
+# 100 req/24h free-tier cap, so this is gated to at most once/hour via the
+# `forex_sentiment.updated_at` timestamp already committed in news.json (the
+# same "read our own previous output" trick used for existing_articles).
+MYFXBOOK_SENTIMENT_TTL_SECONDS = 60 * 60  # 1 hour
+MYFXBOOK_SKEW_THRESHOLD = 80  # only pairs at >=80% long or short
+
+
+def _myfxbook_login() -> Optional[str]:
+    """Returns a session token, or None on any failure (fail-soft — never
+    raises, since a missing/invalid account is an expected pre-launch state
+    until the user creates one and adds MYFXBOOK_EMAIL/MYFXBOOK_PASSWORD)."""
+    email = os.environ.get("MYFXBOOK_EMAIL", "")
+    password = os.environ.get("MYFXBOOK_PASSWORD", "")
+    if not email or not password:
+        return None
+    try:
+        resp = requests.get(
+            "https://www.myfxbook.com/api/login.json",
+            params={"email": email, "password": password}, timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if data.get("error"):
+            print(f"  [WARN] myfxbook login error: {data.get('message')}")
+            return None
+        return data.get("session")
+    except Exception as exc:
+        print(f"  [WARN] myfxbook login failed: {exc}")
+        return None
+
+
+def _myfxbook_get_outlook(session_token: str) -> Optional[list[dict]]:
+    """Fetches community outlook pairs. On an expired/invalid session, re-logs
+    in once and retries; gives up (returns None) if that also fails. Field
+    names are read defensively (multiple plausible keys) since the exact
+    live response shape hasn't been verified against real credentials yet —
+    flagged as a follow-up verification step once the user has an account."""
+    def _call(token: str):
+        resp = requests.get(
+            "https://www.myfxbook.com/api/get-community-outlook.json",
+            params={"session": token}, timeout=10,
+        )
+        resp.raise_for_status()
+        return resp.json()
+
+    try:
+        data = _call(session_token)
+    except Exception as exc:
+        print(f"  [WARN] myfxbook get-community-outlook failed: {exc}")
+        return None
+
+    if data.get("error"):
+        # Expired/invalid session -> re-login once and retry.
+        print(f"  [INFO] myfxbook session appears invalid ({data.get('message')}), re-authenticating…")
+        new_token = _myfxbook_login()
+        if not new_token:
+            return None
+        try:
+            data = _call(new_token)
+        except Exception as exc:
+            print(f"  [WARN] myfxbook get-community-outlook retry failed: {exc}")
+            return None
+        if data.get("error"):
+            print(f"  [WARN] myfxbook get-community-outlook still erroring after re-login: {data.get('message')}")
+            return None
+
+    pairs = data.get("symbols") or data.get("pairs") or data.get("data") or []
+    return pairs if isinstance(pairs, list) else None
+
+
+def fetch_forex_sentiment(old_data: dict) -> Optional[dict]:
+    """Hourly-gated orchestrator. Returns the previous forex_sentiment dict
+    unchanged if it's still fresh (or on any failure), never drops previously
+    -good data, and never breaks the run if myfxbook is unreachable/not yet
+    configured (expected pre-launch state)."""
+    previous = old_data.get("forex_sentiment")
+    if previous and previous.get("updated_at"):
+        try:
+            prev_dt = datetime.fromisoformat(previous["updated_at"])
+            age = (datetime.now(timezone.utc) - prev_dt).total_seconds()
+            if age < MYFXBOOK_SENTIMENT_TTL_SECONDS:
+                return previous
+        except Exception:
+            pass
+
+    token = _myfxbook_login()
+    if not token:
+        return previous  # not configured yet, or auth failed — keep last-known-good
+
+    raw_pairs = _myfxbook_get_outlook(token)
+    if raw_pairs is None:
+        return previous
+
+    skewed = []
+    for p in raw_pairs:
+        try:
+            long_pct = float(p.get("longPercentage") if p.get("longPercentage") is not None else p.get("long_pct", 0))
+            short_pct = float(p.get("shortPercentage") if p.get("shortPercentage") is not None else p.get("short_pct", 0))
+        except (TypeError, ValueError):
+            continue
+        if long_pct < MYFXBOOK_SKEW_THRESHOLD and short_pct < MYFXBOOK_SKEW_THRESHOLD:
+            continue
+        long_vol = p.get("longVolume", p.get("long_volume_lots", 0)) or 0
+        short_vol = p.get("shortVolume", p.get("short_volume_lots", 0)) or 0
+        skewed.append({
+            "symbol": p.get("name") or p.get("symbol"),
+            "short_pct": short_pct,
+            "long_pct": long_pct,
+            "short_volume_lots": short_vol,
+            "long_volume_lots": long_vol,
+            "short_positions": p.get("shortPositions", p.get("short_positions")),
+            "long_positions": p.get("longPositions", p.get("long_positions")),
+            "_total_volume": float(long_vol or 0) + float(short_vol or 0),
+        })
+
+    # Popularity rank derived client-side from total volume relative to the
+    # max in the filtered set, unless the live API already provides a
+    # popularity/ranking field (none of the plausible field names above
+    # include one — verify against real data once credentials exist).
+    if skewed:
+        max_vol = max(s["_total_volume"] for s in skewed) or 1
+        skewed.sort(key=lambda s: s["_total_volume"], reverse=True)
+        for i, s in enumerate(skewed):
+            s["popularity_rank"] = i + 1
+            del s["_total_volume"]
+
+    return {
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "pairs": skewed,
+    }
+
+
+# ---------------------------------------------------------------------------
+# 3c. MACRO SNAPSHOT (FMP primary, Alpha Vantage fallback)
+# ---------------------------------------------------------------------------
+# Treasury yields / Fed funds / CPI / GDP barely move intraday — fetched at
+# most once/day, gated the same way as forex_sentiment (read our own prior
+# output's updated_at back from news.json).
+FMP_STABLE_BASE = "https://financialmodelingprep.com/stable"
+ALPHA_VANTAGE_BASE = "https://www.alphavantage.co/query"
+TWELVE_DATA_BASE = "https://api.twelvedata.com"
+API_NINJAS_BASE = "https://api.api-ninjas.com/v1"
+
+
+def _fetch_macro_fmp() -> Optional[dict]:
+    api_key = os.environ.get("FMP_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        treasury = requests.get(f"{FMP_STABLE_BASE}/treasury-rates", params={"apikey": api_key}, timeout=10)
+        treasury.raise_for_status()
+        treasury_data = treasury.json()
+        t0 = treasury_data[0] if isinstance(treasury_data, list) and treasury_data else {}
+
+        econ = requests.get(
+            f"{FMP_STABLE_BASE}/economic-indicators",
+            params={"name": "federalFunds", "apikey": api_key}, timeout=10,
+        )
+        econ.raise_for_status()
+        econ_data = econ.json()
+        e0 = econ_data[0] if isinstance(econ_data, list) and econ_data else {}
+
+        risk_premium = requests.get(f"{FMP_STABLE_BASE}/market-risk-premium", params={"apikey": api_key}, timeout=10)
+        risk_premium.raise_for_status()
+        rp_data = risk_premium.json()
+        rp0 = rp_data[0] if isinstance(rp_data, list) and rp_data else {}
+
+        snapshot = {
+            "treasury_yield_10y": t0.get("year10"),
+            "fed_funds_rate": e0.get("value"),
+            "market_risk_premium": rp0.get("totalEquityRiskPremium") or rp0.get("marketRiskPremium"),
+            # CPI/GDP/unemployment/nonfarm payroll field names on FMP's
+            # "economic-indicators" endpoint need a live-data verification
+            # pass once the key is confirmed working — left null until then.
+            "cpi_yoy": None,
+            "gdp_real": None,
+            "unemployment_rate": None,
+            "nonfarm_payroll": None,
+        }
+        if all(v is None for v in snapshot.values()):
+            return None
+        return snapshot
+    except Exception as exc:
+        print(f"  [WARN] FMP macro fetch failed: {exc}")
+        return None
+
+
+def _fetch_macro_alpha_vantage() -> Optional[dict]:
+    """Fallback only — called exclusively when FMP fails, to respect Alpha
+    Vantage's much tighter ~25 req/day free-tier quota."""
+    api_key = os.environ.get("ALPHA_VANTAGE_API_KEY", "")
+    if not api_key:
+        return None
+
+    def _latest_value(function: str, extra_params: dict | None = None) -> Optional[str]:
+        params = {"function": function, "apikey": api_key}
+        if extra_params:
+            params.update(extra_params)
+        resp = requests.get(ALPHA_VANTAGE_BASE, params=params, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+        series = data.get("data")
+        if isinstance(series, list) and series:
+            return series[0].get("value")
+        return None
+
+    try:
+        snapshot = {
+            "treasury_yield_10y": _latest_value("TREASURY_YIELD", {"interval": "daily", "maturity": "10year"}),
+            "fed_funds_rate": _latest_value("FEDERAL_FUNDS_RATE", {"interval": "daily"}),
+            "cpi_yoy": _latest_value("CPI", {"interval": "monthly"}),
+            "gdp_real": _latest_value("REAL_GDP", {"interval": "quarterly"}),
+            "unemployment_rate": _latest_value("UNEMPLOYMENT"),
+            "nonfarm_payroll": _latest_value("NONFARM_PAYROLL"),
+            "market_risk_premium": None,
+        }
+        if all(v is None for v in snapshot.values()):
+            return None
+        return snapshot
+    except Exception as exc:
+        print(f"  [WARN] Alpha Vantage macro fetch failed: {exc}")
+        return None
+
+
+def fetch_macro_snapshot(old_data: dict) -> Optional[dict]:
+    """Daily-gated orchestrator: FMP primary, Alpha Vantage fallback-only.
+    Keeps the previous snapshot (flagged stale) rather than dropping it if
+    both providers fail on a given day."""
+    previous = old_data.get("macro_snapshot")
+    today = datetime.now(timezone.utc).date().isoformat()
+    if previous and previous.get("updated_at", "").startswith(today):
+        return previous  # already fetched today
+
+    fmp_result = _fetch_macro_fmp()
+    if fmp_result is not None:
+        print("  [INFO] macro_snapshot: using FMP (primary)")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "fmp", **fmp_result}
+
+    av_result = _fetch_macro_alpha_vantage()
+    if av_result is not None:
+        print("  [INFO] macro_snapshot: FMP failed, using Alpha Vantage (fallback)")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "alpha_vantage", **av_result}
+
+    print("  [WARN] macro_snapshot: both FMP and Alpha Vantage failed, keeping previous snapshot (stale)")
+    if previous:
+        return {**previous, "stale": True}
+    return None
+
+
+# ---------------------------------------------------------------------------
+# 3d. COMMODITY SNAPSHOT (Twelve Data primary, FMP + Alpha Vantage fallback)
+# — replaces an earlier Stooq-based plan; Stooq turned out to be blocked by
+# a Cloudflare bot-challenge on every request (browser and server-side
+# alike), confirmed via live testing. FMP's commodity quotes then turned out
+# to be gated behind a 402 on the current plan (confirmed live), and Alpha
+# Vantage has no working gold/silver source at all (its CURRENCY_EXCHANGE_RATE
+# doesn't actually support XAU/XAG despite that being a commonly-cited
+# trick). Twelve Data's free tier (800 credits/day, 8 req/min) covers
+# indices, commodities, and metals in one place, so it's now primary for
+# both commodity_snapshot and index_snapshot. Same daily-gate pattern as
+# fetch_macro_snapshot throughout.
+# ---------------------------------------------------------------------------
+# Twelve Data's free tier turned out (confirmed via live testing, including
+# its own /symbol_search endpoint) to only cover equities/ETFs — raw index
+# symbols (SPX/DJI/etc.) and raw commodity symbols (WTI/USD, XAU/USD, etc.)
+# all came back "not available with your plan" or "not found", the same
+# practical limitation Finnhub already has on its free tier. Twelve Data's
+# commodity rows use well-known US-listed ETF proxies instead.
+#
+# API Ninjas (added later, 3000 req/month free tier) has a real Commodity
+# Price API with actual spot prices (not ETF proxies) for exactly these six,
+# so it's now PRIMARY for commodity_snapshot — Twelve Data's ETF-proxy
+# numbers are the fallback. Each entry below carries every provider's own
+# symbol/name convention; `symbol`/`label` are the stable, provider-agnostic
+# identifiers used in the output regardless of which provider answered.
+COMMODITY_WATCHLIST = [
+    {"symbol": "CRUDE_OIL", "label": "Crude Oil (WTI)", "fmp_symbol": "CLUSD", "twelvedata_symbol": "USO", "apininja_name": "crude_oil"},
+    {"symbol": "BRENT_CRUDE", "label": "Brent Crude", "fmp_symbol": "BZUSD", "twelvedata_symbol": "BNO", "apininja_name": "brent_crude_oil"},
+    {"symbol": "GOLD", "label": "Gold", "fmp_symbol": "GCUSD", "twelvedata_symbol": "GLD", "apininja_name": "gold"},
+    {"symbol": "SILVER", "label": "Silver", "fmp_symbol": "SIUSD", "twelvedata_symbol": "SLV", "apininja_name": "silver"},
+    {"symbol": "NATURAL_GAS", "label": "Natural Gas", "fmp_symbol": "NGUSD", "twelvedata_symbol": "UNG", "apininja_name": "natural_gas"},
+    {"symbol": "COPPER", "label": "Copper", "fmp_symbol": "HGUSD", "twelvedata_symbol": "CPER", "apininja_name": "copper"},
+]
+
+
+def _fetch_commodities_apininja(previous_prices: dict) -> Optional[list[dict]]:
+    """PRIMARY commodity source: API Ninjas' Commodity Price API returns a
+    real current spot price per commodity `name` (one request each — no
+    batch endpoint), but no % change field, so day-over-day change is
+    computed here from yesterday's stored price for the same canonical
+    `symbol` (whichever provider supplied it) — same "read our own previous
+    output" idiom used elsewhere in this project. `previous_prices` is
+    {symbol: price} from the last successful commodity_snapshot."""
+    api_key = os.environ.get("API_NINJAS_KEY", "")
+    if not api_key:
+        return None
+    try:
+        items = []
+        for watch in COMMODITY_WATCHLIST:
+            resp = requests.get(
+                f"{API_NINJAS_BASE}/commodityprice",
+                params={"name": watch["apininja_name"]},
+                headers={"X-Api-Key": api_key}, timeout=10,
+            )
+            if not resp.ok:
+                print(f"  [WARN] API Ninjas {watch['apininja_name']}: HTTP {resp.status_code} — {resp.text[:150]}")
+                continue
+            data = resp.json()
+            price = data.get("price")
+            if price is None:
+                print(f"  [WARN] API Ninjas {watch['apininja_name']}: no price in response ({data})")
+                continue
+            price = float(price)
+            prev_price = previous_prices.get(watch["symbol"])
+            pct = ((price - prev_price) / prev_price) * 100 if prev_price else None
+            items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
+        return items if items else None
+    except Exception as exc:
+        print(f"  [WARN] API Ninjas commodities fetch failed: {exc}")
+        return None
+
+INDICES_WATCHLIST = [
+    {"symbol": "SPY", "label": "S&P 500 (SPY)"},
+    {"symbol": "QQQ", "label": "Nasdaq 100 (QQQ)"},
+    {"symbol": "DIA", "label": "Dow Jones (DIA)"},
+    {"symbol": "IWM", "label": "Russell 2000 (IWM)"},
+    {"symbol": "VIXY", "label": "Volatility (VIXY)"},
+]
+
+
+def _twelvedata_quote_batch(symbols: list[str]) -> Optional[dict]:
+    """Twelve Data's /quote endpoint accepts a comma-joined symbol batch and
+    returns either a single quote object (one symbol) or a dict keyed by
+    symbol (multiple) — handled defensively here since the exact response
+    shape per symbol *category* (indices vs. commodities vs. equities)
+    hasn't been verified against a live multi-symbol response, only single-
+    symbol equity quotes (confirmed field names: close/previous_close/
+    percent_change). Returns {symbol: quote_dict}, or None on failure."""
+    api_key = os.environ.get("TWELVE_DATA_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        resp = requests.get(
+            f"{TWELVE_DATA_BASE}/quote",
+            params={"symbol": ",".join(symbols), "apikey": api_key}, timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if isinstance(data, dict) and "symbol" in data:
+            return {data["symbol"]: data}  # single-symbol response shape
+        if isinstance(data, dict):
+            # Multi-symbol shape: {"SYM1": {...}, "SYM2": {...}}, filter out
+            # any per-symbol error entries (e.g. {"code": 400, "status": "error"}),
+            # logging what actually went wrong per symbol for live diagnosis.
+            good = {}
+            for sym, q in data.items():
+                if isinstance(q, dict) and q.get("status") != "error":
+                    good[sym] = q
+                elif isinstance(q, dict):
+                    print(f"  [WARN] Twelve Data {sym}: {q.get('message') or q}")
+            return good
+        return None
+    except Exception as exc:
+        print(f"  [WARN] Twelve Data quote batch failed: {exc}")
+        return None
+
+
+def _fetch_commodities_twelvedata() -> Optional[list[dict]]:
+    symbol_map = {c["twelvedata_symbol"]: c for c in COMMODITY_WATCHLIST}
+    quotes = _twelvedata_quote_batch(list(symbol_map.keys()))
+    if not quotes:
+        return None
+    items = []
+    for td_symbol, watch in symbol_map.items():
+        q = quotes.get(td_symbol)
+        if not q:
+            continue
+        try:
+            price = float(q["close"])
+        except (KeyError, ValueError, TypeError):
+            continue
+        pct = q.get("percent_change")
+        try:
+            pct = float(pct) if pct is not None else None
+        except (ValueError, TypeError):
+            pct = None
+        items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
+    return items if items else None
+
+
+def fetch_index_snapshot(old_data: dict) -> Optional[dict]:
+    """Daily-gated, Twelve Data only — moves index quotes server-side so the
+    Indices tile row doesn't depend on a client-embedded FINNHUB_API_KEY
+    (which the free-tier Finnhub path in index.html still needs separately
+    for the equities Top Gainers/Losers table under that row)."""
+    previous = old_data.get("index_snapshot")
+    today = datetime.now(timezone.utc).date().isoformat()
+    if previous and previous.get("updated_at", "").startswith(today):
+        return previous
+
+    symbols = [i["symbol"] for i in INDICES_WATCHLIST]
+    quotes = _twelvedata_quote_batch(symbols)
+    if quotes:
+        items = []
+        for watch in INDICES_WATCHLIST:
+            q = quotes.get(watch["symbol"])
+            if not q:
+                continue
+            try:
+                price = float(q["close"])
+            except (KeyError, ValueError, TypeError):
+                continue
+            pct = q.get("percent_change")
+            try:
+                pct = float(pct) if pct is not None else None
+            except (ValueError, TypeError):
+                pct = None
+            items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
+        if items:
+            print("  [INFO] index_snapshot: using Twelve Data")
+            return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "twelvedata", "items": items}
+
+    print("  [WARN] index_snapshot: Twelve Data failed, keeping previous snapshot (stale)")
+    if previous:
+        return {**previous, "stale": True}
+    return None
+
+
+def _fetch_commodities_fmp() -> Optional[list[dict]]:
+    """FMP's /stable/quote endpoint accepts a comma-joined symbol batch.
+    Exact commodity ticker conventions (CLUSD/BZUSD/GCUSD/etc.) are FMP's
+    documented commodity symbols as of this writing — verify against a live
+    response once FMP_API_KEY is set, same caveat already applied to the
+    macro_snapshot/forex_sentiment field-name assumptions in this project."""
+    api_key = os.environ.get("FMP_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        symbols = ",".join(item["fmp_symbol"] for item in COMMODITY_WATCHLIST)
+        resp = requests.get(
+            f"{FMP_STABLE_BASE}/quote",
+            params={"symbol": symbols, "apikey": api_key}, timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if not isinstance(data, list) or not data:
+            return None
+        by_symbol = {row.get("symbol"): row for row in data}
+        items = []
+        for watch in COMMODITY_WATCHLIST:
+            row = by_symbol.get(watch["fmp_symbol"])
+            if not row:
+                continue
+            items.append({
+                "symbol": watch["symbol"],
+                "label": watch["label"],
+                "price": row.get("price"),
+                "changes_percentage": row.get("changesPercentage"),
+            })
+        return items if items else None
+    except Exception as exc:
+        print(f"  [WARN] FMP commodities fetch failed: {exc}")
+        return None
+
+
+_METALS_WATCHLIST = [
+    {"symbol": "GOLD", "label": "Gold", "fmp_forex_symbol": "XAUUSD"},
+    {"symbol": "SILVER", "label": "Silver", "fmp_forex_symbol": "XAGUSD"},
+]
+
+
+def _fetch_metals_fmp() -> Optional[list[dict]]:
+    """Gold/silver specifically: FMP's plain /stable/quote commodity symbols
+    (GCUSD/SIUSD) are gated behind the same 402 as the other commodities on
+    the current plan, and Alpha Vantage's CURRENCY_EXCHANGE_RATE doesn't
+    actually support XAU/XAG despite that being a commonly-cited trick
+    (confirmed live: "Invalid API call"). FMP also quotes precious metals as
+    forex-style pairs (XAUUSD/XAGUSD) via the same /stable/quote endpoint —
+    worth trying since forex quotes are typically a different (often lower)
+    plan tier than commodities; verify against a live response, same caveat
+    as the rest of this project's FMP field-name assumptions."""
+    api_key = os.environ.get("FMP_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        symbols = ",".join(m["fmp_forex_symbol"] for m in _METALS_WATCHLIST)
+        resp = requests.get(
+            f"{FMP_STABLE_BASE}/quote",
+            params={"symbol": symbols, "apikey": api_key}, timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if not isinstance(data, list) or not data:
+            return None
+        by_symbol = {row.get("symbol"): row for row in data}
+        items = []
+        for m in _METALS_WATCHLIST:
+            row = by_symbol.get(m["fmp_forex_symbol"])
+            if not row:
+                continue
+            items.append({
+                "symbol": m["symbol"],
+                "label": m["label"],
+                "price": row.get("price"),
+                "changes_percentage": row.get("changesPercentage"),
+            })
+        return items if items else None
+    except Exception as exc:
+        print(f"  [WARN] FMP metals (forex-style) fetch failed: {exc}")
+        return None
+
+
+def _fetch_commodities_alpha_vantage() -> Optional[list[dict]]:
+    """Fallback for when FMP's commodity quotes aren't available on the
+    user's plan (confirmed via live testing: FMP's /stable/quote returns
+    402 Payment Required for commodity symbols on the free tier). Alpha
+    Vantage has real, documented endpoints for WTI/BRENT/NATURAL_GAS/COPPER
+    (time series, % change derived from the two most recent points) and
+    treats gold/silver as currency pairs via CURRENCY_EXCHANGE_RATE (spot
+    rate only, no historical point in that same call, so no % change for
+    those two — the frontend already renders tiles fine without one)."""
+    api_key = os.environ.get("ALPHA_VANTAGE_API_KEY", "")
+    if not api_key:
+        return None
+
+    def _series_quote(function: str) -> tuple[Optional[float], Optional[float]]:
+        resp = requests.get(ALPHA_VANTAGE_BASE, params={"function": function, "interval": "daily", "apikey": api_key}, timeout=10)
+        resp.raise_for_status()
+        body = resp.json()
+        series = body.get("data")
+        if not isinstance(series, list) or len(series) < 1:
+            # Free tier is capped at 5 req/min — a "Note"/"Information" field
+            # here (instead of "data") almost always means we got rate-limited
+            # mid-batch, not that the symbol/endpoint is wrong.
+            note = body.get("Note") or body.get("Information") or body
+            print(f"  [WARN] Alpha Vantage {function}: no data series ({str(note)[:150]})")
+            return None, None
+        try:
+            latest = float(series[0]["value"])
+        except (KeyError, ValueError, TypeError):
+            return None, None
+        if len(series) < 2:
+            return latest, None
+        try:
+            prev = float(series[1]["value"])
+            pct = ((latest - prev) / prev) * 100 if prev else None
+        except (KeyError, ValueError, TypeError, ZeroDivisionError):
+            pct = None
+        return latest, pct
+
+    def _metal_quote(currency_code: str) -> Optional[float]:
+        resp = requests.get(ALPHA_VANTAGE_BASE, params={
+            "function": "CURRENCY_EXCHANGE_RATE", "from_currency": currency_code,
+            "to_currency": "USD", "apikey": api_key,
+        }, timeout=10)
+        resp.raise_for_status()
+        body = resp.json()
+        rate = body.get("Realtime Currency Exchange Rate", {}).get("5. Exchange Rate")
+        if rate is None:
+            note = body.get("Note") or body.get("Information") or body
+            print(f"  [WARN] Alpha Vantage {currency_code}/USD: no exchange rate ({str(note)[:150]})")
+            return None
+        try:
+            return float(rate)
+        except (ValueError, TypeError):
+            return None
+
+    try:
+        items = []
+        calls = [
+            (COMMODITY_WATCHLIST[0], "series", "WTI"),
+            (COMMODITY_WATCHLIST[1], "series", "BRENT"),
+            (COMMODITY_WATCHLIST[4], "series", "NATURAL_GAS"),
+            (COMMODITY_WATCHLIST[5], "series", "COPPER"),
+            (COMMODITY_WATCHLIST[2], "metal", "XAU"),
+            (COMMODITY_WATCHLIST[3], "metal", "XAG"),
+        ]
+        # Free tier caps at 5 req/min — space calls out so a 6-call batch
+        # (well under the 25/day cap since this only runs once daily) never
+        # trips the per-minute limit.
+        for i, (watch, kind, param) in enumerate(calls):
+            if i > 0:
+                time.sleep(15)
+            if kind == "series":
+                price, pct = _series_quote(param)
+            else:
+                price, pct = _metal_quote(param), None
+            if price is not None:
+                items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
+
+        return items if items else None
+    except Exception as exc:
+        print(f"  [WARN] Alpha Vantage commodities fetch failed: {exc}")
+        return None
+
+
+def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
+    """Daily-gated, per-symbol merge across providers in priority order —
+    NOT all-or-nothing per provider, since API Ninjas' free tier only
+    covers a rotating weekly subset of commodities (confirmed live: only
+    Gold was free the week this was tested, the other 5 came back "premium
+    users only") and treating that partial success as "done" would silently
+    drop the rest instead of falling through to a provider that has them.
+    Priority per commodity: API Ninjas (real spot price, no % change field
+    so that's computed from yesterday's stored price for the same symbol)
+    → Twelve Data (ETF proxy) → FMP (ETF-adjacent commodity ticker, or
+    forex-style XAUUSD/XAGUSD for metals) → Alpha Vantage (energy/copper
+    only, no gold/silver support at all). Keeps the previous snapshot
+    (flagged stale) if every provider fails for every symbol today."""
+    previous = old_data.get("commodity_snapshot")
+    today = datetime.now(timezone.utc).date().isoformat()
+    if previous and previous.get("updated_at", "").startswith(today):
+        return previous
+
+    previous_prices = {i["symbol"]: i.get("price") for i in (previous or {}).get("items", [])}
+
+    by_symbol: dict[str, dict] = {}
+    sources_used: set[str] = set()
+
+    def _absorb(items: Optional[list[dict]], source_name: str):
+        for item in (items or []):
+            sym = item.get("symbol")
+            if sym and sym not in by_symbol:
+                by_symbol[sym] = item
+                sources_used.add(source_name)
+
+    _absorb(_fetch_commodities_apininja(previous_prices), "api_ninjas")
+    if len(by_symbol) < len(COMMODITY_WATCHLIST):
+        _absorb(_fetch_commodities_twelvedata(), "twelvedata")
+    if len(by_symbol) < len(COMMODITY_WATCHLIST):
+        _absorb(_fetch_commodities_fmp(), "fmp")
+        _absorb(_fetch_metals_fmp(), "fmp")
+    if len(by_symbol) < len(COMMODITY_WATCHLIST):
+        _absorb(_fetch_commodities_alpha_vantage(), "alpha_vantage")
+
+    if by_symbol:
+        items = [by_symbol[w["symbol"]] for w in COMMODITY_WATCHLIST if w["symbol"] in by_symbol]
+        source = "+".join(sorted(sources_used))
+        print(f"  [INFO] commodity_snapshot: {len(items)}/{len(COMMODITY_WATCHLIST)} symbols via {source}")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": source, "items": items}
+
+    print("  [WARN] commodity_snapshot: all providers failed, keeping previous snapshot (stale)")
+    if previous:
+        return {**previous, "stale": True}
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -446,22 +1566,40 @@ def deduplicate(articles: list[dict]) -> list[dict]:
                 break
 
         if not matched:
-            primary.append({
+            story = {
                 "title":        article["title"],
                 "url":          article["url"],
                 "source":       article["source"],
                 "published":    article["published"],
                 "tickers":      article["tickers"],
+                "currency_pairs": article.get("currency_pairs", []),
                 "summary":      article.get("summary", ""),
-                "sentiment":    None,
-                "confidence":   None,
+                # Preserve pre-computed sentiment (GDELT/USGS set these at
+                # fetch time via deterministic mappings, not a text model —
+                # overwriting with None here would discard that work).
+                "sentiment":    article.get("sentiment"),
+                "confidence":   article.get("confidence"),
                 "other_sources": [],
                 "category":     article.get("_category", "CRYPTO"),
                 "region":       "GLOBAL",
+                "asset_class":  article.get("_asset_class", "crypto"),
                 "source_flag":  SOURCE_FLAGS.get(article["source"]),
-                "sentiment_engine": None,
+                "sentiment_engine": article.get("sentiment_engine"),
+                "source_type":  article.get("source_type", "rss"),
                 "_tier":        article.get("_tier", 3),
-            })
+            }
+            # Additive, source-specific fields — only present when relevant,
+            # never introduced as null noise on ordinary RSS articles.
+            if "event_source" in article:
+                story["event_source"] = article["event_source"]
+            if "magnitude" in article:
+                story["magnitude"] = article["magnitude"]
+            if article.get("source_type") == "x":
+                story["likes"] = article.get("likes")
+                story["reposts"] = article.get("reposts")
+                story["replies"] = article.get("replies")
+                story["follower_count"] = article.get("follower_count")
+            primary.append(story)
 
     return primary
 
@@ -591,6 +1729,96 @@ def classify_fallback(article: dict) -> None:
     article["sentiment_engine"] = engine
     article["category"] = infer_category(text, article.get("category", "CRYPTO"))
     article["region"] = infer_region(text)
+
+
+# ---------------------------------------------------------------------------
+# 6b. FINBERT (forex/stocks primary engine)
+# ---------------------------------------------------------------------------
+# Optional dependency, same graceful-degradation pattern as VADER above —
+# torch/transformers must never become a hard requirement that breaks the
+# script if unavailable (e.g. not installed, or the model fails to download).
+try:
+    from transformers import pipeline as _hf_pipeline
+    _finbert_classifier = _hf_pipeline("sentiment-analysis", model="ProsusAI/finbert")
+    _FINBERT_AVAILABLE = True
+except Exception as exc:
+    print(f"  [WARN] FinBERT unavailable ({exc}). Forex/stocks will fall back to VADER/keyword.")
+    _finbert_classifier = None
+    _FINBERT_AVAILABLE = False
+
+_FINBERT_LABEL_MAP = {"positive": "Bullish", "negative": "Bearish", "neutral": "Neutral"}
+
+# Logs every FinBERT classification for future VADER-lexicon calibration
+# (a separate, later task — this only accumulates the training data it would
+# need). Append-only, one JSON object per line; committed by GH Actions
+# alongside news.json/news.js/token_usage.json so it persists across runs.
+FINBERT_TRAINING_LOG_FILE = os.path.join(os.path.dirname(__file__), "finbert_training_log.jsonl")
+
+
+def classify_with_finbert(text: str) -> tuple[str, float]:
+    # FinBERT's tokenizer truncates internally, but capping the raw string
+    # keeps tokenization fast and avoids pathologically long summaries.
+    result = _finbert_classifier(text[:2000], truncation=True, max_length=512)[0]
+    sentiment = _FINBERT_LABEL_MAP.get(result["label"].lower(), "Neutral")
+    confidence = round(float(result["score"]), 4)
+    return sentiment, confidence
+
+
+def _log_finbert_classification(article: dict, sentiment: str, confidence: float) -> None:
+    """Best-effort append; a logging failure must never break the scrape run."""
+    try:
+        record = {
+            "headline": article["title"],
+            "summary": article.get("summary", ""),
+            "finbert_label": sentiment,
+            "finbert_score": confidence,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+        }
+        with open(FINBERT_TRAINING_LOG_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except Exception as exc:
+        print(f"  [WARN] Failed to append to FinBERT training log: {exc}")
+
+
+def classify_fx_stock(articles: list[dict]) -> None:
+    """
+    Forex/stocks primary engine chain: FinBERT (its Reuters/earnings-style
+    training distribution fits this content far better than Groq's
+    crypto-tuned prompt) -> classify_fallback()'s VADER/keyword chain on
+    FinBERT unavailability or a per-article error. Runs regardless of source
+    tier — unlike crypto, forex/stocks doesn't route any of this through Groq.
+    """
+    if not _FINBERT_AVAILABLE:
+        for a in articles:
+            classify_fallback(a)
+        return
+
+    for a in articles:
+        try:
+            # FinBERT is classified on the title alone, not title+summary —
+            # verified empirically (not assumed) that appending the summary
+            # measurably hurts it here: e.g. one real headline flipped from
+            # confident Positive (0.78) to uncertain Neutral (0.37) once a
+            # one-sentence summary was appended, and another kept its label
+            # but confidence collapsed from 0.82 to 0.47. Matches FinBERT's
+            # actual training data (Financial PhraseBank — short single
+            # financial statements, not headline+summary concatenations).
+            combined_text = f"{a['title']}. {a.get('summary', '')}"
+            sentiment, confidence = classify_with_finbert(a["title"])
+            a["sentiment"] = sentiment
+            a["confidence"] = confidence
+            a["is_crypto_relevant"] = True
+            a["sentiment_engine"] = "finbert"
+            # FinBERT doesn't return category/region the way Groq does —
+            # same heuristic inference classify_fallback() already uses.
+            # Category/region inference benefits from the fuller text, so
+            # this (unlike the sentiment call above) still uses title+summary.
+            a["category"] = infer_category(combined_text, a.get("category", "CRYPTO"))
+            a["region"] = infer_region(combined_text)
+            _log_finbert_classification(a, sentiment, confidence)
+        except Exception as exc:
+            print(f"  [WARN] FinBERT classification error on one article: {exc}. Falling back to VADER.")
+            classify_fallback(a)
 
 
 # ---------------------------------------------------------------------------
@@ -745,14 +1973,13 @@ def classify_batch_with_groq(client, batch: list[dict], usage: dict) -> bool:
     return False
 
 
-def classify_sentiments(articles: list[dict]) -> list[dict]:
+def classify_crypto(articles: list[dict]) -> None:
     """
-    Tiered sentiment routing:
+    Crypto sentiment routing — tiered by source prestige, unchanged from
+    the pre-FinBERT design:
       - Tier 1/2 sources -> Groq primary, VADER fallback (rate limit/budget/error).
       - Tier 3/4 sources -> VADER primary by design (not just a fallback).
       - VADER unavailable -> keyword scorer as final fallback, any tier.
-    Tags every article with which engine actually classified it via
-    `sentiment_engine` ("groq" | "vader" | "keyword").
     """
     groq_key = os.environ.get("GROQ_API_KEY", "")
     client = None
@@ -764,10 +1991,10 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
             print(f"[WARN] Failed to initialize Groq client: {exc}. Tier 1/2 will fall back to VADER.")
             client = None
     else:
-        print("[WARN] GROQ_API_KEY not set — all articles will route to VADER/keyword engines.")
+        print("[WARN] GROQ_API_KEY not set — all crypto articles will route to VADER/keyword engines.")
 
     usage = _load_token_usage()
-    print(f"  Token usage today: {usage['tokens_used']}/{DAILY_TOKEN_LIMIT} "
+    print(f"  Groq token usage today: {usage['tokens_used']}/{DAILY_TOKEN_LIMIT} "
           f"({usage['tokens_used'] / DAILY_TOKEN_LIMIT:.1%})")
 
     tier12 = [a for a in articles if a.get("_tier", 3) <= 2]
@@ -791,8 +2018,54 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
     for a in tier34:
         classify_fallback(a)
 
+
+def classify_sentiments(articles: list[dict]) -> list[dict]:
+    """
+    Dual sentiment pipeline, routed by asset_class (not by tier):
+      - crypto          -> classify_crypto() — Groq/VADER tiered as before.
+      - forex/stocks     -> classify_fx_stock() — FinBERT primary regardless
+                             of tier, VADER/keyword fallback.
+    Tags every article with which engine actually classified it via
+    `sentiment_engine` ("groq" | "finbert" | "vader" | "keyword").
+    """
+    crypto_articles = [a for a in articles if a.get("asset_class", "crypto") == "crypto"]
+    geo_event_articles = [a for a in articles if a.get("asset_class") == "geopolitics"]
+    fx_stock_articles = [
+        a for a in articles
+        if a.get("asset_class", "crypto") not in ("crypto", "geopolitics")
+    ]
+
+    if crypto_articles:
+        classify_crypto(crypto_articles)
+    if fx_stock_articles:
+        classify_fx_stock(fx_stock_articles)
+    if geo_event_articles:
+        classify_geo_events(geo_event_articles)
+
     print("✓ All sentiment classifications completed.")
     return articles
+
+
+# ---------------------------------------------------------------------------
+# 7b. GEOPOLITICAL EVENT CLASSIFICATION (deterministic, no text-sentiment model)
+# ---------------------------------------------------------------------------
+def classify_geo_events(articles: list[dict]) -> None:
+    """
+    GDELT/USGS events already carry their own purpose-built signal (GDELT's
+    article `tone`, USGS's earthquake `mag`) computed at fetch time in
+    fetch_geopolitical_events() — neither Groq nor FinBERT is trained on
+    structured event records, so routing them through a text-sentiment model
+    would add noise, not information. This function is mostly a no-op pass:
+    it only fills in a Neutral default for the rare case an event slipped
+    through without a pre-computed sentiment (defensive, not expected).
+    """
+    for a in articles:
+        if a.get("sentiment_engine"):
+            continue  # already scored deterministically at fetch time
+        a["sentiment"] = "Neutral"
+        a["confidence"] = 0.5
+        a["sentiment_engine"] = a.get("event_source", "geo_event")
+        a["is_crypto_relevant"] = True
 
 
 # ---------------------------------------------------------------------------
@@ -805,8 +2078,12 @@ def main():
     print(f"[{datetime.now().isoformat()}] Fetching CoinGecko coin registry…")
     coin_keywords = fetch_top_500_coingecko()
 
-    # 1. Read existing articles from news.json (if present)
+    # 1. Read existing articles (and prior forex_sentiment/macro_snapshot
+    # snapshots) from news.json (if present) — this file is the only durable
+    # state between runs, so hourly/daily gates for new fetches read their
+    # own previous output back from here rather than an external cache.
     existing_articles = []
+    old_data = {}
     if os.path.exists(OUTPUT_FILE):
         try:
             with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
@@ -827,6 +2104,21 @@ def main():
     print(f"[{datetime.now().isoformat()}] Fetching RSS feeds…")
     raw = fetch_all_feeds(coin_keywords)
     print(f"  → {len(raw)} raw articles fetched.")
+
+    print(f"[{datetime.now().isoformat()}] Fetching non-RSS sources (Scrapling)…")
+    scrapling_articles = fetch_scrapling_sources(coin_keywords)
+    print(f"  → {len(scrapling_articles)} articles fetched.")
+    raw.extend(scrapling_articles)
+
+    print(f"[{datetime.now().isoformat()}] Fetching geopolitical/disaster events (GDELT + USGS)…")
+    geo_events = fetch_geopolitical_events()
+    print(f"  → {len(geo_events)} events fetched.")
+    raw.extend(geo_events)
+
+    print(f"[{datetime.now().isoformat()}] Fetching X/Twitter cashtag search…")
+    x_articles = fetch_x_cashtags(coin_keywords)
+    print(f"  → {len(x_articles)} tweets fetched.")
+    raw.extend(x_articles)
 
     print("Deduplicating…")
     deduped = deduplicate(raw)
@@ -852,6 +2144,16 @@ def main():
             story["region"] = existing_story.get("region", story.get("region", "GLOBAL"))
             story["sentiment_engine"] = existing_story.get("sentiment_engine")
             story["source_flag"] = existing_story.get("source_flag", story.get("source_flag"))
+            story["asset_class"] = existing_story.get("asset_class", story.get("asset_class", "crypto"))
+            story["currency_pairs"] = existing_story.get("currency_pairs", story.get("currency_pairs", []))
+            story["source_type"] = existing_story.get("source_type", story.get("source_type", "rss"))
+            # Additive, source-specific fields — only carry forward if either
+            # side actually has them, never introduce null noise.
+            for extra_field in ("event_source", "magnitude", "likes", "reposts", "replies", "follower_count"):
+                if extra_field in existing_story:
+                    story[extra_field] = existing_story[extra_field]
+                elif extra_field in story:
+                    pass  # keep the freshly-fetched value (e.g. updated like/repost counts)
             # Merge alternate sources uniquely
             existing_alts = {alt["url"]: alt for alt in existing_story.get("other_sources", [])}
             for alt in story["other_sources"]:
@@ -895,10 +2197,34 @@ def main():
     # Sort newest first
     final.sort(key=lambda x: x["published"] or "", reverse=True)
 
+    print(f"[{datetime.now().isoformat()}] Checking forex sentiment (myfxbook, hourly-gated)…")
+    forex_sentiment = fetch_forex_sentiment(old_data)
+
+    print(f"[{datetime.now().isoformat()}] Checking macro snapshot (FMP/Alpha Vantage, daily-gated)…")
+    macro_snapshot = fetch_macro_snapshot(old_data)
+
+    print(f"[{datetime.now().isoformat()}] Checking commodity snapshot (Twelve Data/FMP/Alpha Vantage, daily-gated)…")
+    commodity_snapshot = fetch_commodity_snapshot(old_data)
+
+    # Twelve Data's free tier counts each symbol in a batched /quote call
+    # toward its 8-req/min cap — the commodities batch (6 symbols) can
+    # already consume most of that window, so pause before the indices
+    # batch (5 more) to avoid a 429 (confirmed happening back-to-back via
+    # live testing). Both calls are daily-gated so this only costs time on
+    # the one run/day that actually fetches live.
+    time.sleep(65)
+
+    print(f"[{datetime.now().isoformat()}] Checking index snapshot (Twelve Data, daily-gated)…")
+    index_snapshot = fetch_index_snapshot(old_data)
+
     output = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "total":      len(final),
         "articles":   final,
+        "forex_sentiment": forex_sentiment,
+        "macro_snapshot":  macro_snapshot,
+        "commodity_snapshot": commodity_snapshot,
+        "index_snapshot": index_snapshot,
     }
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:

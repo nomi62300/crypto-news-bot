@@ -2,3 +2,7 @@ feedparser
 requests
 groq
 vaderSentiment
+torch
+transformers
+numpy<2
+scrapling
