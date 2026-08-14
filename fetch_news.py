@@ -842,10 +842,336 @@ def fetch_x_cashtags(coin_keywords: dict[str, list[str]]) -> list[dict]:
                 "likes":   item.get("likes"),
                 "reposts": item.get("reposts"),
                 "replies": item.get("replies"),
+                "follower_count": author.get("followers"),
             })
         time.sleep(0.5)
 
     return articles
+
+
+# ---------------------------------------------------------------------------
+# 3b. MYFXBOOK COMMUNITY OUTLOOK (retail positioning sentiment)
+# ---------------------------------------------------------------------------
+# Official, documented, free myfxbook API — not scraping. Session-token auth,
+# 100 req/24h free-tier cap, so this is gated to at most once/hour via the
+# `forex_sentiment.updated_at` timestamp already committed in news.json (the
+# same "read our own previous output" trick used for existing_articles).
+MYFXBOOK_SENTIMENT_TTL_SECONDS = 60 * 60  # 1 hour
+MYFXBOOK_SKEW_THRESHOLD = 80  # only pairs at >=80% long or short
+
+
+def _myfxbook_login() -> Optional[str]:
+    """Returns a session token, or None on any failure (fail-soft — never
+    raises, since a missing/invalid account is an expected pre-launch state
+    until the user creates one and adds MYFXBOOK_EMAIL/MYFXBOOK_PASSWORD)."""
+    email = os.environ.get("MYFXBOOK_EMAIL", "")
+    password = os.environ.get("MYFXBOOK_PASSWORD", "")
+    if not email or not password:
+        return None
+    try:
+        resp = requests.get(
+            "https://www.myfxbook.com/api/login.json",
+            params={"email": email, "password": password}, timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if data.get("error"):
+            print(f"  [WARN] myfxbook login error: {data.get('message')}")
+            return None
+        return data.get("session")
+    except Exception as exc:
+        print(f"  [WARN] myfxbook login failed: {exc}")
+        return None
+
+
+def _myfxbook_get_outlook(session_token: str) -> Optional[list[dict]]:
+    """Fetches community outlook pairs. On an expired/invalid session, re-logs
+    in once and retries; gives up (returns None) if that also fails. Field
+    names are read defensively (multiple plausible keys) since the exact
+    live response shape hasn't been verified against real credentials yet —
+    flagged as a follow-up verification step once the user has an account."""
+    def _call(token: str):
+        resp = requests.get(
+            "https://www.myfxbook.com/api/get-community-outlook.json",
+            params={"session": token}, timeout=10,
+        )
+        resp.raise_for_status()
+        return resp.json()
+
+    try:
+        data = _call(session_token)
+    except Exception as exc:
+        print(f"  [WARN] myfxbook get-community-outlook failed: {exc}")
+        return None
+
+    if data.get("error"):
+        # Expired/invalid session -> re-login once and retry.
+        print(f"  [INFO] myfxbook session appears invalid ({data.get('message')}), re-authenticating…")
+        new_token = _myfxbook_login()
+        if not new_token:
+            return None
+        try:
+            data = _call(new_token)
+        except Exception as exc:
+            print(f"  [WARN] myfxbook get-community-outlook retry failed: {exc}")
+            return None
+        if data.get("error"):
+            print(f"  [WARN] myfxbook get-community-outlook still erroring after re-login: {data.get('message')}")
+            return None
+
+    pairs = data.get("symbols") or data.get("pairs") or data.get("data") or []
+    return pairs if isinstance(pairs, list) else None
+
+
+def fetch_forex_sentiment(old_data: dict) -> Optional[dict]:
+    """Hourly-gated orchestrator. Returns the previous forex_sentiment dict
+    unchanged if it's still fresh (or on any failure), never drops previously
+    -good data, and never breaks the run if myfxbook is unreachable/not yet
+    configured (expected pre-launch state)."""
+    previous = old_data.get("forex_sentiment")
+    if previous and previous.get("updated_at"):
+        try:
+            prev_dt = datetime.fromisoformat(previous["updated_at"])
+            age = (datetime.now(timezone.utc) - prev_dt).total_seconds()
+            if age < MYFXBOOK_SENTIMENT_TTL_SECONDS:
+                return previous
+        except Exception:
+            pass
+
+    token = _myfxbook_login()
+    if not token:
+        return previous  # not configured yet, or auth failed — keep last-known-good
+
+    raw_pairs = _myfxbook_get_outlook(token)
+    if raw_pairs is None:
+        return previous
+
+    skewed = []
+    for p in raw_pairs:
+        try:
+            long_pct = float(p.get("longPercentage") if p.get("longPercentage") is not None else p.get("long_pct", 0))
+            short_pct = float(p.get("shortPercentage") if p.get("shortPercentage") is not None else p.get("short_pct", 0))
+        except (TypeError, ValueError):
+            continue
+        if long_pct < MYFXBOOK_SKEW_THRESHOLD and short_pct < MYFXBOOK_SKEW_THRESHOLD:
+            continue
+        long_vol = p.get("longVolume", p.get("long_volume_lots", 0)) or 0
+        short_vol = p.get("shortVolume", p.get("short_volume_lots", 0)) or 0
+        skewed.append({
+            "symbol": p.get("name") or p.get("symbol"),
+            "short_pct": short_pct,
+            "long_pct": long_pct,
+            "short_volume_lots": short_vol,
+            "long_volume_lots": long_vol,
+            "short_positions": p.get("shortPositions", p.get("short_positions")),
+            "long_positions": p.get("longPositions", p.get("long_positions")),
+            "_total_volume": float(long_vol or 0) + float(short_vol or 0),
+        })
+
+    # Popularity rank derived client-side from total volume relative to the
+    # max in the filtered set, unless the live API already provides a
+    # popularity/ranking field (none of the plausible field names above
+    # include one — verify against real data once credentials exist).
+    if skewed:
+        max_vol = max(s["_total_volume"] for s in skewed) or 1
+        skewed.sort(key=lambda s: s["_total_volume"], reverse=True)
+        for i, s in enumerate(skewed):
+            s["popularity_rank"] = i + 1
+            del s["_total_volume"]
+
+    return {
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "pairs": skewed,
+    }
+
+
+# ---------------------------------------------------------------------------
+# 3c. MACRO SNAPSHOT (FMP primary, Alpha Vantage fallback)
+# ---------------------------------------------------------------------------
+# Treasury yields / Fed funds / CPI / GDP barely move intraday — fetched at
+# most once/day, gated the same way as forex_sentiment (read our own prior
+# output's updated_at back from news.json).
+FMP_STABLE_BASE = "https://financialmodelingprep.com/stable"
+ALPHA_VANTAGE_BASE = "https://www.alphavantage.co/query"
+
+
+def _fetch_macro_fmp() -> Optional[dict]:
+    api_key = os.environ.get("FMP_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        treasury = requests.get(f"{FMP_STABLE_BASE}/treasury-rates", params={"apikey": api_key}, timeout=10)
+        treasury.raise_for_status()
+        treasury_data = treasury.json()
+        t0 = treasury_data[0] if isinstance(treasury_data, list) and treasury_data else {}
+
+        econ = requests.get(
+            f"{FMP_STABLE_BASE}/economic-indicators",
+            params={"name": "federalFunds", "apikey": api_key}, timeout=10,
+        )
+        econ.raise_for_status()
+        econ_data = econ.json()
+        e0 = econ_data[0] if isinstance(econ_data, list) and econ_data else {}
+
+        risk_premium = requests.get(f"{FMP_STABLE_BASE}/market-risk-premium", params={"apikey": api_key}, timeout=10)
+        risk_premium.raise_for_status()
+        rp_data = risk_premium.json()
+        rp0 = rp_data[0] if isinstance(rp_data, list) and rp_data else {}
+
+        snapshot = {
+            "treasury_yield_10y": t0.get("year10"),
+            "fed_funds_rate": e0.get("value"),
+            "market_risk_premium": rp0.get("totalEquityRiskPremium") or rp0.get("marketRiskPremium"),
+            # CPI/GDP/unemployment/nonfarm payroll field names on FMP's
+            # "economic-indicators" endpoint need a live-data verification
+            # pass once the key is confirmed working — left null until then.
+            "cpi_yoy": None,
+            "gdp_real": None,
+            "unemployment_rate": None,
+            "nonfarm_payroll": None,
+        }
+        if all(v is None for v in snapshot.values()):
+            return None
+        return snapshot
+    except Exception as exc:
+        print(f"  [WARN] FMP macro fetch failed: {exc}")
+        return None
+
+
+def _fetch_macro_alpha_vantage() -> Optional[dict]:
+    """Fallback only — called exclusively when FMP fails, to respect Alpha
+    Vantage's much tighter ~25 req/day free-tier quota."""
+    api_key = os.environ.get("ALPHA_VANTAGE_API_KEY", "")
+    if not api_key:
+        return None
+
+    def _latest_value(function: str, extra_params: dict | None = None) -> Optional[str]:
+        params = {"function": function, "apikey": api_key}
+        if extra_params:
+            params.update(extra_params)
+        resp = requests.get(ALPHA_VANTAGE_BASE, params=params, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+        series = data.get("data")
+        if isinstance(series, list) and series:
+            return series[0].get("value")
+        return None
+
+    try:
+        snapshot = {
+            "treasury_yield_10y": _latest_value("TREASURY_YIELD", {"interval": "daily", "maturity": "10year"}),
+            "fed_funds_rate": _latest_value("FEDERAL_FUNDS_RATE", {"interval": "daily"}),
+            "cpi_yoy": _latest_value("CPI", {"interval": "monthly"}),
+            "gdp_real": _latest_value("REAL_GDP", {"interval": "quarterly"}),
+            "unemployment_rate": _latest_value("UNEMPLOYMENT"),
+            "nonfarm_payroll": _latest_value("NONFARM_PAYROLL"),
+            "market_risk_premium": None,
+        }
+        if all(v is None for v in snapshot.values()):
+            return None
+        return snapshot
+    except Exception as exc:
+        print(f"  [WARN] Alpha Vantage macro fetch failed: {exc}")
+        return None
+
+
+def fetch_macro_snapshot(old_data: dict) -> Optional[dict]:
+    """Daily-gated orchestrator: FMP primary, Alpha Vantage fallback-only.
+    Keeps the previous snapshot (flagged stale) rather than dropping it if
+    both providers fail on a given day."""
+    previous = old_data.get("macro_snapshot")
+    today = datetime.now(timezone.utc).date().isoformat()
+    if previous and previous.get("updated_at", "").startswith(today):
+        return previous  # already fetched today
+
+    fmp_result = _fetch_macro_fmp()
+    if fmp_result is not None:
+        print("  [INFO] macro_snapshot: using FMP (primary)")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "fmp", **fmp_result}
+
+    av_result = _fetch_macro_alpha_vantage()
+    if av_result is not None:
+        print("  [INFO] macro_snapshot: FMP failed, using Alpha Vantage (fallback)")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "alpha_vantage", **av_result}
+
+    print("  [WARN] macro_snapshot: both FMP and Alpha Vantage failed, keeping previous snapshot (stale)")
+    if previous:
+        return {**previous, "stale": True}
+    return None
+
+
+# ---------------------------------------------------------------------------
+# 3d. COMMODITY SNAPSHOT (FMP quotes) — replaces an earlier Stooq-based plan;
+# Stooq turned out to be blocked by a Cloudflare bot-challenge on every
+# request (browser and server-side alike), confirmed via live testing, so
+# FMP (already an approved key in this project for macro_snapshot) is used
+# instead. Same daily-gate pattern as fetch_macro_snapshot.
+# ---------------------------------------------------------------------------
+COMMODITY_WATCHLIST = [
+    {"symbol": "CLUSD", "label": "Crude Oil (WTI)"},
+    {"symbol": "BZUSD", "label": "Brent Crude"},
+    {"symbol": "GCUSD", "label": "Gold"},
+    {"symbol": "SIUSD", "label": "Silver"},
+    {"symbol": "NGUSD", "label": "Natural Gas"},
+    {"symbol": "HGUSD", "label": "Copper"},
+]
+
+
+def _fetch_commodities_fmp() -> Optional[list[dict]]:
+    """FMP's /stable/quote endpoint accepts a comma-joined symbol batch.
+    Exact commodity ticker conventions (CLUSD/BZUSD/GCUSD/etc.) are FMP's
+    documented commodity symbols as of this writing — verify against a live
+    response once FMP_API_KEY is set, same caveat already applied to the
+    macro_snapshot/forex_sentiment field-name assumptions in this project."""
+    api_key = os.environ.get("FMP_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        symbols = ",".join(item["symbol"] for item in COMMODITY_WATCHLIST)
+        resp = requests.get(
+            f"{FMP_STABLE_BASE}/quote",
+            params={"symbol": symbols, "apikey": api_key}, timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if not isinstance(data, list) or not data:
+            return None
+        by_symbol = {row.get("symbol"): row for row in data}
+        items = []
+        for watch in COMMODITY_WATCHLIST:
+            row = by_symbol.get(watch["symbol"])
+            if not row:
+                continue
+            items.append({
+                "symbol": watch["symbol"],
+                "label": watch["label"],
+                "price": row.get("price"),
+                "changes_percentage": row.get("changesPercentage"),
+            })
+        return items if items else None
+    except Exception as exc:
+        print(f"  [WARN] FMP commodities fetch failed: {exc}")
+        return None
+
+
+def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
+    """Daily-gated, FMP-only (no fallback provider for commodities). Keeps
+    the previous snapshot (flagged stale) if today's fetch fails, mirroring
+    fetch_macro_snapshot's degradation pattern."""
+    previous = old_data.get("commodity_snapshot")
+    today = datetime.now(timezone.utc).date().isoformat()
+    if previous and previous.get("updated_at", "").startswith(today):
+        return previous
+
+    items = _fetch_commodities_fmp()
+    if items is not None:
+        print("  [INFO] commodity_snapshot: using FMP")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "fmp", "items": items}
+
+    print("  [WARN] commodity_snapshot: FMP failed, keeping previous snapshot (stale)")
+    if previous:
+        return {**previous, "stale": True}
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -920,6 +1246,7 @@ def deduplicate(articles: list[dict]) -> list[dict]:
                 story["likes"] = article.get("likes")
                 story["reposts"] = article.get("reposts")
                 story["replies"] = article.get("replies")
+                story["follower_count"] = article.get("follower_count")
             primary.append(story)
 
     return primary
@@ -1399,8 +1726,12 @@ def main():
     print(f"[{datetime.now().isoformat()}] Fetching CoinGecko coin registry…")
     coin_keywords = fetch_top_500_coingecko()
 
-    # 1. Read existing articles from news.json (if present)
+    # 1. Read existing articles (and prior forex_sentiment/macro_snapshot
+    # snapshots) from news.json (if present) — this file is the only durable
+    # state between runs, so hourly/daily gates for new fetches read their
+    # own previous output back from here rather than an external cache.
     existing_articles = []
+    old_data = {}
     if os.path.exists(OUTPUT_FILE):
         try:
             with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
@@ -1466,7 +1797,7 @@ def main():
             story["source_type"] = existing_story.get("source_type", story.get("source_type", "rss"))
             # Additive, source-specific fields — only carry forward if either
             # side actually has them, never introduce null noise.
-            for extra_field in ("event_source", "magnitude", "likes", "reposts", "replies"):
+            for extra_field in ("event_source", "magnitude", "likes", "reposts", "replies", "follower_count"):
                 if extra_field in existing_story:
                     story[extra_field] = existing_story[extra_field]
                 elif extra_field in story:
@@ -1514,10 +1845,22 @@ def main():
     # Sort newest first
     final.sort(key=lambda x: x["published"] or "", reverse=True)
 
+    print(f"[{datetime.now().isoformat()}] Checking forex sentiment (myfxbook, hourly-gated)…")
+    forex_sentiment = fetch_forex_sentiment(old_data)
+
+    print(f"[{datetime.now().isoformat()}] Checking macro snapshot (FMP/Alpha Vantage, daily-gated)…")
+    macro_snapshot = fetch_macro_snapshot(old_data)
+
+    print(f"[{datetime.now().isoformat()}] Checking commodity snapshot (FMP, daily-gated)…")
+    commodity_snapshot = fetch_commodity_snapshot(old_data)
+
     output = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "total":      len(final),
         "articles":   final,
+        "forex_sentiment": forex_sentiment,
+        "macro_snapshot":  macro_snapshot,
+        "commodity_snapshot": commodity_snapshot,
     }
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
