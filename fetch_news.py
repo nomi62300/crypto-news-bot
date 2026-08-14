@@ -922,9 +922,11 @@ def _myfxbook_login() -> Optional[str]:
 def _myfxbook_get_outlook(session_token: str) -> Optional[list[dict]]:
     """Fetches community outlook pairs. On an expired/invalid session, re-logs
     in once and retries; gives up (returns None) if that also fails. Field
-    names are read defensively (multiple plausible keys) since the exact
-    live response shape hasn't been verified against real credentials yet —
-    flagged as a follow-up verification step once the user has an account."""
+    names confirmed live: `name`, `longPercentage`/`shortPercentage`,
+    `longVolume`/`shortVolume`, `longPositions`/`shortPositions` — no native
+    popularity/ranking field, so `fetch_forex_sentiment()` derives one from
+    relative volume. Kept the defensive `.get(a, .get(b))` fallback pattern
+    for the alternate key names in case myfxbook's field naming ever shifts."""
     def _call(token: str):
         resp = requests.get(
             "https://www.myfxbook.com/api/get-community-outlook.json",
@@ -2083,22 +2085,7 @@ def classify_geo_events(articles: list[dict]) -> None:
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "news.json")
 
 
-def _debug_myfxbook():
-    """TEMPORARY — verify the URL-decoding fix against the real production
-    functions (not a reimplementation) before removing this diagnostic."""
-    token = _myfxbook_login()
-    print(f"  [DEBUG] decoded token (truncated): {(token or '')[:12]}... len={len(token or '')}")
-    if not token:
-        return
-    pairs = _myfxbook_get_outlook(token)
-    print(f"  [DEBUG] get-community-outlook pairs: {len(pairs) if pairs is not None else None}")
-    if pairs:
-        print(f"  [DEBUG] sample pair: {pairs[0]}")
-
-
 def main():
-    _debug_myfxbook()
-
     print(f"[{datetime.now().isoformat()}] Fetching CoinGecko coin registry…")
     coin_keywords = fetch_top_500_coingecko()
 
