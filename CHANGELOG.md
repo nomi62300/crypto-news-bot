@@ -10,6 +10,110 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-08-14 (merged to `main` via PR #1)
+### Added — Backend: forex sentiment, macro/commodity/index snapshots
+- `forex_sentiment` — myfxbook community-outlook retail positioning,
+  hourly-gated (reads its own previous `updated_at` back from `news.json`
+  rather than an external cache), filtered to pairs at ≥80% long or short,
+  popularity rank derived from relative volume. **Not currently working** —
+  see Known limitations.
+- `macro_snapshot` — Treasury 10Y yield, Fed funds rate, and market risk
+  premium via FMP (primary), Alpha Vantage (fallback), daily-gated.
+  Confirmed live. `cpi_yoy`/`gdp_real`/`unemployment_rate`/`nonfarm_payroll`
+  are still `null` pending live verification of FMP's economic-indicators
+  field names for those specific series.
+- `commodity_snapshot` — went through several providers before landing on a
+  working combination, each ruled out for a concrete, live-tested reason:
+  Stooq (blocked by a Cloudflare bot-challenge on every request, browser and
+  server-side alike), FMP's plain commodity symbols and its forex-style
+  XAUUSD/XAGUSD symbols (both return `402 Payment Required` on the current
+  plan), Alpha Vantage (works for WTI/Brent/Natural Gas/Copper via its
+  time-series endpoints, but has no working gold/silver source — its
+  `CURRENCY_EXCHANGE_RATE` doesn't actually support `XAU`/`XAG` despite that
+  being a commonly-cited trick), Twelve Data (its free tier turned out to
+  only cover equities/ETFs, not raw commodity instruments — confirmed via
+  its own `/symbol_search`, so it's used with ETF proxies: `USO`, `BNO`,
+  `GLD`, `SLV`, `UNG`, `CPER`). API Ninjas was added last as the real-price
+  primary source, but its free tier only covers a *rotating weekly subset*
+  of commodities — the final design merges all four providers **per
+  commodity symbol**, not all-or-nothing per provider (a real bug caught
+  during testing: a partial API Ninjas success, only Gold available that
+  week, was short-circuiting the whole fetch and silently discarding the
+  other 5 commodities Twelve Data could have supplied).
+- `index_snapshot` — new field, S&P 500/Nasdaq 100/Dow/Russell 2000/
+  Volatility via Twelve Data ETF proxies (`SPY`/`QQQ`/`DIA`/`IWM`/`VIXY`),
+  daily-gated. Moves the Indices tile row's data server-side instead of
+  requiring a client-embedded `FINNHUB_API_KEY` (which the equities Top
+  Gainers/Losers table under that row still needs separately).
+
+### Added — Frontend: economic calendar redesign, market data rows
+- Economic calendar rebuilt into a day-grouped view (mirrors the Dashboard's
+  `groupArticlesByDate()` idiom): compact mode shows only the next 2
+  non-empty upcoming days, a "Weekly Calendar" toggle inline-expands to the
+  full week with past days visibly faded (impact pills desaturated too) and
+  a live-ticking `HH:MM:SS` countdown per event (`00:00:00` for past ones).
+  The existing HIGH/MEDIUM beat/miss effect-rule logic is unchanged, now
+  additionally translated into per-major-pair direction (e.g. a USD event
+  shows implied EURUSD/USDJPY/etc. direction, not just an abstract
+  currency-level note).
+- Forex Market tab: Indices/FX/Commodities stat-tile rows (6 tiles each,
+  bar-chart sparklines) with Top Gainers/Top Losers tables underneath,
+  stacked as three always-visible rows — plus the myfxbook and macro-
+  snapshot panels.
+- Crypto Market tab: replaced the ALL/GAINERS/LOSERS/MOST ACTIVE toggle
+  with side-by-side Top Gainers/Top Losers tables; the full market-cap-
+  sorted table stays below, unchanged.
+- Dashboard: independent "Tweets Only" filter toggle (not part of the
+  category strip, since it's a different, combinable axis) plus a distinct
+  tweet card treatment (`@handle`, likes/reposts/replies, follower count)
+  so X-sourced articles no longer render identically to RSS ones.
+- Visual pass: reverted to full monospace typography (an Inter-based
+  redesign was tried mid-session, then explicitly reverted back to
+  Fincept-style monospace per direction), bar-chart sparklines replacing
+  the previous line sparklines, squarer card corners (14px/8px radius down
+  to 4px/3px), category filter bar hidden on the market tabs, tab labels
+  shortened ("Cr. Mkt"/"FX Mkt").
+
+### Fixed
+- `fetch_scrapling_sources()` crashed the *entire* scrape run with
+  `AttributeError: 'Selector' object has no attribute 'strip'` — caught by
+  the first live workflow run after this session's other changes landed
+  (a pre-existing bug, unrelated to any of the new features, that just
+  hadn't been triggered before). Scrapling's `.css()` with a `::text`/
+  `::attr()` selector doesn't reliably return plain strings across match
+  shapes; fixed with defensive text extraction plus scoping the per-source
+  `try`/`except` around the whole parse loop so one broken site selector
+  can't take the whole run down.
+
+### Ops
+- New GitHub secrets: `MYFXBOOK_EMAIL`, `MYFXBOOK_PASSWORD`, `FMP_API_KEY`,
+  `ALPHA_VANTAGE_API_KEY`, `TWELVE_DATA_API_KEY`, `API_NINJAS_KEY`.
+- **Merged `snitch-backend` → `main` via PR #1** — this version and the
+  three prior `snitch-backend`-only versions (0.3.0–0.5.0) are now live in
+  production (GitHub Pages, Wicktor's feed). `news.json`/`news.js`/
+  `token_usage.json` had diverged during the merge since `main` had its own
+  independent 15-minute scheduled cron running the whole time — resolved by
+  taking `snitch-backend`'s versions, since these are pure generated output
+  regenerated on every run, not hand-maintained source.
+
+### Known limitations
+- `forex_sentiment` (myfxbook) is not populating: login appears to succeed
+  (a session token is returned) but the very next call to
+  `get-community-outlook.json` with that token is rejected as
+  `"Invalid session."`, even after an automatic re-login retry. Verified via
+  live testing that the request shapes themselves match myfxbook's actual
+  API contract — most likely an account-side issue (email verification,
+  Community Outlook access requiring more than a basic login) rather than a
+  code bug. Fails soft to an honest empty state; unresolved follow-up.
+- Indices/Commodities coverage via Twelve Data and API Ninjas' free tiers is
+  ETF-proxy-based (Twelve Data) or a rotating weekly subset (API Ninjas),
+  not true composite-index or always-guaranteed spot data — a documented
+  tradeoff of the free tiers involved, not a bug.
+- A commodity's `changes_percentage` is `null` the first day it's sourced
+  from a new provider (API Ninjas has no % change field of its own; it's
+  computed from yesterday's stored price for the same symbol, so there's
+  nothing to diff against on day one).
+
 ## [0.5.0] - 2026-08-14 (branch: snitch-backend, not yet merged to main)
 ### Added — Backend: non-RSS scraping, geopolitical events, X/Twitter cashtag search
 Evaluated 16 external repos surfaced by the user as candidates to improve
