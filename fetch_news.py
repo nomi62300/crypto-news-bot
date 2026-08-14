@@ -1196,8 +1196,14 @@ def _fetch_commodities_alpha_vantage() -> Optional[list[dict]]:
     def _series_quote(function: str) -> tuple[Optional[float], Optional[float]]:
         resp = requests.get(ALPHA_VANTAGE_BASE, params={"function": function, "interval": "daily", "apikey": api_key}, timeout=10)
         resp.raise_for_status()
-        series = resp.json().get("data")
+        body = resp.json()
+        series = body.get("data")
         if not isinstance(series, list) or len(series) < 1:
+            # Free tier is capped at 5 req/min — a "Note"/"Information" field
+            # here (instead of "data") almost always means we got rate-limited
+            # mid-batch, not that the symbol/endpoint is wrong.
+            note = body.get("Note") or body.get("Information") or body
+            print(f"  [WARN] Alpha Vantage {function}: no data series ({str(note)[:150]})")
             return None, None
         try:
             latest = float(series[0]["value"])
@@ -1218,30 +1224,39 @@ def _fetch_commodities_alpha_vantage() -> Optional[list[dict]]:
             "to_currency": "USD", "apikey": api_key,
         }, timeout=10)
         resp.raise_for_status()
-        rate = resp.json().get("Realtime Currency Exchange Rate", {}).get("5. Exchange Rate")
+        body = resp.json()
+        rate = body.get("Realtime Currency Exchange Rate", {}).get("5. Exchange Rate")
+        if rate is None:
+            note = body.get("Note") or body.get("Information") or body
+            print(f"  [WARN] Alpha Vantage {currency_code}/USD: no exchange rate ({str(note)[:150]})")
+            return None
         try:
-            return float(rate) if rate is not None else None
+            return float(rate)
         except (ValueError, TypeError):
             return None
 
     try:
         items = []
-        for watch, av_function in [
-            (COMMODITY_WATCHLIST[0], "WTI"),
-            (COMMODITY_WATCHLIST[1], "BRENT"),
-            (COMMODITY_WATCHLIST[4], "NATURAL_GAS"),
-            (COMMODITY_WATCHLIST[5], "COPPER"),
-        ]:
-            price, pct = _series_quote(av_function)
+        calls = [
+            (COMMODITY_WATCHLIST[0], "series", "WTI"),
+            (COMMODITY_WATCHLIST[1], "series", "BRENT"),
+            (COMMODITY_WATCHLIST[4], "series", "NATURAL_GAS"),
+            (COMMODITY_WATCHLIST[5], "series", "COPPER"),
+            (COMMODITY_WATCHLIST[2], "metal", "XAU"),
+            (COMMODITY_WATCHLIST[3], "metal", "XAG"),
+        ]
+        # Free tier caps at 5 req/min — space calls out so a 6-call batch
+        # (well under the 25/day cap since this only runs once daily) never
+        # trips the per-minute limit.
+        for i, (watch, kind, param) in enumerate(calls):
+            if i > 0:
+                time.sleep(15)
+            if kind == "series":
+                price, pct = _series_quote(param)
+            else:
+                price, pct = _metal_quote(param), None
             if price is not None:
                 items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
-
-        gold_price = _metal_quote("XAU")
-        if gold_price is not None:
-            items.append({"symbol": COMMODITY_WATCHLIST[2]["symbol"], "label": COMMODITY_WATCHLIST[2]["label"], "price": gold_price, "changes_percentage": None})
-        silver_price = _metal_quote("XAG")
-        if silver_price is not None:
-            items.append({"symbol": COMMODITY_WATCHLIST[3]["symbol"], "label": COMMODITY_WATCHLIST[3]["label"], "price": silver_price, "changes_percentage": None})
 
         return items if items else None
     except Exception as exc:
