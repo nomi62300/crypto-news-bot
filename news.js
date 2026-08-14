@@ -8110,16 +8110,5 @@ window.newsData = {
     "unemployment_rate": null,
     "nonfarm_payroll": null
   },
-  "commodity_snapshot": {
-    "updated_at": "2026-08-14T13:43:26.376064+00:00",
-    "source": "alpha_vantage",
-    "items": [
-      {
-        "symbol": "CLUSD",
-        "label": "Crude Oil (WTI)",
-        "price": 84.77,
-        "changes_percentage": 1.2058261700095403
-      }
-    ]
-  }
+  "commodity_snapshot": null
 };
