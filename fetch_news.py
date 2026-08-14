@@ -2009,7 +2009,31 @@ def classify_geo_events(articles: list[dict]) -> None:
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "news.json")
 
 
+def _debug_twelvedata_symbol_search():
+    """TEMPORARY — one-off symbol lookup to find Twelve Data's real index/
+    commodity symbol conventions after several guessed ones came back
+    "not found". Remove once the real symbols are confirmed."""
+    api_key = os.environ.get("TWELVE_DATA_API_KEY", "")
+    if not api_key:
+        return
+    queries = ["dow jones", "nasdaq composite", "russell 2000", "vix", "s&p 500",
+               "brent", "natural gas", "copper", "wti crude", "gold", "silver"]
+    for i, q in enumerate(queries):
+        if i > 0:
+            time.sleep(3)
+        try:
+            resp = requests.get("https://api.twelvedata.com/symbol_search", params={"symbol": q, "apikey": api_key}, timeout=10)
+            data = resp.json()
+            print(f"  [DEBUG] symbol_search '{q}':")
+            for item in (data.get("data") or [])[:5]:
+                print("    ", {k: item.get(k) for k in ("symbol", "instrument_name", "instrument_type", "exchange")})
+        except Exception as exc:
+            print(f"  [DEBUG] symbol_search '{q}' failed: {exc}")
+
+
 def main():
+    _debug_twelvedata_symbol_search()
+
     print(f"[{datetime.now().isoformat()}] Fetching CoinGecko coin registry…")
     coin_keywords = fetch_top_500_coingecko()
 
