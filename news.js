@@ -7735,18 +7735,7 @@ window.newsData = {
     "unemployment_rate": null,
     "nonfarm_payroll": null
   },
-  "commodity_snapshot": {
-    "updated_at": "2026-08-14T14:39:26.253827+00:00",
-    "source": "api_ninjas",
-    "items": [
-      {
-        "symbol": "GOLD",
-        "label": "Gold",
-        "price": 4449.5,
-        "changes_percentage": null
-      }
-    ]
-  },
+  "commodity_snapshot": null,
   "index_snapshot": {
     "updated_at": "2026-08-14T14:26:55.646959+00:00",
     "source": "twelvedata",
