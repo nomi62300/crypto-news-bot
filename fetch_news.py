@@ -14,7 +14,7 @@ import re
 import time
 from datetime import datetime, timezone, timedelta
 from difflib import SequenceMatcher
-from urllib.parse import urljoin
+from urllib.parse import urljoin, unquote
 
 from typing import Optional
 import feedparser
@@ -904,7 +904,16 @@ def _myfxbook_login() -> Optional[str]:
         if data.get("error"):
             print(f"  [WARN] myfxbook login error: {data.get('message')}")
             return None
-        return data.get("session")
+        token = data.get("session")
+        # myfxbook's login.json returns the session token already
+        # URL-encoded (its base64 padding shows up literally as %3D%3D in
+        # the JSON body) — confirmed via live testing. Passing that encoded
+        # string straight into `requests`' params double-encodes it (%3D
+        # becomes %253D), which myfxbook's server then rejects as an
+        # "Invalid session." Decode once here so the token used everywhere
+        # downstream is the raw value, encoded exactly once when requests
+        # builds the query string.
+        return unquote(token) if token else None
     except Exception as exc:
         print(f"  [WARN] myfxbook login failed: {exc}")
         return None
@@ -2075,33 +2084,16 @@ OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "news.json")
 
 
 def _debug_myfxbook():
-    """TEMPORARY — diagnose the "Invalid session" issue: print the raw login
-    response, test the session against a basic account-info endpoint (to
-    check whether the session is valid at all vs. specifically rejected by
-    Community Outlook), and print the raw community-outlook response.
-    Remove once the real cause is confirmed."""
-    email = os.environ.get("MYFXBOOK_EMAIL", "")
-    password = os.environ.get("MYFXBOOK_PASSWORD", "")
-    if not email or not password:
-        print("  [DEBUG] myfxbook: no credentials set, skipping")
+    """TEMPORARY — verify the URL-decoding fix against the real production
+    functions (not a reimplementation) before removing this diagnostic."""
+    token = _myfxbook_login()
+    print(f"  [DEBUG] decoded token (truncated): {(token or '')[:12]}... len={len(token or '')}")
+    if not token:
         return
-    try:
-        resp = requests.get("https://www.myfxbook.com/api/login.json", params={"email": email, "password": password}, timeout=10)
-        data = resp.json()
-        token = data.get("session")
-        print(f"  [DEBUG] login.json raw response: {data}")
-        print(f"  [DEBUG] token (truncated): {(token or '')[:12]}... len={len(token or '')}")
-        if not token:
-            return
-
-        # Test session validity against a basic authenticated endpoint.
-        resp2 = requests.get("https://www.myfxbook.com/api/get-my-accounts.json", params={"session": token}, timeout=10)
-        print(f"  [DEBUG] get-my-accounts.json raw response: {resp2.json()}")
-
-        resp3 = requests.get("https://www.myfxbook.com/api/get-community-outlook.json", params={"session": token}, timeout=10)
-        print(f"  [DEBUG] get-community-outlook.json raw response: {resp3.json()}")
-    except Exception as exc:
-        print(f"  [DEBUG] myfxbook diagnostic failed: {exc}")
+    pairs = _myfxbook_get_outlook(token)
+    print(f"  [DEBUG] get-community-outlook pairs: {len(pairs) if pairs is not None else None}")
+    if pairs:
+        print(f"  [DEBUG] sample pair: {pairs[0]}")
 
 
 def main():
