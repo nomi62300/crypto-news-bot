@@ -1476,43 +1476,48 @@ def _fetch_commodities_alpha_vantage() -> Optional[list[dict]]:
 
 
 def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
-    """Daily-gated: API Ninjas primary (real spot prices for all 6, not ETF
-    proxies — its Commodity Price API has no % change field, so that's
-    computed from yesterday's stored price for the same symbol), Twelve
-    Data fallback (ETF proxies, covers all 6 including gold/silver in one
-    batched call), then FMP (WTI/Brent/NatGas/Copper + gold/silver via FMP's
-    forex-style XAUUSD/XAGUSD symbols — though FMP turned out to gate those
-    behind the same 402 as its plain commodity symbols on the current plan),
-    Alpha Vantage last (no working gold/silver source at all). Keeps the
-    previous snapshot (flagged stale) if everything fails today."""
+    """Daily-gated, per-symbol merge across providers in priority order —
+    NOT all-or-nothing per provider, since API Ninjas' free tier only
+    covers a rotating weekly subset of commodities (confirmed live: only
+    Gold was free the week this was tested, the other 5 came back "premium
+    users only") and treating that partial success as "done" would silently
+    drop the rest instead of falling through to a provider that has them.
+    Priority per commodity: API Ninjas (real spot price, no % change field
+    so that's computed from yesterday's stored price for the same symbol)
+    → Twelve Data (ETF proxy) → FMP (ETF-adjacent commodity ticker, or
+    forex-style XAUUSD/XAGUSD for metals) → Alpha Vantage (energy/copper
+    only, no gold/silver support at all). Keeps the previous snapshot
+    (flagged stale) if every provider fails for every symbol today."""
     previous = old_data.get("commodity_snapshot")
     today = datetime.now(timezone.utc).date().isoformat()
     if previous and previous.get("updated_at", "").startswith(today):
         return previous
 
     previous_prices = {i["symbol"]: i.get("price") for i in (previous or {}).get("items", [])}
-    items = _fetch_commodities_apininja(previous_prices)
-    if items:
-        print("  [INFO] commodity_snapshot: using API Ninjas")
-        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "api_ninjas", "items": items}
 
-    items = _fetch_commodities_twelvedata()
-    if items:
-        print("  [INFO] commodity_snapshot: API Ninjas failed, using Twelve Data")
-        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "twelvedata", "items": items}
+    by_symbol: dict[str, dict] = {}
+    sources_used: set[str] = set()
 
-    items = _fetch_commodities_fmp()
-    source = "fmp"
-    if items is None:
-        items = _fetch_commodities_alpha_vantage()
-        source = "alpha_vantage"
+    def _absorb(items: Optional[list[dict]], source_name: str):
+        for item in (items or []):
+            sym = item.get("symbol")
+            if sym and sym not in by_symbol:
+                by_symbol[sym] = item
+                sources_used.add(source_name)
 
-    metals = _fetch_metals_fmp()
-    if metals:
-        items = (items or []) + metals
+    _absorb(_fetch_commodities_apininja(previous_prices), "api_ninjas")
+    if len(by_symbol) < len(COMMODITY_WATCHLIST):
+        _absorb(_fetch_commodities_twelvedata(), "twelvedata")
+    if len(by_symbol) < len(COMMODITY_WATCHLIST):
+        _absorb(_fetch_commodities_fmp(), "fmp")
+        _absorb(_fetch_metals_fmp(), "fmp")
+    if len(by_symbol) < len(COMMODITY_WATCHLIST):
+        _absorb(_fetch_commodities_alpha_vantage(), "alpha_vantage")
 
-    if items:
-        print(f"  [INFO] commodity_snapshot: Twelve Data failed, using {source}" + (" + FMP metals" if metals else ""))
+    if by_symbol:
+        items = [by_symbol[w["symbol"]] for w in COMMODITY_WATCHLIST if w["symbol"] in by_symbol]
+        source = "+".join(sorted(sources_used))
+        print(f"  [INFO] commodity_snapshot: {len(items)}/{len(COMMODITY_WATCHLIST)} symbols via {source}")
         return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": source, "items": items}
 
     print("  [WARN] commodity_snapshot: all providers failed, keeping previous snapshot (stale)")
