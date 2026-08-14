@@ -14,6 +14,7 @@ import re
 import time
 from datetime import datetime, timezone, timedelta
 from difflib import SequenceMatcher
+from urllib.parse import urljoin
 
 from typing import Optional
 import feedparser
@@ -81,8 +82,12 @@ RSS_FEEDS = [
 
 # Maps a feed's coarse category to the asset_class output field (lowercase,
 # distinct from the more granular `category` field which can be
-# ECONOMIC/REGULATORY/etc. — asset_class is always one of these three).
-ASSET_CLASS_BY_CATEGORY = {"CRYPTO": "crypto", "FOREX": "forex", "STOCKS": "stocks"}
+# ECONOMIC/REGULATORY/etc.). "geopolitics" is a 4th value used only by
+# structured-event sources (GDELT/USGS) — those don't go through Groq/FinBERT
+# text-sentiment classification at all (see classify_geo_events()), so this
+# is kept separate from the crypto/forex/stocks routing rather than folded
+# into one of them.
+ASSET_CLASS_BY_CATEGORY = {"CRYPTO": "crypto", "FOREX": "forex", "STOCKS": "stocks", "GEOPOLITICS": "geopolitics"}
 
 # ---------------------------------------------------------------------------
 # 2. DYNAMIC COIN REGISTRY & EXTRACTION
@@ -467,6 +472,383 @@ def fetch_all_feeds(coin_keywords: dict[str, list[str]]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# 3b. SCRAPLING SOURCES (non-RSS sites, adaptive HTML parsing)
+# ---------------------------------------------------------------------------
+# Optional dependency, same graceful-degradation pattern as VADER/FinBERT —
+# base package only (NOT scrapling[fetchers], which pulls a full browser and
+# is unnecessary here since these targets are server-rendered HTML fetched
+# via plain requests).
+try:
+    from scrapling.parser import Adaptor as _ScraplingAdaptor
+    _SCRAPLING_AVAILABLE = True
+except Exception as exc:
+    print(f"  [WARN] Scrapling unavailable ({exc}). Non-RSS sources will be skipped.")
+    _ScraplingAdaptor = None
+    _SCRAPLING_AVAILABLE = False
+
+# Each entry's selectors were hand-verified against a live fetch of the site
+# (not guessed) — title/link selectors use attribute-*contains* matching
+# (`[class*="..."]`) rather than exact hashed class names where the site uses
+# a CSS-modules/webpack build, since those hashes change on every redeploy;
+# the stable substring is kept, the build-specific prefix is not matched.
+SCRAPLING_SOURCES = [
+    {
+        "name": "InvestingLive", "url": "https://investinglive.com/",
+        "category": "FOREX", "tier": 2,
+        "title_selector": 'h3[class*="articleSlotHeader__title"]::text',
+        "link_selector":  'a[class*="articleSlotHeader"]::attr(href)',
+    },
+    {
+        "name": "Watcher.Guru", "url": "https://watcher.guru/news/",
+        "category": "CRYPTO", "tier": 3,
+        "title_selector": '.cs-entry__title a::text',
+        "link_selector":  '.cs-entry__title a::attr(href)',
+    },
+]
+
+
+def fetch_scrapling_sources(coin_keywords: dict[str, list[str]]) -> list[dict]:
+    """Fetch article listings from non-RSS sites via Scrapling's adaptive
+    CSS-selector parsing. Emits the exact same article dict shape as
+    fetch_all_feeds() so deduplicate()/classify_sentiments()/main()'s
+    dedup-reuse logic all handle these identically to an RSS article — only
+    the fetch mechanism differs."""
+    if not _SCRAPLING_AVAILABLE:
+        return []
+
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=CUTOFF_HOURS)
+    articles: list[dict] = []
+
+    for source_meta in SCRAPLING_SOURCES:
+        try:
+            resp = requests.get(source_meta["url"], timeout=5, headers=DEFAULT_HEADERS)
+            resp.raise_for_status()
+            page = _ScraplingAdaptor(resp.text, url=source_meta["url"])
+            titles = page.css(source_meta["title_selector"])
+            links = page.css(source_meta["link_selector"])
+        except Exception as exc:
+            print(f"[WARN] Failed to fetch {source_meta['name']}: {exc}")
+            continue
+
+        source_category = source_meta.get("category", "CRYPTO")
+        seen_urls_this_source = set()  # listing pages often repeat a "featured" item
+
+        for title, link in zip(titles, links):
+            title = (title or "").strip()
+            if not title or not link:
+                continue
+            url = urljoin(source_meta["url"], link)
+            if url in seen_urls_this_source:
+                continue
+            seen_urls_this_source.add(url)
+
+            if source_category == "CRYPTO" and not matches_crypto_prefilter(title, ""):
+                continue
+
+            currency_pairs: list[str] = []
+            if source_category == "STOCKS":
+                tickers = extract_coin_tags(title, STOCK_TICKERS)
+            elif source_category == "FOREX":
+                tickers = []
+                currency_pairs = extract_currency_codes(title)
+            else:
+                tickers = extract_coin_tags(title, coin_keywords)
+
+            # Listing pages don't reliably expose per-article timestamps in a
+            # consistent, parseable format across sites — omit `published`
+            # (None) rather than guess; downstream sorting/cutoff logic
+            # already tolerates a missing published date (see main()).
+            articles.append({
+                "title":     title,
+                "url":       url,
+                "source":    source_meta["name"],
+                "published": None,
+                "tickers":   tickers,
+                "currency_pairs": currency_pairs,
+                "summary":   "",
+                "_category": source_category,
+                "_tier":     source_meta.get("tier", 3),
+                "_asset_class": ASSET_CLASS_BY_CATEGORY.get(source_category, "crypto"),
+            })
+
+    return articles
+
+
+# ---------------------------------------------------------------------------
+# 3c. GEOPOLITICAL / DISASTER EVENTS (GDELT + USGS — structured, keyless APIs)
+# ---------------------------------------------------------------------------
+GDELT_QUERY_TERMS = ["war", "conflict", "sanctions", "invasion", "coup", "ceasefire"]
+GDELT_TIMESPAN = "1h"   # GDELT rejects windows shorter than this ("Timespan is too short")
+GDELT_MAX_RECORDS = 50
+
+
+def classify_gdelt_tone(tone) -> tuple[str, float]:
+    """Starting heuristic — GDELT docs cite -5..5 as the "typical" tone
+    range; thresholds should be re-tuned against real observed values from a
+    production run (the rate-limit issue below prevented sampling a live
+    distribution during development)."""
+    try:
+        tone = float(tone)
+    except (TypeError, ValueError):
+        return "Neutral", 0.5
+    if tone >= 1.5:
+        return "Bullish", round(min(0.5 + abs(tone) / 20, 0.95), 4)
+    if tone <= -1.5:
+        return "Bearish", round(min(0.5 + abs(tone) / 20, 0.95), 4)
+    return "Neutral", 0.5
+
+
+def classify_usgs_magnitude(mag) -> tuple[str, float]:
+    """Starting heuristic, not authoritative seismology — only large
+    quakes are treated as market-relevant/risk-off."""
+    try:
+        mag = float(mag)
+    except (TypeError, ValueError):
+        return "Neutral", 0.5
+    if mag >= 6.0:
+        return "Bearish", round(min(0.5 + (mag - 6.0) / 8, 0.95), 4)
+    return "Neutral", 0.5
+
+
+def _fetch_gdelt_events() -> list[dict]:
+    """GDELT DOC 2.0 API — free, keyless. Enforces a real (and, in testing,
+    stricter-than-documented) rate limit — wrapped defensively so a 429/error
+    here never breaks the run; treat GDELT as best-effort, not reliable."""
+    query = " OR ".join(GDELT_QUERY_TERMS)
+    params = {
+        "query": f"({query}) sourcelang:eng",
+        "mode": "artlist",
+        "format": "json",
+        "timespan": GDELT_TIMESPAN,
+        "maxrecords": GDELT_MAX_RECORDS,
+    }
+    try:
+        resp = requests.get(
+            "https://api.gdeltproject.org/api/v2/doc/doc",
+            params=params, timeout=8, headers=DEFAULT_HEADERS,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception as exc:
+        print(f"  [WARN] GDELT fetch failed (best-effort source, continuing): {exc}")
+        return []
+
+    events = []
+    for item in data.get("articles", []):
+        title = (item.get("title") or "").strip()
+        url = item.get("url") or ""
+        if not title or not url:
+            continue
+        sentiment, confidence = classify_gdelt_tone(item.get("tone"))
+        events.append({
+            "title": title,
+            "url": url,
+            "source": item.get("domain") or "GDELT",
+            "published": None,  # GDELT's seendate format needs its own parser; omit rather than guess
+            "tickers": [],
+            "currency_pairs": [],
+            "summary": "",
+            "_category": "GEOPOLITICS",
+            "_tier": 2,
+            "_asset_class": "geopolitics",
+            "sentiment": sentiment,
+            "confidence": confidence,
+            "sentiment_engine": "gdelt_tone",
+            "event_source": "gdelt",
+            "is_crypto_relevant": True,
+        })
+    return events
+
+
+def _fetch_usgs_events() -> list[dict]:
+    """USGS Earthquake GeoJSON feed — free, keyless, confirmed stable."""
+    try:
+        resp = requests.get(
+            "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson",
+            timeout=8, headers=DEFAULT_HEADERS,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception as exc:
+        print(f"  [WARN] USGS fetch failed: {exc}")
+        return []
+
+    events = []
+    for feature in data.get("features", []):
+        props = feature.get("properties", {})
+        title = (props.get("title") or "").strip()
+        url = props.get("url") or ""
+        if not title or not url:
+            continue
+        mag = props.get("mag")
+        sentiment, confidence = classify_usgs_magnitude(mag)
+        time_ms = props.get("time")
+        published = None
+        if time_ms:
+            try:
+                published = datetime.fromtimestamp(time_ms / 1000, tz=timezone.utc).isoformat()
+            except Exception:
+                published = None
+        events.append({
+            "title": title,
+            "url": url,
+            "source": "USGS",
+            "published": published,
+            "tickers": [],
+            "currency_pairs": [],
+            "summary": props.get("place") or "",
+            "_category": "GEOPOLITICS",
+            "_tier": 1,
+            "_asset_class": "geopolitics",
+            "sentiment": sentiment,
+            "confidence": confidence,
+            "sentiment_engine": "usgs_magnitude",
+            "event_source": "usgs",
+            "magnitude": mag,
+            "is_crypto_relevant": True,
+        })
+    return events
+
+
+def fetch_geopolitical_events() -> list[dict]:
+    """Combines GDELT + USGS, each independently isolated so one API being
+    down/rate-limited never blocks the other or the run."""
+    events = []
+    events.extend(_fetch_gdelt_events())
+    events.extend(_fetch_usgs_events())
+    # ACLED (armed-conflict event data) was considered but not implemented —
+    # its free-tier registration terms need a separate feasibility check.
+    return events
+
+
+# ---------------------------------------------------------------------------
+# 3d. X / TWITTER CASHTAG SEARCH (FxTwitter public mirror — free, keyless)
+# ---------------------------------------------------------------------------
+# Batched cashtag search rather than a fixed account watchlist — directly
+# matches the actual need (tweets that mention a specific $TICKER, with the
+# author's name and full tweet text), confirmed live against a real query
+# during planning. No login, no official paid API, no persistent server.
+#
+# Quality note (found via live testing, not theoretical): unrestricted
+# cashtag search on X is dominated by low-signal noise — presale/shill
+# accounts, "top gainers" bot spam, airdrop-claim phishing patterns, and
+# non-English pump chatter. A live A/B check of FxTwitter's "Top" vs default
+# sort showed no meaningful difference (crypto-Twitter's cashtag firehose is
+# just noisy by nature). Follower count proved a far more useful quality
+# signal than like/repost counts, which were near-zero across nearly all
+# results regardless of legitimacy (search results skew toward
+# very-recently-posted tweets that haven't accumulated engagement yet).
+X_CASHTAG_BATCH_SIZE = 6  # tickers per query; conservative starting point, tune after observing result relevance
+X_MIN_FOLLOWERS = 10_000  # primary quality gate — filters the smallest shill/bot accounts
+# Restrict to well-established tickers rather than the full ~500-symbol
+# registry — small-cap/presale coins attracted disproportionately more
+# pump/shill content in testing than majors like BTC/ETH/SOL.
+X_MAJOR_TICKERS = [
+    "BTC", "ETH", "SOL", "XRP", "ADA", "DOGE", "AVAX", "LINK", "DOT", "BNB",
+    "MATIC", "LTC", "TRX", "TON", "ATOM", "UNI", "NEAR", "APT", "ARB", "OP",
+]
+
+
+def _build_cashtag_batches(tickers: list[str]) -> list[list[str]]:
+    return [tickers[i:i + X_CASHTAG_BATCH_SIZE] for i in range(0, len(tickers), X_CASHTAG_BATCH_SIZE)]
+
+
+def _looks_like_spam(text: str) -> bool:
+    """Keyword layer on top of the follower-count gate — catches obvious
+    scam/promo patterns even from accounts that clear the follower
+    threshold (e.g. a compromised account posting a phishing link)."""
+    text_lower = text.lower()
+    spam_markers = [
+        "t.me/", "join our telegram", "🎯 target", "🚀🚀🚀", "airdrop", "pump signal",
+        "claim page", "claim your", "allocation is", "presale", "whitelist spot",
+        "biggest daily gainers", "top gainers on", "morning bell", "24h  总市值",
+    ]
+    return any(marker in text_lower for marker in spam_markers)
+
+
+def _is_mostly_non_latin(text: str) -> bool:
+    """Cheap language filter — Snitch's sentiment engines (VADER's lexicon
+    especially) are English-tuned, and non-Latin-script spam (Chinese/
+    Russian/etc. bot accounts) was common in live cashtag-search testing.
+    Not true language detection, just a fast heuristic: if most letters
+    fall outside the basic Latin range, treat it as non-English."""
+    letters = [c for c in text if c.isalpha()]
+    if len(letters) < 8:
+        return False  # too short to judge, don't false-positive on cashtags/emoji-only tweets
+    non_latin = sum(1 for c in letters if ord(c) > 0x24F)  # beyond extended Latin
+    return (non_latin / len(letters)) > 0.3
+
+
+def fetch_x_cashtags(coin_keywords: dict[str, list[str]]) -> list[dict]:
+    """Search FxTwitter for tweets containing known crypto ticker cashtags,
+    batched via OR queries to minimize request count. Restricted to major
+    tickers and filtered by follower count + spam markers + language —
+    see the quality note above for why (found via live testing)."""
+    tickers = [t for t in X_MAJOR_TICKERS if t in coin_keywords]
+    batches = _build_cashtag_batches(tickers)
+
+    articles: list[dict] = []
+    for batch in batches:
+        query = " OR ".join(f"${t}" for t in batch)
+        try:
+            resp = requests.get(
+                "https://api.fxtwitter.com/2/search",
+                params={"q": query}, timeout=8, headers=DEFAULT_HEADERS,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+        except Exception as exc:
+            print(f"  [WARN] FxTwitter search failed for batch {batch}: {exc}")
+            time.sleep(0.5)
+            continue
+
+        for item in data.get("results", []):
+            text = (item.get("text") or "").strip()
+            url = item.get("url") or ""
+            if not text or not url:
+                continue
+            if _looks_like_spam(text) or _is_mostly_non_latin(text):
+                continue
+
+            author = item.get("author", {})
+            if (author.get("followers") or 0) < X_MIN_FOLLOWERS:
+                continue
+
+            handle = author.get("screen_name") or author.get("name") or "unknown"
+            tickers_found = extract_coin_tags(text, coin_keywords)
+            if not tickers_found:
+                continue  # matched the OR query on a substring but no clean ticker extracted
+
+            created_ts = item.get("created_timestamp")
+            published = None
+            if created_ts:
+                try:
+                    published = datetime.fromtimestamp(created_ts, tz=timezone.utc).isoformat()
+                except Exception:
+                    published = None
+
+            articles.append({
+                "title":     text[:120],
+                "url":       url,
+                "source":    f"@{handle}",
+                "published": published,
+                "tickers":   tickers_found,
+                "currency_pairs": [],
+                "summary":   text[:300],
+                "_category": "CRYPTO",
+                "_tier":     3,  # individual tweets are inherently less vetted than curated RSS sources -> VADER-primary
+                "_asset_class": "crypto",
+                "source_type": "x",
+                "likes":   item.get("likes"),
+                "reposts": item.get("reposts"),
+                "replies": item.get("replies"),
+            })
+        time.sleep(0.5)
+
+    return articles
+
+
+# ---------------------------------------------------------------------------
 # 4. FUZZY DEDUPLICATION
 # ---------------------------------------------------------------------------
 SIMILARITY_THRESHOLD = 0.70  # titles >= 70% similar → group as duplicate
@@ -506,7 +888,7 @@ def deduplicate(articles: list[dict]) -> list[dict]:
                 break
 
         if not matched:
-            primary.append({
+            story = {
                 "title":        article["title"],
                 "url":          article["url"],
                 "source":       article["source"],
@@ -514,16 +896,31 @@ def deduplicate(articles: list[dict]) -> list[dict]:
                 "tickers":      article["tickers"],
                 "currency_pairs": article.get("currency_pairs", []),
                 "summary":      article.get("summary", ""),
-                "sentiment":    None,
-                "confidence":   None,
+                # Preserve pre-computed sentiment (GDELT/USGS set these at
+                # fetch time via deterministic mappings, not a text model —
+                # overwriting with None here would discard that work).
+                "sentiment":    article.get("sentiment"),
+                "confidence":   article.get("confidence"),
                 "other_sources": [],
                 "category":     article.get("_category", "CRYPTO"),
                 "region":       "GLOBAL",
                 "asset_class":  article.get("_asset_class", "crypto"),
                 "source_flag":  SOURCE_FLAGS.get(article["source"]),
-                "sentiment_engine": None,
+                "sentiment_engine": article.get("sentiment_engine"),
+                "source_type":  article.get("source_type", "rss"),
                 "_tier":        article.get("_tier", 3),
-            })
+            }
+            # Additive, source-specific fields — only present when relevant,
+            # never introduced as null noise on ordinary RSS articles.
+            if "event_source" in article:
+                story["event_source"] = article["event_source"]
+            if "magnitude" in article:
+                story["magnitude"] = article["magnitude"]
+            if article.get("source_type") == "x":
+                story["likes"] = article.get("likes")
+                story["reposts"] = article.get("reposts")
+                story["replies"] = article.get("replies")
+            primary.append(story)
 
     return primary
 
@@ -953,15 +1350,43 @@ def classify_sentiments(articles: list[dict]) -> list[dict]:
     `sentiment_engine` ("groq" | "finbert" | "vader" | "keyword").
     """
     crypto_articles = [a for a in articles if a.get("asset_class", "crypto") == "crypto"]
-    fx_stock_articles = [a for a in articles if a.get("asset_class", "crypto") != "crypto"]
+    geo_event_articles = [a for a in articles if a.get("asset_class") == "geopolitics"]
+    fx_stock_articles = [
+        a for a in articles
+        if a.get("asset_class", "crypto") not in ("crypto", "geopolitics")
+    ]
 
     if crypto_articles:
         classify_crypto(crypto_articles)
     if fx_stock_articles:
         classify_fx_stock(fx_stock_articles)
+    if geo_event_articles:
+        classify_geo_events(geo_event_articles)
 
     print("✓ All sentiment classifications completed.")
     return articles
+
+
+# ---------------------------------------------------------------------------
+# 7b. GEOPOLITICAL EVENT CLASSIFICATION (deterministic, no text-sentiment model)
+# ---------------------------------------------------------------------------
+def classify_geo_events(articles: list[dict]) -> None:
+    """
+    GDELT/USGS events already carry their own purpose-built signal (GDELT's
+    article `tone`, USGS's earthquake `mag`) computed at fetch time in
+    fetch_geopolitical_events() — neither Groq nor FinBERT is trained on
+    structured event records, so routing them through a text-sentiment model
+    would add noise, not information. This function is mostly a no-op pass:
+    it only fills in a Neutral default for the rare case an event slipped
+    through without a pre-computed sentiment (defensive, not expected).
+    """
+    for a in articles:
+        if a.get("sentiment_engine"):
+            continue  # already scored deterministically at fetch time
+        a["sentiment"] = "Neutral"
+        a["confidence"] = 0.5
+        a["sentiment_engine"] = a.get("event_source", "geo_event")
+        a["is_crypto_relevant"] = True
 
 
 # ---------------------------------------------------------------------------
@@ -997,6 +1422,21 @@ def main():
     raw = fetch_all_feeds(coin_keywords)
     print(f"  → {len(raw)} raw articles fetched.")
 
+    print(f"[{datetime.now().isoformat()}] Fetching non-RSS sources (Scrapling)…")
+    scrapling_articles = fetch_scrapling_sources(coin_keywords)
+    print(f"  → {len(scrapling_articles)} articles fetched.")
+    raw.extend(scrapling_articles)
+
+    print(f"[{datetime.now().isoformat()}] Fetching geopolitical/disaster events (GDELT + USGS)…")
+    geo_events = fetch_geopolitical_events()
+    print(f"  → {len(geo_events)} events fetched.")
+    raw.extend(geo_events)
+
+    print(f"[{datetime.now().isoformat()}] Fetching X/Twitter cashtag search…")
+    x_articles = fetch_x_cashtags(coin_keywords)
+    print(f"  → {len(x_articles)} tweets fetched.")
+    raw.extend(x_articles)
+
     print("Deduplicating…")
     deduped = deduplicate(raw)
     print(f"  → {len(deduped)} unique stories after deduplication.")
@@ -1023,6 +1463,14 @@ def main():
             story["source_flag"] = existing_story.get("source_flag", story.get("source_flag"))
             story["asset_class"] = existing_story.get("asset_class", story.get("asset_class", "crypto"))
             story["currency_pairs"] = existing_story.get("currency_pairs", story.get("currency_pairs", []))
+            story["source_type"] = existing_story.get("source_type", story.get("source_type", "rss"))
+            # Additive, source-specific fields — only carry forward if either
+            # side actually has them, never introduce null noise.
+            for extra_field in ("event_source", "magnitude", "likes", "reposts", "replies"):
+                if extra_field in existing_story:
+                    story[extra_field] = existing_story[extra_field]
+                elif extra_field in story:
+                    pass  # keep the freshly-fetched value (e.g. updated like/repost counts)
             # Merge alternate sources uniquely
             existing_alts = {alt["url"]: alt for alt in existing_story.get("other_sources", [])}
             for alt in story["other_sources"]:

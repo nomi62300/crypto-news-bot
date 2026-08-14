@@ -10,6 +10,81 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-08-14 (branch: snitch-backend, not yet merged to main)
+### Added — Backend: non-RSS scraping, geopolitical events, X/Twitter cashtag search
+Evaluated 16 external repos surfaced by the user as candidates to improve
+`fetch_news.py`'s data gathering. Most were ruled out — several need
+persistent server infrastructure Snitch's GitHub-Actions-cron architecture
+deliberately avoids (HeadlessX, wigolo, OpenStock, MiroFish), some are
+AGPLv3-licensed (a real constraint on direct code reuse), one is
+non-automatable (ai-berkshire's scraper needs interactive login), and three
+X/Twitter alternatives (`twscrape`, `twitter-web-exporter`, `tweetclaw`) were
+evaluated and rejected (real-account credential/suspension risk,
+browser-only/non-automatable, and paid-vendor dependency respectively). Three
+things survived, all free/keyless/no-persistent-server:
+- **Scrapling** (`fetch_scrapling_sources()`) — adaptive HTML parsing (base
+  package only, no browser) for two confirmed non-RSS sources:
+  **InvestingLive** (formerly ForexLive — the domain now redirects entirely;
+  server-renders real headlines, no RSS available) and **Watcher.Guru**
+  (crypto/stocks news, `/feed` blocked by Cloudflare). Selectors use
+  attribute-*contains* matching rather than exact CSS-module hash names
+  where the site's build system generates per-deploy hashes, so they survive
+  redeploys better than an exact-class-name selector would. (Wu Blockchain,
+  originally considered, was dropped — its real domain already publishes a
+  working Atom feed in Chinese; the "English" domain some sources pointed to
+  is an unrelated parked/for-sale placeholder, not a live site.)
+- **Geopolitical/disaster events** (`fetch_geopolitical_events()`) — new
+  4th `asset_class` value `"geopolitics"`, feeding the `GEOPOLITICS`
+  category (previously only arose incidentally from RSS text matching, never
+  had a dedicated source). **GDELT** DOC 2.0 API (article `tone` mapped
+  deterministically to sentiment — no Groq/FinBERT call, neither is trained
+  for structured event records) and **USGS** earthquake GeoJSON feed
+  (magnitude-based mapping), both free/keyless. New fields: `event_source`
+  (`"gdelt"|"usgs"`), `magnitude` (USGS only), `sentiment_engine` values
+  `"gdelt_tone"`/`"usgs_magnitude"`.
+- **X/Twitter cashtag search** (`fetch_x_cashtags()`) — searches FxTwitter's
+  public mirror (`api.fxtwitter.com/2/search`, no login, no official paid
+  API) for tweets containing `$TICKER` cashtags for a fixed list of major
+  coins, rather than a fixed account watchlist — directly matches the need
+  (tweeter's name + full tweet text, filtered to actual cashtag mentions).
+  New `source_type: "x"` value (extends the previously-dormant field —
+  `"rss"` was the only real value before this; a Reddit integration was
+  scoped then shelved in Phase 2 for unrelated reasons). New fields `likes`,
+  `reposts`, `replies`.
+
+### Fixed
+- `deduplicate()` previously hard-coded `sentiment`/`confidence`/
+  `sentiment_engine` to `None` on every new story record, which would have
+  silently discarded GDELT/USGS's pre-computed deterministic sentiment the
+  moment it passed through dedup — now preserves any pre-set values from the
+  source article instead of always overwriting them.
+
+### Known limitations / real risks found during implementation, not just documented
+- **GDELT rate-limiting**: hit persistent `HTTP 429`s during development
+  testing that outlasted their documented "one request per 5 seconds" policy
+  by several minutes, and timed out entirely during full-pipeline testing —
+  `_fetch_gdelt_events()` is wrapped fail-soft (catches, logs, returns `[]`)
+  and should be treated as best-effort, not a reliable source. USGS had no
+  such issues.
+- **X cashtag search signal-to-noise**: unrestricted cashtag search surfaced
+  mostly low-quality content in testing (presale/shill accounts, bot-style
+  "top gainers" spam, airdrop-phishing patterns, non-English chatter) —
+  152 raw results narrowed to 16 after adding a follower-count gate
+  (`X_MIN_FOLLOWERS = 10,000`, found to be a far more reliable quality
+  signal than like/repost counts, which stayed near-zero across nearly all
+  results regardless of legitimacy) plus expanded spam-keyword and
+  non-Latin-script filtering, and restricting the cashtag list to 20
+  well-established tickers (`X_MAJOR_TICKERS`) rather than the full ~500-coin
+  registry. This is real, live-tuned filtering, not a theoretical design —
+  still expect some residual noise; crypto-Twitter is inherently noisy.
+- Scrapling's "self-healing" auto-match needs persisted storage across runs
+  to provide real cross-run value — not configured this phase (selectors are
+  plain CSS selectors that will need manual updates if either site
+  redesigns; see code comments in the Scrapling section).
+- ACLED (armed-conflict event data) was considered for the geopolitical
+  events source but not implemented — its free-tier registration terms need
+  a separate feasibility check first.
+
 ## [0.4.0] - 2026-08-13 (branch: snitch-backend, not yet merged to main)
 ### Added — Frontend rebuild (Phase 3)
 - Full rebrand: CryptoFlash → **Snitch**, new wordmark logo (JetBrains Mono,
