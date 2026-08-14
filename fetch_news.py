@@ -1689,8 +1689,21 @@ FINANCE_LEXICON_OVERLAY = {
     "downgrade": -2.0, "downgraded": -2.0, "hack": -3.3, "hacked": -3.3, "exploit": -3.0,
     "exploited": -3.0, "lawsuit": -2.2, "sued": -2.2, "delisting": -2.4, "delisted": -2.4,
     "bankruptcy": -3.4, "bankrupt": -3.4, "collapse": -3.2, "collapsed": -3.2,
-    "outflow": -1.6, "outflows": -1.6, "dump": -2.0, "dumped": -2.0, "recession": -2.5,
-    "default": -2.6, "shutdown": -2.0, "investigation": -1.8, "probe": -1.6,
+    "outflow": -1.6, "outflows": -1.6, "dump": -2.0, "dumped": -2.0, "dumps": -2.0,
+    "recession": -2.5, "default": -2.6, "shutdown": -2.0, "investigation": -1.8, "probe": -1.6,
+    # Added after a live-reported miss: "whale unloads 1.95M tokens" scored a
+    # flat 0.0 compound (Neutral, confidence 0.5) because none of VADER's
+    # base lexicon or the overlay above recognized "unloads" as bearish,
+    # despite "dump"/"dumped" already being covered — a real gap, not a
+    # one-off. Filled with the closest missing synonyms plus other common
+    # crypto-news whale/liquidation phrasing that has the same blind spot.
+    "unload": -2.0, "unloads": -2.0, "unloaded": -2.0,
+    "offload": -1.8, "offloads": -1.8, "offloaded": -1.8,
+    "liquidated": -2.2, "liquidation": -2.0, "liquidations": -2.0,
+    "rug pull": -3.2, "rugpull": -3.2, "rug-pull": -3.2,
+    "depeg": -2.8, "depegged": -2.8, "de-peg": -2.8,
+    "insolvent": -3.0, "insolvency": -3.0,
+    "accumulate": 1.6, "accumulates": 1.6, "accumulated": 1.6, "accumulation": 1.6,
 }
 
 _vader_analyzer = None

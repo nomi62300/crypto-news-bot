@@ -10,6 +10,35 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.6.3] - 2026-08-14
+### Fixed
+- VADER misclassified "Hyperliquid – HYPE holds near $57 as whale unloads
+  1.95M tokens" as `Neutral` (confidence exactly `0.5`, i.e. a flat `0.0`
+  compound score) — flagged live by the user. Root cause: the existing
+  `FINANCE_LEXICON_OVERLAY` already covers `dump`/`dumped` as bearish but
+  not `unload`/`unloads`, the word this specific article used — a real gap,
+  not a one-off. Added `unload`/`offload`/`liquidated`/`liquidation`/
+  `rug pull`/`depeg`/`insolvent` (bearish) and `accumulate`/`accumulation`
+  (bullish) to the overlay. Verified live: the flagged article now scores
+  `Bearish` at `0.625` confidence instead of the flat `Neutral` `0.5`.
+
+## [0.6.2] - 2026-08-14
+### Fixed
+- X-sourced articles (`source_type: "x"`) vanished from `news.json`
+  entirely whenever FxTwitter's cashtag-search endpoint failed for a
+  single run — confirmed live: it intermittently 404s a whole batch
+  (transient IP-based rate-limit/edge-block against the request's source,
+  not a real "not found" — the identical query succeeds seconds later from
+  elsewhere), and unlike `forex_sentiment`/`macro_snapshot` (which
+  explicitly keep last-known-good data on failure), `raw`/`deduped`/`final`
+  were entirely rebuilt from that run's own fetch each time with no grace
+  period — two runs fetched 13 then 9 tweets, the next got 0 and every
+  tweet disappeared instantly. Fixed with a one-retry-with-backoff per
+  batch in `fetch_x_cashtags()`, plus a carry-forward step in `main()` that
+  keeps previously-seen X-sourced articles still within the 48-hour cutoff
+  when they're missing from the current run's output (a no-op when the
+  fetch succeeds normally).
+
 ## [0.6.1] - 2026-08-14
 ### Fixed
 - `forex_sentiment` (myfxbook) was completely non-functional at 0.6.0 time —
