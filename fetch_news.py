@@ -816,15 +816,28 @@ def fetch_x_cashtags(coin_keywords: dict[str, list[str]]) -> list[dict]:
     articles: list[dict] = []
     for batch in batches:
         query = " OR ".join(f"${t}" for t in batch)
-        try:
-            resp = requests.get(
-                "https://api.fxtwitter.com/2/search",
-                params={"q": query}, timeout=8, headers=DEFAULT_HEADERS,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-        except Exception as exc:
-            print(f"  [WARN] FxTwitter search failed for batch {batch}: {exc}")
+        data = None
+        last_exc = None
+        # One retry with a short backoff — FxTwitter has been observed
+        # (live testing) to intermittently 404 an entire batch, seemingly
+        # transient rate-limiting/edge-blocking against the request's
+        # source IP rather than a real "not found," and it clears within
+        # seconds on a retry more often than not.
+        for attempt in range(2):
+            try:
+                resp = requests.get(
+                    "https://api.fxtwitter.com/2/search",
+                    params={"q": query}, timeout=8, headers=DEFAULT_HEADERS,
+                )
+                resp.raise_for_status()
+                data = resp.json()
+                break
+            except Exception as exc:
+                last_exc = exc
+                if attempt == 0:
+                    time.sleep(2)
+        if data is None:
+            print(f"  [WARN] FxTwitter search failed for batch {batch}: {last_exc}")
             time.sleep(0.5)
             continue
 
@@ -2204,6 +2217,34 @@ def main():
                 final.append(a)  # Keep if parsing fails
         else:
             final.append(a)
+
+    # X/Twitter cashtag search is a single external dependency serving ALL
+    # tweet content via a handful of batched queries — unlike RSS (35+
+    # independent feeds, one failing doesn't wipe out the rest), a single
+    # transient block/rate-limit on FxTwitter's end (confirmed happening
+    # intermittently against GitHub Actions' IPs via live testing) means
+    # `x_articles` comes back empty and every previously-shown tweet
+    # vanishes from `final` immediately, with no grace period — `raw`/
+    # `deduped`/`final` are entirely rebuilt from THIS run's fetch each
+    # time, unlike forex_sentiment/macro_snapshot which explicitly keep
+    # last-known-good data on failure. Carry forward any previously-seen
+    # X-sourced article still within the cutoff window that isn't already
+    # in `final` (by URL) — a no-op in the normal case (a successful
+    # refetch already puts it there via the existing existing_map merge),
+    # a real save when the source is transiently blocked.
+    final_urls = {a.get("url") for a in final if a.get("url")}
+    for a in existing_articles:
+        if a.get("source_type") != "x" or a.get("url") in final_urls:
+            continue
+        if not a.get("published"):
+            continue
+        try:
+            pub_dt = datetime.fromisoformat(a["published"])
+        except Exception:
+            continue
+        if pub_dt >= cutoff:
+            final.append(a)
+            final_urls.add(a.get("url"))
 
     # Sort newest first
     final.sort(key=lambda x: x["published"] or "", reverse=True)
