@@ -519,6 +519,24 @@ def fetch_scrapling_sources(coin_keywords: dict[str, list[str]]) -> list[dict]:
     cutoff = datetime.now(timezone.utc) - timedelta(hours=CUTOFF_HOURS)
     articles: list[dict] = []
 
+    def _as_text(value) -> str:
+        # Scrapling's .css() with a `::text`/`::attr()` pseudo-selector can
+        # return plain strings, or Selector/TextHandler-like wrapper objects
+        # depending on version/match shape — normalize defensively via
+        # .get() (Scrapy/parsel-style) before falling back to str().
+        if value is None:
+            return ""
+        if isinstance(value, str):
+            return value
+        getter = getattr(value, "get", None)
+        if callable(getter):
+            try:
+                got = getter()
+                return got if isinstance(got, str) else str(got or "")
+            except Exception:
+                pass
+        return str(value)
+
     for source_meta in SCRAPLING_SOURCES:
         try:
             resp = requests.get(source_meta["url"], timeout=5, headers=DEFAULT_HEADERS)
@@ -533,43 +551,51 @@ def fetch_scrapling_sources(coin_keywords: dict[str, list[str]]) -> list[dict]:
         source_category = source_meta.get("category", "CRYPTO")
         seen_urls_this_source = set()  # listing pages often repeat a "featured" item
 
-        for title, link in zip(titles, links):
-            title = (title or "").strip()
-            if not title or not link:
-                continue
-            url = urljoin(source_meta["url"], link)
-            if url in seen_urls_this_source:
-                continue
-            seen_urls_this_source.add(url)
+        try:
+            for title, link in zip(titles, links):
+                title = _as_text(title).strip()
+                link = _as_text(link).strip()
+                if not title or not link:
+                    continue
+                url = urljoin(source_meta["url"], link)
+                if url in seen_urls_this_source:
+                    continue
+                seen_urls_this_source.add(url)
 
-            if source_category == "CRYPTO" and not matches_crypto_prefilter(title, ""):
-                continue
+                if source_category == "CRYPTO" and not matches_crypto_prefilter(title, ""):
+                    continue
 
-            currency_pairs: list[str] = []
-            if source_category == "STOCKS":
-                tickers = extract_coin_tags(title, STOCK_TICKERS)
-            elif source_category == "FOREX":
-                tickers = []
-                currency_pairs = extract_currency_codes(title)
-            else:
-                tickers = extract_coin_tags(title, coin_keywords)
+                currency_pairs: list[str] = []
+                if source_category == "STOCKS":
+                    tickers = extract_coin_tags(title, STOCK_TICKERS)
+                elif source_category == "FOREX":
+                    tickers = []
+                    currency_pairs = extract_currency_codes(title)
+                else:
+                    tickers = extract_coin_tags(title, coin_keywords)
 
-            # Listing pages don't reliably expose per-article timestamps in a
-            # consistent, parseable format across sites — omit `published`
-            # (None) rather than guess; downstream sorting/cutoff logic
-            # already tolerates a missing published date (see main()).
-            articles.append({
-                "title":     title,
-                "url":       url,
-                "source":    source_meta["name"],
-                "published": None,
-                "tickers":   tickers,
-                "currency_pairs": currency_pairs,
-                "summary":   "",
-                "_category": source_category,
-                "_tier":     source_meta.get("tier", 3),
-                "_asset_class": ASSET_CLASS_BY_CATEGORY.get(source_category, "crypto"),
-            })
+                # Listing pages don't reliably expose per-article timestamps in a
+                # consistent, parseable format across sites — omit `published`
+                # (None) rather than guess; downstream sorting/cutoff logic
+                # already tolerates a missing published date (see main()).
+                articles.append({
+                    "title":     title,
+                    "url":       url,
+                    "source":    source_meta["name"],
+                    "published": None,
+                    "tickers":   tickers,
+                    "currency_pairs": currency_pairs,
+                    "summary":   "",
+                    "_category": source_category,
+                    "_tier":     source_meta.get("tier", 3),
+                    "_asset_class": ASSET_CLASS_BY_CATEGORY.get(source_category, "crypto"),
+                })
+        except Exception as exc:
+            # A single source's selector breaking (site redesign, etc.) must
+            # not take down the whole scrape run — same fail-soft posture
+            # used everywhere else in this file.
+            print(f"[WARN] Failed to parse {source_meta['name']} listing: {exc}")
+            continue
 
     return articles
 
