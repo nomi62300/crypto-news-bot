@@ -2074,7 +2074,39 @@ def classify_geo_events(articles: list[dict]) -> None:
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "news.json")
 
 
+def _debug_myfxbook():
+    """TEMPORARY — diagnose the "Invalid session" issue: print the raw login
+    response, test the session against a basic account-info endpoint (to
+    check whether the session is valid at all vs. specifically rejected by
+    Community Outlook), and print the raw community-outlook response.
+    Remove once the real cause is confirmed."""
+    email = os.environ.get("MYFXBOOK_EMAIL", "")
+    password = os.environ.get("MYFXBOOK_PASSWORD", "")
+    if not email or not password:
+        print("  [DEBUG] myfxbook: no credentials set, skipping")
+        return
+    try:
+        resp = requests.get("https://www.myfxbook.com/api/login.json", params={"email": email, "password": password}, timeout=10)
+        data = resp.json()
+        token = data.get("session")
+        print(f"  [DEBUG] login.json raw response: {data}")
+        print(f"  [DEBUG] token (truncated): {(token or '')[:12]}... len={len(token or '')}")
+        if not token:
+            return
+
+        # Test session validity against a basic authenticated endpoint.
+        resp2 = requests.get("https://www.myfxbook.com/api/get-my-accounts.json", params={"session": token}, timeout=10)
+        print(f"  [DEBUG] get-my-accounts.json raw response: {resp2.json()}")
+
+        resp3 = requests.get("https://www.myfxbook.com/api/get-community-outlook.json", params={"session": token}, timeout=10)
+        print(f"  [DEBUG] get-community-outlook.json raw response: {resp3.json()}")
+    except Exception as exc:
+        print(f"  [DEBUG] myfxbook diagnostic failed: {exc}")
+
+
 def main():
+    _debug_myfxbook()
+
     print(f"[{datetime.now().isoformat()}] Fetching CoinGecko coin registry…")
     coin_keywords = fetch_top_500_coingecko()
 
