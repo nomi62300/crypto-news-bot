@@ -1180,8 +1180,15 @@ def _twelvedata_quote_batch(symbols: list[str]) -> Optional[dict]:
             return {data["symbol"]: data}  # single-symbol response shape
         if isinstance(data, dict):
             # Multi-symbol shape: {"SYM1": {...}, "SYM2": {...}}, filter out
-            # any per-symbol error entries (e.g. {"code": 400, "status": "error"}).
-            return {sym: q for sym, q in data.items() if isinstance(q, dict) and q.get("status") != "error"}
+            # any per-symbol error entries (e.g. {"code": 400, "status": "error"}),
+            # logging what actually went wrong per symbol for live diagnosis.
+            good = {}
+            for sym, q in data.items():
+                if isinstance(q, dict) and q.get("status") != "error":
+                    good[sym] = q
+                elif isinstance(q, dict):
+                    print(f"  [WARN] Twelve Data {sym}: {q.get('message') or q}")
+            return good
         return None
     except Exception as exc:
         print(f"  [WARN] Twelve Data quote batch failed: {exc}")
@@ -2133,6 +2140,14 @@ def main():
 
     print(f"[{datetime.now().isoformat()}] Checking commodity snapshot (Twelve Data/FMP/Alpha Vantage, daily-gated)…")
     commodity_snapshot = fetch_commodity_snapshot(old_data)
+
+    # Twelve Data's free tier counts each symbol in a batched /quote call
+    # toward its 8-req/min cap — the commodities batch (6 symbols) can
+    # already consume most of that window, so pause before the indices
+    # batch (5 more) to avoid a 429 (confirmed happening back-to-back via
+    # live testing). Both calls are daily-gated so this only costs time on
+    # the one run/day that actually fetches live.
+    time.sleep(65)
 
     print(f"[{datetime.now().isoformat()}] Checking index snapshot (Twelve Data, daily-gated)…")
     index_snapshot = fetch_index_snapshot(old_data)
