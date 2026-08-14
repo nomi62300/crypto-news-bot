@@ -1180,6 +1180,53 @@ def _fetch_commodities_fmp() -> Optional[list[dict]]:
         return None
 
 
+_METALS_WATCHLIST = [
+    {"symbol": "GCUSD", "label": "Gold", "fmp_forex_symbol": "XAUUSD"},
+    {"symbol": "SIUSD", "label": "Silver", "fmp_forex_symbol": "XAGUSD"},
+]
+
+
+def _fetch_metals_fmp() -> Optional[list[dict]]:
+    """Gold/silver specifically: FMP's plain /stable/quote commodity symbols
+    (GCUSD/SIUSD) are gated behind the same 402 as the other commodities on
+    the current plan, and Alpha Vantage's CURRENCY_EXCHANGE_RATE doesn't
+    actually support XAU/XAG despite that being a commonly-cited trick
+    (confirmed live: "Invalid API call"). FMP also quotes precious metals as
+    forex-style pairs (XAUUSD/XAGUSD) via the same /stable/quote endpoint —
+    worth trying since forex quotes are typically a different (often lower)
+    plan tier than commodities; verify against a live response, same caveat
+    as the rest of this project's FMP field-name assumptions."""
+    api_key = os.environ.get("FMP_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        symbols = ",".join(m["fmp_forex_symbol"] for m in _METALS_WATCHLIST)
+        resp = requests.get(
+            f"{FMP_STABLE_BASE}/quote",
+            params={"symbol": symbols, "apikey": api_key}, timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if not isinstance(data, list) or not data:
+            return None
+        by_symbol = {row.get("symbol"): row for row in data}
+        items = []
+        for m in _METALS_WATCHLIST:
+            row = by_symbol.get(m["fmp_forex_symbol"])
+            if not row:
+                continue
+            items.append({
+                "symbol": m["symbol"],
+                "label": m["label"],
+                "price": row.get("price"),
+                "changes_percentage": row.get("changesPercentage"),
+            })
+        return items if items else None
+    except Exception as exc:
+        print(f"  [WARN] FMP metals (forex-style) fetch failed: {exc}")
+        return None
+
+
 def _fetch_commodities_alpha_vantage() -> Optional[list[dict]]:
     """Fallback for when FMP's commodity quotes aren't available on the
     user's plan (confirmed via live testing: FMP's /stable/quote returns
@@ -1265,25 +1312,33 @@ def _fetch_commodities_alpha_vantage() -> Optional[list[dict]]:
 
 
 def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
-    """Daily-gated: FMP primary, Alpha Vantage fallback (mirrors
-    fetch_macro_snapshot). Keeps the previous snapshot (flagged stale) if
-    both providers fail today."""
+    """Daily-gated: FMP primary (WTI/Brent/NatGas/Copper + gold/silver via
+    FMP's forex-style XAUUSD/XAGUSD symbols), Alpha Vantage fallback for the
+    energy/metal-industrial four (it has no working gold/silver source at
+    all). Gold/silver are fetched via FMP's forex-quote route regardless of
+    which provider supplied the rest, since that's the only source that
+    actually works for them. Keeps the previous snapshot (flagged stale) if
+    everything fails today."""
     previous = old_data.get("commodity_snapshot")
     today = datetime.now(timezone.utc).date().isoformat()
     if previous and previous.get("updated_at", "").startswith(today):
         return previous
 
     items = _fetch_commodities_fmp()
-    if items is not None:
-        print("  [INFO] commodity_snapshot: using FMP")
-        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "fmp", "items": items}
+    source = "fmp"
+    if items is None:
+        items = _fetch_commodities_alpha_vantage()
+        source = "alpha_vantage"
 
-    av_items = _fetch_commodities_alpha_vantage()
-    if av_items is not None:
-        print("  [INFO] commodity_snapshot: FMP failed, using Alpha Vantage (fallback)")
-        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "alpha_vantage", "items": av_items}
+    metals = _fetch_metals_fmp()
+    if metals:
+        items = (items or []) + metals
 
-    print("  [WARN] commodity_snapshot: both FMP and Alpha Vantage failed, keeping previous snapshot (stale)")
+    if items:
+        print(f"  [INFO] commodity_snapshot: using {source}" + (" + FMP metals" if metals else ""))
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": source, "items": items}
+
+    print("  [WARN] commodity_snapshot: all providers failed, keeping previous snapshot (stale)")
     if previous:
         return {**previous, "stale": True}
     return None
