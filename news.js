@@ -4210,28 +4210,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Hyperliquid – HYPE holds near $57 as whale unloads 1.95M tokens",
-      "url": "https://ambcrypto.com/hyperliquid-hype-holds-near-57-as-whale-unloads-1-95m-tokens/",
-      "source": "AMBCrypto",
-      "published": "2026-08-14T09:00:06+00:00",
-      "tickers": [
-        "HYPE",
-        "NEAR"
-      ],
-      "currency_pairs": [],
-      "summary": "Buyers reclaimed momentum, but $110 million in whale sales shadowed the rebound.",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Live updates: Bitcoin slips back to $63,000; MSCI threatens to exclude Strategy from indices",
       "url": "https://www.coindesk.com/tech/2026/08/14/live-updates-bitcoin-slips-below-usd63-000-as-oil-yields-climb",
       "source": "CoinDesk",
