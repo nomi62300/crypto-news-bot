@@ -2178,7 +2178,8 @@
     let showTweetsOnly   = false; // independent on/off filter, combinable with any category
     let forexSentimentCache = null; // data.forex_sentiment, rides in news.json (myfxbook, hourly-gated server-side)
     let macroSnapshotCache  = null; // data.macro_snapshot, rides in news.json (FMP/Alpha Vantage, daily-gated server-side)
-    let commoditySnapshotCache = null; // data.commodity_snapshot, rides in news.json (FMP, daily-gated server-side)
+    let commoditySnapshotCache = null; // data.commodity_snapshot, rides in news.json (Twelve Data/FMP/Alpha Vantage, daily-gated server-side)
+    let indexSnapshotCache = null; // data.index_snapshot, rides in news.json (Twelve Data, daily-gated server-side)
 
     // Single feed tab (Dashboard shows all asset classes; Crypto/Forex/
     // Stocks narrowing happens via the category filter strip, not separate
@@ -3106,20 +3107,33 @@
     }
 
     function renderIndicesRow() {
-      if (!FINNHUB_API_KEY || !stocksCache.data) {
-        renderStatTileRow('indicesTileRow', []);
-        renderTopMovers('indicesGainersList', 'indicesLosersList', []);
-        return;
+      // Index tiles prefer the server-fetched index_snapshot (Twelve Data,
+      // rides in news.json, no client-side key needed); fall back to the
+      // Finnhub ETF-proxy quotes (SPY/QQQ/DIA/IWM/VIXY) if that's not
+      // populated yet but a client-side FINNHUB_API_KEY has been set.
+      const serverItems = (indexSnapshotCache && indexSnapshotCache.items) || [];
+      let tiles;
+      if (serverItems.length > 0) {
+        tiles = serverItems.map(i => ({ label: i.label, valueText: i.price != null ? Number(i.price).toFixed(2) : '—', pctChange: i.changes_percentage }));
+      } else if (FINNHUB_API_KEY && stocksCache.data) {
+        const proxies = stocksCache.data.filter(s => s.isIndexProxy);
+        tiles = proxies.map(s => ({ label: s.label, valueText: s.c != null ? '$' + s.c.toFixed(2) : '—', pctChange: pctChangeFromQuote(s) }));
+      } else {
+        tiles = [];
       }
-      const proxies = stocksCache.data.filter(s => s.isIndexProxy);
-      const tiles = proxies.map(s => ({ label: s.label, valueText: s.c != null ? '$' + s.c.toFixed(2) : '—', pctChange: pctChangeFromQuote(s) }));
       const dxy = computeDxy();
       if (dxy) tiles.push({ label: 'Dollar Index (DXY)', valueText: dxy.indexValue.toFixed(3), pctChange: dxy.pctChange });
       renderStatTileRow('indicesTileRow', tiles);
 
-      const equities = stocksCache.data.filter(s => !s.isIndexProxy && s.symbol !== 'GLD');
-      const items = equities.map(s => ({ label: s.label, valueText: s.c != null ? '$' + s.c.toFixed(2) : '—', pctChange: pctChangeFromQuote(s) }));
-      renderTopMovers('indicesGainersList', 'indicesLosersList', items);
+      // Equities Top Gainers/Losers stays Finnhub-only for now — separate
+      // concern from the index-level tiles above.
+      if (FINNHUB_API_KEY && stocksCache.data) {
+        const equities = stocksCache.data.filter(s => !s.isIndexProxy && s.symbol !== 'GLD');
+        const items = equities.map(s => ({ label: s.label, valueText: s.c != null ? '$' + s.c.toFixed(2) : '—', pctChange: pctChangeFromQuote(s) }));
+        renderTopMovers('indicesGainersList', 'indicesLosersList', items);
+      } else {
+        renderTopMovers('indicesGainersList', 'indicesLosersList', []);
+      }
     }
 
     function renderFxTileRow() {
@@ -3526,6 +3540,7 @@
         forexSentimentCache = data.forex_sentiment || null;
         macroSnapshotCache = data.macro_snapshot || null;
         commoditySnapshotCache = data.commodity_snapshot || null;
+        indexSnapshotCache = data.index_snapshot || null;
 
         if (data.updated_at) {
           const d = new Date(data.updated_at);

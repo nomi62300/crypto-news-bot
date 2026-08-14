@@ -1019,6 +1019,7 @@ def fetch_forex_sentiment(old_data: dict) -> Optional[dict]:
 # output's updated_at back from news.json).
 FMP_STABLE_BASE = "https://financialmodelingprep.com/stable"
 ALPHA_VANTAGE_BASE = "https://www.alphavantage.co/query"
+TWELVE_DATA_BASE = "https://api.twelvedata.com"
 
 
 def _fetch_macro_fmp() -> Optional[dict]:
@@ -1127,20 +1128,125 @@ def fetch_macro_snapshot(old_data: dict) -> Optional[dict]:
 
 
 # ---------------------------------------------------------------------------
-# 3d. COMMODITY SNAPSHOT (FMP quotes) — replaces an earlier Stooq-based plan;
-# Stooq turned out to be blocked by a Cloudflare bot-challenge on every
-# request (browser and server-side alike), confirmed via live testing, so
-# FMP (already an approved key in this project for macro_snapshot) is used
-# instead. Same daily-gate pattern as fetch_macro_snapshot.
+# 3d. COMMODITY SNAPSHOT (Twelve Data primary, FMP + Alpha Vantage fallback)
+# — replaces an earlier Stooq-based plan; Stooq turned out to be blocked by
+# a Cloudflare bot-challenge on every request (browser and server-side
+# alike), confirmed via live testing. FMP's commodity quotes then turned out
+# to be gated behind a 402 on the current plan (confirmed live), and Alpha
+# Vantage has no working gold/silver source at all (its CURRENCY_EXCHANGE_RATE
+# doesn't actually support XAU/XAG despite that being a commonly-cited
+# trick). Twelve Data's free tier (800 credits/day, 8 req/min) covers
+# indices, commodities, and metals in one place, so it's now primary for
+# both commodity_snapshot and index_snapshot. Same daily-gate pattern as
+# fetch_macro_snapshot throughout.
 # ---------------------------------------------------------------------------
 COMMODITY_WATCHLIST = [
-    {"symbol": "CLUSD", "label": "Crude Oil (WTI)"},
-    {"symbol": "BZUSD", "label": "Brent Crude"},
-    {"symbol": "GCUSD", "label": "Gold"},
-    {"symbol": "SIUSD", "label": "Silver"},
-    {"symbol": "NGUSD", "label": "Natural Gas"},
-    {"symbol": "HGUSD", "label": "Copper"},
+    {"symbol": "CLUSD", "label": "Crude Oil (WTI)", "twelvedata_symbol": "WTI/USD"},
+    {"symbol": "BZUSD", "label": "Brent Crude", "twelvedata_symbol": "BRENT/USD"},
+    {"symbol": "GCUSD", "label": "Gold", "twelvedata_symbol": "XAU/USD"},
+    {"symbol": "SIUSD", "label": "Silver", "twelvedata_symbol": "XAG/USD"},
+    {"symbol": "NGUSD", "label": "Natural Gas", "twelvedata_symbol": "NATGAS/USD"},
+    {"symbol": "HGUSD", "label": "Copper", "twelvedata_symbol": "COPPER/USD"},
 ]
+
+INDICES_WATCHLIST = [
+    {"symbol": "SPX", "label": "S&P 500"},
+    {"symbol": "IXIC", "label": "Nasdaq Composite"},
+    {"symbol": "DJI", "label": "Dow Jones"},
+    {"symbol": "RUT", "label": "Russell 2000"},
+    {"symbol": "VIX", "label": "Volatility (VIX)"},
+]
+
+
+def _twelvedata_quote_batch(symbols: list[str]) -> Optional[dict]:
+    """Twelve Data's /quote endpoint accepts a comma-joined symbol batch and
+    returns either a single quote object (one symbol) or a dict keyed by
+    symbol (multiple) — handled defensively here since the exact response
+    shape per symbol *category* (indices vs. commodities vs. equities)
+    hasn't been verified against a live multi-symbol response, only single-
+    symbol equity quotes (confirmed field names: close/previous_close/
+    percent_change). Returns {symbol: quote_dict}, or None on failure."""
+    api_key = os.environ.get("TWELVE_DATA_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        resp = requests.get(
+            f"{TWELVE_DATA_BASE}/quote",
+            params={"symbol": ",".join(symbols), "apikey": api_key}, timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if isinstance(data, dict) and "symbol" in data:
+            return {data["symbol"]: data}  # single-symbol response shape
+        if isinstance(data, dict):
+            # Multi-symbol shape: {"SYM1": {...}, "SYM2": {...}}, filter out
+            # any per-symbol error entries (e.g. {"code": 400, "status": "error"}).
+            return {sym: q for sym, q in data.items() if isinstance(q, dict) and q.get("status") != "error"}
+        return None
+    except Exception as exc:
+        print(f"  [WARN] Twelve Data quote batch failed: {exc}")
+        return None
+
+
+def _fetch_commodities_twelvedata() -> Optional[list[dict]]:
+    symbol_map = {c["twelvedata_symbol"]: c for c in COMMODITY_WATCHLIST}
+    quotes = _twelvedata_quote_batch(list(symbol_map.keys()))
+    if not quotes:
+        return None
+    items = []
+    for td_symbol, watch in symbol_map.items():
+        q = quotes.get(td_symbol)
+        if not q:
+            continue
+        try:
+            price = float(q["close"])
+        except (KeyError, ValueError, TypeError):
+            continue
+        pct = q.get("percent_change")
+        try:
+            pct = float(pct) if pct is not None else None
+        except (ValueError, TypeError):
+            pct = None
+        items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
+    return items if items else None
+
+
+def fetch_index_snapshot(old_data: dict) -> Optional[dict]:
+    """Daily-gated, Twelve Data only — moves index quotes server-side so the
+    Indices tile row doesn't depend on a client-embedded FINNHUB_API_KEY
+    (which the free-tier Finnhub path in index.html still needs separately
+    for the equities Top Gainers/Losers table under that row)."""
+    previous = old_data.get("index_snapshot")
+    today = datetime.now(timezone.utc).date().isoformat()
+    if previous and previous.get("updated_at", "").startswith(today):
+        return previous
+
+    symbols = [i["symbol"] for i in INDICES_WATCHLIST]
+    quotes = _twelvedata_quote_batch(symbols)
+    if quotes:
+        items = []
+        for watch in INDICES_WATCHLIST:
+            q = quotes.get(watch["symbol"])
+            if not q:
+                continue
+            try:
+                price = float(q["close"])
+            except (KeyError, ValueError, TypeError):
+                continue
+            pct = q.get("percent_change")
+            try:
+                pct = float(pct) if pct is not None else None
+            except (ValueError, TypeError):
+                pct = None
+            items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
+        if items:
+            print("  [INFO] index_snapshot: using Twelve Data")
+            return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "twelvedata", "items": items}
+
+    print("  [WARN] index_snapshot: Twelve Data failed, keeping previous snapshot (stale)")
+    if previous:
+        return {**previous, "stale": True}
+    return None
 
 
 def _fetch_commodities_fmp() -> Optional[list[dict]]:
@@ -1312,17 +1418,21 @@ def _fetch_commodities_alpha_vantage() -> Optional[list[dict]]:
 
 
 def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
-    """Daily-gated: FMP primary (WTI/Brent/NatGas/Copper + gold/silver via
-    FMP's forex-style XAUUSD/XAGUSD symbols), Alpha Vantage fallback for the
-    energy/metal-industrial four (it has no working gold/silver source at
-    all). Gold/silver are fetched via FMP's forex-quote route regardless of
-    which provider supplied the rest, since that's the only source that
-    actually works for them. Keeps the previous snapshot (flagged stale) if
-    everything fails today."""
+    """Daily-gated: Twelve Data primary (covers all 6, including gold/silver
+    in one place), FMP fallback (WTI/Brent/NatGas/Copper + gold/silver via
+    FMP's forex-style XAUUSD/XAGUSD symbols — though FMP turned out to gate
+    those behind the same 402 as its plain commodity symbols on the current
+    plan), Alpha Vantage last (no working gold/silver source at all). Keeps
+    the previous snapshot (flagged stale) if everything fails today."""
     previous = old_data.get("commodity_snapshot")
     today = datetime.now(timezone.utc).date().isoformat()
     if previous and previous.get("updated_at", "").startswith(today):
         return previous
+
+    items = _fetch_commodities_twelvedata()
+    if items:
+        print("  [INFO] commodity_snapshot: using Twelve Data")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "twelvedata", "items": items}
 
     items = _fetch_commodities_fmp()
     source = "fmp"
@@ -1335,7 +1445,7 @@ def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
         items = (items or []) + metals
 
     if items:
-        print(f"  [INFO] commodity_snapshot: using {source}" + (" + FMP metals" if metals else ""))
+        print(f"  [INFO] commodity_snapshot: Twelve Data failed, using {source}" + (" + FMP metals" if metals else ""))
         return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": source, "items": items}
 
     print("  [WARN] commodity_snapshot: all providers failed, keeping previous snapshot (stale)")
@@ -2021,8 +2131,11 @@ def main():
     print(f"[{datetime.now().isoformat()}] Checking macro snapshot (FMP/Alpha Vantage, daily-gated)…")
     macro_snapshot = fetch_macro_snapshot(old_data)
 
-    print(f"[{datetime.now().isoformat()}] Checking commodity snapshot (FMP, daily-gated)…")
+    print(f"[{datetime.now().isoformat()}] Checking commodity snapshot (Twelve Data/FMP/Alpha Vantage, daily-gated)…")
     commodity_snapshot = fetch_commodity_snapshot(old_data)
+
+    print(f"[{datetime.now().isoformat()}] Checking index snapshot (Twelve Data, daily-gated)…")
+    index_snapshot = fetch_index_snapshot(old_data)
 
     output = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
@@ -2031,6 +2144,7 @@ def main():
         "forex_sentiment": forex_sentiment,
         "macro_snapshot":  macro_snapshot,
         "commodity_snapshot": commodity_snapshot,
+        "index_snapshot": index_snapshot,
     }
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
