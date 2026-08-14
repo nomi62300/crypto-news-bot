@@ -1,0 +1,53 @@
+name: Fetch Economic Calendar
+
+on:
+  schedule:
+    # Once a day — economic calendar events don't change intraday, unlike
+    # the 15-minute news scrape.
+    - cron: "0 6 * * *"
+  workflow_dispatch: # allow manual trigger
+
+permissions:
+  contents: write   # needed to commit econ_calendar.json back to the repo
+
+jobs:
+  fetch-econ-calendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      # ---------------------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # ---------------------------------------------------------------
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ---------------------------------------------------------------
+      # Only `requests` is needed for this script — installing the full
+      # requirements.txt would pull in fetch_news.py's heavy torch/
+      # transformers dependencies for no reason on this lightweight job.
+      - name: Install dependencies
+        run: pip install requests
+
+      # ---------------------------------------------------------------
+      - name: Run economic calendar fetcher
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: python fetch_econ_calendar.py
+
+      # ---------------------------------------------------------------
+      - name: Commit updated econ_calendar.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          [ -f econ_calendar.json ] && git add econ_calendar.json
+          # Only commit if the file actually changed
+          git diff --cached --quiet || git commit -m "chore: update economic calendar [skip ci]"
+          git push

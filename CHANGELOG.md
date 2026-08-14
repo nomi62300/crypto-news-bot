@@ -1,12 +1,86 @@
 # Changelog
 
-All notable changes to CryptoFlash's `fetch_news.py` scraper are documented here.
-Versions follow [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`).
-`news.json`'s existing field names and casing are a stability contract with
-Wicktor's `Api.coinNews()` — breaking that contract is a MAJOR bump; new
-additive fields are MINOR; bug fixes with no schema change are PATCH.
+All notable changes to the Snitch project (formerly CryptoFlash) are documented
+here — the `fetch_news.py`/`fetch_econ_calendar.py` backend scrapers and the
+`index.html` frontend. Versions follow [Semantic Versioning](https://semver.org/)
+(`MAJOR.MINOR.PATCH`). `news.json`'s existing field names and casing are a
+stability contract with Wicktor's `Api.coinNews()` — breaking that contract is
+a MAJOR bump; new additive fields/features are MINOR; bug fixes with no schema
+change are PATCH.
 
 ## [Unreleased]
+
+## [0.4.0] - 2026-08-13 (branch: snitch-backend, not yet merged to main)
+### Added — Frontend rebuild (Phase 3)
+- Full rebrand: CryptoFlash → **Snitch**, new wordmark logo (JetBrains Mono,
+  `#f5cc01` accent), new `favicon.svg` + PNG fallbacks, updated title/meta
+  description.
+- Site-wide Fincept Terminal-inspired dark theme: near-black background,
+  off-white/muted-gray text, monospace throughout (dropped Inter), `#f5cc01`
+  accent replacing the previous gold, sentiment colors (green/red/gray for
+  Bullish/Bearish/Neutral) kept visually distinct from the accent.
+- Simplified navigation to 3 tabs: **Dashboard** (all-asset-class news feed +
+  overview stats + category filter strip), **Crypto Market**, and
+  **Forex/Stocks Market** — replaced the old 2-tab Terminal/Dashboard layout
+  and an earlier 5-tab iteration; per-asset-class news browsing now happens
+  via the category filter strip on Dashboard rather than separate tabs.
+- New category filter strip (ALL/CRYPTO/FOREX/STOCKS/ECONOMIC/REGULATORY,
+  driven by the `category` field) alongside the existing ticker-chip filter.
+- New per-article detail panel (slide-over on desktop, full-screen overlay on
+  mobile/tablet) opening on row click, with OPEN (external link), COPY URL,
+  and SAVE (bookmark, `localStorage`-persisted) actions — replaces the old
+  direct-external-link row behavior.
+- `source_flag` warning icon, `sentiment_engine` hover tooltip, and a dormant
+  (untestable — no live Reddit data) `source_type`/`upvotes`/`num_comments`
+  row-rendering branch, all additive to the existing row template.
+- **Crypto Market tab**: CoinGecko-powered (free, keyless) global stats strip
+  (market cap, 24h volume, BTC dominance, Fear & Greed) and a 100-coin table
+  (price/24h%/market cap/volume/7D sparkline) with client-side-only
+  ALL/GAINERS/LOSERS/MOST ACTIVE re-sorting (one cached fetch, no extra API
+  calls per toggle). Crypto ticker tape (previously global) now lives here.
+- **Forex/Stocks Market tab**: Frankfurter-powered (free, keyless) FX
+  cross-pair Top Gainers/Losers with pips, a Relative Currency Strength
+  chart, an approximate USD-index card (weighted geometric mean vs. majors,
+  explicitly labeled "not the official ICE DXY"), a Finnhub-powered
+  stocks/ETF-index watchlist (gracefully skips itself if no
+  `FINNHUB_API_KEY` is configured — client-embedded key is an inherent
+  tradeoff of a static/no-backend site, documented in code), and an economic
+  calendar reader for `econ_calendar.json` (honest empty state, not an error,
+  when the file doesn't exist yet). Forex ticker tape lives here.
+- New backend script `fetch_econ_calendar.py` + new GitHub Actions workflow
+  `fetch_econ_calendar.yml` (daily cron, separate from the 15-minute news
+  scrape) — calls Financial Modeling Prep's free-tier economic-calendar
+  endpoint, fails soft (preserves last-good data) on missing key/quota/error.
+  Needs a user-provided `FMP_API_KEY` GitHub secret to actually populate data
+  (same self-managed-secret pattern as `GROQ_API_KEY`).
+- `.gitignore` added (excludes the `fincept design/` visual-reference
+  screenshots from version control — session reference material, not a
+  deliverable).
+
+### Fixed
+- FX pip-size calculation used `pair.includes('JPY')` (matched JPY appearing
+  *anywhere* in a cross-pair, e.g. `JPY/CAD`) instead of checking whether JPY
+  is specifically the *quote* currency — caused several JPY-as-base cross
+  pairs to display "0.0 pips" despite a real, non-zero % change. Now checks
+  `pair.split('/')[1] === 'JPY'`.
+
+### Known limitations
+- No free API exists for central bank policy rates, sovereign bond yields, or
+  CDS risk (confirmed via research) — not included on the Forex/Stocks Market
+  page. Myfxbook-style crowd long/short positioning also excluded (its API
+  requires a login-derived session unsafe to embed client-side, and neither
+  its public-page accessibility nor its Terms of Service could be confirmed
+  permit scraping) — Relative Currency Strength (real, computed data) is the
+  built alternative.
+- Economic calendar requires a user-supplied `FMP_API_KEY`; without one the
+  Forex/Stocks Market page shows an honest empty state rather than data.
+- Stocks/ETF watchlist requires a user-supplied `FINNHUB_API_KEY`, embedded
+  client-side (visible in page source) since this is a static site with no
+  backend to hide it behind — same tradeoff already accepted for other
+  client-side-only integrations on this page.
+- This version lives on the `snitch-backend` branch only; `main` still runs
+  the pre-Phase-3 frontend and `v0.2.0` backend until this branch is
+  explicitly merged.
 
 ## [0.3.0] - 2026-08-13 (branch: snitch-backend, not yet merged to main)
 ### Added
