@@ -1020,6 +1020,7 @@ def fetch_forex_sentiment(old_data: dict) -> Optional[dict]:
 FMP_STABLE_BASE = "https://financialmodelingprep.com/stable"
 ALPHA_VANTAGE_BASE = "https://www.alphavantage.co/query"
 TWELVE_DATA_BASE = "https://api.twelvedata.com"
+API_NINJAS_BASE = "https://api.api-ninjas.com/v1"
 
 
 def _fetch_macro_fmp() -> Optional[dict]:
@@ -1144,18 +1145,60 @@ def fetch_macro_snapshot(old_data: dict) -> Optional[dict]:
 # its own /symbol_search endpoint) to only cover equities/ETFs — raw index
 # symbols (SPX/DJI/etc.) and raw commodity symbols (WTI/USD, XAU/USD, etc.)
 # all came back "not available with your plan" or "not found", the same
-# practical limitation Finnhub already has on its free tier. So both
-# watchlists use well-known, US-listed ETF proxies instead (labeled
-# honestly as proxies in the UI, same pattern as the existing Finnhub-based
-# STOCK_WATCHLIST's SPY/QQQ/DIA/IWM/GLD rows).
+# practical limitation Finnhub already has on its free tier. Twelve Data's
+# commodity rows use well-known US-listed ETF proxies instead.
+#
+# API Ninjas (added later, 3000 req/month free tier) has a real Commodity
+# Price API with actual spot prices (not ETF proxies) for exactly these six,
+# so it's now PRIMARY for commodity_snapshot — Twelve Data's ETF-proxy
+# numbers are the fallback. Each entry below carries every provider's own
+# symbol/name convention; `symbol`/`label` are the stable, provider-agnostic
+# identifiers used in the output regardless of which provider answered.
 COMMODITY_WATCHLIST = [
-    {"symbol": "USO", "label": "Crude Oil (USO)", "twelvedata_symbol": "USO"},
-    {"symbol": "BNO", "label": "Brent Crude (BNO)", "twelvedata_symbol": "BNO"},
-    {"symbol": "GLD", "label": "Gold (GLD)", "twelvedata_symbol": "GLD"},
-    {"symbol": "SLV", "label": "Silver (SLV)", "twelvedata_symbol": "SLV"},
-    {"symbol": "UNG", "label": "Natural Gas (UNG)", "twelvedata_symbol": "UNG"},
-    {"symbol": "CPER", "label": "Copper (CPER)", "twelvedata_symbol": "CPER"},
+    {"symbol": "CRUDE_OIL", "label": "Crude Oil (WTI)", "fmp_symbol": "CLUSD", "twelvedata_symbol": "USO", "apininja_name": "crude_oil"},
+    {"symbol": "BRENT_CRUDE", "label": "Brent Crude", "fmp_symbol": "BZUSD", "twelvedata_symbol": "BNO", "apininja_name": "brent_crude_oil"},
+    {"symbol": "GOLD", "label": "Gold", "fmp_symbol": "GCUSD", "twelvedata_symbol": "GLD", "apininja_name": "gold"},
+    {"symbol": "SILVER", "label": "Silver", "fmp_symbol": "SIUSD", "twelvedata_symbol": "SLV", "apininja_name": "silver"},
+    {"symbol": "NATURAL_GAS", "label": "Natural Gas", "fmp_symbol": "NGUSD", "twelvedata_symbol": "UNG", "apininja_name": "natural_gas"},
+    {"symbol": "COPPER", "label": "Copper", "fmp_symbol": "HGUSD", "twelvedata_symbol": "CPER", "apininja_name": "copper"},
 ]
+
+
+def _fetch_commodities_apininja(previous_prices: dict) -> Optional[list[dict]]:
+    """PRIMARY commodity source: API Ninjas' Commodity Price API returns a
+    real current spot price per commodity `name` (one request each — no
+    batch endpoint), but no % change field, so day-over-day change is
+    computed here from yesterday's stored price for the same canonical
+    `symbol` (whichever provider supplied it) — same "read our own previous
+    output" idiom used elsewhere in this project. `previous_prices` is
+    {symbol: price} from the last successful commodity_snapshot."""
+    api_key = os.environ.get("API_NINJAS_KEY", "")
+    if not api_key:
+        return None
+    try:
+        items = []
+        for watch in COMMODITY_WATCHLIST:
+            resp = requests.get(
+                f"{API_NINJAS_BASE}/commodityprice",
+                params={"name": watch["apininja_name"]},
+                headers={"X-Api-Key": api_key}, timeout=10,
+            )
+            if not resp.ok:
+                print(f"  [WARN] API Ninjas {watch['apininja_name']}: HTTP {resp.status_code} — {resp.text[:150]}")
+                continue
+            data = resp.json()
+            price = data.get("price")
+            if price is None:
+                print(f"  [WARN] API Ninjas {watch['apininja_name']}: no price in response ({data})")
+                continue
+            price = float(price)
+            prev_price = previous_prices.get(watch["symbol"])
+            pct = ((price - prev_price) / prev_price) * 100 if prev_price else None
+            items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
+        return items if items else None
+    except Exception as exc:
+        print(f"  [WARN] API Ninjas commodities fetch failed: {exc}")
+        return None
 
 INDICES_WATCHLIST = [
     {"symbol": "SPY", "label": "S&P 500 (SPY)"},
@@ -1274,7 +1317,7 @@ def _fetch_commodities_fmp() -> Optional[list[dict]]:
     if not api_key:
         return None
     try:
-        symbols = ",".join(item["symbol"] for item in COMMODITY_WATCHLIST)
+        symbols = ",".join(item["fmp_symbol"] for item in COMMODITY_WATCHLIST)
         resp = requests.get(
             f"{FMP_STABLE_BASE}/quote",
             params={"symbol": symbols, "apikey": api_key}, timeout=10,
@@ -1286,7 +1329,7 @@ def _fetch_commodities_fmp() -> Optional[list[dict]]:
         by_symbol = {row.get("symbol"): row for row in data}
         items = []
         for watch in COMMODITY_WATCHLIST:
-            row = by_symbol.get(watch["symbol"])
+            row = by_symbol.get(watch["fmp_symbol"])
             if not row:
                 continue
             items.append({
@@ -1302,8 +1345,8 @@ def _fetch_commodities_fmp() -> Optional[list[dict]]:
 
 
 _METALS_WATCHLIST = [
-    {"symbol": "GCUSD", "label": "Gold", "fmp_forex_symbol": "XAUUSD"},
-    {"symbol": "SIUSD", "label": "Silver", "fmp_forex_symbol": "XAGUSD"},
+    {"symbol": "GOLD", "label": "Gold", "fmp_forex_symbol": "XAUUSD"},
+    {"symbol": "SILVER", "label": "Silver", "fmp_forex_symbol": "XAGUSD"},
 ]
 
 
@@ -1433,20 +1476,29 @@ def _fetch_commodities_alpha_vantage() -> Optional[list[dict]]:
 
 
 def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
-    """Daily-gated: Twelve Data primary (covers all 6, including gold/silver
-    in one place), FMP fallback (WTI/Brent/NatGas/Copper + gold/silver via
-    FMP's forex-style XAUUSD/XAGUSD symbols — though FMP turned out to gate
-    those behind the same 402 as its plain commodity symbols on the current
-    plan), Alpha Vantage last (no working gold/silver source at all). Keeps
-    the previous snapshot (flagged stale) if everything fails today."""
+    """Daily-gated: API Ninjas primary (real spot prices for all 6, not ETF
+    proxies — its Commodity Price API has no % change field, so that's
+    computed from yesterday's stored price for the same symbol), Twelve
+    Data fallback (ETF proxies, covers all 6 including gold/silver in one
+    batched call), then FMP (WTI/Brent/NatGas/Copper + gold/silver via FMP's
+    forex-style XAUUSD/XAGUSD symbols — though FMP turned out to gate those
+    behind the same 402 as its plain commodity symbols on the current plan),
+    Alpha Vantage last (no working gold/silver source at all). Keeps the
+    previous snapshot (flagged stale) if everything fails today."""
     previous = old_data.get("commodity_snapshot")
     today = datetime.now(timezone.utc).date().isoformat()
     if previous and previous.get("updated_at", "").startswith(today):
         return previous
 
+    previous_prices = {i["symbol"]: i.get("price") for i in (previous or {}).get("items", [])}
+    items = _fetch_commodities_apininja(previous_prices)
+    if items:
+        print("  [INFO] commodity_snapshot: using API Ninjas")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "api_ninjas", "items": items}
+
     items = _fetch_commodities_twelvedata()
     if items:
-        print("  [INFO] commodity_snapshot: using Twelve Data")
+        print("  [INFO] commodity_snapshot: API Ninjas failed, using Twelve Data")
         return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "twelvedata", "items": items}
 
     items = _fetch_commodities_fmp()
