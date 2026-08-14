@@ -7932,34 +7932,5 @@
     "unemployment_rate": null,
     "nonfarm_payroll": null
   },
-  "commodity_snapshot": {
-    "updated_at": "2026-08-14T13:58:05.882217+00:00",
-    "source": "alpha_vantage",
-    "items": [
-      {
-        "symbol": "CLUSD",
-        "label": "Crude Oil (WTI)",
-        "price": 84.77,
-        "changes_percentage": 1.2058261700095403
-      },
-      {
-        "symbol": "BZUSD",
-        "label": "Brent Crude",
-        "price": 93.26,
-        "changes_percentage": 0.5607073538926141
-      },
-      {
-        "symbol": "NGUSD",
-        "label": "Natural Gas",
-        "price": 2.79,
-        "changes_percentage": 2.5735294117647
-      },
-      {
-        "symbol": "HGUSD",
-        "label": "Copper",
-        "price": 13552.04090909091,
-        "changes_percentage": 0.2951765658454526
-      }
-    ]
-  }
+  "commodity_snapshot": null
 }
