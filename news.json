@@ -8067,48 +8067,7 @@
     "unemployment_rate": null,
     "nonfarm_payroll": null
   },
-  "commodity_snapshot": {
-    "updated_at": "2026-08-14T14:25:50.183065+00:00",
-    "source": "twelvedata",
-    "items": [
-      {
-        "symbol": "USO",
-        "label": "Crude Oil (USO)",
-        "price": 125.22,
-        "changes_percentage": 0.15196451
-      },
-      {
-        "symbol": "BNO",
-        "label": "Brent Crude (BNO)",
-        "price": 50.07,
-        "changes_percentage": 0.66344654
-      },
-      {
-        "symbol": "GLD",
-        "label": "Gold (GLD)",
-        "price": 402.89,
-        "changes_percentage": 0.98506332
-      },
-      {
-        "symbol": "SLV",
-        "label": "Silver (SLV)",
-        "price": 59.27,
-        "changes_percentage": 1.90853
-      },
-      {
-        "symbol": "UNG",
-        "label": "Natural Gas (UNG)",
-        "price": 10.11,
-        "changes_percentage": 1.40421
-      },
-      {
-        "symbol": "CPER",
-        "label": "Copper (CPER)",
-        "price": 40.1,
-        "changes_percentage": 0.62735643
-      }
-    ]
-  },
+  "commodity_snapshot": null,
   "index_snapshot": {
     "updated_at": "2026-08-14T14:26:55.646959+00:00",
     "source": "twelvedata",
