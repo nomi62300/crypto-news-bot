@@ -10,13 +10,31 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-08-14
+### Fixed
+- `forex_sentiment` (myfxbook) was completely non-functional at 0.6.0 time —
+  every `get-community-outlook.json` call rejected the session as
+  `"Invalid session."` even immediately after a successful login. Root
+  cause, found via live diagnostics added directly to a production run:
+  `login.json` returns the session token **already URL-encoded** (its
+  base64 padding shows up literally as `%3D%3D` in the JSON body).
+  `_myfxbook_login()` was passing that encoded string straight into
+  `requests`' `params`, which encodes it *again* (`%3D` → `%253D`) — the
+  server never saw a token it recognized. Fixed with a single `unquote()`
+  call on the token right after login; confirmed live afterward — 120 pairs
+  at ≥80% skew returned, correctly filtered and ranked. All of `forex_sentiment`'s
+  field-name assumptions (`name`, `longPercentage`/`shortPercentage`,
+  `longVolume`/`shortVolume`, `longPositions`/`shortPositions`) turned out
+  correct on the first real attempt — no native popularity field, confirming
+  the volume-derived ranking approach was the right call.
+
 ## [0.6.0] - 2026-08-14 (merged to `main` via PR #1)
 ### Added — Backend: forex sentiment, macro/commodity/index snapshots
 - `forex_sentiment` — myfxbook community-outlook retail positioning,
   hourly-gated (reads its own previous `updated_at` back from `news.json`
   rather than an external cache), filtered to pairs at ≥80% long or short,
-  popularity rank derived from relative volume. **Not currently working** —
-  see Known limitations.
+  popularity rank derived from relative volume. Shipped non-functional in
+  this version (session token double-encoding bug) — see [0.6.1](#061---2026-08-14).
 - `macro_snapshot` — Treasury 10Y yield, Fed funds rate, and market risk
   premium via FMP (primary), Alpha Vantage (fallback), daily-gated.
   Confirmed live. `cpi_yoy`/`gdp_real`/`unemployment_rate`/`nonfarm_payroll`
@@ -97,14 +115,10 @@ change are PATCH.
   regenerated on every run, not hand-maintained source.
 
 ### Known limitations
-- `forex_sentiment` (myfxbook) is not populating: login appears to succeed
-  (a session token is returned) but the very next call to
-  `get-community-outlook.json` with that token is rejected as
-  `"Invalid session."`, even after an automatic re-login retry. Verified via
-  live testing that the request shapes themselves match myfxbook's actual
-  API contract — most likely an account-side issue (email verification,
-  Community Outlook access requiring more than a basic login) rather than a
-  code bug. Fails soft to an honest empty state; unresolved follow-up.
+- `forex_sentiment` (myfxbook) did not populate at this version's initial
+  release — see [0.6.1](#061---2026-08-14) for the root cause and fix
+  (a session-token double-encoding bug, not an account issue as first
+  suspected).
 - Indices/Commodities coverage via Twelve Data and API Ninjas' free tiers is
   ETF-proxy-based (Twelve Data) or a rotating weekly subset (API Ninjas),
   not true composite-index or always-guaranteed spot data — a documented
