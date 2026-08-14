@@ -1140,21 +1140,29 @@ def fetch_macro_snapshot(old_data: dict) -> Optional[dict]:
 # both commodity_snapshot and index_snapshot. Same daily-gate pattern as
 # fetch_macro_snapshot throughout.
 # ---------------------------------------------------------------------------
+# Twelve Data's free tier turned out (confirmed via live testing, including
+# its own /symbol_search endpoint) to only cover equities/ETFs — raw index
+# symbols (SPX/DJI/etc.) and raw commodity symbols (WTI/USD, XAU/USD, etc.)
+# all came back "not available with your plan" or "not found", the same
+# practical limitation Finnhub already has on its free tier. So both
+# watchlists use well-known, US-listed ETF proxies instead (labeled
+# honestly as proxies in the UI, same pattern as the existing Finnhub-based
+# STOCK_WATCHLIST's SPY/QQQ/DIA/IWM/GLD rows).
 COMMODITY_WATCHLIST = [
-    {"symbol": "CLUSD", "label": "Crude Oil (WTI)", "twelvedata_symbol": "WTI/USD"},
-    {"symbol": "BZUSD", "label": "Brent Crude", "twelvedata_symbol": "BRENT/USD"},
-    {"symbol": "GCUSD", "label": "Gold", "twelvedata_symbol": "XAU/USD"},
-    {"symbol": "SIUSD", "label": "Silver", "twelvedata_symbol": "XAG/USD"},
-    {"symbol": "NGUSD", "label": "Natural Gas", "twelvedata_symbol": "NATGAS/USD"},
-    {"symbol": "HGUSD", "label": "Copper", "twelvedata_symbol": "COPPER/USD"},
+    {"symbol": "USO", "label": "Crude Oil (USO)", "twelvedata_symbol": "USO"},
+    {"symbol": "BNO", "label": "Brent Crude (BNO)", "twelvedata_symbol": "BNO"},
+    {"symbol": "GLD", "label": "Gold (GLD)", "twelvedata_symbol": "GLD"},
+    {"symbol": "SLV", "label": "Silver (SLV)", "twelvedata_symbol": "SLV"},
+    {"symbol": "UNG", "label": "Natural Gas (UNG)", "twelvedata_symbol": "UNG"},
+    {"symbol": "CPER", "label": "Copper (CPER)", "twelvedata_symbol": "CPER"},
 ]
 
 INDICES_WATCHLIST = [
-    {"symbol": "SPX", "label": "S&P 500"},
-    {"symbol": "IXIC", "label": "Nasdaq Composite"},
-    {"symbol": "DJI", "label": "Dow Jones"},
-    {"symbol": "RUT", "label": "Russell 2000"},
-    {"symbol": "VIX", "label": "Volatility (VIX)"},
+    {"symbol": "SPY", "label": "S&P 500 (SPY)"},
+    {"symbol": "QQQ", "label": "Nasdaq 100 (QQQ)"},
+    {"symbol": "DIA", "label": "Dow Jones (DIA)"},
+    {"symbol": "IWM", "label": "Russell 2000 (IWM)"},
+    {"symbol": "VIXY", "label": "Volatility (VIXY)"},
 ]
 
 
@@ -2009,31 +2017,7 @@ def classify_geo_events(articles: list[dict]) -> None:
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "news.json")
 
 
-def _debug_twelvedata_symbol_search():
-    """TEMPORARY — one-off symbol lookup to find Twelve Data's real index/
-    commodity symbol conventions after several guessed ones came back
-    "not found". Remove once the real symbols are confirmed."""
-    api_key = os.environ.get("TWELVE_DATA_API_KEY", "")
-    if not api_key:
-        return
-    queries = ["dow jones", "nasdaq composite", "russell 2000", "vix", "s&p 500",
-               "brent", "natural gas", "copper", "wti crude", "gold", "silver"]
-    for i, q in enumerate(queries):
-        if i > 0:
-            time.sleep(3)
-        try:
-            resp = requests.get("https://api.twelvedata.com/symbol_search", params={"symbol": q, "apikey": api_key}, timeout=10)
-            data = resp.json()
-            print(f"  [DEBUG] symbol_search '{q}':")
-            for item in (data.get("data") or [])[:5]:
-                print("    ", {k: item.get(k) for k in ("symbol", "instrument_name", "instrument_type", "exchange")})
-        except Exception as exc:
-            print(f"  [DEBUG] symbol_search '{q}' failed: {exc}")
-
-
 def main():
-    _debug_twelvedata_symbol_search()
-
     print(f"[{datetime.now().isoformat()}] Fetching CoinGecko coin registry…")
     coin_keywords = fetch_top_500_coingecko()
 
