@@ -8258,17 +8258,6 @@
     "unemployment_rate": null,
     "nonfarm_payroll": null
   },
-  "commodity_snapshot": {
-    "updated_at": "2026-08-14T14:11:43.756174+00:00",
-    "source": "twelvedata",
-    "items": [
-      {
-        "symbol": "GCUSD",
-        "label": "Gold",
-        "price": 4389.85931,
-        "changes_percentage": 0.88904923
-      }
-    ]
-  },
+  "commodity_snapshot": null,
   "index_snapshot": null
 }
