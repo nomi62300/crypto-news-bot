@@ -152,3 +152,7 @@
 {"headline": "Barings Participation Investors Non-GAAP EPS of $0.27, NII of $2.96M", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.9341, "timestamp": "2026-08-14T14:19:53.646295+00:00"}
 {"headline": "Wall Street is muted a day after the S&P 500 notched a record high", "summary": "", "finbert_label": "Bearish", "finbert_score": 0.4538, "timestamp": "2026-08-14T14:19:53.706086+00:00"}
 {"headline": "Cisco downgraded at HSBC as firm worries about slowing growth", "summary": "", "finbert_label": "Bearish", "finbert_score": 0.9489, "timestamp": "2026-08-14T14:19:53.759378+00:00"}
+{"headline": "Japan: GDP steady, inflation near BoJ target – ING", "summary": "ING highlights that market consensus sees Japan’s preliminary Q2 Gross Domestic Product (GDP) holding at 0.5% quarter-on-quarter, with Private Consumption remaining the main growth driver.", "finbert_label": "Bullish", "finbert_score": 0.8098, "timestamp": "2026-08-14T14:25:48.943888+00:00"}
+{"headline": "Tesla is talking flying cars once again as it preps for a Roadster demo", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.9285, "timestamp": "2026-08-14T14:25:48.998978+00:00"}
+{"headline": "Trinity Bank GAAP EPS of $2.14, net income of $2.45M", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.9435, "timestamp": "2026-08-14T14:25:49.056667+00:00"}
+{"headline": "Medicenna Therapeutics Corp. GAAP EPS of -$0.06", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.9145, "timestamp": "2026-08-14T14:25:49.111541+00:00"}
