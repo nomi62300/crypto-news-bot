@@ -942,10 +942,21 @@ def fetch_x_whale_accounts(coin_keywords: dict[str, list[str]]) -> list[dict]:
     spam-marker match (e.g. a legitimate post that happens to say
     "airdrop") would be a false positive here specifically. The
     non-Latin-script filter still applies since VADER's lexicon is
-    English-tuned regardless of source trust."""
+    English-tuned regardless of source trust.
+
+    Real bug found live: `from:handle` alone returns that account's
+    top/algorithmically-relevant tweets, not newest-first — Jump Crypto's
+    results spanned back to April, months outside the 48h article cutoff,
+    so nearly everything was silently discarded downstream with no
+    indication why. Added the `since:` operator (confirmed live it's
+    respected — correctly returns 0 results for an account that hasn't
+    posted since that date, real results for one that has) to scope the
+    query itself to the same 48h window the article cutoff enforces
+    later, instead of fetching months of history just to throw it away."""
+    since_date = (datetime.now(timezone.utc) - timedelta(hours=CUTOFF_HOURS)).strftime("%Y-%m-%d")
     articles: list[dict] = []
     for handle, label in X_WHALE_ACCOUNTS.items():
-        query = f"from:{handle}"
+        query = f"from:{handle} since:{since_date}"
         data = None
         last_exc = None
         for attempt in range(2):
@@ -1002,8 +1013,6 @@ def fetch_x_whale_accounts(coin_keywords: dict[str, list[str]]) -> list[dict]:
                 "replies": item.get("replies"),
                 "follower_count": author.get("followers"),
             })
-        # TEMP DIAGNOSTIC
-        print(f"  [WHALE-DEBUG] fetched {len([a for a in articles if a['source'] == f'@{handle}'])} raw for {label} (@{handle}) so far")
         time.sleep(0.5)
 
     return articles
@@ -1868,9 +1877,6 @@ def deduplicate(articles: list[dict]) -> list[dict]:
             shares_ticker = bool(tickers & existing_tickers) or (not tickers and not existing_tickers)
 
             if shares_ticker and titles_are_similar(title, existing["title"]):
-                # TEMP DIAGNOSTIC
-                if article.get("is_whale_account"):
-                    print(f"  [WHALE-DEBUG] SWALLOWED {article.get('source')} {article['title'][:50]!r} into primary {existing.get('source')} {existing['title'][:50]!r}")
                 # Duplicate – add as an alternate source
                 existing["other_sources"].append({
                     "source":    article["source"],
@@ -2539,11 +2545,6 @@ def main():
     newly_classified = []
     if to_classify:
         classified_raw = classify_sentiments(to_classify)
-        # TEMP DIAGNOSTIC — remove after confirming why whale accounts other
-        # than Wintermute/Justin Sun are showing 0 surviving tweets.
-        for a in classified_raw:
-            if a.get("is_whale_account"):
-                print(f"  [WHALE-DEBUG] {a.get('source')} | relevant={a.get('is_crypto_relevant')} | published={a.get('published')} | title={a.get('title')[:60]!r}")
         # Filter out any article where is_crypto_relevant is false
         newly_classified = [a for a in classified_raw if a.get("is_crypto_relevant", True)]
         for a in newly_classified:
@@ -2561,8 +2562,6 @@ def main():
                 pub_dt = datetime.fromisoformat(a["published"])
                 if pub_dt >= cutoff:
                     final.append(a)
-                elif a.get("is_whale_account"):
-                    print(f"  [WHALE-DEBUG] DROPPED BY 48H CUTOFF: {a.get('source')} published={a['published']} title={a.get('title')[:50]!r}")
             except Exception:
                 final.append(a)  # Keep if parsing fails
         else:

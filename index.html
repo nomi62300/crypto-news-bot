@@ -670,6 +670,50 @@
       color: var(--accent);
     }
 
+    /* Sub-filters that appear next to "Tweets Only" once it's active, to
+       narrow the tweet feed further into Whales/Crypto/Economic — a
+       separate mutually-exclusive group from the main category strip,
+       visually set off by a vertical divider ("partition line"). */
+    .tweet-subfilter-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tweet-subfilter-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--border-hover);
+      margin: 0 2px;
+    }
+
+    .tweet-subfilter-chip {
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-soft);
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 7px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tweet-subfilter-chip:hover {
+      background-color: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+
+    .tweet-subfilter-chip.active {
+      background-color: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     .filter-label {
       font-size: 11px;
       font-weight: 700;
@@ -1973,6 +2017,12 @@
       <button class="category-chip" data-category="ECONOMIC">Economic</button>
       <button class="category-chip" data-category="REGULATORY">Regulatory</button>
       <button class="category-chip" id="tweetFilterToggle" title="Show only X/Twitter-sourced posts">𝕏 Tweets Only</button>
+      <span id="tweetSubFilterGroup" class="tweet-subfilter-group" style="display:none;">
+        <span class="tweet-subfilter-divider" aria-hidden="true"></span>
+        <button class="tweet-subfilter-chip" data-subfilter="whale">🐋 Whales</button>
+        <button class="tweet-subfilter-chip" data-subfilter="crypto">Crypto</button>
+        <button class="tweet-subfilter-chip" data-subfilter="economic">Economic</button>
+      </span>
     </div>
 
     <!-- ===================================================================
@@ -2203,6 +2253,7 @@
     let currentTab       = 'dashboardTab';
     let activeCategory   = 'ALL';
     let showTweetsOnly   = false; // independent on/off filter, combinable with any category
+    let tweetSubFilter   = null; // null | 'whale' | 'crypto' | 'economic' — only applies while showTweetsOnly is true
     let forexSentimentCache = null; // data.forex_sentiment, rides in news.json (myfxbook, hourly-gated server-side)
     let macroSnapshotCache  = null; // data.macro_snapshot, rides in news.json (FMP/Alpha Vantage, daily-gated server-side)
     let commoditySnapshotCache = null; // data.commodity_snapshot, rides in news.json (Twelve Data/FMP/Alpha Vantage, daily-gated server-side)
@@ -3941,11 +3992,35 @@
       });
 
       const tweetToggle = document.getElementById('tweetFilterToggle');
+      const tweetSubFilterGroup = document.getElementById('tweetSubFilterGroup');
       if (tweetToggle) {
         tweetToggle.addEventListener('click', () => {
           showTweetsOnly = !showTweetsOnly;
           tweetToggle.classList.toggle('active', showTweetsOnly);
+          if (tweetSubFilterGroup) tweetSubFilterGroup.style.display = showTweetsOnly ? 'inline-flex' : 'none';
+          if (!showTweetsOnly) {
+            // Sub-filter only makes sense while Tweets Only is on — clear it
+            // so turning the toggle back on later doesn't silently resume a
+            // stale narrower filter.
+            tweetSubFilter = null;
+            if (tweetSubFilterGroup) {
+              tweetSubFilterGroup.querySelectorAll('.tweet-subfilter-chip').forEach(b => b.classList.remove('active'));
+            }
+          }
           renderFeed(currentTab);
+        });
+      }
+
+      if (tweetSubFilterGroup) {
+        tweetSubFilterGroup.querySelectorAll('.tweet-subfilter-chip').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const value = btn.dataset.subfilter;
+            const wasActive = btn.classList.contains('active');
+            tweetSubFilterGroup.querySelectorAll('.tweet-subfilter-chip').forEach(b => b.classList.remove('active'));
+            tweetSubFilter = wasActive ? null : value; // click again to clear
+            if (!wasActive) btn.classList.add('active');
+            renderFeed(currentTab);
+          });
         });
       }
     }
@@ -3965,6 +4040,17 @@
 
         // Independent tweets-only toggle — combinable with any category above.
         if (showTweetsOnly && a.source_type !== 'x') return false;
+
+        // Sub-filter within Tweets Only — Whales/Crypto/Economic, mutually
+        // exclusive with each other, only meaningful once showTweetsOnly
+        // has already scoped to source_type 'x'. "Crypto" and "Economic"
+        // exclude whale-account tweets so all three partition cleanly
+        // rather than overlapping with the Whales bucket.
+        if (showTweetsOnly && tweetSubFilter) {
+          if (tweetSubFilter === 'whale' && !a.is_whale_account) return false;
+          if (tweetSubFilter === 'crypto' && (a.is_whale_account || (a.category || '').toUpperCase() !== 'CRYPTO')) return false;
+          if (tweetSubFilter === 'economic' && (a.is_whale_account || (a.category || '').toUpperCase() !== 'ECONOMIC')) return false;
+        }
 
         // Flatten tickers list
         const tickersSet = new Set(

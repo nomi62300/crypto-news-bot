@@ -10,6 +10,38 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.9.1] - 2026-08-16
+### Added
+- Tweets Only now has a "Whales / Crypto / Economic" sub-filter — three
+  additional chips appear next to the toggle (with a vertical divider)
+  once it's active, narrowing the tweet feed further. Whales = curated
+  whale-account tweets; Crypto/Economic = regular tweets by category,
+  excluding whale-account tweets so the three buckets partition cleanly.
+  Turning Tweets Only back off clears the sub-filter rather than leaving
+  it silently active next time the toggle is re-enabled.
+
+### Fixed
+- **Whale-account tweets (0.9.0) were barely surviving to the feed** —
+  only Wintermute and Justin Sun ever showed up, and even then just a
+  couple of tweets each. Root-caused via a live diagnostic pass (temporary
+  debug logging at each pipeline stage, since removed) to two separate
+  bugs:
+  - `deduplicate()` rebuilds a fresh dict for every deduplicated story's
+    primary copy from an explicit field allowlist, and never copied the
+    new `is_whale_account`/`whale_label` fields — every whale tweet lost
+    its flag the moment it passed through dedup.
+  - The real cause of the near-total data loss: FxTwitter's `from:handle`
+    operator returns that account's top/algorithmically-relevant tweets,
+    not newest-first — confirmed live, Jump Crypto's results spanned back
+    to April, months before the 48-hour article cutoff, so almost
+    everything was fetched, classified (mostly correctly marked crypto-
+    relevant), and then silently discarded by the age cutoff with no
+    visible error. Fixed by adding the `since:<48h-ago-date>` operator to
+    the query itself (confirmed live it's respected — 0 results for an
+    account that hasn't posted since that date, real results for one that
+    has), so the fetch is scoped to the same window the cutoff already
+    enforces instead of pulling months of history just to throw it away.
+
 ## [0.9.0] - 2026-08-15
 ### Added
 - **Whale-account tracking**: `fetch_x_whale_accounts()` in `fetch_news.py`
