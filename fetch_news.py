@@ -2543,7 +2543,7 @@ def main():
         # than Wintermute/Justin Sun are showing 0 surviving tweets.
         for a in classified_raw:
             if a.get("is_whale_account"):
-                print(f"  [WHALE-DEBUG] {a.get('source')} | relevant={a.get('is_crypto_relevant')} | tickers={a.get('tickers')} | title={a.get('title')[:60]!r}")
+                print(f"  [WHALE-DEBUG] {a.get('source')} | relevant={a.get('is_crypto_relevant')} | published={a.get('published')} | title={a.get('title')[:60]!r}")
         # Filter out any article where is_crypto_relevant is false
         newly_classified = [a for a in classified_raw if a.get("is_crypto_relevant", True)]
         for a in newly_classified:
@@ -2561,6 +2561,8 @@ def main():
                 pub_dt = datetime.fromisoformat(a["published"])
                 if pub_dt >= cutoff:
                     final.append(a)
+                elif a.get("is_whale_account"):
+                    print(f"  [WHALE-DEBUG] DROPPED BY 48H CUTOFF: {a.get('source')} published={a['published']} title={a.get('title')[:50]!r}")
             except Exception:
                 final.append(a)  # Keep if parsing fails
         else:
