@@ -1,4 +1,4 @@
-name: Debug FxTwitter since: operator
+name: "Debug FxTwitter since operator"
 
 on:
   workflow_dispatch:
