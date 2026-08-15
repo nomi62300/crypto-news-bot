@@ -1002,6 +1002,8 @@ def fetch_x_whale_accounts(coin_keywords: dict[str, list[str]]) -> list[dict]:
                 "replies": item.get("replies"),
                 "follower_count": author.get("followers"),
             })
+        # TEMP DIAGNOSTIC
+        print(f"  [WHALE-DEBUG] fetched {len([a for a in articles if a['source'] == f'@{handle}'])} raw for {label} (@{handle}) so far")
         time.sleep(0.5)
 
     return articles
@@ -1866,6 +1868,9 @@ def deduplicate(articles: list[dict]) -> list[dict]:
             shares_ticker = bool(tickers & existing_tickers) or (not tickers and not existing_tickers)
 
             if shares_ticker and titles_are_similar(title, existing["title"]):
+                # TEMP DIAGNOSTIC
+                if article.get("is_whale_account"):
+                    print(f"  [WHALE-DEBUG] SWALLOWED {article.get('source')} {article['title'][:50]!r} into primary {existing.get('source')} {existing['title'][:50]!r}")
                 # Duplicate – add as an alternate source
                 existing["other_sources"].append({
                     "source":    article["source"],
