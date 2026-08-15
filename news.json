@@ -12839,7 +12839,7 @@
     "nonfarm_payroll": null
   },
   "commodity_snapshot": {
-    "updated_at": "2026-08-15T16:15:15.770926+00:00",
+    "updated_at": "2026-08-14T00:00:00+00:00",
     "source": "api_ninjas+twelvedata",
     "items": [
       {
@@ -12917,7 +12917,7 @@
     ]
   },
   "index_snapshot": {
-    "updated_at": "2026-08-15T16:16:54.092081+00:00",
+    "updated_at": "2026-08-14T00:00:00+00:00",
     "source": "twelvedata",
     "items": [
       {
