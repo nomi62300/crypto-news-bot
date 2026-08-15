@@ -10,6 +10,31 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-08-15
+### Added
+- Line-chart sparklines on the Macro Snapshot card's Treasury 10Y Yield and
+  Fed Funds Rate tiles, sourced from FMP's `treasury-rates` (real ~60-day
+  daily history, confirmed live) and `economic-indicators` (only 3 monthly
+  FOMC-decision points available, thin but real — not a truncation) — new
+  `treasury_yield_10y_sparkline`/`fed_funds_rate_sparkline` fields in
+  `macro_snapshot`. `renderMacroSnapshot()` now renders through the shared
+  `mkt-stat-tile-row`/`renderStatTileRow()` pattern (previously its own
+  `overview-box` markup with no chart support) so it matches the
+  Indices/FX/Commodities/Currency Indexes cards. CPI/GDP/Unemployment/NFP
+  and Market Risk Premium have no time-series source on the current FMP
+  plan, so those tiles render without a chart, same as any tile with no
+  sparkline data elsewhere.
+
+### Fixed
+- **`market_risk_premium` was showing Zimbabwe's risk premium (15.89%),
+  not the US's.** FMP's `/market-risk-premium` endpoint turned out to be a
+  cross-sectional snapshot of ~190 countries, not the time series the code
+  assumed — `rp_data[0]` was just grabbing whichever country the API
+  happened to return first, not the US. Confirmed live and filtered to the
+  actual United States row (4.46%, matches published US equity risk
+  premium figures). Found incidentally while adding the Treasury/Fed Funds
+  sparklines above, in the same `_fetch_macro_fmp()` function.
+
 ## [0.8.0] - 2026-08-15
 ### Added
 - **Major Currency Indexes card** (Forex Market tab): a new card showing all

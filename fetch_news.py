@@ -1080,11 +1080,23 @@ def _fetch_macro_fmp() -> Optional[dict]:
     if not api_key:
         return None
     try:
+        # Returns ~60 days of daily rates, newest-first (confirmed live) —
+        # free real history, feeds the Treasury Yield tile's sparkline at no
+        # extra API cost.
         treasury = requests.get(f"{FMP_STABLE_BASE}/treasury-rates", params={"apikey": api_key}, timeout=10)
         treasury.raise_for_status()
         treasury_data = treasury.json()
         t0 = treasury_data[0] if isinstance(treasury_data, list) and treasury_data else {}
+        treasury_sparkline = None
+        if isinstance(treasury_data, list) and len(treasury_data) >= 2:
+            recent = [d.get("year10") for d in treasury_data[:7] if d.get("year10") is not None]
+            recent.reverse()  # chronological, oldest-first (API is newest-first)
+            treasury_sparkline = recent if len(recent) >= 2 else None
 
+        # Only 3 monthly entries available (confirmed live), newest-first —
+        # thin but still usable for a small sparkline (FOMC decisions are
+        # infrequent, so this is genuinely the whole recent history, not a
+        # truncation).
         econ = requests.get(
             f"{FMP_STABLE_BASE}/economic-indicators",
             params={"name": "federalFunds", "apikey": api_key}, timeout=10,
@@ -1092,16 +1104,28 @@ def _fetch_macro_fmp() -> Optional[dict]:
         econ.raise_for_status()
         econ_data = econ.json()
         e0 = econ_data[0] if isinstance(econ_data, list) and econ_data else {}
+        fed_funds_sparkline = None
+        if isinstance(econ_data, list) and len(econ_data) >= 2:
+            recent = [d.get("value") for d in econ_data if d.get("value") is not None]
+            recent.reverse()
+            fed_funds_sparkline = recent if len(recent) >= 2 else None
 
+        # Real bug found live: this endpoint is a cross-sectional snapshot
+        # of ~190 countries, not a time series — rp_data[0] was grabbing
+        # whichever country happened to sort first (Zimbabwe, 15.89%), not
+        # the US. Filtered to the actual United States row (confirmed live:
+        # 4.46%, matches published US equity risk premium figures).
         risk_premium = requests.get(f"{FMP_STABLE_BASE}/market-risk-premium", params={"apikey": api_key}, timeout=10)
         risk_premium.raise_for_status()
         rp_data = risk_premium.json()
-        rp0 = rp_data[0] if isinstance(rp_data, list) and rp_data else {}
+        rp_us = next((d for d in rp_data if isinstance(rp_data, list) and (d.get("country") or "").strip().lower() == "united states"), {}) if isinstance(rp_data, list) else {}
 
         snapshot = {
             "treasury_yield_10y": t0.get("year10"),
+            "treasury_yield_10y_sparkline": treasury_sparkline,
             "fed_funds_rate": e0.get("value"),
-            "market_risk_premium": rp0.get("totalEquityRiskPremium") or rp0.get("marketRiskPremium"),
+            "fed_funds_rate_sparkline": fed_funds_sparkline,
+            "market_risk_premium": rp_us.get("totalEquityRiskPremium") or rp_us.get("marketRiskPremium"),
             # CPI/GDP/unemployment/nonfarm payroll field names on FMP's
             # "economic-indicators" endpoint need a live-data verification
             # pass once the key is confirmed working — left null until then.
@@ -1110,7 +1134,7 @@ def _fetch_macro_fmp() -> Optional[dict]:
             "unemployment_rate": None,
             "nonfarm_payroll": None,
         }
-        if all(v is None for v in snapshot.values()):
+        if all(v is None for k, v in snapshot.items() if not k.endswith("_sparkline")):
             return None
         return snapshot
     except Exception as exc:

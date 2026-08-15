@@ -3195,9 +3195,15 @@
         wrap.innerHTML = `<div class="state-box"><span class="state-msg">Macro snapshot not yet available.</span></div>`;
         return;
       }
+      // Treasury Yield and Fed Funds Rate carry real sparkline history from
+      // FMP (treasury-rates returns ~60 days free; economic-indicators only
+      // has 3 monthly FOMC-decision points, thin but real). The others have
+      // no time-series source, so they render as plain tiles — same
+      // optional-sparkline handling renderStatTileRow already uses for the
+      // Indices/FX/Commodities rows.
       const tiles = [
-        { label: 'Treasury 10Y Yield', value: snap.treasury_yield_10y, suffix: '%' },
-        { label: 'Fed Funds Rate', value: snap.fed_funds_rate, suffix: '%' },
+        { label: 'Treasury 10Y Yield', value: snap.treasury_yield_10y, suffix: '%', sparkline: snap.treasury_yield_10y_sparkline },
+        { label: 'Fed Funds Rate', value: snap.fed_funds_rate, suffix: '%', sparkline: snap.fed_funds_rate_sparkline },
         { label: 'CPI YoY', value: snap.cpi_yoy, suffix: '%' },
         { label: 'Real GDP', value: snap.gdp_real, suffix: '' },
         { label: 'Unemployment Rate', value: snap.unemployment_rate, suffix: '%' },
@@ -3206,16 +3212,14 @@
       ];
       const asOf = snap.updated_at ? new Date(snap.updated_at).toLocaleDateString() : '—';
       const sourceLabel = snap.source === 'alpha_vantage' ? 'Alpha Vantage' : snap.source === 'fmp' ? 'FMP' : '—';
-      wrap.innerHTML = `
-        <div class="mkt-stats-strip" style="margin-bottom:8px;">
-          ${tiles.filter(t => t.value != null).map(t => `
-            <div class="overview-box">
-              <div class="overview-box-label">${escHtml(t.label)}</div>
-              <div class="overview-box-value">${escHtml(t.value)}${t.suffix}</div>
-            </div>`).join('')}
-        </div>
-        <div class="mkt-disclaimer">As of ${escHtml(asOf)}, source: ${escHtml(sourceLabel)}.${snap.stale ? ' <span style="color:var(--bearish);">Using a previous snapshot — refresh pending.</span>' : ''}</div>
-      `;
+      const statTiles = tiles.filter(t => t.value != null).map(t => ({
+        label: t.label,
+        valueText: `${t.value}${t.suffix}`,
+        sparkline: Array.isArray(t.sparkline) && t.sparkline.length >= 2 ? t.sparkline : undefined,
+      }));
+      wrap.innerHTML = `<div class="mkt-stat-tile-row" id="macroStatTileRow" style="margin-bottom:8px;"></div>`;
+      renderStatTileRow('macroStatTileRow', statTiles);
+      wrap.insertAdjacentHTML('beforeend', `<div class="mkt-disclaimer">As of ${escHtml(asOf)}, source: ${escHtml(sourceLabel)}.${snap.stale ? ' <span style="color:var(--bearish);">Using a previous snapshot — refresh pending.</span>' : ''}</div>`);
     }
 
     // Stocks & Indices Watchlist — rides in news.json's stocks_snapshot
