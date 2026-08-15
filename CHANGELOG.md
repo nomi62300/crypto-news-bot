@@ -10,6 +10,50 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-08-14
+### Added
+- Line/area-chart sparklines (`renderLineSparkline()`) on the Indices/FX/
+  Commodities big stat tiles, matching the Fincept reference look — kept
+  distinct from the existing bar-chart `renderSparkline()`, which stays as
+  the Gainers/Losers tables' trend-column style everywhere it's already
+  used (Crypto Market, FX cross-pairs, Commodities).
+  - FX tiles: `fetchForexRates()` switched from two point-fetches (latest +
+    one 7-days-ago snapshot) to a single Frankfurter date-range call
+    (`/v1/{7d-ago}..{today}`), which now also produces a real per-currency
+    daily series (`fxCache.series`) feeding each pair's sparkline via the
+    new `buildPairSeries()`, on top of still serving the existing
+    latest/historical two-point comparison from the same response.
+  - Indices/Commodities tiles: new `_twelvedata_time_series()` in
+    `fetch_news.py`, one call per symbol (Twelve Data's `/time_series`
+    doesn't batch like `/quote` does), attaching a `sparkline` array to
+    each `index_snapshot`/Twelve-Data-sourced `commodity_snapshot` item.
+    Paced 8s apart per symbol to stay under the free tier's 8 req/min cap
+    (confirmed live in an earlier version: two quote batches back-to-back
+    already 429's) — adds ~1.5-2 minutes to the one daily run that
+    actually fetches, well within the job's 10-minute budget. Items
+    sourced from API Ninjas (no historical endpoint on its free tier)
+    simply have no `sparkline` field — tiles render fine without one.
+
+### Changed
+- Retail Positioning Extremes (myfxbook) card now shows only the 7 major
+  USD pairs (`EURUSD`/`GBPUSD`/`USDJPY`/`USDCHF`/`AUDUSD`/`USDCAD`/
+  `NZDUSD`) instead of every pair at ≥80% skew (~120+ pairs, mostly minor/
+  cross pairs like `AUDCHF`/`NZDCAD` traders don't typically watch) —
+  filtered client-side in `renderForexSentiment()`; the backend still
+  fetches/stores the full set, only display is scoped.
+- Removed the Indices row's "Top Gainers/Top Losers — Equities" tables
+  (markup + the equities-derived block in `renderIndicesRow()`) — FX
+  cross-pairs and Commodities keep theirs.
+
+### Known limitations
+- "Stocks & Indices Watchlist" and "Economic Calendar" cards were reported
+  as empty by the user — neither is a bug: Finnhub needs its key pasted
+  directly into `index.html`'s `FINNHUB_API_KEY` constant (client-side,
+  not the `FINNHUB_API_KEY` GitHub secret, which this code path doesn't
+  read at all), and the `Fetch Economic Calendar` workflow (daily cron,
+  `FMP_API_KEY` already set correctly) simply hadn't run yet — confirmed
+  via `gh run list` showing zero runs in its history since being merged.
+
 ## [0.6.3] - 2026-08-14
 ### Fixed
 - VADER misclassified "Hyperliquid – HYPE holds near $57 as whale unloads

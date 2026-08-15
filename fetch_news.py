@@ -1270,6 +1270,41 @@ def _twelvedata_quote_batch(symbols: list[str]) -> Optional[dict]:
         return None
 
 
+def _twelvedata_time_series(symbol: str, outputsize: int = 7) -> Optional[list[float]]:
+    """Daily-bar close series for a single symbol, oldest-first (Twelve
+    Data's /time_series returns newest-first) — feeds the tile sparklines.
+    Unlike /quote, this endpoint doesn't accept a batched symbol list, so
+    callers must pace repeated calls to stay under the free tier's 8
+    req/min cap (confirmed live: a 6-symbol quote batch immediately
+    followed by a 5-symbol quote batch already 429's, so per-symbol calls
+    need even more spacing)."""
+    api_key = os.environ.get("TWELVE_DATA_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        resp = requests.get(
+            f"{TWELVE_DATA_BASE}/time_series",
+            params={"symbol": symbol, "interval": "1day", "outputsize": outputsize, "apikey": api_key},
+            timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        values = data.get("values")
+        if not isinstance(values, list) or not values:
+            print(f"  [WARN] Twelve Data time_series {symbol}: no values ({data.get('message') or data})")
+            return None
+        closes = []
+        for v in reversed(values):  # API is newest-first; reverse to chronological
+            try:
+                closes.append(float(v["close"]))
+            except (KeyError, ValueError, TypeError):
+                continue
+        return closes if len(closes) >= 2 else None
+    except Exception as exc:
+        print(f"  [WARN] Twelve Data time_series {symbol} failed: {exc}")
+        return None
+
+
 def _fetch_commodities_twelvedata() -> Optional[list[dict]]:
     symbol_map = {c["twelvedata_symbol"]: c for c in COMMODITY_WATCHLIST}
     quotes = _twelvedata_quote_batch(list(symbol_map.keys()))
@@ -1289,8 +1324,16 @@ def _fetch_commodities_twelvedata() -> Optional[list[dict]]:
             pct = float(pct) if pct is not None else None
         except (ValueError, TypeError):
             pct = None
-        items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
-    return items if items else None
+        items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct, "_td_symbol": td_symbol})
+    if not items:
+        return None
+    for i, item in enumerate(items):
+        if i > 0:
+            time.sleep(8)  # stay under the 8 req/min cap across these single-symbol calls
+        sparkline = _twelvedata_time_series(item.pop("_td_symbol"))
+        if sparkline:
+            item["sparkline"] = sparkline
+    return items
 
 
 def fetch_index_snapshot(old_data: dict) -> Optional[dict]:
@@ -1322,6 +1365,12 @@ def fetch_index_snapshot(old_data: dict) -> Optional[dict]:
                 pct = None
             items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
         if items:
+            for i, item in enumerate(items):
+                if i > 0:
+                    time.sleep(8)
+                sparkline = _twelvedata_time_series(item["symbol"])
+                if sparkline:
+                    item["sparkline"] = sparkline
             print("  [INFO] index_snapshot: using Twelve Data")
             return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "twelvedata", "items": items}
 

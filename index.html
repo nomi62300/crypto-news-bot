@@ -1359,6 +1359,16 @@
       color: var(--text-primary);
     }
 
+    .mkt-stat-tile-chart {
+      margin-top: 2px;
+      line-height: 0;
+    }
+    .mkt-sparkline-line {
+      display: block;
+      width: 100%;
+      height: 32px;
+    }
+
     @media (max-width: 900px) {
       .mkt-stat-tile-row { grid-template-columns: repeat(3, 1fr); }
     }
@@ -2042,16 +2052,6 @@
         <div class="mkt-stat-tile-row" id="indicesTileRow">
           <div class="state-box"><span class="state-msg">Loading…</span></div>
         </div>
-        <div class="mkt-cards-row" style="margin-top:16px;">
-          <div class="mkt-card">
-            <div class="mkt-card-title">Top Gainers — Equities</div>
-            <div id="indicesGainersList"><div class="state-box"><span class="state-msg">Loading…</span></div></div>
-          </div>
-          <div class="mkt-card">
-            <div class="mkt-card-title">Top Losers — Equities</div>
-            <div id="indicesLosersList"><div class="state-box"><span class="state-msg">Loading…</span></div></div>
-          </div>
-        </div>
       </div>
 
       <div class="mkt-card" style="margin-bottom:20px;">
@@ -2560,6 +2560,38 @@
       return `<svg class="mkt-sparkline" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">${bars}</svg>`;
     }
 
+    let _lineSparklineIdCounter = 0;
+
+    // Line/area-chart sparkline for the big Indices/FX/Commodities stat
+    // tiles (Fincept reference style) — distinct from the bar-chart
+    // renderSparkline() above, which stays as-is for the Gainers/Losers
+    // trend column. Straight-line segments between points (not a smoothed
+    // curve) — plenty legible at 5-7 points, no charting library needed.
+    function renderLineSparkline(prices, w = 100, h = 32) {
+      if (!Array.isArray(prices) || prices.length < 2) return '';
+      const min = Math.min(...prices);
+      const max = Math.max(...prices);
+      const range = (max - min) || 1;
+      const step = w / (prices.length - 1);
+      const points = prices.map((p, i) => [i * step, h - ((p - min) / range) * h]);
+      const isUp = prices[prices.length - 1] >= prices[0];
+      const color = isUp ? 'var(--bullish)' : 'var(--bearish)';
+      const linePath = points.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+      const areaPath = `${linePath} L${w.toFixed(1)},${h} L0,${h} Z`;
+      const gradId = `lineSparkGrad${_lineSparklineIdCounter++}`;
+      return `
+        <svg class="mkt-sparkline-line" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="${gradId}" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="${color}" stop-opacity="0.35" />
+              <stop offset="100%" stop-color="${color}" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="${areaPath}" fill="url(#${gradId})" stroke="none" />
+          <path d="${linePath}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+        </svg>`;
+    }
+
     // ----------------------------------------------------------------
     // CRYPTO MARKET TAB (CoinGecko — /coins/markets + /global)
     // ----------------------------------------------------------------
@@ -2761,13 +2793,9 @@
     // renormalized across EUR/JPY/GBP/CAD/CHF only — see disclaimer in UI).
     const FX_DXY_WEIGHTS = { EUR: 0.576, JPY: 0.136, GBP: 0.119, CAD: 0.091, CHF: 0.036 };
 
-    let fxCache = { current: null, historical: null, fetchedAt: 0 };
+    let fxCache = { current: null, historical: null, series: null, fetchedAt: 0 };
     const FX_TTL = 60 * 1000;
 
-    // Chosen comparison approach (kept simple on purpose): one "latest"
-    // snapshot + one single historical snapshot from 7 days ago, framed as
-    // a "weekly change" — matches common FX gainer/loser card conventions
-    // without the added complexity of a date-range request.
     function daysAgoISO(n) {
       const d = new Date();
       d.setUTCDate(d.getUTCDate() - n);
@@ -2782,20 +2810,27 @@
       return pair.split('/')[1] === 'JPY' ? 0.01 : 0.0001;
     }
 
+    // Single Frankfurter date-range call (7 days ago through today) replaces
+    // the previous two point-fetches (latest + one historical snapshot) —
+    // gives both the existing "weekly change" comparison (first/last day of
+    // the range) AND a real per-currency daily series for the tile
+    // sparklines, from one request instead of two.
     async function fetchForexRates() {
       try {
         const symbols = FX_MAJORS.join(',');
-        const [curResp, histResp] = await Promise.all([
-          fetch(`https://api.frankfurter.dev/v1/latest?base=USD&symbols=${symbols}`),
-          fetch(`https://api.frankfurter.dev/v1/${daysAgoISO(7)}?base=USD&symbols=${symbols}`)
-        ]);
-        if (!curResp.ok) throw new Error(`Frankfurter latest status: ${curResp.status}`);
-        if (!histResp.ok) throw new Error(`Frankfurter historical status: ${histResp.status}`);
-        const cur = await curResp.json();
-        const hist = await histResp.json();
-        if (cur && cur.rates && hist && hist.rates) {
-          fxCache = { current: cur.rates, historical: hist.rates, fetchedAt: Date.now() };
+        const resp = await fetch(`https://api.frankfurter.dev/v1/${daysAgoISO(7)}..${daysAgoISO(0)}?base=USD&symbols=${symbols}`);
+        if (!resp.ok) throw new Error(`Frankfurter range status: ${resp.status}`);
+        const data = await resp.json();
+        if (!data || !data.rates) return;
+        const dateKeys = Object.keys(data.rates).sort(); // chronological (weekdays only)
+        if (dateKeys.length === 0) return;
+        const historical = data.rates[dateKeys[0]];
+        const current = data.rates[dateKeys[dateKeys.length - 1]];
+        const series = {};
+        for (const cur of FX_MAJORS) {
+          series[cur] = dateKeys.map(d => data.rates[d][cur]).filter(v => v != null);
         }
+        fxCache = { current, historical, series, fetchedAt: Date.now() };
       } catch (err) {
         console.warn('Could not fetch Frankfurter FX rates:', err);
         // Fail-soft: leave fxCache as-is (may still hold a previous
@@ -2941,12 +2976,22 @@
     // Retail positioning extremes (myfxbook community outlook) — data rides
     // in news.json's forex_sentiment field, hourly-gated server-side, so no
     // fetch happens here, only rendering against whatever fetchNews() cached.
+    // Major USD pairs only — myfxbook's community outlook covers ~150+ pairs
+    // including many minor/cross pairs (AUDCHF, NZDCAD, etc.); this card is
+    // scoped to just the majors traders actually watch.
+    const FX_MAJOR_PAIRS = ['EURUSD', 'GBPUSD', 'USDJPY', 'USDCHF', 'AUDUSD', 'USDCAD', 'NZDUSD'];
+
     function renderForexSentiment() {
       const wrap = document.getElementById('forexSentimentWrap');
       if (!wrap) return;
-      const pairs = (forexSentimentCache && forexSentimentCache.pairs) || [];
-      if (pairs.length === 0) {
+      const allPairs = (forexSentimentCache && forexSentimentCache.pairs) || [];
+      if (allPairs.length === 0) {
         wrap.innerHTML = `<div class="state-box"><span class="state-msg">Retail positioning data not yet available.</span></div>`;
+        return;
+      }
+      const pairs = allPairs.filter(p => FX_MAJOR_PAIRS.includes((p.symbol || '').toUpperCase()));
+      if (pairs.length === 0) {
+        wrap.innerHTML = `<div class="state-box"><span class="state-msg">No major pairs currently at an extreme (≥80% long/short).</span></div>`;
         return;
       }
       const maxRank = pairs.reduce((m, p) => Math.max(m, p.popularity_rank || 0), 1);
@@ -3063,7 +3108,10 @@
     }
 
     // Generic renderer shared by the Indices/FX/Commodities tile rows —
-    // tiles: [{ label, valueText, pctChange }].
+    // tiles: [{ label, valueText, pctChange, sparkline? }]. `sparkline`
+    // (a number[] of historical values) is optional — tiles without it
+    // (no historical data available for that item/provider) just render
+    // without a chart, no empty placeholder.
     function renderStatTileRow(containerId, tiles) {
       const wrap = document.getElementById(containerId);
       if (!wrap) return;
@@ -3076,6 +3124,7 @@
           <div class="mkt-stat-tile-label">${escHtml(t.label)}</div>
           <div class="mkt-stat-tile-value">${escHtml(t.valueText)}</div>
           ${t.pctChange != null ? renderChangeCell(t.pctChange) : ''}
+          ${Array.isArray(t.sparkline) && t.sparkline.length >= 2 ? `<div class="mkt-stat-tile-chart">${renderLineSparkline(t.sparkline, 100, 32)}</div>` : ''}
         </div>
       `).join('');
     }
@@ -3114,7 +3163,7 @@
       const serverItems = (indexSnapshotCache && indexSnapshotCache.items) || [];
       let tiles;
       if (serverItems.length > 0) {
-        tiles = serverItems.map(i => ({ label: i.label, valueText: i.price != null ? Number(i.price).toFixed(2) : '—', pctChange: i.changes_percentage }));
+        tiles = serverItems.map(i => ({ label: i.label, valueText: i.price != null ? Number(i.price).toFixed(2) : '—', pctChange: i.changes_percentage, sparkline: i.sparkline }));
       } else if (FINNHUB_API_KEY && stocksCache.data) {
         const proxies = stocksCache.data.filter(s => s.isIndexProxy);
         tiles = proxies.map(s => ({ label: s.label, valueText: s.c != null ? '$' + s.c.toFixed(2) : '—', pctChange: pctChangeFromQuote(s) }));
@@ -3124,16 +3173,22 @@
       const dxy = computeDxy();
       if (dxy) tiles.push({ label: 'Dollar Index (DXY)', valueText: dxy.indexValue.toFixed(3), pctChange: dxy.pctChange });
       renderStatTileRow('indicesTileRow', tiles);
+    }
 
-      // Equities Top Gainers/Losers stays Finnhub-only for now — separate
-      // concern from the index-level tiles above.
-      if (FINNHUB_API_KEY && stocksCache.data) {
-        const equities = stocksCache.data.filter(s => !s.isIndexProxy && s.symbol !== 'GLD');
-        const items = equities.map(s => ({ label: s.label, valueText: s.c != null ? '$' + s.c.toFixed(2) : '—', pctChange: pctChangeFromQuote(s) }));
-        renderTopMovers('indicesGainersList', 'indicesLosersList', items);
-      } else {
-        renderTopMovers('indicesGainersList', 'indicesLosersList', []);
+    // Builds a daily rate series for a major USD pair ("EUR/USD", "USD/JPY",
+    // etc. — always one leg is USD) from fxCache.series, matching
+    // buildCrossPairs()'s A/B = rate[B]/rate[A] convention (rate[USD] = 1).
+    function buildPairSeries(pair) {
+      const [a, b] = pair.split('/');
+      const series = fxCache.series;
+      if (!series) return null;
+      if (b === 'USD') {
+        return (series[a] || []).map(v => v ? 1 / v : null).filter(v => v != null);
       }
+      if (a === 'USD') {
+        return (series[b] || []).filter(v => v != null);
+      }
+      return null;
     }
 
     function renderFxTileRow() {
@@ -3142,7 +3197,13 @@
       const byPair = new Map(changes.map(c => [c.pair, c]));
       const tiles = majors.map(pair => {
         const c = byPair.get(pair);
-        return { label: pair.replace('/', ''), valueText: c ? c.rate.toFixed(pair.includes('JPY') ? 3 : 5) : '—', pctChange: c ? c.pctChange : null };
+        const sparkline = buildPairSeries(pair);
+        return {
+          label: pair.replace('/', ''),
+          valueText: c ? c.rate.toFixed(pair.includes('JPY') ? 3 : 5) : '—',
+          pctChange: c ? c.pctChange : null,
+          sparkline: sparkline && sparkline.length >= 2 ? sparkline : undefined,
+        };
       });
       const dxy = computeDxy();
       if (dxy) tiles.push({ label: 'Dollar Index (DXY)', valueText: dxy.indexValue.toFixed(3), pctChange: dxy.pctChange });
@@ -3160,7 +3221,7 @@
         renderTopMovers('commoditiesGainersList', 'commoditiesLosersList', []);
         return;
       }
-      const tiles = items.map(i => ({ label: i.label, valueText: i.price != null ? '$' + Number(i.price).toFixed(2) : '—', pctChange: i.changes_percentage }));
+      const tiles = items.map(i => ({ label: i.label, valueText: i.price != null ? '$' + Number(i.price).toFixed(2) : '—', pctChange: i.changes_percentage, sparkline: i.sparkline }));
       renderStatTileRow('commoditiesTileRow', tiles);
       renderTopMovers('commoditiesGainersList', 'commoditiesLosersList', tiles);
     }
