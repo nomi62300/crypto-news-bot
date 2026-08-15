@@ -2180,6 +2180,7 @@
     let macroSnapshotCache  = null; // data.macro_snapshot, rides in news.json (FMP/Alpha Vantage, daily-gated server-side)
     let commoditySnapshotCache = null; // data.commodity_snapshot, rides in news.json (Twelve Data/FMP/Alpha Vantage, daily-gated server-side)
     let indexSnapshotCache = null; // data.index_snapshot, rides in news.json (Twelve Data, daily-gated server-side)
+    let stocksSnapshotCache = null; // data.stocks_snapshot, rides in news.json (Finnhub, daily-gated server-side)
 
     // Single feed tab (Dashboard shows all asset classes; Crypto/Forex/
     // Stocks narrowing happens via the category filter strip, not separate
@@ -2500,11 +2501,6 @@
     // ----------------------------------------------------------------
     // SHARED MARKET-TAB HELPERS (Crypto Market + Forex/Stocks Market)
     // ----------------------------------------------------------------
-
-    // User must obtain a free key at finnhub.io and paste it here (or wire
-    // up their own secrets mechanism) — client-embedded and visible in page
-    // source, an inherent tradeoff of a static/no-backend site.
-    const FINNHUB_API_KEY = '';
 
     // Shared %-change colored cell renderer, reused across both market tabs
     // instead of duplicating the bullish/bearish color-and-sign logic.
@@ -3055,57 +3051,12 @@
       `;
     }
 
-    // Fixed stocks/ETF watchlist — ETFs are labeled honestly as proxies,
-    // not the literal index. The 5 ETF-proxy rows (SPY/QQQ/DIA/IWM/VIXY) also
-    // back the Indices tile row below — no separate fetch needed for those.
-    const STOCK_WATCHLIST = [
-      { symbol: 'SPY',   label: 'S&P 500 (SPY)',  isIndexProxy: true },
-      { symbol: 'QQQ',   label: 'Nasdaq 100 (QQQ)', isIndexProxy: true },
-      { symbol: 'DIA',   label: 'Dow Jones (DIA)', isIndexProxy: true },
-      { symbol: 'IWM',   label: 'Russell 2000 (IWM)', isIndexProxy: true },
-      { symbol: 'VIXY',  label: 'Volatility (VIXY)', isIndexProxy: true },
-      { symbol: 'GLD',   label: 'Gold (GLD)' },
-      { symbol: 'AAPL',  label: 'Apple (AAPL)' },
-      { symbol: 'AMZN',  label: 'Amazon (AMZN)' },
-      { symbol: 'COIN',  label: 'Coinbase (COIN)' },
-      { symbol: 'CRCL',  label: 'Circle (CRCL)' },
-      { symbol: 'GOOGL', label: 'Alphabet (GOOGL)' },
-      { symbol: 'HOOD',  label: 'Robinhood (HOOD)' },
-      { symbol: 'MCD',   label: "McDonald's (MCD)" },
-      { symbol: 'META',  label: 'Meta (META)' },
-      { symbol: 'NVDA',  label: 'Nvidia (NVDA)' },
-      { symbol: 'SPCX',  label: 'SPCX' },
-      { symbol: 'TSLA',  label: 'Tesla (TSLA)' },
-    ];
-
-    let stocksCache = { data: null, fetchedAt: 0 };
-
-    // Single-symbol Finnhub /quote call, extracted so both the stocks
-    // watchlist fetch and any future per-symbol fallback share one path.
-    async function fetchFinnhubQuote(symbol) {
-      const resp = await fetch(`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(symbol)}&token=${FINNHUB_API_KEY}`);
-      if (!resp.ok) throw new Error(`Finnhub status: ${resp.status}`);
-      return resp.json();
-    }
-
-    async function fetchStocksQuotes() {
-      if (!FINNHUB_API_KEY) return; // graceful no-op — see FINNHUB_API_KEY comment above
-      try {
-        const results = await Promise.allSettled(
-          STOCK_WATCHLIST.map(s =>
-            fetchFinnhubQuote(s.symbol).then(json => ({ symbol: s.symbol, label: s.label, isIndexProxy: !!s.isIndexProxy, c: json.c, pc: json.pc }))
-          )
-        );
-        const data = results.filter(r => r.status === 'fulfilled').map(r => r.value);
-        stocksCache = { data, fetchedAt: Date.now() };
-      } catch (err) {
-        console.warn('Could not fetch Finnhub stock quotes:', err);
-      }
-    }
-
-    function pctChangeFromQuote(q) {
-      return (q.c != null && q.pc) ? ((q.c - q.pc) / q.pc) * 100 : null;
-    }
+    // Stocks & Indices Watchlist — rides in news.json's stocks_snapshot
+    // field, fetched server-side via Finnhub (daily-gated), same pattern as
+    // index_snapshot/commodity_snapshot. Previously called Finnhub directly
+    // from the browser via a client-embedded FINNHUB_API_KEY, which was
+    // necessarily visible in page source on a static site; that constant
+    // and the client-side fetch have been removed entirely.
 
     // Generic renderer shared by the Indices/FX/Commodities tile rows —
     // tiles: [{ label, valueText, pctChange, sparkline? }]. `sparkline`
@@ -3156,20 +3107,10 @@
     }
 
     function renderIndicesRow() {
-      // Index tiles prefer the server-fetched index_snapshot (Twelve Data,
-      // rides in news.json, no client-side key needed); fall back to the
-      // Finnhub ETF-proxy quotes (SPY/QQQ/DIA/IWM/VIXY) if that's not
-      // populated yet but a client-side FINNHUB_API_KEY has been set.
+      // Index tiles come from the server-fetched index_snapshot (Twelve
+      // Data, rides in news.json, no client-side key needed).
       const serverItems = (indexSnapshotCache && indexSnapshotCache.items) || [];
-      let tiles;
-      if (serverItems.length > 0) {
-        tiles = serverItems.map(i => ({ label: i.label, valueText: i.price != null ? Number(i.price).toFixed(2) : '—', pctChange: i.changes_percentage, sparkline: i.sparkline }));
-      } else if (FINNHUB_API_KEY && stocksCache.data) {
-        const proxies = stocksCache.data.filter(s => s.isIndexProxy);
-        tiles = proxies.map(s => ({ label: s.label, valueText: s.c != null ? '$' + s.c.toFixed(2) : '—', pctChange: pctChangeFromQuote(s) }));
-      } else {
-        tiles = [];
-      }
+      const tiles = serverItems.map(i => ({ label: i.label, valueText: i.price != null ? Number(i.price).toFixed(2) : '—', pctChange: i.changes_percentage, sparkline: i.sparkline }));
       const dxy = computeDxy();
       if (dxy) tiles.push({ label: 'Dollar Index (DXY)', valueText: dxy.indexValue.toFixed(3), pctChange: dxy.pctChange });
       renderStatTileRow('indicesTileRow', tiles);
@@ -3230,22 +3171,9 @@
       const wrap = document.getElementById('stocksTableWrap');
       if (!wrap) return;
 
-      if (!FINNHUB_API_KEY) {
-        wrap.innerHTML = `<div class="state-box"><span class="state-msg">Stocks data requires a free Finnhub API key — set FINNHUB_API_KEY near the top of the script.</span></div>`;
-        return;
-      }
-      if (!stocksCache.data || stocksCache.data.length === 0) {
-        wrap.innerHTML = `
-          <div class="state-box">
-            <span class="state-msg">Couldn't load stocks data.</span>
-            <button class="toggle-btn active" id="stocksRetryBtn">Retry</button>
-          </div>`;
-        const retryBtn = document.getElementById('stocksRetryBtn');
-        if (retryBtn) retryBtn.addEventListener('click', async () => {
-          await fetchStocksQuotes();
-          renderStocksTable();
-          buildTickerTapeForex();
-        });
+      const items = (stocksSnapshotCache && stocksSnapshotCache.items) || [];
+      if (items.length === 0) {
+        wrap.innerHTML = `<div class="state-box"><span class="state-msg">Not yet available.</span></div>`;
         return;
       }
 
@@ -3254,23 +3182,21 @@
           <table class="mkt-table">
             <thead><tr><th>Instrument</th><th>Price</th><th>Change</th></tr></thead>
             <tbody>
-              ${stocksCache.data.map(s => {
-                const pct = (s.c != null && s.pc) ? ((s.c - s.pc) / s.pc) * 100 : null;
-                return `
-                  <tr>
-                    <td>${escHtml(s.label)}</td>
-                    <td>${s.c != null ? '$' + s.c.toFixed(2) : '—'}</td>
-                    <td>${renderChangeCell(pct)}</td>
-                  </tr>`;
-              }).join('')}
+              ${items.map(s => `
+                <tr>
+                  <td>${escHtml(s.label)}</td>
+                  <td>${s.price != null ? '$' + Number(s.price).toFixed(2) : '—'}</td>
+                  <td>${renderChangeCell(s.changes_percentage)}</td>
+                </tr>`).join('')}
             </tbody>
           </table>
         </div>
+        ${stocksSnapshotCache.stale ? `<div class="mkt-disclaimer">Using a previous snapshot — refresh pending.</div>` : ''}
       `;
     }
 
     // Forex tab's own ticker tape: USD-based FX majors + stock watchlist
-    // quotes (when a Finnhub key is present). Separate from the crypto
+    // quotes (server-fetched, stocks_snapshot). Separate from the crypto
     // tape/buildTickerTape() above.
     function buildTickerTapeForex() {
       if (!tickerTapeForex) return;
@@ -3285,13 +3211,13 @@
           </div>
         `);
 
-      const stockItems = (stocksCache.data || []).map(s => {
-        const pct = (s.c != null && s.pc) ? ((s.c - s.pc) / s.pc) * 100 : null;
+      const stockItems = ((stocksSnapshotCache && stocksSnapshotCache.items) || []).map(s => {
+        const pct = s.changes_percentage;
         const isUp = pct != null && pct >= 0;
         return `
           <div class="tape-item">
             <span class="tape-symbol">${escHtml(s.symbol)}</span>
-            <span class="tape-price">${s.c != null ? '$' + s.c.toFixed(2) : '—'}</span>
+            <span class="tape-price">${s.price != null ? '$' + Number(s.price).toFixed(2) : '—'}</span>
             <span class="tape-change-pct ${isUp ? 'up' : 'down'}">${pct != null ? (isUp ? '+' : '') + pct.toFixed(2) + '%' : '—'}</span>
           </div>
         `;
@@ -3595,10 +3521,6 @@
       renderMacroSnapshot();
       renderCommoditiesRow();
 
-      const stocksStale = !stocksCache.data || (Date.now() - stocksCache.fetchedAt) > FX_TTL;
-      if (FINNHUB_API_KEY && (force || stocksStale)) {
-        await fetchStocksQuotes();
-      }
       renderStocksTable();
       renderIndicesRow();
       buildTickerTapeForex();
@@ -3635,6 +3557,7 @@
         macroSnapshotCache = data.macro_snapshot || null;
         commoditySnapshotCache = data.commodity_snapshot || null;
         indexSnapshotCache = data.index_snapshot || null;
+        stocksSnapshotCache = data.stocks_snapshot || null;
 
         if (data.updated_at) {
           const d = new Date(data.updated_at);

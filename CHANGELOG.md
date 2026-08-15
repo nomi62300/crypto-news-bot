@@ -10,6 +10,37 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.7.3] - 2026-08-15
+### Added
+- `stocks_snapshot` field in `fetch_news.py`: server-side Finnhub fetch for
+  the Stocks & Indices Watchlist table (`STOCKS_WATCHLIST`, the same 17
+  symbols the table already showed — 5 ETF index proxies, gold, and 11
+  individual equities), daily-gated with the same "keep previous snapshot,
+  mark `stale`" fallback pattern as `macro_snapshot`/`index_snapshot`/
+  `commodity_snapshot`. Finnhub's `/quote` endpoint is single-symbol only
+  (no batch), so each symbol is fetched individually and paced 1.1s apart
+  to stay well under the free tier's 60 req/min cap. Wired into
+  `scrape_news.yml`'s env block, reusing the already-set
+  `FINNHUB_API_KEY` GitHub secret (previously used only by
+  `fetch_econ_calendar.py`'s Finnhub fallback).
+
+### Changed
+- Migrated the Stocks & Indices Watchlist off its client-side Finnhub
+  call. Previously the browser fetched each symbol directly via a
+  client-embedded `FINNHUB_API_KEY` constant in `index.html`, which — on a
+  static site with no backend — was necessarily visible in page source the
+  moment a key was pasted in; the table was empty until that happened.
+  That constant, `STOCK_WATCHLIST`, `fetchFinnhubQuote()`, and
+  `fetchStocksQuotes()` are all removed. `renderStocksTable()`,
+  `renderIndicesRow()`'s Finnhub-fallback branch, and the Forex tab's
+  ticker tape (`buildTickerTapeForex()`) now all read the new
+  `stocksSnapshotCache` (`data.stocks_snapshot`) instead — same pattern
+  already used for `indexSnapshotCache`/`commoditySnapshotCache`. No key
+  ever needs to touch `index.html` again. This was the last of the
+  Watchlist-adjacent features still doing a direct browser-to-provider
+  call; the Indices tile row got the equivalent fix earlier (0.6.x,
+  `index_snapshot`).
+
 ## [0.7.2] - 2026-08-15
 ### Added
 - TradingView's free, keyless Economic Calendar embed widget as a temporary

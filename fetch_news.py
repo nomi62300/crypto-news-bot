@@ -1380,6 +1380,81 @@ def fetch_index_snapshot(old_data: dict) -> Optional[dict]:
     return None
 
 
+# ---------------------------------------------------------------------------
+# 3e. STOCKS SNAPSHOT (Finnhub) — server-side migration of the Stocks &
+# Indices Watchlist table, which previously called Finnhub directly from
+# the browser via a client-embedded FINNHUB_API_KEY (visible in page source
+# on a static site — the actual reason for this migration). Reuses the same
+# FINNHUB_API_KEY GitHub secret fetch_econ_calendar.py already has. Finnhub's
+# /quote endpoint is single-symbol only (no batch), but the free tier's 60
+# req/min cap comfortably covers this watchlist in one cron run; paced
+# defensively anyway. Daily-gated, same "read our own previous output on
+# failure" pattern as macro/index/commodity snapshots.
+# ---------------------------------------------------------------------------
+FINNHUB_BASE = "https://finnhub.io/api/v1"
+
+STOCKS_WATCHLIST = [
+    {"symbol": "SPY", "label": "S&P 500 (SPY)"},
+    {"symbol": "QQQ", "label": "Nasdaq 100 (QQQ)"},
+    {"symbol": "DIA", "label": "Dow Jones (DIA)"},
+    {"symbol": "IWM", "label": "Russell 2000 (IWM)"},
+    {"symbol": "VIXY", "label": "Volatility (VIXY)"},
+    {"symbol": "GLD", "label": "Gold (GLD)"},
+    {"symbol": "AAPL", "label": "Apple (AAPL)"},
+    {"symbol": "AMZN", "label": "Amazon (AMZN)"},
+    {"symbol": "COIN", "label": "Coinbase (COIN)"},
+    {"symbol": "CRCL", "label": "Circle (CRCL)"},
+    {"symbol": "GOOGL", "label": "Alphabet (GOOGL)"},
+    {"symbol": "HOOD", "label": "Robinhood (HOOD)"},
+    {"symbol": "MCD", "label": "McDonald's (MCD)"},
+    {"symbol": "META", "label": "Meta (META)"},
+    {"symbol": "NVDA", "label": "Nvidia (NVDA)"},
+    {"symbol": "SPCX", "label": "SPCX"},
+    {"symbol": "TSLA", "label": "Tesla (TSLA)"},
+]
+
+
+def _finnhub_quote(symbol: str) -> Optional[dict]:
+    api_key = os.environ.get("FINNHUB_API_KEY", "")
+    if not api_key:
+        return None
+    try:
+        resp = requests.get(f"{FINNHUB_BASE}/quote", params={"symbol": symbol, "token": api_key}, timeout=10)
+        resp.raise_for_status()
+        return resp.json()
+    except Exception as exc:
+        print(f"  [WARN] Finnhub quote {symbol} failed: {exc}")
+        return None
+
+
+def fetch_stocks_snapshot(old_data: dict) -> Optional[dict]:
+    previous = old_data.get("stocks_snapshot")
+    today = datetime.now(timezone.utc).date().isoformat()
+    if previous and previous.get("updated_at", "").startswith(today):
+        return previous
+
+    items = []
+    for i, watch in enumerate(STOCKS_WATCHLIST):
+        if i > 0:
+            time.sleep(1.1)  # stay well under Finnhub's 60 req/min free-tier cap
+        q = _finnhub_quote(watch["symbol"])
+        if not q or q.get("c") is None:
+            continue
+        price = q["c"]
+        prev_close = q.get("pc")
+        pct = ((price - prev_close) / prev_close) * 100 if prev_close else None
+        items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
+
+    if items:
+        print("  [INFO] stocks_snapshot: using Finnhub")
+        return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "finnhub", "items": items}
+
+    print("  [WARN] stocks_snapshot: Finnhub failed, keeping previous snapshot (stale)")
+    if previous:
+        return {**previous, "stale": True}
+    return None
+
+
 def _fetch_commodities_fmp() -> Optional[list[dict]]:
     """FMP's /stable/quote endpoint accepts a comma-joined symbol batch.
     Exact commodity ticker conventions (CLUSD/BZUSD/GCUSD/etc.) are FMP's
@@ -2331,6 +2406,9 @@ def main():
     print(f"[{datetime.now().isoformat()}] Checking index snapshot (Twelve Data, daily-gated)…")
     index_snapshot = fetch_index_snapshot(old_data)
 
+    print(f"[{datetime.now().isoformat()}] Checking stocks snapshot (Finnhub, daily-gated)…")
+    stocks_snapshot = fetch_stocks_snapshot(old_data)
+
     output = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "total":      len(final),
@@ -2339,6 +2417,7 @@ def main():
         "macro_snapshot":  macro_snapshot,
         "commodity_snapshot": commodity_snapshot,
         "index_snapshot": index_snapshot,
+        "stocks_snapshot": stocks_snapshot,
     }
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
