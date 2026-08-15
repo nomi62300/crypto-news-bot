@@ -2623,11 +2623,58 @@
     let cryptoGlobalStats = null;
     let coincapFetchedAt = 0;
 
+    // Fetch with retry/backoff and a hard timeout (fetch() alone never times
+    // out on its own). CoinGecko's free, keyless public API is the only
+    // free source with this exact data shape (price+mcap+volume+7d
+    // sparkline+global stats, CORS-enabled for direct browser calls — CMC
+    // requires a server-side proxy since its API sends no CORS headers at
+    // all, and Coinglass is derivatives-only data, wrong shape for this
+    // table), but a single client-side call with no retry meant any
+    // transient rate-limit/5xx/ad-blocker block left the whole tab empty.
+    async function fetchJsonWithRetry(url, { retries = 2, backoffMs = 900, timeoutMs = 8000 } = {}) {
+      let lastErr;
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+          const resp = await fetch(url, { signal: controller.signal });
+          if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+          return await resp.json();
+        } catch (err) {
+          lastErr = err;
+          if (attempt < retries) await new Promise(r => setTimeout(r, backoffMs * (attempt + 1)));
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+      throw lastErr;
+    }
+
+    // Approximates CoinGecko's /global stats from whatever top-100 markets
+    // data is already on hand (CoinGecko or the CoinCap fallback below) —
+    // sum of the top 100 market caps/volumes is very close to the true
+    // total (the long tail beyond rank 100 is a tiny fraction), and BTC
+    // dominance only needs BTC's own share of that sum. Used when the
+    // dedicated /global endpoint itself fails, so a single endpoint outage
+    // doesn't have to blank the whole stats strip.
+    function computeApproxGlobalStats(marketsData) {
+      if (!Array.isArray(marketsData) || marketsData.length === 0) return null;
+      const totalCap = marketsData.reduce((sum, c) => sum + (c.market_cap || 0), 0);
+      const totalVol = marketsData.reduce((sum, c) => sum + (c.total_volume || 0), 0);
+      const btc = marketsData.find(c => (c.symbol || '').toLowerCase() === 'btc');
+      if (totalCap === 0) return null;
+      return {
+        marketCap: totalCap,
+        marketCapChange: null, // not derivable from a single snapshot
+        volume: totalVol,
+        btcDominance: btc ? (btc.market_cap / totalCap) * 100 : 0,
+        approx: true,
+      };
+    }
+
     async function fetchCryptoGlobalStats() {
       try {
-        const resp = await fetch('https://api.coingecko.com/api/v3/global');
-        if (!resp.ok) throw new Error(`CoinGecko global status: ${resp.status}`);
-        const json = await resp.json();
+        const json = await fetchJsonWithRetry('https://api.coingecko.com/api/v3/global', { retries: 2, backoffMs: 900 });
         if (json && json.data) {
           cryptoGlobalStats = {
             marketCap: json.data.total_market_cap?.usd || 0,
@@ -2637,22 +2684,59 @@
           };
         }
       } catch (err) {
-        console.warn('Could not fetch CoinGecko global stats:', err);
-        cryptoGlobalStats = null;
+        console.warn('CoinGecko global stats failed after retries, approximating from markets data:', err);
+        // Fail-soft: derive from the markets table if we have one (from
+        // either provider), otherwise keep whatever was previously cached
+        // rather than wiping a stat strip that was showing fine a moment
+        // ago — this previously reset to null unconditionally on any
+        // failure, which is what made a single transient blip visible as
+        // "data doesn't load every time."
+        const approx = computeApproxGlobalStats(cryptoMarketCache.data);
+        if (approx) cryptoGlobalStats = approx;
       }
+    }
+
+    // CoinCap fallback for the markets table — same provider already used
+    // for the ticker tape (fetchCoinCapPrices above), reused here so the
+    // table/Gainers-Losers stay usable when CoinGecko is unreachable
+    // instead of showing a hard empty state. Coarser than CoinGecko (no 7-
+    // day sparkline field, rank is CoinCap's own ordering), mapped onto the
+    // same shape cryptoRowHtml()/getTopGainers()/getTopLosers() expect.
+    async function fetchCryptoMarketsFallback() {
+      const json = await fetchJsonWithRetry('https://api.coincap.io/v2/assets?limit=100', { retries: 1, backoffMs: 700 });
+      const assets = (json && json.data) || [];
+      return assets.map((a, i) => ({
+        market_cap_rank: Number(a.rank) || (i + 1),
+        symbol: (a.symbol || '').toLowerCase(),
+        name: a.name || '',
+        image: `https://assets.coincap.io/assets/icons/${(a.symbol || '').toLowerCase()}@2x.png`,
+        current_price: parseFloat(a.priceUsd) || 0,
+        price_change_percentage_24h: parseFloat(a.changePercent24Hr) || 0,
+        market_cap: parseFloat(a.marketCapUsd) || 0,
+        total_volume: parseFloat(a.volumeUsd24Hr) || 0,
+        sparkline_in_7d: null,
+      }));
     }
 
     async function fetchCryptoMarkets() {
       try {
-        const resp = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h');
-        if (!resp.ok) throw new Error(`CoinGecko markets status: ${resp.status}`);
-        const json = await resp.json();
-        cryptoMarketCache = { data: Array.isArray(json) ? json : [], fetchedAt: Date.now() };
+        const json = await fetchJsonWithRetry('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h', { retries: 2, backoffMs: 900 });
+        cryptoMarketCache = { data: Array.isArray(json) ? json : [], fetchedAt: Date.now(), source: 'coingecko' };
+        return;
       } catch (err) {
-        console.warn('Could not fetch CoinGecko markets:', err);
-        // Fail-soft: keep whatever was previously cached (may be null on
-        // first load), never throw uncaught.
+        console.warn('CoinGecko markets failed after retries, trying CoinCap fallback:', err);
       }
+      try {
+        const data = await fetchCryptoMarketsFallback();
+        if (data.length > 0) {
+          cryptoMarketCache = { data, fetchedAt: Date.now(), source: 'coincap' };
+          return;
+        }
+      } catch (err2) {
+        console.error('CoinCap fallback also failed:', err2);
+      }
+      // Fail-soft: keep whatever was previously cached (may be null on
+      // first load), never throw uncaught.
     }
 
     // Rolling local history for the crypto Market Cap/24h Volume/BTC
@@ -2696,20 +2780,24 @@
       const volSeries = s ? recordLocalHistoryPoint('cryptoVolume', s.volume) : null;
       const domSeries = s ? recordLocalHistoryPoint('btcDominance', s.btcDominance) : null;
       const chart = (series) => (Array.isArray(series) && series.length >= 2) ? `<div class="mkt-stat-tile-chart">${renderLineSparkline(series, 100, 28)}</div>` : '';
+      // When CoinGecko's own /global endpoint failed and these are derived
+      // from the top-100 markets table instead (computeApproxGlobalStats),
+      // flag it rather than presenting an estimate as the authoritative figure.
+      const approxNote = s && s.approx ? ` <span title="CoinGecko's global stats endpoint is unavailable — approximated from the top 100 coins by market cap." style="cursor:help;">~</span>` : '';
       wrap.innerHTML = `
         <div class="overview-box">
-          <div class="overview-title-row"><span class="overview-box-label">Market Cap</span></div>
+          <div class="overview-title-row"><span class="overview-box-label">Market Cap${approxNote}</span></div>
           <div class="overview-box-value">${s ? fmtUsdCompact(s.marketCap) : '—'}</div>
           <div style="font-size:11px;">${s ? renderChangeCell(s.marketCapChange) : ''}</div>
           ${chart(mcSeries)}
         </div>
         <div class="overview-box">
-          <div class="overview-title-row"><span class="overview-box-label">24h Volume</span></div>
+          <div class="overview-title-row"><span class="overview-box-label">24h Volume${approxNote}</span></div>
           <div class="overview-box-value">${s ? fmtUsdCompact(s.volume) : '—'}</div>
           ${chart(volSeries)}
         </div>
         <div class="overview-box">
-          <div class="overview-title-row"><span class="overview-box-label">BTC Dominance</span></div>
+          <div class="overview-title-row"><span class="overview-box-label">BTC Dominance${approxNote}</span></div>
           <div class="overview-box-value">${s ? s.btcDominance.toFixed(1) + '%' : '—'}</div>
           ${chart(domSeries)}
         </div>
@@ -2841,7 +2929,12 @@
         await fetchFearAndGreed().catch(e => console.warn('Fear & Greed fetch failed:', e));
       }
 
-      await Promise.all([fetchCryptoGlobalStats(), fetchCryptoMarkets()]);
+      // Sequential, not Promise.all: fetchCryptoGlobalStats()'s fallback
+      // (computeApproxGlobalStats) reads cryptoMarketCache.data, so markets
+      // must finish settling first — including its own CoinCap fallback —
+      // or a global-stats failure could fall back onto stale/empty data.
+      await fetchCryptoMarkets();
+      await fetchCryptoGlobalStats();
       renderCryptoGlobalStats();
       renderCryptoGainersLosersTables();
       renderCryptoMarketTable();

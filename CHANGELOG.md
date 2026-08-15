@@ -10,6 +10,35 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.8.3] - 2026-08-15
+### Changed
+- **Crypto Market tab reliability.** `fetchCryptoMarkets()`/
+  `fetchCryptoGlobalStats()` previously made a single, un-retried call to
+  CoinGecko's free keyless public API straight from the browser — any
+  transient rate-limit, 5xx, timeout, or ad-blocker block (CoinGecko is on
+  some tracker blocklists) left the whole tab empty until a manual Retry
+  click. Considered switching to CoinMarketCap or Coinglass instead, but
+  neither is a real fit: CMC's API sends no CORS headers so it can't be
+  called directly from a browser at all (needs the same server-side-proxy
+  work regardless), and Coinglass is derivatives/open-interest data, not a
+  top-100-with-sparkline market source. Fixed CoinGecko's reliability
+  in-place instead:
+  - New `fetchJsonWithRetry()` (retry with backoff + a hard timeout —
+    `fetch()` alone never times out on its own) wraps both calls.
+  - New CoinCap-backed fallback (`fetchCryptoMarketsFallback()`, same
+    provider already used for the ticker tape) for the markets table when
+    CoinGecko is still unreachable after retries — coarser (no 7-day
+    sparkline) but keeps the table/Gainers-Losers usable instead of empty.
+  - New `computeApproxGlobalStats()` derives Market Cap/24h Volume/BTC
+    Dominance from whichever markets data is on hand (top-100 sum is a
+    very close approximation of the true total) when the dedicated
+    `/global` endpoint itself fails — flagged with a `~` marker and tooltip
+    in the UI rather than presented as the authoritative figure.
+  - Fixed `fetchCryptoGlobalStats()` unconditionally setting
+    `cryptoGlobalStats = null` on any failure, which blanked a stats strip
+    that was displaying fine a moment earlier — now only replaced by the
+    approximation above, never by nothing.
+
 ## [0.8.2] - 2026-08-15
 ### Changed
 - X-sourced articles now show the actual X logo (inline SVG) instead of
