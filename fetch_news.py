@@ -1909,6 +1909,9 @@ def deduplicate(articles: list[dict]) -> list[dict]:
                 story["reposts"] = article.get("reposts")
                 story["replies"] = article.get("replies")
                 story["follower_count"] = article.get("follower_count")
+            if "is_whale_account" in article:
+                story["is_whale_account"] = article["is_whale_account"]
+                story["whale_label"] = article.get("whale_label")
             primary.append(story)
 
     return primary
