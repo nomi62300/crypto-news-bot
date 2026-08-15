@@ -4,13 +4,10 @@ import requests
 api_key = os.environ.get("FMP_API_KEY", "")
 base = "https://financialmodelingprep.com/stable"
 
-for name, url, params in [
-    ("treasury-rates", f"{base}/treasury-rates", {"apikey": api_key}),
-    ("economic-indicators(federalFunds)", f"{base}/economic-indicators", {"name": "federalFunds", "apikey": api_key}),
-    ("market-risk-premium", f"{base}/market-risk-premium", {"apikey": api_key}),
-]:
-    resp = requests.get(url, params=params, timeout=10)
-    data = resp.json()
-    print("====", name, resp.status_code, "list_len:", len(data) if isinstance(data, list) else "n/a")
-    print(str(data)[:600])
-    print()
+resp = requests.get(f"{base}/market-risk-premium", params={"apikey": api_key}, timeout=10)
+data = resp.json()
+us = [d for d in data if "united states" in (d.get("country") or "").lower()]
+print("US entries:", us)
+
+resp2 = requests.get(f"{base}/economic-indicators", params={"name": "federalFunds", "apikey": api_key}, timeout=10)
+print("federalFunds full:", resp2.json())
