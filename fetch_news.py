@@ -288,6 +288,24 @@ def fetch_top_500_coingecko() -> dict[str, list[str]]:
     return coins_map
 
 
+def _truncate_on_word(text: str, limit: int) -> str:
+    """Truncate to *limit* chars without cutting mid-word. A hard char-count
+    slice (text[:limit]) can leave a stray fragment of the cut-off word
+    (e.g. "...with low fees" -> "...with l") which VADER's sentiment
+    classifier then scores as if it were a real, standalone token — a real
+    live-reported bug where such a fragment coincidentally carried enough
+    lexicon weight to flip an article's sentiment. Only backs off to the
+    last space if there's room to; short/single-word strings still get a
+    hard cut so this can't return an empty string."""
+    if len(text) <= limit:
+        return text
+    truncated = text[:limit]
+    last_space = truncated.rfind(" ")
+    if last_space > limit * 0.6:
+        return truncated[:last_space]
+    return truncated
+
+
 def clean_tickers(tickers_list: list[str]) -> list[str]:
     """
     Format all coin/stock/forex tickers cleanly:
@@ -326,6 +344,16 @@ def extract_coin_tags(text: str, coin_keywords: dict[str, list[str]]) -> list[st
         # 2. Case-insensitive search on name variations/keywords
         for kw in keywords:
             if kw.upper() in NOISE_WORDS or len(kw) < 3:
+                continue
+            # Skip a keyword that's just the symbol itself lowercased (CoinGecko's
+            # fetch_top_500_coingecko() / FALLBACK_COINS both add it as a "variation").
+            # Step 1 above already deliberately matches the symbol case-sensitively
+            # specifically to avoid lowercase-word collisions (e.g. SUI vs "sui");
+            # re-matching it case-insensitively here defeats that protection for any
+            # symbol that doubles as a common English word. Real bug found live: a
+            # tweet about $ADA got tagged $UNI purely because it contained the word
+            # "uni" (unrelated to Uniswap), since UNI's keyword list is ["uni", "uniswap"].
+            if kw == symbol.lower():
                 continue
             pattern = r"\b" + re.escape(kw) + r"\b"
             if re.search(pattern, text_lower):
@@ -867,13 +895,13 @@ def fetch_x_cashtags(coin_keywords: dict[str, list[str]]) -> list[dict]:
                     published = None
 
             articles.append({
-                "title":     text[:120],
+                "title":     _truncate_on_word(text, 120),
                 "url":       url,
                 "source":    f"@{handle}",
                 "published": published,
                 "tickers":   tickers_found,
                 "currency_pairs": [],
-                "summary":   text[:300],
+                "summary":   _truncate_on_word(text, 300),
                 "_category": "CRYPTO",
                 "_tier":     3,  # individual tweets are inherently less vetted than curated RSS sources -> VADER-primary
                 "_asset_class": "crypto",
@@ -1828,6 +1856,37 @@ FINANCE_LEXICON_OVERLAY = {
     "depeg": -2.8, "depegged": -2.8, "de-peg": -2.8,
     "insolvent": -3.0, "insolvency": -3.0,
     "accumulate": 1.6, "accumulates": 1.6, "accumulated": 1.6, "accumulation": 1.6,
+    # Added after 3 more live-reported misses, same pattern as the block above.
+    # (1) "$UNI swept our bottoming range and bounced to the upside, escaped
+    # the downtrend" scored a flat 0.0 (Neutral) — none of "bottoming",
+    # "bounced", "downtrend", "bull" (only "bullish" was covered) exist in
+    # VADER's base lexicon or the overlay above. Pure technical-analysis
+    # vocabulary was a whole missing category, not a one-off gap.
+    "bull": 2.2, "bear": -2.2, "bounce": 1.8, "bounces": 1.8, "bounced": 1.8,
+    "downtrend": -1.8, "uptrend": 1.8, "bottoming": 1.2, "bottomed": 1.2,
+    "breakdown": -2.0,
+    # (2) "Fund sold $UNI and bought $HYPE... sold 3.72M UNI worth $13M"
+    # scored Bullish (0.23) — "sold"/"bought" aren't in VADER's lexicon at
+    # all (reasonably so for general text: "I bought a car" isn't inherently
+    # sentiment-bearing), so the compound score was driven entirely by
+    # VADER's base entry for "worth" (0.9, e.g. "worth it"), which is purely
+    # descriptive here ("worth $13M"), not a sentiment word. Neutralized
+    # "worth" and added mild fund-flow-verb weights so whale buy/sell
+    # language (very common in this feed's X-sourced articles) actually
+    # registers instead of being invisible to the scorer.
+    "worth": 0.0,
+    "sold": -1.2, "sells": -1.2, "selling": -1.2,
+    "bought": 1.2, "buys": 1.2, "buying": 1.2,
+    # (3) "$UNI is down 20.21% a week after announcing..." scored Bullish
+    # (0.62) — "down"/"up" aren't in VADER's lexicon either, so an unrelated
+    # base-lexicon word ended up deciding the score (in the live case, a
+    # stray truncated fragment; see the title/summary truncation fix in
+    # fetch_x_cashtags()). "is down N%"/"is up N%" is one of the single most
+    # common phrasings in this feed's headlines, so leaving it unscored was
+    # a significant gap. Weighted mild (not as strong as "surge"/"crash")
+    # since "up"/"down" are common words that can appear in non-directional
+    # contexts too.
+    "down": -1.0, "up": 1.0,
 }
 
 _vader_analyzer = None

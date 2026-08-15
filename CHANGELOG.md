@@ -10,7 +10,50 @@ change are PATCH.
 
 ## [Unreleased]
 
-## [0.7.3] - 2026-08-15
+## [0.7.4] - 2026-08-15
+### Fixed
+- **VADER sentiment: three more live-reported misclassifications, same root-cause
+  family as the `unload`/whale-dump fix in 0.7.x.** All found from real X-sourced
+  articles the user flagged directly:
+  - *"$UNI swept our bottoming range and bounced to the upside, escaped the
+    downtrend, Bull target..."* scored a flat Neutral (0.0 compound) — pure
+    technical-analysis vocabulary ("bottoming", "bounced", "downtrend", bare
+    "bull") was an entire missing category in both VADER's base lexicon and
+    the finance overlay, not a one-off gap. Added `bull`/`bear`, `bounce(d)`,
+    `uptrend`/`downtrend`, `bottoming`/`bottomed`, `breakdown` to
+    `FINANCE_LEXICON_OVERLAY` in `fetch_news.py`.
+  - *"Fund Monetalis has sold $UNI and bought $HYPE... sold 3.72M UNI worth
+    $13M"* scored Bullish (0.23) — "sold"/"bought" aren't scored by VADER at
+    all, so the compound was decided entirely by VADER's base lexicon entry
+    for "worth" (0.9, e.g. "worth it"), which is purely descriptive here
+    ("worth $13M"), not a sentiment word. Neutralized `worth` in the overlay
+    and added mild `sold`/`sells`/`selling`/`bought`/`buys`/`buying` weights
+    so whale fund-flow language — very common in this feed's X-sourced
+    articles — actually registers.
+  - *"$UNI is down 20.21% a week after announcing..."* scored Bullish (0.62) —
+    "down"/"up" also aren't in VADER's lexicon, so on a text with no other
+    scored words, an unrelated base-lexicon entry decided the outcome. In the
+    live case that entry was a stray fragment ("l") left over from
+    `fetch_x_cashtags()` hard-truncating tweet text mid-word (`text[:120]`,
+    `text[:300]`) — VADER scored the fragment as if it were a real token.
+    Fixed two ways: added mild `down`/`up` weights to the overlay (this
+    phrasing — "X is up/down N%" — is one of the most common patterns in
+    this feed's headlines), and added `_truncate_on_word()` in
+    `fetch_news.py`, used by both the title and summary truncation in
+    `fetch_x_cashtags()`, so truncation always backs off to the last space
+    instead of ever emitting a stray sub-word fragment.
+- **Ticker over-tagging: an article about $ADA was showing up under the $UNI
+  filter.** Root cause in `extract_coin_tags()`: step 1 deliberately does a
+  case-sensitive match on the ticker symbol itself specifically to avoid
+  lowercase-word collisions (per its own docstring, "e.g. SUI vs sui"), but
+  step 2 immediately re-matched the same symbol case-insensitively anyway,
+  because `fetch_top_500_coingecko()`/`FALLBACK_COINS` both include the
+  lowercased symbol as one of the ticker's own "name variations" (UNI's
+  keyword list is `["uni", "uniswap"]`). Any ticker whose symbol doubles as
+  a common English word (`uni`, and others) could get tagged onto completely
+  unrelated articles just for containing that word. Fixed by having step 2
+  skip a keyword equal to `symbol.lower()`, since step 1 already covers that
+  exact case deliberately.
 ### Added
 - `stocks_snapshot` field in `fetch_news.py`: server-side Finnhub fetch for
   the Stocks & Indices Watchlist table (`STOCKS_WATCHLIST`, the same 17
