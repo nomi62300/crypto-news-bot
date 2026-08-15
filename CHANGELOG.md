@@ -10,6 +10,23 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.7.2] - 2026-08-15
+### Added
+- TradingView's free, keyless Economic Calendar embed widget as a temporary
+  stand-in for the Economic Calendar card, shown only when
+  `econCalendarCache` has zero events (i.e. our own FMP/Finnhub sources are
+  both plan-gated right now — confirmed in 0.7.1). Investigated
+  alternatives first: ForexFactory scraping was ruled out (confirmed
+  live — Cloudflare-protected, same "Just a moment..." managed challenge
+  that already blocked Stooq; Scrapling's base package has no browser to
+  get past it, and adding one was already ruled out early in this project
+  for infra reasons). The custom day-grouped table (countdown timers,
+  Weekly Calendar toggle, per-pair beat/miss effect notes) stays fully
+  built and untouched — this is a dormant-feature swap: the moment
+  `econ_calendar.json` has real events again, `renderEconCalendar()`
+  renders the custom table instead of the widget automatically, no further
+  code change needed.
+
 ## [0.7.1] - 2026-08-15
 ### Added
 - Finnhub fallback for `fetch_econ_calendar.py`: FMP's `/stable/economic-

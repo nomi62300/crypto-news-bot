@@ -3460,14 +3460,47 @@
       });
     }
 
+    // TradingView's free, keyless Economic Calendar embed widget — shown
+    // only when we have no real event data of our own (from FMP/Finnhub,
+    // both currently plan-gated — see CHANGELOG). The custom day-grouped
+    // table below (with countdown timers, the Weekly Calendar toggle, and
+    // the per-pair beat/miss effect notes) stays fully built and will take
+    // over automatically the moment econ_calendar.json has real events
+    // again — this is a dormant-feature swap, not a replacement.
+    function renderEconCalendarWidget(wrap) {
+      if (wrap.dataset.tvWidgetLoaded === 'true') return; // avoid reloading on repeat renders
+      wrap.dataset.tvWidgetLoaded = 'true';
+      wrap.innerHTML = `
+        <div class="tradingview-widget-container" style="height:500px;">
+          <div class="tradingview-widget-container__widget"></div>
+        </div>
+        <div class="mkt-disclaimer">Our own economic calendar data source is currently unavailable (plan-gated on both providers) — showing TradingView's calendar in the meantime.</div>
+      `;
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
+      script.async = true;
+      script.text = JSON.stringify({
+        colorTheme: 'dark',
+        isTransparent: true,
+        width: '100%',
+        height: '500',
+        locale: 'en',
+        importanceFilter: '-1,0,1',
+        countryFilter: 'us,eu,gb,jp,ch,au,ca,nz,cn',
+      });
+      wrap.querySelector('.tradingview-widget-container').appendChild(script);
+    }
+
     function renderEconCalendar() {
       const wrap = document.getElementById('econCalendarWrap');
       if (!wrap) return;
       const events = (econCalendarCache && econCalendarCache.events) || [];
       if (events.length === 0) {
-        wrap.innerHTML = `<div class="state-box"><span class="state-msg">Economic calendar data not yet available.</span></div>`;
+        renderEconCalendarWidget(wrap);
         return;
       }
+      wrap.dataset.tvWidgetLoaded = 'false';
 
       const allGroups = groupEventsByDate(events);
       const nonEmptyUpcoming = allGroups.filter(g => g.events.length > 0 && !g.isPast);
