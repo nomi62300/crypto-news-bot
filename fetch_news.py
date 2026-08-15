@@ -2534,6 +2534,11 @@ def main():
     newly_classified = []
     if to_classify:
         classified_raw = classify_sentiments(to_classify)
+        # TEMP DIAGNOSTIC — remove after confirming why whale accounts other
+        # than Wintermute/Justin Sun are showing 0 surviving tweets.
+        for a in classified_raw:
+            if a.get("is_whale_account"):
+                print(f"  [WHALE-DEBUG] {a.get('source')} | relevant={a.get('is_crypto_relevant')} | tickers={a.get('tickers')} | title={a.get('title')[:60]!r}")
         # Filter out any article where is_crypto_relevant is false
         newly_classified = [a for a in classified_raw if a.get("is_crypto_relevant", True)]
         for a in newly_classified:
