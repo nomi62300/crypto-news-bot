@@ -10,6 +10,15 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.8.2] - 2026-08-15
+### Changed
+- X-sourced articles now show the actual X logo (inline SVG) instead of
+  sharing the generic feed-source icon with RSS articles — replaces both
+  the source-column icon and the "𝕏" Unicode math-alphanumeric character
+  previously used in the likes/reposts badge (inconsistent rendering
+  across fonts/platforms; an inline SVG renders identically everywhere).
+  Applied in both Compact and Card views.
+
 ## [0.8.1] - 2026-08-15
 ### Added
 - Line-chart sparklines on the Macro Snapshot card's Treasury 10Y Yield and

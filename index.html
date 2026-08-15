@@ -2410,6 +2410,14 @@
       return '—';
     }
 
+    // Official X ("Twitter") logo mark, inline SVG (currentColor-based so it
+    // follows the sentiment/theme color it's placed in) — used to visually
+    // flag X-sourced articles at a glance, in place of the generic feed
+    // icon those rows otherwise share with every other source type.
+    function xLogoSvg(size = 12) {
+      return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>`;
+    }
+
     function flagIconHtml(a) {
       if (a.source_flag === 'state_media') {
         return `<span class="flag-icon" title="State-affiliated media — reader discretion advised">⚠</span>`;
@@ -3926,7 +3934,7 @@
                 } else if (sourceType === 'x') {
                   const likes = a.likes != null ? a.likes : '—';
                   const reposts = a.reposts != null ? a.reposts : '—';
-                  tickersHtml = `<span class="badge-x compact-x-meta" style="margin-left:6px;">𝕏 ♥ ${likes} · ⟲ ${reposts}</span>`;
+                  tickersHtml = `<span class="badge-x compact-x-meta" style="margin-left:6px;">${xLogoSvg(10)} ♥ ${likes} · ⟲ ${reposts}</span>`;
                 } else {
                   tickersHtml = (a.tickers || [])
                     .flatMap(t => t.split(','))
@@ -3949,8 +3957,8 @@
                       ${categoryPill}
                       ${tickersHtml}
                     </div>
-                    <div class="col-source" title="${escHtml(sourcesText)}">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <div class="col-source ${sourceType === 'x' ? 'is-x-source' : ''}" title="${escHtml(sourcesText)}">
+                      ${sourceType === 'x' ? xLogoSvg(11) : '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>'}
                       <span>${escHtml(sourcesText)}</span>
                       ${flagHtml}
                     </div>
@@ -3988,7 +3996,7 @@
                   const reposts = a.reposts != null ? a.reposts : '—';
                   const replies = a.replies != null ? a.replies : '—';
                   const followers = a.follower_count != null ? `${fmtCompactNumber(a.follower_count)} followers` : '';
-                  tickersHtml = `<span class="badge-x">𝕏 ${escHtml(a.source || '')}</span>`;
+                  tickersHtml = `<span class="badge-x">${xLogoSvg(11)} ${escHtml(a.source || '')}</span>`;
                   cardXMetaHtml = `<div class="card-x-meta">♥ ${likes} · ⟲ ${reposts} · ${replies} replies${followers ? ` · ${escHtml(followers)}` : ''}</div>`;
                 } else {
                   tickersHtml = (a.tickers || [])
@@ -4006,8 +4014,8 @@
                 return `
                   <article class="card-item ${sClass}" data-key="${escHtml(a.url)}">
                     <div class="card-meta-top">
-                      <span class="card-source">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                      <span class="card-source ${sourceType === 'x' ? 'is-x-source' : ''}">
+                        ${sourceType === 'x' ? xLogoSvg(12) : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>'}
                         ${escHtml(sourcesText)}
                         ${flagHtml}
                       </span>
