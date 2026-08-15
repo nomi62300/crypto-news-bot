@@ -625,6 +625,15 @@
       white-space: nowrap;
     }
 
+    /* Flags a tweet from a curated "whale" account (Wintermute, Amber Group,
+       Justin Sun, Jump Crypto, FalconX) — gold-accented so it stands out
+       from the plain category pill it sits next to. */
+    .badge-whale {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-glow, rgba(245, 204, 1, 0.1));
+    }
+
     /* Category filter strip (static ALL/CRYPTO/FOREX/STOCKS/ECONOMIC/REGULATORY) */
     .category-filter-bar {
       display: flex;
@@ -4018,6 +4027,7 @@
                 const flagHtml = flagIconHtml(a);
                 const isSaved = getSavedUrls().has(a.url);
                 const categoryPill = a.category ? `<span class="pill" style="margin-left:6px;">${escHtml(a.category)}</span>` : '';
+                const whalePillCompact = a.is_whale_account ? `<span class="pill badge-whale" style="margin-left:6px;" title="Tweet from a curated market-mover account">🐋 ${escHtml(a.whale_label || 'Whale')}</span>` : '';
 
                 let tickersHtml = '';
                 if (sourceType === 'reddit') {
@@ -4048,6 +4058,7 @@
                     <div class="col-title">
                       <span class="row-open-detail">${escHtml(a.title)}</span>
                       ${categoryPill}
+                      ${whalePillCompact}
                       ${tickersHtml}
                     </div>
                     <div class="col-source ${sourceType === 'x' ? 'is-x-source' : ''}" title="${escHtml(sourcesText)}">
@@ -4077,6 +4088,7 @@
                 const flagHtml = flagIconHtml(a);
                 const isSaved = getSavedUrls().has(a.url);
                 const categoryPill = a.category ? `<span class="pill">${escHtml(a.category)}</span>` : '';
+                const whalePillCard = a.is_whale_account ? `<span class="pill badge-whale" title="Tweet from a curated market-mover account">🐋 ${escHtml(a.whale_label || 'Whale')}</span>` : '';
 
                 let tickersHtml = '';
                 let cardXMetaHtml = '';
@@ -4124,7 +4136,7 @@
                     <p class="card-summary">${escHtml(a.summary || 'Click source to view the complete details and tokenomics outline.')}</p>
                     ${cardXMetaHtml}
                     <div class="card-footer">
-                      <div class="card-tickers">${categoryPill}${tickersHtml}</div>
+                      <div class="card-tickers">${categoryPill}${whalePillCard}${tickersHtml}</div>
                       <div class="sentiment-badge ${sClass}" title="${escHtml(a.sentiment_engine || 'unknown')}">
                         <span class="sentiment-arrow">${arrow}</span>${escHtml(a.sentiment || 'Neutral')} <span style="font-family: var(--font-mono);">${score}%</span>
                       </div>

@@ -916,6 +916,97 @@ def fetch_x_cashtags(coin_keywords: dict[str, list[str]]) -> list[dict]:
     return articles
 
 
+# Curated "whale" accounts — market makers/OTC desks/large holders whose own
+# tweets are known to move markets disproportionately to typical follower-
+# count-based quality signals (a single Wintermute or Justin Sun tweet can
+# move a token meaningfully; a small account with the same follower count
+# saying the same thing wouldn't). Separate from the cashtag search above
+# since these often don't mention a $TICKER at all (e.g. general market
+# commentary) and wouldn't be found by that search. Handles confirmed live
+# against the actual X accounts (not guessed) before adding.
+X_WHALE_ACCOUNTS = {
+    "wintermute_t":  "Wintermute",
+    "ambergroup_io": "Amber Group",
+    "justinsuntron": "Justin Sun",
+    "jump_":         "Jump Crypto",
+    "FalconXGlobal": "FalconX",
+}
+
+
+def fetch_x_whale_accounts(coin_keywords: dict[str, list[str]]) -> list[dict]:
+    """Search FxTwitter for each whale account's own tweets via the `from:`
+    operator (confirmed live: FxTwitter's search supports standard X search
+    operators, not just plain-text/cashtag terms). No follower-count or
+    spam-keyword gate, unlike fetch_x_cashtags() — these are curated,
+    already-trusted accounts, not results of an open search, and a
+    spam-marker match (e.g. a legitimate post that happens to say
+    "airdrop") would be a false positive here specifically. The
+    non-Latin-script filter still applies since VADER's lexicon is
+    English-tuned regardless of source trust."""
+    articles: list[dict] = []
+    for handle, label in X_WHALE_ACCOUNTS.items():
+        query = f"from:{handle}"
+        data = None
+        last_exc = None
+        for attempt in range(2):
+            try:
+                resp = requests.get(
+                    "https://api.fxtwitter.com/2/search",
+                    params={"q": query}, timeout=8, headers=DEFAULT_HEADERS,
+                )
+                resp.raise_for_status()
+                data = resp.json()
+                break
+            except Exception as exc:
+                last_exc = exc
+                if attempt == 0:
+                    time.sleep(2)
+        if data is None:
+            print(f"  [WARN] FxTwitter whale search failed for {label} (@{handle}): {last_exc}")
+            time.sleep(0.5)
+            continue
+
+        for item in data.get("results", []):
+            text = (item.get("text") or "").strip()
+            url = item.get("url") or ""
+            if not text or not url:
+                continue
+            if _is_mostly_non_latin(text):
+                continue
+
+            author = item.get("author", {})
+            created_ts = item.get("created_timestamp")
+            published = None
+            if created_ts:
+                try:
+                    published = datetime.fromtimestamp(created_ts, tz=timezone.utc).isoformat()
+                except Exception:
+                    published = None
+
+            articles.append({
+                "title":     _truncate_on_word(text, 120),
+                "url":       url,
+                "source":    f"@{handle}",
+                "published": published,
+                "tickers":   extract_coin_tags(text, coin_keywords),
+                "currency_pairs": [],
+                "summary":   _truncate_on_word(text, 300),
+                "_category": "CRYPTO",
+                "_tier":     2,  # curated/trusted account, but still a raw tweet -> more vetted than open cashtag search (tier 3), not as vetted as RSS (tier 1)
+                "_asset_class": "crypto",
+                "source_type": "x",
+                "is_whale_account": True,
+                "whale_label": label,
+                "likes":   item.get("likes"),
+                "reposts": item.get("reposts"),
+                "replies": item.get("replies"),
+                "follower_count": author.get("followers"),
+            })
+        time.sleep(0.5)
+
+    return articles
+
+
 # ---------------------------------------------------------------------------
 # 3b. MYFXBOOK COMMUNITY OUTLOOK (retail positioning sentiment)
 # ---------------------------------------------------------------------------
@@ -2383,6 +2474,11 @@ def main():
     print(f"  → {len(x_articles)} tweets fetched.")
     raw.extend(x_articles)
 
+    print(f"[{datetime.now().isoformat()}] Fetching X/Twitter whale accounts ({', '.join(X_WHALE_ACCOUNTS.values())})…")
+    x_whale_articles = fetch_x_whale_accounts(coin_keywords)
+    print(f"  → {len(x_whale_articles)} tweets fetched.")
+    raw.extend(x_whale_articles)
+
     print("Deduplicating…")
     deduped = deduplicate(raw)
     print(f"  → {len(deduped)} unique stories after deduplication.")
@@ -2412,7 +2508,7 @@ def main():
             story["source_type"] = existing_story.get("source_type", story.get("source_type", "rss"))
             # Additive, source-specific fields — only carry forward if either
             # side actually has them, never introduce null noise.
-            for extra_field in ("event_source", "magnitude", "likes", "reposts", "replies", "follower_count"):
+            for extra_field in ("event_source", "magnitude", "likes", "reposts", "replies", "follower_count", "is_whale_account", "whale_label"):
                 if extra_field in existing_story:
                     story[extra_field] = existing_story[extra_field]
                 elif extra_field in story:

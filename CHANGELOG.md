@@ -10,6 +10,29 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-08-15
+### Added
+- **Whale-account tracking**: `fetch_x_whale_accounts()` in `fetch_news.py`
+  now searches FxTwitter for tweets from 5 curated market-moving accounts
+  by request — Wintermute (`wintermute_t`), Amber Group (`ambergroup_io`),
+  Justin Sun (`justinsuntron`), Jump Crypto (`jump_`), FalconX
+  (`FalconXGlobal`). Handles confirmed live against the real X accounts,
+  not guessed. Separate from the existing cashtag search
+  (`fetch_x_cashtags()`) since these accounts' commentary often doesn't
+  mention a `$TICKER` at all and wouldn't be found by that search — uses
+  FxTwitter's `from:handle` operator instead (confirmed live it's
+  supported). No follower-count or spam-keyword gate applied, unlike the
+  cashtag search — these are curated, already-trusted accounts, not
+  results of an open search, and the spam-marker filter would have false-
+  positived on legitimate posts (e.g. one mentioning "airdrop"). Routed at
+  `_tier: 2` (Groq-classified, same tier as curated RSS-adjacent sources)
+  rather than `_tier: 3` (VADER-only) like the general cashtag search,
+  since these accounts' own words are exactly the kind of high-signal
+  content worth spending the better classifier on.
+- Whale-account tweets get a gold "🐋 <Account>" badge in both Compact and
+  Card views (`.badge-whale`), distinguishing them from both regular RSS
+  articles and regular cashtag-search tweets at a glance.
+
 ## [0.8.3] - 2026-08-15
 ### Changed
 - **Crypto Market tab reliability.** `fetchCryptoMarkets()`/
