@@ -10,6 +10,19 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.7.1] - 2026-08-15
+### Added
+- Finnhub fallback for `fetch_econ_calendar.py`: FMP's `/stable/economic-
+  calendar` returns `402 Payment Required` on the current plan (confirmed
+  via the workflow's first-ever live run — it had never executed before,
+  separate finding from the FMP plan-tier issue itself). Finnhub's
+  `/calendar/economic` endpoint is confirmed reachable (a bad-key request
+  returns `401`, not `404`, so the endpoint is real) and reuses the
+  already-set `FINNHUB_API_KEY` GitHub secret — its exact free-tier access
+  and field names (`time`/`prev`/etc., currency inferred from country via
+  a new lookup table when absent) aren't verified against a live
+  successful response yet, flagged for a follow-up check.
+
 ## [0.7.0] - 2026-08-14
 ### Added
 - Line/area-chart sparklines (`renderLineSparkline()`) on the Indices/FX/

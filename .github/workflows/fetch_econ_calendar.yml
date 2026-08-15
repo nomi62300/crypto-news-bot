@@ -40,6 +40,7 @@ jobs:
       - name: Run economic calendar fetcher
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
         run: python fetch_econ_calendar.py
 
       # ---------------------------------------------------------------
