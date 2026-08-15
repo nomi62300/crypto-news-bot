@@ -1602,6 +1602,16 @@
     @media (max-width: 767px) {
       .mkt-stats-strip { grid-template-columns: repeat(2, 1fr); }
       .mkt-cards-row { grid-template-columns: 1fr; }
+      /* Crypto Market table was getting cut off on the right on mobile —
+         the full 7-column layout (#/Asset/Price/24h/Market Cap/Volume/7D)
+         needs 700px+ to lay out without wrapping. Drop the least essential
+         columns (Market Cap, Volume, 7D sparkline) below the 768px
+         breakpoint so #/Asset/Price/24h% fit the viewport without relying
+         on horizontal scroll. */
+      .crypto-mkt-table { min-width: 0; }
+      .crypto-mkt-table .col-mktcap,
+      .crypto-mkt-table .col-vol,
+      .crypto-mkt-table .col-spark { display: none; }
     }
 
     /* Toast system */
@@ -1912,7 +1922,7 @@
          scoped to the Dashboard feed (the single news-feed tab; Crypto/Forex
          narrowing happens via the category filter strip below, not separate
          tabs). -->
-    <div class="terminal-controls-row">
+    <div class="terminal-controls-row" id="terminalControlsRow">
       <div class="search-box-wrap">
         <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -2108,6 +2118,14 @@
         <div class="mkt-disclaimer">Pairs where retail positioning is at least 80% long or short, sourced from myfxbook's community outlook.</div>
       </div>
 
+      <div class="mkt-card" style="margin-bottom:20px;">
+        <div class="mkt-card-title">Major Currency Indexes</div>
+        <div class="mkt-stat-tile-row" id="currencyIndexesTileRow">
+          <div class="state-box"><span class="state-msg">Loading…</span></div>
+        </div>
+        <div class="mkt-disclaimer">Each currency's weighted geometric-mean index vs. the other 7 majors, indexed to 100 at the start of the 7-day window (same methodology as the USD Index below, which uses DXY's real weights — the other 7 don't have a published trade-weighted basket, so they're equal-weighted).</div>
+      </div>
+
       <div class="mkt-cards-row">
         <div class="mkt-card">
           <div class="mkt-card-title">Relative Currency Strength (7D avg vs. majors)</div>
@@ -2209,6 +2227,7 @@
     const btnFilterToggle  = document.getElementById('btnFilterToggle');
     const filterChipsBar   = document.getElementById('filterChipsBar');
     const categoryFilterBar = document.getElementById('categoryFilterBar');
+    const terminalControlsRow = document.getElementById('terminalControlsRow');
 
     // Stats bar Refs
     const statTotal        = document.getElementById('statTotal');
@@ -2628,25 +2647,63 @@
       }
     }
 
+    // Rolling local history for the crypto Market Cap/24h Volume/BTC
+    // Dominance stat boxes. CoinGecko's free tier has no historical
+    // endpoint for these aggregate figures (the real chart endpoint,
+    // /global/market_cap_chart, 402s with "PRO API subscribers only" —
+    // confirmed live) — building a proper server-side series would mean
+    // adding a whole new daily-gated news.json field. Instead, one point
+    // per calendar day accumulates in localStorage on each visit, so the
+    // sparkline fills in gradually over real usage; same-day revisits just
+    // update that day's point rather than adding a new one. Honest
+    // trade-off: a brand-new browser sees no chart until day 2.
+    const LOCAL_HISTORY_MAX_POINTS = 30;
+    function recordLocalHistoryPoint(key, value) {
+      if (value == null || !isFinite(value)) return null;
+      try {
+        const storageKey = 'snitchHistory_' + key;
+        const raw = localStorage.getItem(storageKey);
+        let points = raw ? JSON.parse(raw) : [];
+        const today = new Date().toISOString().slice(0, 10);
+        if (points.length && points[points.length - 1].date === today) {
+          points[points.length - 1].value = value;
+        } else {
+          points.push({ date: today, value });
+        }
+        if (points.length > LOCAL_HISTORY_MAX_POINTS) points = points.slice(-LOCAL_HISTORY_MAX_POINTS);
+        localStorage.setItem(storageKey, JSON.stringify(points));
+        return points.map(p => p.value);
+      } catch (err) {
+        return null; // localStorage unavailable (private browsing, quota) — fail soft, just no chart
+      }
+    }
+
     function renderCryptoGlobalStats() {
       const wrap = document.getElementById('cryptoMarketStats');
       if (!wrap) return;
       const s = cryptoGlobalStats;
       const fng = window.fngData;
       const fngColor = fng ? (fng.value >= 55 ? 'var(--bullish)' : fng.value <= 45 ? 'var(--bearish)' : 'var(--neutral)') : 'var(--text-primary)';
+      const mcSeries = s ? recordLocalHistoryPoint('cryptoMarketCap', s.marketCap) : null;
+      const volSeries = s ? recordLocalHistoryPoint('cryptoVolume', s.volume) : null;
+      const domSeries = s ? recordLocalHistoryPoint('btcDominance', s.btcDominance) : null;
+      const chart = (series) => (Array.isArray(series) && series.length >= 2) ? `<div class="mkt-stat-tile-chart">${renderLineSparkline(series, 100, 28)}</div>` : '';
       wrap.innerHTML = `
         <div class="overview-box">
           <div class="overview-title-row"><span class="overview-box-label">Market Cap</span></div>
           <div class="overview-box-value">${s ? fmtUsdCompact(s.marketCap) : '—'}</div>
           <div style="font-size:11px;">${s ? renderChangeCell(s.marketCapChange) : ''}</div>
+          ${chart(mcSeries)}
         </div>
         <div class="overview-box">
           <div class="overview-title-row"><span class="overview-box-label">24h Volume</span></div>
           <div class="overview-box-value">${s ? fmtUsdCompact(s.volume) : '—'}</div>
+          ${chart(volSeries)}
         </div>
         <div class="overview-box">
           <div class="overview-title-row"><span class="overview-box-label">BTC Dominance</span></div>
           <div class="overview-box-value">${s ? s.btcDominance.toFixed(1) + '%' : '—'}</div>
+          ${chart(domSeries)}
         </div>
         <div class="overview-box">
           <div class="overview-title-row"><span class="overview-box-label">Fear &amp; Greed</span></div>
@@ -2684,18 +2741,18 @@
           </td>
           <td class="num">${fmtPrice(c.current_price)}</td>
           <td class="num">${renderChangeCell(c.price_change_percentage_24h)}</td>
-          <td class="num">${fmtUsdCompact(c.market_cap)}</td>
-          <td class="num">${fmtUsdCompact(c.total_volume)}</td>
-          <td>${renderSparkline(c.sparkline_in_7d && c.sparkline_in_7d.price)}</td>
+          <td class="num col-mktcap">${fmtUsdCompact(c.market_cap)}</td>
+          <td class="num col-vol">${fmtUsdCompact(c.total_volume)}</td>
+          <td class="col-spark">${renderSparkline(c.sparkline_in_7d && c.sparkline_in_7d.price)}</td>
         </tr>`;
     }
 
     function cryptoTableHtml(rows) {
       return `
         <div class="table-scroll">
-          <table class="mkt-table">
+          <table class="mkt-table crypto-mkt-table">
             <thead>
-              <tr><th>#</th><th>Asset</th><th class="num">Price</th><th class="num">24h %</th><th class="num">Market Cap</th><th class="num">Volume (24h)</th><th>7D</th></tr>
+              <tr><th>#</th><th>Asset</th><th class="num">Price</th><th class="num">24h %</th><th class="num col-mktcap">Market Cap</th><th class="num col-vol">Volume (24h)</th><th class="col-spark">7D</th></tr>
             </thead>
             <tbody>${rows.map(cryptoRowHtml).join('')}</tbody>
           </table>
@@ -2713,8 +2770,8 @@
         losersWrap.innerHTML = msg;
         return;
       }
-      gainersWrap.innerHTML = cryptoTableHtml(getTopGainers(data, 10));
-      losersWrap.innerHTML = cryptoTableHtml(getTopLosers(data, 10));
+      gainersWrap.innerHTML = cryptoTableHtml(getTopGainers(data, 5));
+      losersWrap.innerHTML = cryptoTableHtml(getTopLosers(data, 5));
     }
 
     function renderCryptoMarketTable() {
@@ -2738,7 +2795,10 @@
         return;
       }
 
-      wrap.innerHTML = cryptoTableHtml(rows);
+      // Limited to the top 20 by market cap — the full 100-coin CoinGecko
+      // fetch is still cached and used for the Gainers/Losers re-sort above,
+      // just not all rendered in this always-visible table.
+      wrap.innerHTML = cryptoTableHtml(rows.slice(0, 20));
     }
 
     // Lazy-fetch-on-activation entry point for the Crypto Market tab. Only
@@ -2878,8 +2938,8 @@
         return;
       }
       const sorted = [...changes].sort((a, b) => b.pctChange - a.pctChange);
-      const gainers = sorted.slice(0, 10);
-      const losers = sorted.slice(-10).reverse();
+      const gainers = sorted.slice(0, 5);
+      const losers = sorted.slice(-5).reverse();
 
       const rowHtml = (item) => `
         <div class="mkt-pair-row">
@@ -2949,6 +3009,113 @@
       }, 0);
       const indexValue = 100 * Math.exp(logChange);
       return { indexValue, pctChange: indexValue - 100 };
+    }
+
+    // Major Currency Indexes — generalizes computeDxy()'s methodology
+    // (weighted geometric mean of exchange-rate ratios, indexed to 100 at
+    // the 7-day-ago baseline) to all 8 majors, not just USD. DXY has a real
+    // published trade-weighted basket (FX_DXY_WEIGHTS); the other 7 don't,
+    // so each currency here is measured equal-weighted against the other 7.
+    const MAJOR_CURRENCIES = ['USD', 'EUR', 'GBP', 'JPY', 'CHF', 'AUD', 'CAD', 'NZD'];
+
+    // fxCache stores rates as "units of X per 1 USD" (USD implicit = 1).
+    // The base/other pair rate (units of `other` per 1 `base`) is then
+    // rateOf(other) / rateOf(base), matching buildCrossPairs()'s convention.
+    function computeCurrencyIndex(base) {
+      if (!fxCache.current || !fxCache.historical) return null;
+      const rateOf = (snapshot, cur) => cur === 'USD' ? 1 : snapshot[cur];
+      const baseCur = rateOf(fxCache.current, base);
+      const baseHist = rateOf(fxCache.historical, base);
+      if (baseCur == null || baseHist == null) return null;
+      const others = MAJOR_CURRENCIES.filter(c => c !== base);
+      const available = others.filter(c => rateOf(fxCache.current, c) != null && rateOf(fxCache.historical, c) != null);
+      if (available.length === 0) return null;
+      const weight = 1 / available.length;
+      const logChange = available.reduce((sum, c) => {
+        const curPairRate = rateOf(fxCache.current, c) / baseCur;
+        const histPairRate = rateOf(fxCache.historical, c) / baseHist;
+        return sum + weight * Math.log(curPairRate / histPairRate);
+      }, 0);
+      const indexValue = 100 * Math.exp(logChange);
+      return { indexValue, pctChange: indexValue - 100 };
+    }
+
+    // Day-by-day version of the same calculation, indexed to 100 at the
+    // first day in fxCache.series, feeding each currency-index tile's
+    // line-chart sparkline.
+    function buildCurrencyIndexSeries(base) {
+      const series = fxCache.series;
+      if (!series) return null;
+      const rateAt = (cur, i) => cur === 'USD' ? 1 : (series[cur] ? series[cur][i] : null);
+      const others = MAJOR_CURRENCIES.filter(c => c !== base);
+      const lens = others.filter(c => c !== 'USD').map(c => (series[c] || []).length);
+      if (base !== 'USD') lens.push((series[base] || []).length);
+      if (lens.length === 0) return null;
+      const len = Math.min(...lens);
+      if (!isFinite(len) || len < 2) return null;
+      const raw = [];
+      for (let i = 0; i < len; i++) {
+        const baseRate = rateAt(base, i);
+        if (baseRate == null) { raw.push(null); continue; }
+        let logSum = 0, count = 0;
+        for (const c of others) {
+          const otherRate = rateAt(c, i);
+          if (otherRate == null) continue;
+          logSum += Math.log(otherRate / baseRate);
+          count++;
+        }
+        raw.push(count > 0 ? Math.exp(logSum / count) : null);
+      }
+      const firstValid = raw.find(v => v != null);
+      if (firstValid == null) return null;
+      return raw.filter(v => v != null).map(v => 100 * (v / firstValid));
+    }
+
+    function renderCurrencyIndexesRow() {
+      const wrap = document.getElementById('currencyIndexesTileRow');
+      if (!wrap) return;
+      if (!fxCache.current || !fxCache.historical) {
+        renderStatTileRow('currencyIndexesTileRow', []);
+        return;
+      }
+      const tiles = MAJOR_CURRENCIES.map(cur => {
+        const idx = cur === 'USD' ? computeDxy() : computeCurrencyIndex(cur);
+        if (!idx) return null;
+        const sparkline = cur === 'USD' ? buildDxySeries() : buildCurrencyIndexSeries(cur);
+        return {
+          label: cur === 'USD' ? 'USD (DXY)' : cur,
+          valueText: idx.indexValue.toFixed(3),
+          pctChange: idx.pctChange,
+          sparkline: sparkline && sparkline.length >= 2 ? sparkline : undefined,
+        };
+      }).filter(Boolean);
+      renderStatTileRow('currencyIndexesTileRow', tiles);
+    }
+
+    // Day-by-day version of computeDxy()'s real-weighted calculation (as
+    // opposed to buildCurrencyIndexSeries()'s equal-weighted generic
+    // version used for the other 7 majors), so the DXY tile's sparkline
+    // matches the methodology of its own displayed index value.
+    function buildDxySeries() {
+      const series = fxCache.series;
+      if (!series) return null;
+      const currencies = Object.keys(FX_DXY_WEIGHTS);
+      const lens = currencies.map(c => (series[c] || []).length);
+      const len = Math.min(...lens);
+      if (!isFinite(len) || len < 2) return null;
+      const totalWeight = currencies.reduce((sum, c) => sum + FX_DXY_WEIGHTS[c], 0);
+      const raw = [];
+      for (let i = 0; i < len; i++) {
+        let logSum = 0;
+        for (const c of currencies) {
+          const rate = series[c][i];
+          if (rate == null) continue;
+          logSum += (FX_DXY_WEIGHTS[c] / totalWeight) * Math.log(rate);
+        }
+        raw.push(Math.exp(logSum));
+      }
+      const first = raw[0];
+      return raw.map(v => 100 * (v / first));
     }
 
     function renderFxDxyCard() {
@@ -3102,8 +3269,8 @@
           </div>
           ${renderChangeCell(item.pctChange)}
         </div>`;
-      gainersWrap.innerHTML = sorted.slice(0, 10).map(rowHtml).join('');
-      losersWrap.innerHTML = sorted.slice(-10).reverse().map(rowHtml).join('');
+      gainersWrap.innerHTML = sorted.slice(0, 5).map(rowHtml).join('');
+      losersWrap.innerHTML = sorted.slice(-5).reverse().map(rowHtml).join('');
     }
 
     function renderIndicesRow() {
@@ -3112,7 +3279,10 @@
       const serverItems = (indexSnapshotCache && indexSnapshotCache.items) || [];
       const tiles = serverItems.map(i => ({ label: i.label, valueText: i.price != null ? Number(i.price).toFixed(2) : '—', pctChange: i.changes_percentage, sparkline: i.sparkline }));
       const dxy = computeDxy();
-      if (dxy) tiles.push({ label: 'Dollar Index (DXY)', valueText: dxy.indexValue.toFixed(3), pctChange: dxy.pctChange });
+      if (dxy) {
+        const dxySparkline = buildDxySeries();
+        tiles.push({ label: 'Dollar Index (DXY)', valueText: dxy.indexValue.toFixed(3), pctChange: dxy.pctChange, sparkline: dxySparkline && dxySparkline.length >= 2 ? dxySparkline : undefined });
+      }
       renderStatTileRow('indicesTileRow', tiles);
     }
 
@@ -3147,7 +3317,10 @@
         };
       });
       const dxy = computeDxy();
-      if (dxy) tiles.push({ label: 'Dollar Index (DXY)', valueText: dxy.indexValue.toFixed(3), pctChange: dxy.pctChange });
+      if (dxy) {
+        const dxySparkline = buildDxySeries();
+        tiles.push({ label: 'Dollar Index (DXY)', valueText: dxy.indexValue.toFixed(3), pctChange: dxy.pctChange, sparkline: dxySparkline && dxySparkline.length >= 2 ? dxySparkline : undefined });
+      }
       renderStatTileRow('fxTileRow', tiles);
     }
 
@@ -3516,6 +3689,7 @@
       renderFxGainersLosers();
       renderFxStrength();
       renderFxDxyCard();
+      renderCurrencyIndexesRow();
       renderFxTileRow();
       renderForexSentiment();
       renderMacroSnapshot();
@@ -3892,9 +4066,12 @@
     // Tab switching
     function onTabActivated(tabId) {
       if (tabId !== 'forexMarketTab') stopEconCountdownTicker();
-      // The news category-filter bar (and tweet-only toggle) only makes
-      // sense on the Dashboard's news feed — hidden on the market tabs.
+      // The news category-filter bar (and tweet-only toggle), search box,
+      // and compact/card + ticker-filter controls only make sense on the
+      // Dashboard's news feed — hidden on the market tabs.
       if (categoryFilterBar) categoryFilterBar.style.display = (tabId === 'dashboardTab') ? '' : 'none';
+      if (terminalControlsRow) terminalControlsRow.style.display = (tabId === 'dashboardTab') ? '' : 'none';
+      if (tabId !== 'dashboardTab' && filterChipsBar) filterChipsBar.style.display = 'none';
       if (FEED_TABS[tabId]) {
         renderFeed(tabId);
       } else if (tabId === 'cryptoMarketTab') {

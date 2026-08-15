@@ -1355,6 +1355,18 @@ def _fetch_commodities_twelvedata() -> Optional[list[dict]]:
         items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct, "_td_symbol": td_symbol})
     if not items:
         return None
+    # Real bug found live: 8s between time_series calls only paces the calls
+    # against each other — it ignores that the quote batch just before this
+    # loop already burned len(items) requests against the same 8 req/min
+    # window (a batch counts its symbols individually, not as one request;
+    # see the module docstring note on this). Starting the loop right after
+    # (old code: no sleep before i==0) meant the first 2-3 time_series calls
+    # landed while the batch's requests were still "in window", 429ing —
+    # confirmed live (GLD/SLV failed, IWM/VIXY failed the same way in
+    # fetch_index_snapshot below). Sleeping len(items)*8s upfront gives the
+    # batch's requests time to age out of the rolling window before the
+    # per-symbol loop's own pacing takes over.
+    time.sleep(len(items) * 8)
     for i, item in enumerate(items):
         if i > 0:
             time.sleep(8)  # stay under the 8 req/min cap across these single-symbol calls
@@ -1393,6 +1405,13 @@ def fetch_index_snapshot(old_data: dict) -> Optional[dict]:
                 pct = None
             items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
         if items:
+            # See the matching comment in _fetch_commodities_twelvedata — the
+            # quote batch just above already spent len(items) requests
+            # against the same 8 req/min window; this upfront sleep lets
+            # that batch age out before the per-symbol time_series loop
+            # starts its own pacing (confirmed live: IWM/VIXY were 429ing
+            # without this).
+            time.sleep(len(items) * 8)
             for i, item in enumerate(items):
                 if i > 0:
                     time.sleep(8)

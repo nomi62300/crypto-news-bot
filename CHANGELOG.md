@@ -10,6 +10,67 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-08-15
+### Added
+- **Major Currency Indexes card** (Forex Market tab): a new card showing all
+  8 majors (USD, EUR, GBP, JPY, CHF, AUD, CAD, NZD) as a weighted
+  geometric-mean index vs. the other 7, indexed to 100 at the 7-day window's
+  start — generalizes `computeDxy()`'s existing USD-specific methodology
+  (`computeCurrencyIndex()`/`buildCurrencyIndexSeries()` in `index.html`).
+  USD keeps using DXY's real published weights (`buildDxySeries()`); the
+  other 7 don't have an official trade-weighted basket, so they're
+  equal-weighted against each other — disclosed in the card's caption.
+  Each tile has its own line-chart sparkline built from `fxCache.series`.
+- Line-chart sparklines added to the Dollar Index (DXY) tile in both the
+  Indices and FX rows (previously the only tile in those rows without one).
+- Line-chart sparklines on the Crypto Market tab's Market Cap / 24h Volume /
+  BTC Dominance stat boxes. CoinGecko's free tier has no historical endpoint
+  for these aggregate figures (`/global/market_cap_chart` 402s, "PRO API
+  subscribers only" — confirmed live), so these accumulate one point per
+  calendar day in `localStorage` instead (`recordLocalHistoryPoint()`) —
+  charts fill in gradually over real usage rather than showing 7 days
+  immediately like the provider-backed cards. Disclosed as a real trade-off,
+  not presented as equivalent to the server-sourced sparklines elsewhere.
+
+### Changed
+- Top Gainers/Losers tables reduced from 10 to 5 rows each, across Crypto
+  Market, FX cross-pairs, and Commodities.
+- Crypto Market's always-visible table limited to the top 20 coins by
+  market cap (was all 100 fetched coins) — the full 100-coin fetch is still
+  used for the Gainers/Losers re-sort, just not all rendered in the table.
+- The search box / Compact-Cards toggle / ticker-filter button
+  (`.terminal-controls-row`) now hide on the Crypto Market and Forex Market
+  tabs, same as the category-filter bar already did — none of them apply to
+  those tabs' content.
+- Crypto Market table now drops the Market Cap, Volume, and 7D-sparkline
+  columns below the 768px breakpoint, so #/Asset/Price/24h% fit the mobile
+  viewport without the table getting cut off on the right.
+
+### Fixed
+- **Indices/Commodities tile sparklines were silently empty for entire
+  symbols** (Russell 2000, Volatility, Gold, Silver consistently missing
+  their charts). Root cause, found via a live diagnostic workflow: the
+  per-symbol `_twelvedata_time_series()` loop paces its own calls 8s apart,
+  but that ignores that the `_twelvedata_quote_batch()` call immediately
+  before it already spent `len(symbols)` requests against the same 8
+  req/min free-tier window (a batch quote counts its symbols individually
+  toward the cap, not as one request — same finding documented in an
+  earlier session). The loop's first 2-3 calls landed while the batch's
+  requests were still in-window and 429'd. Confirmed live via a temporary
+  debug workflow (isolated `time_series` calls succeeded fine standalone,
+  ruling out the endpoint itself) and then via the real `fetch_news.py`
+  pipeline's own run logs. Fixed in both `_fetch_commodities_twelvedata()`
+  and `fetch_index_snapshot()` by sleeping `len(items) * 8` seconds after
+  the quote batch, before starting the per-symbol loop, so the batch's
+  requests age out of the rolling window first.
+- Also separately fixed as part of the same investigation: the
+  `index_snapshot`/`commodity_snapshot` daily-gate meant a snapshot fetched
+  by an older pre-sparkline code version would never refetch until the next
+  UTC day even after the sparkline feature shipped — not a bug exactly, but
+  worth noting for future daily-gated fields: a gate keyed only on
+  `updated_at`'s date has no way to know the *code* that produced the
+  cached value has since changed.
+
 ## [0.7.4] - 2026-08-15
 ### Fixed
 - **VADER sentiment: three more live-reported misclassifications, same root-cause
