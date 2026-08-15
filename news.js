@@ -1,7 +1,213 @@
 window.newsData = {
-  "updated_at": "2026-08-15T11:00:07.373989+00:00",
-  "total": 446,
+  "updated_at": "2026-08-15T11:17:25.809471+00:00",
+  "total": 457,
   "articles": [
+    {
+      "title": "Another negative week for Bitcoin ETFs.\n\nThis week, Bitcoin ETFs recorded $389.7M in net outflows, while Ethereum ETFs s",
+      "url": "https://x.com/ZenaXBT/status/2088585208509366777",
+      "source": "@ZenaXBT",
+      "published": "2026-08-15T11:14:52+00:00",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "currency_pairs": [],
+      "summary": "Another negative week for Bitcoin ETFs.\n\nThis week, Bitcoin ETFs recorded $389.7M in net outflows, while Ethereum ETFs saw $6.7M in net inflows.\n\nInstitutional demand still looks a lot stronger for $ETH right now.",
+      "sentiment": "Bearish",
+      "confidence": 0.918,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 1,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 18126,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "The Bitcoin Summer Game Plan - A Crucial Update\n\nIf you enjoyed this 1-minute summary on #BTC\n\nCheckout the full video h",
+      "url": "https://x.com/rektcapital/status/2088584989764202813",
+      "source": "@rektcapital",
+      "published": "2026-08-15T11:14:00+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "The Bitcoin Summer Game Plan - A Crucial Update\n\nIf you enjoyed this 1-minute summary on #BTC\n\nCheckout the full video here:\n\nhttps://youtu.be/XMbLOHZRSFo?si=ET9g1Nvk6J-bJYtJ\n\nEnjoy and Subscribe!\n\n$BTC #Bitcoin",
+      "sentiment": "Bullish",
+      "confidence": 0.9388,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 9,
+      "reposts": 0,
+      "replies": 3,
+      "follower_count": 562310,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "@machibigbrother Thanks for share .I just buy solana:H3f4jYE3tEY8JWve2tRJYzqZpAHEHPihJkGQA5BCqqkn  ( what I could afford",
+      "url": "https://x.com/andrenftart/status/2088584834847273292",
+      "source": "@andrenftart",
+      "published": "2026-08-15T11:13:23+00:00",
+      "tickers": [
+        "SOL",
+        "JST",
+        "MEME"
+      ],
+      "currency_pairs": [],
+      "summary": "@machibigbrother Thanks for share .I just buy solana:H3f4jYE3tEY8JWve2tRJYzqZpAHEHPihJkGQA5BCqqkn  ( what I could afford )\nThe last of my $SOL for investing in memes. \n\nWill I find a meme that changes my life with a $10 investment?\n\nproof here 👇vQUwgxkkCfhKKxkQxDszV3NyauyH5BBa9175WvM9z3L",
+      "sentiment": "Bullish",
+      "confidence": 0.9241,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 10506,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "@justinsuntron Definitely #4😍\n\nAny portfolio led by $TRX is an easy win \n\n𝗣𝗿𝗶𝗱𝗲 𝗢𝗳 #TRONEcostar",
+      "url": "https://x.com/Andy_Luigino/status/2088584487219204349",
+      "source": "@Andy_Luigino",
+      "published": "2026-08-15T11:12:00+00:00",
+      "tickers": [
+        "TRX"
+      ],
+      "currency_pairs": [],
+      "summary": "@justinsuntron Definitely #4😍\n\nAny portfolio led by $TRX is an easy win \n\n𝗣𝗿𝗶𝗱𝗲 𝗢𝗳 #TRONEcostar",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 16765,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "$600B of Biden’s clean energy funding survives Trump’s cuts",
+      "url": "https://cryptobriefing.com/600-billion-biden-clean-energy-funding-survives-trump-cuts/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-15T11:10:56+00:00",
+      "tickers": [
+        "TRUMP"
+      ],
+      "currency_pairs": [],
+      "summary": "Despite cuts, the preservation of substantial clean energy funding ensures continued support for renewable projects, impacting future policy debates. \n The post  $600B of Biden&#8217;s clean energy funding survives Trump&#8217;s cuts  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "@DeFi_JUST @trondao Already joined! Free rewards on held $TRX is the best way to earn \n\n𝗣𝗿𝗶𝗱𝗲 𝗢𝗳 #TRONEcostar",
+      "url": "https://x.com/Andy_Luigino/status/2088583659825582572",
+      "source": "@Andy_Luigino",
+      "published": "2026-08-15T11:08:43+00:00",
+      "tickers": [
+        "TRX"
+      ],
+      "currency_pairs": [],
+      "summary": "@DeFi_JUST @trondao Already joined! Free rewards on held $TRX is the best way to earn \n\n𝗣𝗿𝗶𝗱𝗲 𝗢𝗳 #TRONEcostar",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 16765,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Top 6 cloud mining platforms of August 2026",
+      "url": "https://ambcrypto.com/top-6-cloud-mining-platforms-of-august-2026/",
+      "source": "AMBCrypto",
+      "published": "2026-08-15T11:05:34+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Cloud mining has emerged as an alternative to traditional mining in the crypto space. Instead of buying specialized equipment, setting up a mining operation, and managing ongoing electricity costs, users can rent computing power from a third-party provider and take part in mining remotely. The crypt",
+      "sentiment": "Bullish",
+      "confidence": 0.6011,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Remember MySpace? The social media pioneer eyes a comeback for the ages",
+      "url": "https://seekingalpha.com/news/4631515-remember-myspace-the-social-media-pioneer-eyes-a-comeback-for-the-ages?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-15T11:00:50+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.7752,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "The ‘Hindenburg Omen’ keeps flashing. Should investors worry about a stock-market crash?",
+      "url": "https://www.marketwatch.com/story/the-hindenburg-omen-keeps-flashing-should-investors-worry-about-a-stock-market-crash-a4baf770?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "published": "2026-08-15T11:00:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Among the more popular indicators monitored by Wall Street’s technical strategists, the “Hindenburg Omen” definitely has the coolest name — and is among the more controversial.",
+      "sentiment": "Bearish",
+      "confidence": 0.7191,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "US",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "$BTC Sellers this week…\n\nOnly real force showing intent, with limited result thus far.\n\nBut if there is no one willing t",
       "url": "https://x.com/The_JDK99/status/2088581016092827792",
@@ -129,13 +335,154 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
+      "title": "M 6.9 - 7 km NNW of Pematangsiantar, Indonesia",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyk",
+      "source": "USGS",
+      "published": "2026-08-15T10:54:52.753000+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "7 km NNW of Pematangsiantar, Indonesia",
+      "sentiment": "Bearish",
+      "confidence": 0.6125,
+      "other_sources": [
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyg",
+          "published": "2026-08-15T10:31:30.185000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tky8",
+          "published": "2026-08-15T09:32:53.800000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkx5",
+          "published": "2026-08-15T07:39:38.975000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwt",
+          "published": "2026-08-15T06:43:07.500000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwq",
+          "published": "2026-08-15T06:28:51.109000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwj",
+          "published": "2026-08-15T05:45:08.046000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwd",
+          "published": "2026-08-15T04:23:07.762000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkw9",
+          "published": "2026-08-15T03:54:13.099000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkw2",
+          "published": "2026-08-15T02:46:55.923000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkw0",
+          "published": "2026-08-15T02:18:46.795000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvy",
+          "published": "2026-08-15T02:03:45.840000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvt",
+          "published": "2026-08-15T01:37:40.307000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvp",
+          "published": "2026-08-15T01:17:20.014000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvh",
+          "published": "2026-08-15T00:40:18.406000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvg",
+          "published": "2026-08-15T00:20:27.120000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvd",
+          "published": "2026-08-15T00:03:22.963000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvc",
+          "published": "2026-08-14T23:52:55.591000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvb",
+          "published": "2026-08-14T23:49:58.157000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkv9",
+          "published": "2026-08-14T23:17:05.284000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkv7",
+          "published": "2026-08-14T23:12:31.091000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkuc",
+          "published": "2026-08-14T22:28:37.550000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tku7",
+          "published": "2026-08-14T22:18:06.706000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkta",
+          "published": "2026-08-14T22:13:50.869000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkt2",
+          "published": "2026-08-14T21:58:21.564000+00:00"
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "usgs_magnitude",
+      "source_type": "rss",
+      "event_source": "usgs",
+      "magnitude": 6.9
+    },
+    {
       "title": "@justinsuntron In fact it outperformed all 5 of them . While most coins hit a downtrend $TRX stayed solid and hopefully ",
       "url": "https://x.com/Dendorion/status/2088579490318332004",
       "source": "@Dendorion",
       "published": "2026-08-15T10:52:09+00:00",
       "tickers": [
-        "TRX",
         "ATH",
+        "TRX",
         "SOON"
       ],
       "currency_pairs": [],
@@ -385,8 +732,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T10:36:53+00:00",
       "tickers": [
-        "BNB",
         "BGB",
+        "BNB",
         "HTX"
       ],
       "currency_pairs": [],
@@ -422,171 +769,15 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "M 5.1 - 39 km NNW of Ruteng, Indonesia",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyg",
-      "source": "USGS",
-      "published": "2026-08-15T10:31:30.185000+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "39 km NNW of Ruteng, Indonesia",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkya",
-          "published": "2026-08-15T09:51:45.571000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tky8",
-          "published": "2026-08-15T09:32:53.800000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkx5",
-          "published": "2026-08-15T07:39:38.975000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwt",
-          "published": "2026-08-15T06:43:07.500000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwq",
-          "published": "2026-08-15T06:28:51.109000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwj",
-          "published": "2026-08-15T05:45:08.046000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwd",
-          "published": "2026-08-15T04:23:07.762000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkw9",
-          "published": "2026-08-15T03:54:13.099000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkw2",
-          "published": "2026-08-15T02:46:55.923000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkw0",
-          "published": "2026-08-15T02:18:46.795000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvy",
-          "published": "2026-08-15T02:03:45.840000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvt",
-          "published": "2026-08-15T01:37:40.307000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvp",
-          "published": "2026-08-15T01:17:20.014000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvh",
-          "published": "2026-08-15T00:40:18.406000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvg",
-          "published": "2026-08-15T00:20:27.120000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvd",
-          "published": "2026-08-15T00:03:22.963000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvc",
-          "published": "2026-08-14T23:52:55.591000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvb",
-          "published": "2026-08-14T23:49:58.157000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkv9",
-          "published": "2026-08-14T23:17:05.284000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkv7",
-          "published": "2026-08-14T23:12:31.091000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkuw",
-          "published": "2026-08-14T22:53:11.834000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkuf",
-          "published": "2026-08-14T22:37:17.172000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkuc",
-          "published": "2026-08-14T22:28:37.550000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tku7",
-          "published": "2026-08-14T22:18:06.706000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkta",
-          "published": "2026-08-14T22:13:50.869000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkt2",
-          "published": "2026-08-14T21:58:21.564000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkrs",
-          "published": "2026-08-14T18:03:54.327000+00:00"
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "usgs_magnitude",
-      "source_type": "rss",
-      "event_source": "usgs",
-      "magnitude": 5.1
-    },
-    {
       "title": "XRP Price Outlook as Network Activity Hits 2-Month High — Will It Hold $1?",
       "url": "https://coingape.com/markets/xrp-price-outlook-as-network-activity-hits-2-month-high-will-it-hold-1/",
       "source": "Coingape",
       "published": "2026-08-15T10:29:01+00:00",
       "tickers": [
-        "BTC",
         "OP",
         "SHORT",
         "XRP",
+        "BTC",
         "ETH"
       ],
       "currency_pairs": [],
@@ -658,9 +849,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-15T10:20:22+00:00",
       "tickers": [
-        "BTC",
+        "LINK",
         "VELVET",
-        "LINK"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "VELVET has entered the top 100 alts after a massive 150% weekly surge.",
@@ -735,6 +926,42 @@ window.newsData = {
       "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
+    },
+    {
+      "title": "M 4.6 - 122 km NW of Luwuk, Indonesia",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkya",
+      "source": "USGS",
+      "published": "2026-08-15T09:51:45.571000+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "122 km NW of Luwuk, Indonesia",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkuw",
+          "published": "2026-08-14T22:53:11.834000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkuf",
+          "published": "2026-08-14T22:37:17.172000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkrs",
+          "published": "2026-08-14T18:03:54.327000+00:00"
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "usgs_magnitude",
+      "source_type": "rss",
+      "event_source": "usgs",
+      "magnitude": 4.6
     },
     {
       "title": "Latest Bitcoin check: flows are printing around $62,634 with a -1.04% daily move.\n\nOne headline in the mix: Live updates",
@@ -1311,8 +1538,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T08:42:36+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The Cboe exchange is seeking approval to list the first triple-leveraged Bitcoin and Ethereum ETFs in the US. The filing comes on the back of weakening demand for crypto ETFs amid the ongoing price weakness. The Cboe filing has not driven gains for Bitcoin and Ethereum, with the two trading at $63,0",
@@ -2348,8 +2575,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-15T06:00:51+00:00",
       "tickers": [
-        "BNB",
         "ETH",
+        "BNB",
         "CROSS"
       ],
       "currency_pairs": [],
@@ -2463,8 +2690,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-15T05:35:27+00:00",
       "tickers": [
-        "FLOW",
-        "CROSS"
+        "CROSS",
+        "FLOW"
       ],
       "currency_pairs": [],
       "summary": "Eleven weeks after the European Union&#8217;s MiCA deadline, the 12th edition of the European Blockchain Convention (EBC12) returns to Barcelona at a pivotal moment for the industry. It is the region&#8217;s first major institutional gathering since the world&#8217;s first comprehensive cross-border",
@@ -2756,10 +2983,10 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T04:00:13+00:00",
       "tickers": [
+        "ETH",
         "APES",
         "APE",
-        "JST",
-        "ETH"
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Lookonchain tied three loss-making Bored Ape sales to the trade, but the public record does not trace the proceeds into margin. \n The post  Machi Big Brother sells 3 Bored Apes to cut his Ethereum long in 52%, but liquidation moved to just $22 away  appeared first on  CryptoSlate .",
@@ -2903,8 +3130,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-15T02:40:14+00:00",
       "tickers": [
-        "BTC",
-        "SHORT"
+        "SHORT",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Grayscale expects bitcoin adoption to keep expanding even after the latest bear market, pointing to government deficits, wider blockchain use, and changing portfolio preferences. Those forces could deepen bitcoin’s integration with traditional finance over time. Grayscale Says Bitcoin Adoption Can O",
@@ -3087,8 +3314,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-15T01:47:51+00:00",
       "tickers": [
-        "SPK",
-        "REAL"
+        "REAL",
+        "SPK"
       ],
       "currency_pairs": [],
       "summary": "The breach involves taxpayer data in the General Directorate of Public Finances&#8217; custody, which has already confirmed that threat actors had access to the addresses and real estate of 678K users. Crypto holders fear that this leak might spark a new wave of violence. Massive 678K Taxpayer Data",
@@ -3363,8 +3590,8 @@ window.newsData = {
       "published": "2026-08-15T00:30:14+00:00",
       "tickers": [
         "USD1",
-        "TRUMP",
-        "WLFI"
+        "WLFI",
+        "TRUMP"
       ],
       "currency_pairs": [],
       "summary": "World Liberty Financial, the Trump family-linked decentralized finance (DeFi) firm, cleared its first major banking hurdle on Friday after the U.S. Office of the Comptroller of the Currency (OCC) granted preliminary conditional approval for a national trust bank. The Aug. 14 decision gives World Lib",
@@ -3405,8 +3632,8 @@ window.newsData = {
       "published": "2026-08-15T00:01:00+00:00",
       "tickers": [
         "NEAR",
-        "BTC",
         "HYPE",
+        "BTC",
         "SHIB"
       ],
       "currency_pairs": [],
@@ -3625,25 +3852,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "US SEC extends hands-off policy on shareholder proposals, raising governance concerns",
-      "url": "https://cryptobriefing.com/sec-shareholder-proposals-policy-concerns/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-14T23:39:26+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The SEC's policy shift may weaken shareholder influence, potentially leading to increased corporate self-regulation and legal disputes. \n The post  US SEC extends hands-off policy on shareholder proposals, raising governance concerns  appeared first on  Crypto Briefing .",
-      "sentiment": "Neutral",
-      "confidence": 0.5193,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "The goal is to become ubiquitous and critical. So there is no going back.\n\nThe Protocol Economy - powered by $LINK - a s",
       "url": "https://x.com/nullpackets/status/2088410162973602002",
       "source": "@nullpackets",
@@ -3714,25 +3922,6 @@ window.newsData = {
       "reposts": 0,
       "replies": 0,
       "follower_count": 271336,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Motorsport Games outlines U.S. Track Pack follow-ups in September and December while scaling RaceControl to $2.9M ARR",
-      "url": "https://seekingalpha.com/news/4633571-motorsport-games-outlines-u-s-track-pack-follow-ups-in-september-and-december-while-scaling?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-14T23:27:45+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bullish",
-      "confidence": 0.7836,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -4158,8 +4347,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-14T21:27:25+00:00",
       "tickers": [
-        "FORM",
-        "SOL"
+        "SOL",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "Bitwise is working with Superstate to let investors hold shares of certain funds in tokenized form while preserving the same legal and economic rights. Its Solana staking ETF is expected to be the first product considered for the blockchain-based structure. Bitwise Taps Superstate to Bring ETF Share",
@@ -4201,8 +4390,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-14T21:20:07+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Norway’s sovereign wealth fund ended the first half of 2026 with record indirect Bitcoin exposure and a newly disclosed stake in the world’s largest Ethereum treasury company. Norges Bank Investment Management’s (NBIM) public-equity holdings translated into 11,549 BTC of indirect exposure as of June",
@@ -4250,8 +4439,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T21:19:39+00:00",
       "tickers": [
-        "WLFI",
-        "TRUMP"
+        "TRUMP",
+        "WLFI"
       ],
       "currency_pairs": [],
       "summary": "President Donald Trump-backed World Liberty Financial secured preliminary approval to become a national trust bank on Friday.",
@@ -4733,14 +4922,35 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
+      "title": "AquaChain Advances Its Web3 Vision for Verifiable AI Infrastructure Ahead of AQUA Listing",
+      "url": "https://zycrypto.com/aquachain-advances-its-web3-vision-for-verifiable-ai-infrastructure-ahead-of-aqua-listing/",
+      "source": "ZyCrypto",
+      "published": "2026-08-14T20:13:19+00:00",
+      "tickers": [
+        "VSN"
+      ],
+      "currency_pairs": [],
+      "summary": "The emerging Web3 infrastructure initiative outlines an incentive-driven model connecting verified cooling performance with Efficiency Credits and the future utility envisioned for AQUA. Cayman Islands, 14th August 2026: AquaChain is advancing its vision for an incentive-driven Web3 ecosystem design",
+      "sentiment": "Bullish",
+      "confidence": 0.9295,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "Bitcoin’s ETF rebound just lost 38% of its gains in four sessions as BTC fell below $63,000",
       "url": "https://cryptoslate.com/bitcoins-etf-rebound-just-lost-38-of-its-gains-in-four-sessions-as-btc-fell-below-63000/",
       "source": "CryptoSlate",
       "published": "2026-08-14T20:10:12+00:00",
       "tickers": [
-        "FORM",
         "BTC",
-        "JST"
+        "JST",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "A broad Aug. 13 retreat left only MSBT and Grayscale's Bitcoin Mini Trust attracting money. \n The post  Bitcoin’s ETF rebound just lost 38% of its gains in four sessions as BTC fell below $63,000  appeared first on  CryptoSlate .",
@@ -4792,8 +5002,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-14T20:04:47+00:00",
       "tickers": [
-        "XRP",
-        "TRUMP"
+        "TRUMP",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Coinbase and Ripple executives are expected to be among the crypto executives who will attend the White House crypto meeting with President Donald Trump and his officials. Notably, CEOs Brian Armstrong and Brad Garlinghouse have been among the crypto stakeholders actively pushing the Senate to pass",
@@ -4919,6 +5129,27 @@ window.newsData = {
       "reposts": 0,
       "replies": 1,
       "follower_count": 2853011,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "XRP Network Activity Jumps 86% as Exchange Activity Collapses 96%, Hinting at a Market Bottom",
+      "url": "https://zycrypto.com/xrp-network-activity-jumps-86-as-exchange-activity-collapses-96-hinting-at-a-market-bottom/",
+      "source": "ZyCrypto",
+      "published": "2026-08-14T19:53:05+00:00",
+      "tickers": [
+        "XRP"
+      ],
+      "currency_pairs": [],
+      "summary": "XRP traded mostly sideways on Friday after a volatile stretch across the crypto market that left traders uncertain about the next move.",
+      "sentiment": "Bearish",
+      "confidence": 0.7633,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -5091,8 +5322,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T19:07:47+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Crypto wrench attacks in France are on pace to make 2026 the worst year ever for violent crimes targeting crypto holders in the country.",
@@ -5113,8 +5344,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T19:01:18+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "LeverageShares debuted the world’s first 3x bitcoin and ether ETFs in Europe. These would be the first in the U.S., if approved.",
@@ -5135,8 +5366,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-14T19:01:05+00:00",
       "tickers": [
-        "LDO",
-        "ETH"
+        "ETH",
+        "LDO"
       ],
       "currency_pairs": [],
       "summary": "Sharplink plans to stake roughly 12% of its total Ethereum holdings through Lido, earning yield while staying active in DeFi.",
@@ -5190,9 +5421,9 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T18:57:04+00:00",
       "tickers": [
+        "ETH",
         "BTC",
-        "SOL",
-        "ETH"
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "The value of the university endowment’s holdings in the Bitwise Solana staking ETF, Grayscale Ethereum staking ETF and BlackRock’s iShares Bitcoin ETF dropped to about $12 million.",
@@ -5815,6 +6046,28 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
+      "title": "Bitcoin Whales Wake Up After 12 Years With 8,000% Gains, Raising Market Fears",
+      "url": "https://zycrypto.com/bitcoin-whales-wake-up-after-12-years-with-8000-gains-raising-market-fears/",
+      "source": "ZyCrypto",
+      "published": "2026-08-14T18:23:49+00:00",
+      "tickers": [
+        "BTC",
+        "FORM"
+      ],
+      "currency_pairs": [],
+      "summary": "Bitcoin (BTC), the largest cryptocurrency by market capitalization, has fallen roughly 2% over the past week, keeping traders cautious as broader macroeconomic uncertainty and the delayed U.S. CLARITY Act weigh on sentiment. Bitcoin’s recent weakness is now being accompanied by an unusual burst of a",
+      "sentiment": "Bearish",
+      "confidence": 0.8578,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "CZ Says Software Wallets Avoid Risks Seen in Trezor Leak",
       "url": "https://cryptopotato.com/cz-says-software-wallets-avoid-risks-seen-in-trezor-leak/",
       "source": "CryptoPotato",
@@ -5862,9 +6115,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-14T18:05:15+00:00",
       "tickers": [
+        "ETH",
         "BTC",
-        "SOL",
-        "ETH"
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "The leading bank in Israel, Bank Leumi, has caught the eyes of crypto market traders with its recent announcement to allow crypto trading for its customers through a partnership with Galaxy. According to the announcement, the customers would be able to buy, sell, or hold cryptocurrencies like Bitcoi",
@@ -5946,6 +6199,27 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
+      "title": "Shiba Inu’s Shibarium Sees 507% Transaction Surge Before Sharp Reversal Wipes Out Momentum",
+      "url": "https://zycrypto.com/shiba-inus-shibarium-sees-507-transaction-surge-before-sharp-reversal-wipes-out-momentum/",
+      "source": "ZyCrypto",
+      "published": "2026-08-14T17:53:28+00:00",
+      "tickers": [
+        "SHIB"
+      ],
+      "currency_pairs": [],
+      "summary": "Shiba Inu traded largely sideways Friday as the broader crypto market remained volatile, extending its weekly decline to nearly 7% amid persistent selling pressure.",
+      "sentiment": "Bullish",
+      "confidence": 0.7294,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "Think interest rates are high now? These charts offers a different perspective.",
       "url": "https://www.marketwatch.com/story/think-interest-rates-are-high-now-these-charts-offers-a-different-perspective-ae5f28c6?mod=mw_rss_topstories",
       "source": "MarketWatch",
@@ -5970,8 +6244,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-14T17:48:04+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -6048,21 +6322,24 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Luigi Mangione pleads guilty in federal court to stalking health-insurance CEO",
-      "url": "https://www.marketwatch.com/story/luigi-mangione-pleads-guilty-to-stalking-health-insurance-ceo-in-federal-court-d941ce3f?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "published": "2026-08-14T17:40:00+00:00",
-      "tickers": [],
+      "title": "Vitalik Buterin Says Ethereum Is Entering a New Quantum-Safe Era",
+      "url": "https://zycrypto.com/vitalik-buterin-says-ethereum-is-entering-a-new-quantum-safe-era/",
+      "source": "ZyCrypto",
+      "published": "2026-08-14T17:41:06+00:00",
+      "tickers": [
+        "ETH",
+        "SAFE"
+      ],
       "currency_pairs": [],
-      "summary": "Luigi Mangione, who is accused of killing a UnitedHealthcare executive, pled guilty to federal stalking charges ahead of a high-profile state murder trial in New York set to begin next month.",
-      "sentiment": "Bearish",
-      "confidence": 0.7516,
+      "summary": "Ethereum co-founder Vitalik Buterin updated parts of the network&#8217;s roadmap amid scalability concerns and growing artificial intelligence (AI) capabilities. Some areas like security and quantum safety will receive closer attention, while others were pushed a couple of steps down. Ethereum Is Br",
+      "sentiment": "Bullish",
+      "confidence": 0.9443,
       "other_sources": [],
-      "category": "STOCKS",
+      "category": "CRYPTO",
       "region": "GLOBAL",
-      "asset_class": "stocks",
+      "asset_class": "crypto",
       "source_flag": null,
-      "sentiment_engine": "finbert",
+      "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -6179,9 +6456,9 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T17:09:37+00:00",
       "tickers": [
+        "ETH",
         "BTC",
-        "SOL",
-        "ETH"
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Israel received an estimated $22 billion in onchain crypto value during the 12 months ending June 2025, according to Chainalysis.",
@@ -6213,8 +6490,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-14T17:06:15+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin pioneer Adam Back co-signs Ethereum’s major cryptographic pivot, as the blockchain dumps custom Poseidon hashes for time-tested security.",
@@ -6276,8 +6553,8 @@ window.newsData = {
       "source": "Investing.com Crypto",
       "published": "2026-08-14T17:00:35+00:00",
       "tickers": [
-        "USDC",
-        "USDT"
+        "USDT",
+        "USDC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -6366,10 +6643,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-14T16:23:55+00:00",
       "tickers": [
+        "ETH",
         "BTC",
-        "ASSET",
         "SOL",
-        "ETH"
+        "ASSET"
       ],
       "currency_pairs": [],
       "summary": "Israel's largest bank has integrated cryptocurrencies into its services, becoming the first bank to offer digital asset services in the country.",
@@ -6477,9 +6754,9 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-14T16:10:45+00:00",
       "tickers": [
+        "ETH",
         "RLUSD",
-        "XRP",
-        "ETH"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple's new $50 million stablecoin mint pushes RLUSD supply on Ethereum blockchain close to a record parity with XRP Ledger.",
@@ -7012,10 +7289,10 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T14:22:57+00:00",
       "tickers": [
-        "BIT",
+        "ETH",
         "BTC",
-        "ROSE",
-        "ETH"
+        "BIT",
+        "ROSE"
       ],
       "currency_pairs": [],
       "summary": "Morgan Stanley’s reported IBIT holdings rose to 16.5 million shares in Q2, while Ether ETF positions and several crypto-linked stocks also increased.",
@@ -7036,10 +7313,10 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T14:14:06+00:00",
       "tickers": [
-        "ETH-ETF",
+        "ETH",
         "BTC",
         "BTC-ETF",
-        "ETH"
+        "ETH-ETF"
       ],
       "currency_pairs": [],
       "summary": "JPMorgan reported a 25% increase in its Bitcoin ETF position and more than quadrupled its Ether ETF position in the second quarter.",
@@ -7069,30 +7346,6 @@ window.newsData = {
       "other_sources": [],
       "category": "REGULATORY",
       "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Bitrue Launches AI Copilot That Explains the ‘Why’ for XRP and Crypto Trades",
-      "url": "https://beincrypto.com/bitrue-launches-ai-copilot-xrp-crypto-trading/",
-      "source": "BeInCrypto",
-      "published": "2026-08-14T14:03:51+00:00",
-      "tickers": [
-        "XRP",
-        "JST",
-        "ASSET",
-        "REAL"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitrue has officially launched Bitrue AI, a new trading copilot designed to solve a major limitation in automated crypto trading by explaining not just what a strategy does, but why. Built for XRP traders and the broader crypto market, the platform delivers real-time market rationale alongside every",
-      "sentiment": "Bullish",
-      "confidence": 0.8,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "groq",
@@ -7385,8 +7638,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T12:25:38+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Norges Bank Investment Management also disclosed a new $88 million stake in Ethereum treasury firm Bitmine.",
@@ -7466,14 +7719,35 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
+      "title": "MEXC’s August 2026 Proof of Reserves Confirms User Assets Fully Backed as Reserve Ratios Remain Above 100%",
+      "url": "https://zycrypto.com/mexcs-august-2026-proof-of-reserves-confirms-user-assets-fully-backed-as-reserve-ratios-remain-above-100/",
+      "source": "ZyCrypto",
+      "published": "2026-08-14T11:58:14+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Mutsamudu, Comoros, August 14, 2026 – MEXC, a pioneer in 0-fee digital asset trading, has released its August 2026 Proof of Reserves (PoR) report, audited by Hacken, showing that reserve ratios for all major assets remained above 100%, with the BTC reserve ratio reaching 288%. This report reflects M",
+      "sentiment": "Bullish",
+      "confidence": 0.8748,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "Bitcoin’s (BTC) Defining Moment, Ethereum’s (ETH) Potential, and More: Bits Recap August 14",
       "url": "https://cryptopotato.com/bitcoins-btc-defining-moment-ethereums-eth-potential-and-more-bits-recap-august-14/",
       "source": "CryptoPotato",
       "published": "2026-08-14T11:52:25+00:00",
       "tickers": [
-        "ADA",
+        "ETH",
         "BTC",
-        "ETH"
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "A closer look at the recent performance of BTC, ETH, and ADA and what could be coming next.",
@@ -7577,9 +7851,9 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T11:23:28+00:00",
       "tickers": [
-        "ASSET",
         "SHORT",
-        "PLUME"
+        "PLUME",
+        "ASSET"
       ],
       "currency_pairs": [],
       "summary": "Shinhan Asset Management and Plume will test a tokenized fund using a Korean won-denominated ultra-short-term bond fund as its underlying asset.",
@@ -7621,11 +7895,11 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-14T11:16:26+00:00",
       "tickers": [
-        "BNB",
+        "HYPE",
         "ADA",
         "XRP",
-        "ETH",
-        "HYPE"
+        "BNB",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "This Friday, we examine Ethereum, Ripple, Cardano, Binance Coin, and Hyperliquid in greater detail. Ethereum (ETH) This week, Ethereum hugged the key support at $1,800 with a minor loss of 2%. While this puts sellers in a more favorable position, they will need to break the support if they want to t",
@@ -7686,9 +7960,9 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-14T11:07:49+00:00",
       "tickers": [
-        "WLFI",
+        "WLF",
         "TRUMP",
-        "WLF"
+        "WLFI"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -7958,8 +8232,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-14T09:41:58+00:00",
       "tickers": [
-        "BTC",
-        "SHORT"
+        "SHORT",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The liquidation price is less than $1,000 higher, but the trader keeps pumping their short.",
@@ -8214,8 +8488,8 @@ window.newsData = {
       "source": "The Daily Hodl",
       "published": "2026-08-14T07:04:36+00:00",
       "tickers": [
-        "FORM",
-        "USDT"
+        "USDT",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "The world's largest stablecoin issuer has completed its first full independent financial statement audit by KPMG U.S., earning an unqualified clean opinion for the year ended December 31, 2025. \n The post  Tether Completes Largest Inaugural Financial Audit in History Conducted by Big Four Accounting",
@@ -8236,10 +8510,10 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-14T06:51:04+00:00",
       "tickers": [
-        "USDC",
-        "SUPER",
         "ETH",
-        "HOME"
+        "HOME",
+        "SUPER",
+        "USDC"
       ],
       "currency_pairs": [],
       "summary": "[PRESS RELEASE &#8211; Willemstad, Curaçao, August 14th, 2026] A high-stakes crypto player connected to 1win’s Global Crypto Ambassador network received a 1.749 million USDC payout following a seven-figure wager on Paris Saint-Germain against Aston Villa in the 2026 UEFA Super Cup. The payout was re",
@@ -8260,8 +8534,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-14T06:29:07+00:00",
       "tickers": [
-        "SOL",
-        "JST"
+        "JST",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "The upcoming Alpenglow upgrade aims to cut transaction finality from roughly 12.8 seconds to just 150 milliseconds.",
@@ -8303,9 +8577,9 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T04:09:44+00:00",
       "tickers": [
-        "FORM",
+        "SOLANA",
         "SOL",
-        "SOLANA"
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "Shares held in tokenized form would carry the same rights as those in book-entry form, though not freely transferable outside the system.",
@@ -8347,10 +8621,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-14T00:01:00+00:00",
       "tickers": [
-        "SHIB",
-        "HYPE",
         "ETH",
-        "CROSS"
+        "HYPE",
+        "CROSS",
+        "SHIB"
       ],
       "currency_pairs": [],
       "summary": "Things are getting more interesting on the market as volatility surges on multiple assets.",
@@ -8460,8 +8734,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-13T22:18:07+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -8711,9 +8985,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-13T20:09:35+00:00",
       "tickers": [
+        "ETH",
         "BTC",
-        "SOL",
-        "ETH"
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Solana is now GSR's largest allocation.",
@@ -8734,10 +9008,10 @@ window.newsData = {
       "source": "Bitcoin Magazine",
       "published": "2026-08-13T20:01:40+00:00",
       "tickers": [
-        "FORM",
         "BTC",
         "TETHER",
-        "USDT"
+        "USDT",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Tether Finally Completes Independent Audit of Reserves With KPMG  \n The stablecoin giant for years struggled to get a Big Four accounting firm to audit its reserves. No more.  \n This post  Tether Finally Completes Independent Audit of Reserves With KPMG  first appeared on  Bit",
@@ -8826,10 +9100,10 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-13T18:51:45+00:00",
       "tickers": [
-        "COINBASE",
-        "POLYMARKET",
-        "ROBINHOOD",
         "WEBULL",
+        "ROBINHOOD",
+        "POLYMARKET",
+        "COINBASE",
         "KALSHI"
       ],
       "currency_pairs": [],
@@ -8922,8 +9196,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-13T18:26:21+00:00",
       "tickers": [
-        "FORM",
-        "USDT"
+        "USDT",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -9211,8 +9485,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-13T15:48:37+00:00",
       "tickers": [
-        "ADA",
-        "XMR"
+        "XMR",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "XMR flipped ADA and is now the 16th-biggest cryptocurrency.",
@@ -9297,8 +9571,8 @@ window.newsData = {
       "source": "The Defiant",
       "published": "2026-08-13T15:10:55+00:00",
       "tickers": [
-        "LDO",
-        "ETH"
+        "ETH",
+        "LDO"
       ],
       "currency_pairs": [],
       "summary": "Using Kraken’s displayed $1,889.84 ETH price, the planned allocation equates to about 106,000 ETH, roughly 12% of SharpLink’s reported holdings.",
@@ -9417,8 +9691,8 @@ window.newsData = {
       "published": "2026-08-13T14:18:05+00:00",
       "tickers": [
         "NEAR",
-        "XRP",
-        "USDT"
+        "USDT",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP remains firmly in a corrective structure, with the token trading near $1.00 after months of lower highs and lower lows. While the current support zone could trigger a relief move, the broader trend remains bearish until the asset can reclaim several key resistance levels. Ripple Price Analysis:",
@@ -9439,10 +9713,10 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-13T14:01:03+00:00",
       "tickers": [
-        "ASSET",
-        "AAVE",
         "ETH",
-        "ETHFI"
+        "ETHFI",
+        "AAVE",
+        "ASSET"
       ],
       "currency_pairs": [],
       "summary": "The Ethereum staking platform is adding asset trading, fiat accounts, and borrowing through Aave as it pushes into crypto banking.",
@@ -9463,9 +9737,9 @@ window.newsData = {
       "source": "The Defiant",
       "published": "2026-08-13T14:00:32+00:00",
       "tickers": [
-        "AAVE",
         "ETH",
-        "ETHFI"
+        "ETHFI",
+        "AAVE"
       ],
       "currency_pairs": [],
       "summary": "The Summer release lands a week after the protocol pulled restaking out of weETH. The release also introduces programmatic ETHFI buybacks funded from every revenue line.",
@@ -9608,8 +9882,8 @@ window.newsData = {
       "published": "2026-08-13T13:01:05+00:00",
       "tickers": [
         "DRV",
-        "XRP",
-        "FLR"
+        "FLR",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "The Derive integration gives XRP holders a way to hedge or speculate without depositing their tokens with a centralized exchange.",
@@ -9807,27 +10081,6 @@ window.newsData = {
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Ripple Clarity Act: SEC Vote Could Set Crypto Rulemaking in Motion on August 14",
-      "url": "https://cryptonews.com/news/ripple-clarity-act-regulation-crypto-sec-vote/",
-      "source": "Crypto News",
-      "published": "2026-08-13T11:09:49+00:00",
-      "tickers": [
-        "XRP"
-      ],
-      "currency_pairs": [],
-      "summary": "The SEC may launch formal Regulation Crypto rulemaking on August 14, with potential implications for crypto offerings and XRP holders. \n The post  Ripple Clarity Act: SEC Vote Could Set Crypto Rulemaking in Motion on August 14  appeared first on  Cryptonews .",
-      "sentiment": "Bearish",
-      "confidence": 0.75,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": null,
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -10158,7 +10411,7 @@ window.newsData = {
     }
   ],
   "forex_sentiment": {
-    "updated_at": "2026-08-15T10:15:06.709090+00:00",
+    "updated_at": "2026-08-15T11:16:20.809239+00:00",
     "pairs": [
       {
         "symbol": "GBPJPY",
