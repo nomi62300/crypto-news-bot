@@ -398,3 +398,5 @@
 {"headline": "BofA favors value, biotech and commodities as AI productivity lags", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.5984, "timestamp": "2026-08-16T15:58:02.087314+00:00"}
 {"headline": "Calm markets mask risk of sudden S&P 500 swings", "summary": "", "finbert_label": "Bearish", "finbert_score": 0.6598, "timestamp": "2026-08-16T16:16:10.453170+00:00"}
 {"headline": "J.P. Morgan ended Polymarket banking relationship over regulatory concerns", "summary": "", "finbert_label": "Bearish", "finbert_score": 0.9203, "timestamp": "2026-08-16T16:44:52.057690+00:00"}
+{"headline": "Quebec, Newfoundland near expanded hydroelectric power agreement", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.7385, "timestamp": "2026-08-16T17:23:08.248280+00:00"}
+{"headline": "Charlie Ergen’s CONX to acquire control of MobileX in $200M deal", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.9246, "timestamp": "2026-08-16T17:23:08.304816+00:00"}
