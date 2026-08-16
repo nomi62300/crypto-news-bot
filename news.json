@@ -1,16 +1,114 @@
 {
-  "updated_at": "2026-08-16T21:16:45.311698+00:00",
-  "total": 614,
+  "updated_at": "2026-08-16T21:37:52.389123+00:00",
+  "total": 612,
   "articles": [
+    {
+      "title": "Ukrainian drones strike Moscow region in largest overnight attack since full-scale invasion",
+      "url": "https://cryptobriefing.com/ukrainian-drones-strike-moscow-region-largest-attack/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T21:34:58+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The escalation of Ukrainian drone attacks on Russian territory could intensify the conflict, prompting potential severe retaliatory measures. \n The post  Ukrainian drones strike Moscow region in largest overnight attack since full-scale invasion  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Trump directs Pentagon to reduce military drills with South Korea",
+      "url": "https://cryptobriefing.com/trump-pentagon-reduce-south-korea-drills/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T21:29:56+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Scaling back US-South Korea military drills may weaken regional security, strain alliances, and embolden North Korea's strategic posture. \n The post  Trump directs Pentagon to reduce military drills with South Korea  appeared first on  Crypto Briefing .",
+      "sentiment": "Neutral",
+      "confidence": 0.5383,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Trump welcomes trilateral defense agreement between Saudi Arabia, Turkey, and Pakistan",
+      "url": "https://cryptobriefing.com/trump-mecca-trilateral-defense-agreement/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T21:26:32+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The trilateral defense pact may shift regional power dynamics, fostering self-reliance and potentially altering alliances in the Middle East. \n The post  Trump welcomes trilateral defense agreement between Saudi Arabia, Turkey, and Pakistan  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "MENA",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Strategy CEO Sees 7 Fall Catalysts Bringing Bitcoin More Life",
+      "url": "https://news.bitcoin.com/featured/strategy-ceo-sees-7-fall-catalysts-bringing-bitcoin-more-life/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-16T21:20:39+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Strategy CEO Phong Le expects regulatory action, expanding bank participation, and digital financial products to bring more activity to subdued bitcoin markets, while political and economic developments could add further momentum during the fall. Le Identifies Seven Potential Market Catalysts Bitcoi",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "M 4.5 - 105 km W of San Antonio de los Cobres, Argentina",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usd0015ea6",
+      "source": "USGS",
+      "published": "2026-08-16T21:06:07.119000+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "105 km W of San Antonio de los Cobres, Argentina",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "usgs_magnitude",
+      "source_type": "rss",
+      "event_source": "usgs",
+      "magnitude": 4.5
+    },
     {
       "title": "4 Reasons This Could Be the Most Important Week of August for Bitcoin and XRP",
       "url": "https://beincrypto.com/4-reasons-bitcoin-xrp-august-week/",
       "source": "BeInCrypto",
       "published": "2026-08-16T21:03:27+00:00",
       "tickers": [
-        "BTC",
         "XRP",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Trump meets crypto leaders, Fed minutes land, and Japan tests the carry trade. Four catalysts that could move Bitcoin and XRP. \n The post  4 Reasons This Could Be the Most Important Week of August for Bitcoin and XRP  appeared first on  BeInCrypto .",
@@ -31,8 +129,8 @@
       "source": "AMBCrypto",
       "published": "2026-08-16T21:00:53+00:00",
       "tickers": [
-        "ETH",
-        "SOL"
+        "SOL",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Tokenization is expanding from Treasury issuance toward broader on-chain use across major blockchain networks.",
@@ -215,8 +313,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-16T19:56:22+00:00",
       "tickers": [
-        "ETH",
-        "BNB"
+        "BNB",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Testnet addresses can become dangerous when users assume the same address works identically on the mainnet.",
@@ -737,9 +835,9 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-16T19:00:34+00:00",
       "tickers": [
-        "BTC",
         "LINK",
         "WLFI",
+        "BTC",
         "JST"
       ],
       "currency_pairs": [],
@@ -1203,9 +1301,9 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-16T18:01:52+00:00",
       "tickers": [
-        "ETH",
+        "USDT",
         "BTC",
-        "USDT"
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "This week’s stories spanned old crypto fortunes, transparency, market forecasts, trading expansion, and macro shifts. Dormant Ethereum whales moved millions after more than a decade, while KPMG issued Tether a clean audit on its 2025 financials. Arthur Hayes warned bitcoin could fall to $50,000 befo",
@@ -1449,46 +1547,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Liverpool takes lead against Como as Gakpo scores in pre-season friendly",
-      "url": "https://cryptobriefing.com/liverpool-gakpo-scores-como-friendly/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T17:33:04+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Gakpo's performance highlights Liverpool's strategic depth, potentially boosting their competitive edge as they transition into the new season. \n The post  Liverpool takes lead against Como as Gakpo scores in pre-season friendly  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.9295,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Beijing seeks to remove Nvidia, but Chinese AI developers lack alternatives",
-      "url": "https://cryptobriefing.com/beijing-bans-nvidia-china-ai-chip-alternatives/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T17:31:16+00:00",
-      "tickers": [
-        "NVDAON"
-      ],
-      "currency_pairs": [],
-      "summary": "China's push for tech self-reliance may hinder AI progress, as domestic alternatives lag behind Nvidia's established ecosystem. \n The post  Beijing seeks to remove Nvidia, but Chinese AI developers lack alternatives  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.8243,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "ASIA",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "My friend’s mother died. Can she stop Medicaid from taking the family home?",
       "url": "https://www.marketwatch.com/story/shes-desperate-my-friends-mother-died-can-she-stop-medicaid-from-taking-the-family-home-394fb6e9?mod=mw_rss_topstories",
       "source": "MarketWatch",
@@ -1662,25 +1720,6 @@
       "reposts": 0,
       "replies": 0,
       "follower_count": 34705,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "João Cancelo leaves Al Hilal, set to return to Barcelona as free agent",
-      "url": "https://cryptobriefing.com/cancelo-leaves-al-hilal-barcelona-free-agent/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T17:21:39+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Cancelo's return to Barcelona highlights the club's adeptness at navigating financial constraints, while Al Hilal loses out on a lucrative fee. \n The post  João Cancelo leaves Al Hilal, set to return to Barcelona as free agent  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8243,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -1910,8 +1949,8 @@
       "source": "AMBCrypto",
       "published": "2026-08-16T17:00:30+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Ethereum’s setup strengthens as ETH/BTC presses against resistance.",
@@ -2233,8 +2272,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-16T16:50:42+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "The proposal remains pending, while ETHU's sponsor-reported -96.15% average annualized NAV figure through June 30 shows the stakes. \n The post  Cboe pushes for 3x Bitcoin and Ethereum ETFs after 2x crypto funds suffer losses of up to 96%  appeared first on  CryptoSlate .",
@@ -3616,8 +3655,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-16T13:00:01+00:00",
       "tickers": [
-        "BNB",
-        "XRP"
+        "XRP",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "XRP is back near $1 even as network activity rebounds, whale deposits to Binance collapse, and derivatives exposure builds near recent lows. The token fell to about $0.98 this week before recovering toward $1, according to CryptoSlate data, extending a retreat that has erased much of its May rally.",
@@ -3830,9 +3869,9 @@
       "source": "Coingape",
       "published": "2026-08-16T12:30:39+00:00",
       "tickers": [
-        "ETH",
+        "XRP",
         "BTC",
-        "XRP"
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "The crypto market is up slightly today, August 16, as traders await the release of the Federal Open Market Committee (FOMC) meeting, which will come out on August 19. Bitcoin (BTC) and Ethereum (ETH) are stuck at $63,000 and $1,800, respectively, while Ripple (XRP) is defending the support at $1. Ad",
@@ -4175,8 +4214,8 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-16T11:30:03+00:00",
       "tickers": [
-        "ETH",
-        "SOL"
+        "SOL",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Grayscale projects Ethereum&#8217;s annual supply inflation could shrink to roughly 0.4% and Solana&#8217;s to 1.1% by 2031 if two pending network proposals pass, pushing both issuance rates below gold&#8217;s roughly 1.8% annual supply growth. Two Networks, One Scarcity Bet Ethereum and Solana are",
@@ -4692,8 +4731,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-16T10:40:50+00:00",
       "tickers": [
-        "ETH",
-        "SOL"
+        "SOL",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Grayscale's July 17 SEC filings said its Ethereum and Solana staking ETFs would convert staking rewards to cash and distribute them to shareholders at least quarterly, with the changes expected around Aug. 7. Solana and Ethereum are each weighing protocol changes that would reduce that income at the",
@@ -4913,10 +4952,10 @@
       "source": "U.Today",
       "published": "2026-08-16T09:55:28+00:00",
       "tickers": [
-        "RLUSD",
-        "FORM",
+        "XRP",
         "BNB",
-        "XRP"
+        "RLUSD",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "Major crypto exchange Binance announces extension of RLUSD campaign with XRP in rewards for holders.",
@@ -5130,25 +5169,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "EU Crypto Adoption Stalls as ECB Finds Mere 0.2% Online Usage",
-      "url": "https://news.bitcoin.com/crypto-news/eu-crypto-adoption-stalls-as-ecb-finds-mere-0-2-online-usage/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-16T09:30:05+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The survey, which involved 8,205 companies across the European Union, found that only 0.2% accepted cryptocurrencies for online payments. Acceptance of digital assets rose to 1% at physical points of sale. 92% of companies with physical points of sale accept cash, making it the most widely accepted",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "EU",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Bitcoin price trades above $63,000 as Saylor calls it ‘digital monetary energy’",
       "url": "https://www.investing.com/news/cryptocurrency-news/bitcoin-price-trades-above-63000-as-saylor-calls-it-digital-monetary-energy-4861953",
       "source": "Investing.com Crypto",
@@ -5176,8 +5196,8 @@
       "published": "2026-08-16T09:20:53+00:00",
       "tickers": [
         "WLF",
-        "WLFI",
-        "USD1"
+        "USD1",
+        "WLFI"
       ],
       "currency_pairs": [],
       "summary": "The Office of the Comptroller of the Currency (OCC) gave World Liberty Financial, a DeFi venture associated with President Donald Trump, preliminary conditional approval to charter a national trust bank built around its roughly $4 billion USD1 stablecoin. World Liberty Trust Company would eventually",
@@ -5316,8 +5336,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-16T08:51:03+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "CZ says millionaires will soon fail to afford one full Bitcoin, because lost and dormant coins keep shrinking the float. \n The post  Millionaires Soon Won&#8217;t Be Able to Afford 1 Bitcoin, Says Binance Founder CZ  appeared first on  BeInCrypto .",
@@ -5442,8 +5462,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-16T08:25:28+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "After the major inflows during the first week of August, all eyes turned to the second. However, reality settled in.",
@@ -6008,8 +6028,8 @@
       "source": "U.Today",
       "published": "2026-08-16T06:11:50+00:00",
       "tickers": [
-        "BTC",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Veteran trader Peter Brandt has once again taken aim at XRP, dismissing the cryptocurrency and saying he would immediately convert even a 500,000-XRP position into Bitcoin.",
@@ -6204,12 +6224,12 @@
       "published": "2026-08-16T05:21:04+00:00",
       "tickers": [
         "LINK",
+        "BTC",
+        "XRP",
+        "ZEC",
         "ADA",
         "XMR",
-        "ZEC",
-        "BTC",
-        "BCH",
-        "XRP"
+        "BCH"
       ],
       "currency_pairs": [],
       "summary": "XRP, ZEC, ADA, and BCH stand in one corner, while XMR and LINK are in the opposite.",
@@ -6282,8 +6302,8 @@
       "source": "AMBCrypto",
       "published": "2026-08-16T05:00:32+00:00",
       "tickers": [
-        "ETH",
-        "SOL"
+        "SOL",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Would stronger long-term price support result from lower SOL and ETH inflation?",
@@ -6870,8 +6890,8 @@
       "source": "U.Today",
       "published": "2026-08-16T01:00:00+00:00",
       "tickers": [
-        "BNB",
-        "XRP"
+        "XRP",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "XRP's whale deposits to Binance remain high as whales continue to dump large amounts of the token on the exchange amid prolonged volatility.",
@@ -7997,8 +8017,8 @@
       "source": "ZyCrypto",
       "published": "2026-08-15T19:48:49+00:00",
       "tickers": [
-        "BTC",
-        "SOL"
+        "SOL",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Solana’s reversal is imminent, an important development for crypto traders looking to capitalize on emerging trends in the crypto market. According to data shared today by analyst Max Crypto, Solana is nearing a break above its 19-month downtrend against Bitcoin. The asset has regained attention as",
@@ -8702,8 +8722,8 @@
       "source": "The Block",
       "published": "2026-08-15T18:37:59+00:00",
       "tickers": [
-        "BTC",
-        "IBIT"
+        "IBIT",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "UAE-based Mubadala Investment Company and the Abu Dhabi Investment Council also retained their combined 22.9 million IBIT shares.",
@@ -9307,8 +9327,8 @@
       "source": "Coingape",
       "published": "2026-08-15T17:39:38+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance founder Changpeng Zhao, also known as CZ, is once again gaining attention from the crypto market participants with his latest analysis and comments. For context, CZ has recently warned that owning one full Bitcoin would become difficult even for millionaires. Notably, his latest comments foc",
@@ -9901,8 +9921,8 @@
       "source": "U.Today",
       "published": "2026-08-15T15:58:44+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance's CZ discusses Bitcoin's growing scarcity, suggesting that the number of tokens left in the Bitcoin available supply may be lower than expected.",
@@ -10685,8 +10705,8 @@
       "source": "CoinDesk",
       "published": "2026-08-15T14:00:00+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -11068,8 +11088,8 @@
       "source": "U.Today",
       "published": "2026-08-15T13:30:49+00:00",
       "tickers": [
-        "BTC",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Ripple CTO emeritus, David Schwartz explains the reasoning behind proof-of-work (PoW) forks.",
@@ -11132,9 +11152,9 @@
       "source": "Decrypt",
       "published": "2026-08-15T13:01:04+00:00",
       "tickers": [
-        "TRUMP",
         "WLT",
-        "USD1"
+        "USD1",
+        "TRUMP"
       ],
       "currency_pairs": [],
       "summary": "The proposed World Liberty Trust Company would take over issuance of the USD1 stablecoin from BitGo.",
@@ -11345,8 +11365,8 @@
       "source": "CoinDesk",
       "published": "2026-08-15T12:00:00+00:00",
       "tickers": [
-        "ETH",
-        "ETHEREUM"
+        "ETHEREUM",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -11393,8 +11413,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-15T11:57:32+00:00",
       "tickers": [
-        "WLFI",
-        "USD1"
+        "USD1",
+        "WLFI"
       ],
       "currency_pairs": [],
       "summary": "The conditional approval would allow it to bring the issuance and custody of its USD1 stablecoin under its own federally supervised trust bank.",
@@ -11673,12 +11693,12 @@
       "source": "Coingape",
       "published": "2026-08-15T11:41:06+00:00",
       "tickers": [
-        "ETH",
-        "NEAR",
-        "TRUMP",
-        "DOGE",
         "BTC",
-        "XRP"
+        "ETH",
+        "XRP",
+        "DOGE",
+        "TRUMP",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "Dogecoin price hovered near $0.069 after a mild market correction, while gaining 0.8% over the past 24 hours.  Bitcoin price failed to break above $63,000, XRP price continued to hover around $1, and Ethereum also failed to hold support. Now traders are waiting for Wednesday&#8217;s White House cryp",
@@ -11979,8 +11999,8 @@
       "source": "U.Today",
       "published": "2026-08-15T11:00:05+00:00",
       "tickers": [
-        "SOL",
-        "XRP"
+        "XRP",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "The development marks a new interoperability milestone for the XRP Ledger but carries an important warning.",
@@ -12302,9 +12322,9 @@
       "source": "Coingape",
       "published": "2026-08-15T10:36:53+00:00",
       "tickers": [
+        "BNB",
         "BGB",
-        "HTX",
-        "BNB"
+        "HTX"
       ],
       "currency_pairs": [],
       "summary": "Bitget has announced enhanced compliance controls on transactions linked to 16 designated entities, including HTX and EXMO, citing overlapping US and EU regulatory actions. The exchange joins Binance in applying staggered restrictions on the same platforms, signaling a coordinated industry-wide resp",
@@ -12325,11 +12345,11 @@
       "source": "Coingape",
       "published": "2026-08-15T10:29:01+00:00",
       "tickers": [
-        "ETH",
-        "SHORT",
         "BTC",
         "OP",
-        "XRP"
+        "ETH",
+        "XRP",
+        "SHORT"
       ],
       "currency_pairs": [],
       "summary": "XRP price remains above the crucial $1 support despite a mild cryptocurrency market pullback. Network activity reached a two-month high, supporting cautious optimism.  Bitcoin price trades below $63,000, while Ethereum stays under $1,900. Holding $1 could preserve XRP’s recovery outlook and encourag",
@@ -12425,9 +12445,9 @@
       "source": "CryptoPotato",
       "published": "2026-08-15T10:20:22+00:00",
       "tickers": [
-        "BTC",
         "LINK",
-        "VELVET"
+        "VELVET",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "VELVET has entered the top 100 alts after a massive 150% weekly surge.",
@@ -12908,8 +12928,8 @@
       "source": "Coingape",
       "published": "2026-08-15T08:42:36+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "The Cboe exchange is seeking approval to list the first triple-leveraged Bitcoin and Ethereum ETFs in the US. The filing comes on the back of weakening demand for crypto ETFs amid the ongoing price weakness. The Cboe filing has not driven gains for Bitcoin and Ethereum, with the two trading at $63,0",
@@ -13993,8 +14013,8 @@
       "source": "U.Today",
       "published": "2026-08-15T04:00:00+00:00",
       "tickers": [
-        "BTC",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Sinking against the dollar, XRP flashes a Bollinger Bands setup that could leave an exhausted Bitcoin behind.",
@@ -14141,10 +14161,10 @@
       "source": "U.Today",
       "published": "2026-08-15T00:01:00+00:00",
       "tickers": [
-        "BTC",
         "HYPE",
-        "SHIB",
-        "NEAR"
+        "NEAR",
+        "BTC",
+        "SHIB"
       ],
       "currency_pairs": [],
       "summary": "The market might be aiming for the recovery, but the current situation is far from looking bearish.",
@@ -14481,6 +14501,27 @@
       "is_crypto_relevant": true
     },
     {
+      "title": "OCC Grants Conditional Approval to Trump-Backed World Liberty’s National Trust Bank Charter",
+      "url": "https://coingape.com/occ-grants-conditional-approval-to-trump-backed-world-libertys-national-trust-bank-charter/",
+      "source": "Coingape",
+      "published": "2026-08-14T22:16:31+00:00",
+      "tickers": [
+        "WLFI"
+      ],
+      "currency_pairs": [],
+      "summary": "The Office of the Comptroller of the Currency (OCC) has granted World Liberty Financial (WLFI) preliminary conditional approval of its bank charter application. The crypto firm now joins a host of other crypto firms that have received a similar approval from the banking regulator as they look to iss",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "🚨 ARBITRUM ONE FIRST BLOCKCHAIN TO REACH 3,000+ RWA COUNT; TOKENIZED STOCKS ON ARBITRUM ONE GROW TO $170M MARKET CAP $AR",
       "url": "https://x.com/blckchaindaily/status/2088387902329770210",
       "source": "@blckchaindaily",
@@ -14546,94 +14587,21 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Gen Z favors ETFs and trades less than older cohorts: Binance",
-      "url": "https://cointelegraph.com/news/gen-z-favors-etfs-and-trades-less-than-older-cohorts-binance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "CoinTelegraph",
-      "published": "2026-08-14T21:22:23+00:00",
-      "tickers": [
-        "BNB"
-      ],
-      "currency_pairs": [],
-      "summary": "Binance data showed Gen Z allocating a growing share of equity activity to ETFs while trading less frequently and using less leverage than older working-age cohorts.",
-      "sentiment": "Bearish",
-      "confidence": 0.65,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Bitcoin under $63k as regulatory delays offset rate cheer, heads for weekly loss",
-      "url": "https://www.investing.com/news/cryptocurrency-news/bitcoin-falls-to-633k-as-regulatory-delays-offset-rate-cheer-4859819",
-      "source": "Investing.com Crypto",
-      "published": "2026-08-14T21:19:44+00:00",
-      "tickers": [
-        "BTC"
-      ],
+      "title": "Goldman Sachs: labour market \"not that interesting\" as inflation dominates Fed debate",
+      "url": "https://investinglive.com/central-banks/goldman-sachs-labour-market-not-that-interesting-as-inflation-dominates-fed-debate/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.9,
-      "other_sources": [],
-      "category": "MARKETS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "OCC grants conditional approval for Trump-backed World Liberty National Trust bank",
-      "url": "https://www.theblock.co/news/regulation/2026-08-14-occ-grants-conditional-approval-trump-world-liberty-national-trust-bank-411906",
-      "source": "The Block",
-      "published": "2026-08-14T21:19:39+00:00",
-      "tickers": [
-        "TRUMP",
-        "WLFI"
-      ],
-      "currency_pairs": [],
-      "summary": "President Donald Trump-backed World Liberty Financial secured preliminary approval to become a national trust bank on Friday.",
       "sentiment": "Neutral",
-      "confidence": 0.7,
-      "other_sources": [
-        {
-          "source": "Coingape",
-          "url": "https://coingape.com/occ-grants-conditional-approval-to-trump-backed-world-libertys-national-trust-bank-charter/",
-          "published": "2026-08-14T22:16:31+00:00"
-        }
-      ],
-      "category": "REGULATORY",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Abu Dhabi Sovereign Wealth Funds Keep Big Bitcoin Positions",
-      "url": "https://bitcoinmagazine.com/news/abu-dhabi-funds-keep-big-bitcoin-positions",
-      "source": "Bitcoin Magazine",
-      "published": "2026-08-14T21:17:12+00:00",
-      "tickers": [
-        "BTC",
-        "IBITON"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitcoin Magazine  \n  \n Abu Dhabi Sovereign Wealth Funds Keep Big Bitcoin Positions   \n Bitcoin is the most important asset in two of Abu Dhabi sovereign wealth funds, according to regulatory filings.&#160; Abu Dhabi&#8217;s Mubadala Investment Company disclosed Friday that it held a $490 million sta",
-      "sentiment": "Bullish",
-      "confidence": 0.9,
+      "confidence": 0.7072,
       "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
+      "category": "ECONOMIC",
+      "region": "US",
+      "asset_class": "forex",
       "source_flag": null,
-      "sentiment_engine": "groq",
+      "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -14695,15 +14663,15 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Stock earnings: 3 Key lessons for investors and traders",
-      "url": "https://investinglive.com/education/stock-earnings-3-key-lessons-for-investors-and-traders/",
+      "title": "What happens when you click Buy? Details of order execution by Elev8 broker",
+      "url": "https://investinglive.com/education/what-happens-when-you-click-buy-details-of-order-execution-by-elev8-broker/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
       "sentiment": "Neutral",
-      "confidence": 0.8419,
+      "confidence": 0.9395,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
@@ -14714,15 +14682,15 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "What happens when you click Buy? Details of order execution by Elev8 broker",
-      "url": "https://investinglive.com/education/what-happens-when-you-click-buy-details-of-order-execution-by-elev8-broker/",
+      "title": "Stock earnings: 3 Key lessons for investors and traders",
+      "url": "https://investinglive.com/education/stock-earnings-3-key-lessons-for-investors-and-traders/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
       "sentiment": "Neutral",
-      "confidence": 0.9395,
+      "confidence": 0.8419,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
@@ -14763,25 +14731,6 @@
       "summary": "",
       "sentiment": "Bearish",
       "confidence": 0.967,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Trump: Pretty soon will be declaring Strait of Hormuz territory of the US",
-      "url": "https://investinglive.com/news/trump-pretty-soon-will-be-declaring-strait-of-hormuz-territory-of-the-us/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.8919,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
@@ -14849,15 +14798,15 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Why are people still talking about Michael Burry?",
-      "url": "https://investinglive.com/stocks/why-are-people-still-talking-about-michael-burry/",
+      "title": "Trump: Pretty soon will be declaring Strait of Hormuz territory of the US",
+      "url": "https://investinglive.com/news/trump-pretty-soon-will-be-declaring-strait-of-hormuz-territory-of-the-us/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
       "sentiment": "Neutral",
-      "confidence": 0.6612,
+      "confidence": 0.8919,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
@@ -14868,15 +14817,15 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "The weekly Baker Hughes rig count rises by 5 in the current week",
-      "url": "https://investinglive.com/commodities/the-weekly-baker-hughes-rig-count-rises-by-5-in-the-current-week/",
+      "title": "Why are people still talking about Michael Burry?",
+      "url": "https://investinglive.com/stocks/why-are-people-still-talking-about-michael-burry/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Bullish",
-      "confidence": 0.8826,
+      "sentiment": "Neutral",
+      "confidence": 0.6612,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
@@ -14906,6 +14855,25 @@
       "is_crypto_relevant": true
     },
     {
+      "title": "The weekly Baker Hughes rig count rises by 5 in the current week",
+      "url": "https://investinglive.com/commodities/the-weekly-baker-hughes-rig-count-rises-by-5-in-the-current-week/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bullish",
+      "confidence": 0.8826,
+      "other_sources": [],
+      "category": "FOREX",
+      "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "Fed's Goolsbee: US GDP and labor markets are basically stable",
       "url": "https://investinglive.com/central-banks/fed-s-goolsbee-us-gdp-and-labor-markets-are-basically-stable/",
       "source": "InvestingLive",
@@ -14917,25 +14885,6 @@
       "confidence": 0.3721,
       "other_sources": [],
       "category": "ECONOMIC",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "European shares close mostly lower as yields jump; DAX bucks the trend",
-      "url": "https://investinglive.com/stocks/european-shares-close-mostly-lower-as-yields-jump-dax-bucks-the-trend/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.934,
-      "other_sources": [],
-      "category": "FOREX",
       "region": "GLOBAL",
       "asset_class": "forex",
       "source_flag": null,
@@ -14963,18 +14912,18 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Goldman Sachs: labour market \"not that interesting\" as inflation dominates Fed debate",
-      "url": "https://investinglive.com/central-banks/goldman-sachs-labour-market-not-that-interesting-as-inflation-dominates-fed-debate/",
+      "title": "Trump orders cuts to South Korea drills, links move to cost of Iran war",
+      "url": "https://investinglive.com/commodities/trump-orders-cuts-to-south-korea-drills-links-move-to-cost-of-iran-war/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.7072,
+      "sentiment": "Bearish",
+      "confidence": 0.6937,
       "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "US",
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
       "asset_class": "forex",
       "source_flag": null,
       "sentiment_engine": "finbert",
