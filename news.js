@@ -1,7 +1,272 @@
 window.newsData = {
-  "updated_at": "2026-08-16T14:02:10.198514+00:00",
-  "total": 637,
+  "updated_at": "2026-08-16T14:24:36.048211+00:00",
+  "total": 640,
   "articles": [
+    {
+      "title": "@cryptorover I'd say $SOL to $500",
+      "url": "https://x.com/FBYTio/status/2088994987820151182",
+      "source": "@FBYTio",
+      "published": "2026-08-16T14:23:11+00:00",
+      "tickers": [
+        "SOL"
+      ],
+      "currency_pairs": [],
+      "summary": "@cryptorover I'd say $SOL to $500",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 12472,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "CZ, Giggle'a toplam 960.000 dolar değerinde Binance Life ve BNB token bağışladı.\n\n$BNB #BNB",
+      "url": "https://x.com/coinotag/status/2088994613260333185",
+      "source": "@coinotag",
+      "published": "2026-08-16T14:21:42+00:00",
+      "tickers": [
+        "BNB"
+      ],
+      "currency_pairs": [],
+      "summary": "CZ, Giggle'a toplam 960.000 dolar değerinde Binance Life ve BNB token bağışladı.\n\n$BNB #BNB",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 54509,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Arsenal scores in first minute against Man City in FA Community Shield",
+      "url": "https://cryptobriefing.com/arsenal-scores-in-first-minute-against-man-city-in-fa-community-shield/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T14:19:23+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Arsenal's early goal shifts market dynamics, boosting their perceived win probability and impacting betting odds against Manchester City. \n The post  Arsenal scores in first minute against Man City in FA Community Shield  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.9037,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Saylor: Bitcoin Drops 47% While Strategy’s STRC Gains 9% in a Year",
+      "url": "https://news.bitcoin.com/featured/saylor-bitcoin-drops-47-while-strategys-strc-gains-9-in-a-year/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-16T14:15:44+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Michael Saylor said Strategy&#8217;s STRC preferred stock gained 9% over one year while bitcoin lost 47%. The chart leaves out the company&#8217;s common stock, which closed roughly 76% below its level a year earlier. STRC Outperforms as Bitcoin Declines STRC outpaced bitcoin by 56 percentage points",
+      "sentiment": "Bullish",
+      "confidence": 0.7009,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Triangle detected on BINANCE $UNI H1. Bias: Bullish.\nStatus: Active.\nRisk/Reward: 1.9764\nEntry: 3.2446\nTarget: T1",
+      "url": "https://x.com/ChartAI_Live/status/2088992200676061419",
+      "source": "@ChartAI_Live",
+      "published": "2026-08-16T14:12:06+00:00",
+      "tickers": [
+        "BNB",
+        "UNI"
+      ],
+      "currency_pairs": [],
+      "summary": "Triangle detected on BINANCE $UNI H1. Bias: Bullish.\nStatus: Active.\nRisk/Reward: 1.9764\nEntry: 3.2446\nTarget: T1 3.3786\nStop loss: 3.1768\nIndicator fired: MACD above signal\nIndicator fired: Price above EMA 20…\nChartai gives your agent chart context. Your rules decide the trade.",
+      "sentiment": "Bullish",
+      "confidence": 0.6131,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 15101,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Arsenal’s Calafiori stuns Manchester City with goal after 25 seconds in Community Shield",
+      "url": "https://cryptobriefing.com/arsenal-calafiori-goal-community-shield-city/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T14:11:17+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Calafiori's rapid goal underscores Arsenal's growing dominance and signals a potential shift in power dynamics for the upcoming season. \n The post  Arsenal&#8217;s Calafiori stuns Manchester City with goal after 25 seconds in Community Shield  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.793,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Crypto wallet SafePal reveals a data breach exposing nearly 40,000 customers' order info",
+      "url": "https://www.coindesk.com/tech/2026/08/16/crypto-wallet-safepal-reveals-a-data-breach-exposing-nearly-40-000-customers-order-info",
+      "source": "CoinDesk",
+      "published": "2026-08-16T14:02:32+00:00",
+      "tickers": [
+        "SFP"
+      ],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bearish",
+      "confidence": 1.0,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "groq",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "A $48 billion Bitcoin leverage trap is about to trigger a massive forced exit the moment price boundaries break",
+      "url": "https://cryptoslate.com/a-48-billion-bitcoin-leverage-trap-is-about-to-trigger-a-massive-forced-exit-the-moment-price-boundaries-break/",
+      "source": "CryptoSlate",
+      "published": "2026-08-16T14:00:32+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Small positive offshore funding exposes longs on a drop, while CME leveraged funds’ net short creates an upside squeeze channel. \n The post  A $48 billion Bitcoin leverage trap is about to trigger a massive forced exit the moment price boundaries break  appeared first on  CryptoSlate .",
+      "sentiment": "Bearish",
+      "confidence": 0.8,
+      "other_sources": [
+        {
+          "source": "Crypto Slate (PR)",
+          "url": "https://cryptoslate.com/a-48-billion-bitcoin-leverage-trap-is-about-to-trigger-a-massive-forced-exit-the-moment-price-boundaries-break/",
+          "published": "2026-08-16T14:00:32+00:00"
+        }
+      ],
+      "category": "MARKETS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "groq",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Aston Villa targets Zion Suzuki as Emiliano Martinez’s future wavers",
+      "url": "https://cryptobriefing.com/aston-villa-zion-suzuki-martinez-transfer/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T14:00:06+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Aston Villa's pursuit of Zion Suzuki highlights strategic planning for potential key player exits, impacting future squad dynamics and financial strategy. \n The post  Aston Villa targets Zion Suzuki as Emiliano Martinez&#8217;s future wavers  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.6366,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Dogecoin's Genesis Block Coinbase Reward Was 88 DOGE: Why It Matters",
+      "url": "https://u.today/dogecoins-genesis-block-coinbase-reward-was-88-doge-why-it-matters",
+      "source": "U.Today",
+      "published": "2026-08-16T13:59:07+00:00",
+      "tickers": [
+        "DOGE"
+      ],
+      "currency_pairs": [],
+      "summary": "Dogecoin historical fact resonates as interest returns to the dog themed coin.",
+      "sentiment": "Bullish",
+      "confidence": 0.7997,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Cardano Founder Launches New Free Tool to Remove Anthropic’s AI Watermark",
+      "url": "https://beincrypto.com/cardano-hoskinson-anthropic-watermark-removal-tool/",
+      "source": "BeInCrypto",
+      "published": "2026-08-16T13:53:52+00:00",
+      "tickers": [
+        "ADA"
+      ],
+      "currency_pairs": [],
+      "summary": "Charles Hoskinson released Anthropies, a free tool that strips the Anthropic watermark from Claude text, code and images. \n The post  Cardano Founder Launches New Free Tool to Remove Anthropic&#8217;s AI Watermark  appeared first on  BeInCrypto .",
+      "sentiment": "Bullish",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "groq",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Chainlink Whale Breaks Month-Long Buying Streak With $9.2 Million Move to Coinbase",
+      "url": "https://u.today/chainlink-whale-breaks-month-long-buying-streak-with-92-million-move-to-coinbase",
+      "source": "U.Today",
+      "published": "2026-08-16T13:50:45+00:00",
+      "tickers": [
+        "LINK"
+      ],
+      "currency_pairs": [],
+      "summary": "Chainlink faces renewed sell-off fears after a major whale ends a month-long buying streak to shift $9.2 million in LINK to Coinbase.",
+      "sentiment": "Bearish",
+      "confidence": 0.7294,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "US-Iran nuclear talks stall as 60-day deadline passes without deal",
       "url": "https://cryptobriefing.com/us-iran-nuclear-talks-stall-as-60-day-deadline-passes-without-deal/",
@@ -252,7 +517,8 @@ window.newsData = {
       "sentiment_engine": "usgs_magnitude",
       "source_type": "rss",
       "event_source": "usgs",
-      "magnitude": 5
+      "magnitude": 5,
+      "is_crypto_relevant": true
     },
     {
       "title": "Trump wins legal battle to maintain tariffs on cheap imports",
@@ -730,8 +996,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-16T13:00:01+00:00",
       "tickers": [
-        "XRP",
-        "BNB"
+        "BNB",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP is back near $1 even as network activity rebounds, whale deposits to Binance collapse, and derivatives exposure builds near recent lows. The token fell to about $0.98 this week before recovering toward $1, according to CryptoSlate data, extending a retreat that has erased much of its May rally.",
@@ -1488,25 +1754,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "US oil reserves hit lowest level in over 40 years",
-      "url": "https://cryptobriefing.com/us-oil-reserves-hit-lowest-level-in-over-40-years/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T11:52:37+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The depletion of U.S. oil reserves could exacerbate supply vulnerabilities, potentially driving up global oil prices amid geopolitical tensions. \n The post  US oil reserves hit lowest level in over 40 years  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.879,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Coinbase Bitcoin Premium Hits 90-Day Record",
       "url": "https://u.today/coinbase-bitcoin-premium-hits-90-day-record",
       "source": "U.Today",
@@ -1520,25 +1767,6 @@ window.newsData = {
       "confidence": 0.7859,
       "other_sources": [],
       "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Chelsea co-owner Mark Walter open to selling stake amid US federal investigation",
-      "url": "https://cryptobriefing.com/chelsea-co-owner-walter-selling-stake-investigation/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T11:50:17+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The investigation may prompt stricter transparency regulations for sports franchise owners, impacting future US investments in European football. \n The post  Chelsea co-owner Mark Walter open to selling stake amid US federal investigation  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.9479,
-      "other_sources": [],
-      "category": "REGULATORY",
       "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
@@ -1730,8 +1958,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T11:20:30+00:00",
       "tickers": [
-        "XRP",
-        "RLUSD"
+        "RLUSD",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ex-Ripple dev 'Bias Goose' confirms his mysterious new XRP Ledger startup will run on RLUSD stablecoin rails.",
@@ -1892,25 +2120,6 @@ window.newsData = {
       "reposts": 0,
       "replies": 0,
       "follower_count": 10246,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Missile attacks hit Russian warehouse, Kyiv market amid escalating conflict",
-      "url": "https://cryptobriefing.com/missile-attacks-hit-russian-warehouse-kyiv-market-amid-escalating-conflict/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T11:01:34+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The escalation in targeting civilian infrastructure raises the risk of broader military conflict, potentially involving NATO by 2026. \n The post  Missile attacks hit Russian warehouse, Kyiv market amid escalating conflict  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -2388,10 +2597,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T09:55:28+00:00",
       "tickers": [
-        "FORM",
-        "XRP",
         "RLUSD",
-        "BNB"
+        "BNB",
+        "FORM",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Major crypto exchange Binance announces extension of RLUSD campaign with XRP in rewards for holders.",
@@ -2651,8 +2860,8 @@ window.newsData = {
       "published": "2026-08-16T09:20:53+00:00",
       "tickers": [
         "USD1",
-        "WLFI",
-        "WLF"
+        "WLF",
+        "WLFI"
       ],
       "currency_pairs": [],
       "summary": "The Office of the Comptroller of the Currency (OCC) gave World Liberty Financial, a DeFi venture associated with President Donald Trump, preliminary conditional approval to charter a national trust bank built around its roughly $4 billion USD1 stablecoin. World Liberty Trust Company would eventually",
@@ -2679,8 +2888,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-16T09:20:03+00:00",
       "tickers": [
-        "MSTR",
-        "BTC"
+        "BTC",
+        "MSTR"
       ],
       "currency_pairs": [],
       "summary": "Strategy's preferred shares beat Bitcoin over one year, but MSTR stock fell 75%. See who really won the duel. \n The post  MicroStrategy vs. Bitcoin: Who Won the 1-Year Performance Duel?  appeared first on  BeInCrypto .",
@@ -2791,8 +3000,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-16T08:51:03+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "CZ says millionaires will soon fail to afford one full Bitcoin, because lost and dormant coins keep shrinking the float. \n The post  Millionaires Soon Won&#8217;t Be Able to Afford 1 Bitcoin, Says Binance Founder CZ  appeared first on  BeInCrypto .",
@@ -3545,8 +3754,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T06:11:50+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Veteran trader Peter Brandt has once again taken aim at XRP, dismissing the cryptocurrency and saying he would immediately convert even a 500,000-XRP position into Bitcoin.",
@@ -3761,13 +3970,13 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-16T05:21:04+00:00",
       "tickers": [
-        "XMR",
-        "ADA",
         "BTC",
-        "XRP",
         "ZEC",
-        "BCH",
-        "LINK"
+        "XRP",
+        "LINK",
+        "ADA",
+        "XMR",
+        "BCH"
       ],
       "currency_pairs": [],
       "summary": "XRP, ZEC, ADA, and BCH stand in one corner, while XMR and LINK are in the opposite.",
@@ -4228,27 +4437,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Binance Ends Transactions With 16 Platforms, Warns of Wallet Reviews",
-      "url": "https://news.bitcoin.com/exchanges/binance-ends-transactions-with-16-platforms-warns-of-wallet-reviews/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-16T02:30:27+00:00",
-      "tickers": [
-        "BNB"
-      ],
-      "currency_pairs": [],
-      "summary": "Binance will stop processing transactions involving 16 crypto platforms following regulatory developments. Transfers attempted after the applicable deadlines may undergo compliance reviews and trigger temporary restrictions on affected wallets. Binance Sets Three Deadlines for Transaction Restrictio",
-      "sentiment": "Bearish",
-      "confidence": 0.747,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "$XRP is not a lottery ticket.\nIt’s the plumbing.\n\nReal volume is already here:\n Tokenized assets in the billions. RLUSD",
       "url": "https://x.com/Dibi0321/status/2088810946135232889",
       "source": "@Dibi0321",
@@ -4471,8 +4659,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T01:00:00+00:00",
       "tickers": [
-        "XRP",
-        "BNB"
+        "BNB",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP's whale deposits to Binance remain high as whales continue to dump large amounts of the token on the exchange amid prolonged volatility.",
@@ -5374,8 +5562,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T20:40:13+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "President Donald Trump and the heads of the SEC and CFTC are expected to meet crypto and prediction-market executives at the White House next week as the industry’s biggest legislative priority faces dwindling odds of becoming law this year. According to reports, the Aug. 19 gathering is expected to",
@@ -7026,9 +7214,9 @@ window.newsData = {
       "source": "@justinsuntron",
       "published": "2026-08-15T17:42:46+00:00",
       "tickers": [
+        "RLB",
         "TRON",
-        "TRX",
-        "RLB"
+        "TRX"
       ],
       "currency_pairs": [],
       "summary": "Happy to see Rollbit on Tron @trondao",
@@ -7082,8 +7270,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T17:39:38+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance founder Changpeng Zhao, also known as CZ, is once again gaining attention from the crypto market participants with his latest analysis and comments. For context, CZ has recently warned that owning one full Bitcoin would become difficult even for millionaires. Notably, his latest comments foc",
@@ -7741,8 +7929,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-15T16:13:59+00:00",
       "tickers": [
-        "HSDT",
-        "SOL"
+        "SOL",
+        "HSDT"
       ],
       "currency_pairs": [],
       "summary": "Solana Company posted a $30.3 million Q2 loss on SOL writedowns. HSDT stock dropped 5.56% to $1.70. \n The post  Solana Company Q2 Loss Hits $30.3 Million as SOL Treasury Suffers  appeared first on  BeInCrypto .",
@@ -7763,8 +7951,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T15:58:44+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance's CZ discusses Bitcoin's growing scarcity, suggesting that the number of tokens left in the Bitcoin available supply may be lower than expected.",
@@ -8228,8 +8416,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-15T15:12:29+00:00",
       "tickers": [
-        "BRK",
-        "BTC"
+        "BTC",
+        "BRK"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -8979,8 +9167,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T13:30:49+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple CTO emeritus, David Schwartz explains the reasoning behind proof-of-work (PoW) forks.",
@@ -9022,8 +9210,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T13:20:07+00:00",
       "tickers": [
-        "FORM",
-        "BTC"
+        "BTC",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "June 30 snapshots separate unchanged sovereign units, JPMorgan share additions, UBS options and a newly reported Morgan Stanley wrapper. \n The post  Bitcoin’s $16.3 billion Wall Street stress test splits into four positional patterns  appeared first on  CryptoSlate .",
@@ -9071,9 +9259,9 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-15T13:01:04+00:00",
       "tickers": [
+        "TRUMP",
         "USD1",
-        "WLT",
-        "TRUMP"
+        "WLT"
       ],
       "currency_pairs": [],
       "summary": "The proposed World Liberty Trust Company would take over issuance of the USD1 stablecoin from BitGo.",
@@ -9157,9 +9345,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T12:30:31+00:00",
       "tickers": [
-        "SHIB",
+        "SOL",
         "LINK",
-        "SOL"
+        "SHIB"
       ],
       "currency_pairs": [],
       "summary": "The crypto market is moving in a narrow range today, August 15, albeit for a few altcoins such as Chainlink (LINK) and Shiba Inu (SHIB), which are up by 5% and 2%, respectively. Solana (SOL) is also down by 0.86% despite SOL ETFs recording the highest inflows in the week between August 10 and August",
@@ -9181,8 +9369,8 @@ window.newsData = {
       "published": "2026-08-15T12:19:16+00:00",
       "tickers": [
         "LINK",
-        "BTC",
-        "NEAR"
+        "NEAR",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Van de Poppe says Chainlink left its bear market and targets $11, while Bitcoin stalls in a quiet range near $62,968. \n The post  Chainlink Bull Market Returns as Analyst Targets $11 for LINK  appeared first on  BeInCrypto .",
@@ -9580,34 +9768,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Institutional investor Paul Tudor Jones adds 109,446 BlackRock Bitcoin ETF shares while cutting calls by 85%",
-      "url": "https://cryptoslate.com/institutional-investor-paul-tudor-jones-adds-109446-blackrock-bitcoin-etf-shares-while-cutting-call-equivalents-85/",
-      "source": "CryptoSlate",
-      "published": "2026-08-15T11:45:34+00:00",
-      "tickers": [
-        "BLCK",
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "The June 30 snapshot shows a far less call-heavy mix, with reported put equivalents nearly unchanged. \n The post  Institutional investor Paul Tudor Jones adds 109,446 BlackRock Bitcoin ETF shares while cutting calls by 85%  appeared first on  CryptoSlate .",
-      "sentiment": "Bullish",
-      "confidence": 0.8,
-      "other_sources": [
-        {
-          "source": "Crypto Slate (PR)",
-          "url": "https://cryptoslate.com/institutional-investor-paul-tudor-jones-adds-109446-blackrock-bitcoin-etf-shares-while-cutting-call-equivalents-85/",
-          "published": "2026-08-15T11:45:34+00:00"
-        }
-      ],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "What did I miss on the $LINK front",
       "url": "https://x.com/astekz/status/2088592559035584643",
       "source": "@astekz",
@@ -9665,8 +9825,8 @@ window.newsData = {
       "tickers": [
         "BTC",
         "DOGE",
-        "XRP",
         "NEAR",
+        "XRP",
         "TRUMP",
         "ETH"
       ],
@@ -9983,34 +10143,13 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Bitcoin Drop Cost Abu Dhabi $118 Million: Will They Sell?",
-      "url": "https://beincrypto.com/bitcoin-abu-dhabi-etf-holdings-q2/",
-      "source": "BeInCrypto",
-      "published": "2026-08-15T11:05:06+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitcoin's Q2 slide wiped $118 million off Abu Dhabi's IBIT stake, yet both sovereign funds kept every single share. \n The post  Bitcoin Drop Cost Abu Dhabi $118 Million: Will They Sell?  appeared first on  BeInCrypto .",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "ASIA",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Solana Arrives on XRP Ledger DEX With One Key Warning for Users",
       "url": "https://u.today/solana-arrives-on-xrp-ledger-dex-with-one-key-warning-for-users",
       "source": "U.Today",
       "published": "2026-08-15T11:00:05+00:00",
       "tickers": [
-        "XRP",
-        "SOL"
+        "SOL",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "The development marks a new interoperability milestone for the XRP Ledger but carries an important warning.",
@@ -10355,10 +10494,10 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T10:29:01+00:00",
       "tickers": [
-        "SHORT",
-        "OP",
         "BTC",
+        "SHORT",
         "XRP",
+        "OP",
         "ETH"
       ],
       "currency_pairs": [],
@@ -10478,8 +10617,8 @@ window.newsData = {
       "source": "@justinsuntron",
       "published": "2026-08-15T10:17:48+00:00",
       "tickers": [
-        "TRX",
-        "TRON"
+        "TRON",
+        "TRX"
       ],
       "currency_pairs": [],
       "summary": "👀 Tron leads 4",
@@ -10787,8 +10926,8 @@ window.newsData = {
       "source": "The Daily Hodl",
       "published": "2026-08-15T09:15:18+00:00",
       "tickers": [
-        "OP",
-        "BTC"
+        "BTC",
+        "OP"
       ],
       "currency_pairs": [],
       "summary": "Mike Novogratz is highlighting the U.S. government's massive spending shortfalls as a key reason for his ongoing optimism on Bitcoin. He points to a $432 billion July deficit and ties rising debt to inflation pressures. \n The post  US Fiscal Deficits Keep Galaxy Digital CEO Mike Novogratz Bullish on",
@@ -12023,8 +12162,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T04:00:00+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Sinking against the dollar, XRP flashes a Bollinger Bands setup that could leave an exhausted Bitcoin behind.",
@@ -12171,9 +12310,9 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T00:01:00+00:00",
       "tickers": [
+        "NEAR",
         "SHIB",
         "HYPE",
-        "NEAR",
         "BTC"
       ],
       "currency_pairs": [],
@@ -12623,8 +12762,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T21:19:39+00:00",
       "tickers": [
-        "WLFI",
-        "TRUMP"
+        "TRUMP",
+        "WLFI"
       ],
       "currency_pairs": [],
       "summary": "President Donald Trump-backed World Liberty Financial secured preliminary approval to become a national trust bank on Friday.",
@@ -13070,8 +13209,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-14T20:04:47+00:00",
       "tickers": [
-        "XRP",
-        "TRUMP"
+        "TRUMP",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Coinbase and Ripple executives are expected to be among the crypto executives who will attend the White House crypto meeting with President Donald Trump and his officials. Notably, CEOs Brian Armstrong and Brad Garlinghouse have been among the crypto stakeholders actively pushing the Senate to pass",
@@ -13927,8 +14066,8 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-14T18:23:49+00:00",
       "tickers": [
-        "FORM",
-        "BTC"
+        "BTC",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin (BTC), the largest cryptocurrency by market capitalization, has fallen roughly 2% over the past week, keeping traders cautious as broader macroeconomic uncertainty and the delayed U.S. CLARITY Act weigh on sentiment. Bitcoin’s recent weakness is now being accompanied by an unusual burst of a",
@@ -14419,8 +14558,8 @@ window.newsData = {
       "published": "2026-08-14T16:23:55+00:00",
       "tickers": [
         "SOL",
-        "ASSET",
         "BTC",
+        "ASSET",
         "ETH"
       ],
       "currency_pairs": [],
@@ -14920,8 +15059,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T14:38:27+00:00",
       "tickers": [
-        "SPK",
-        "BTC"
+        "BTC",
+        "SPK"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin falls further toward new August lows, ignoring positive US inflation trends while US stocks continue to circle all-time highs.",
@@ -14989,75 +15128,6 @@ window.newsData = {
       "other_sources": [],
       "category": "MARKETS",
       "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Morgan Stanley’s BlackRock Bitcoin ETF holdings rise 23% in Q2",
-      "url": "https://cointelegraph.com/news/morgan-stanley-buys-blackrock-bitcoin-etf-q2?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "CoinTelegraph",
-      "published": "2026-08-14T14:22:57+00:00",
-      "tickers": [
-        "ROSE",
-        "BIT",
-        "BTC",
-        "ETH"
-      ],
-      "currency_pairs": [],
-      "summary": "Morgan Stanley’s reported IBIT holdings rose to 16.5 million shares in Q2, while Ether ETF positions and several crypto-linked stocks also increased.",
-      "sentiment": "Bullish",
-      "confidence": 0.8,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "JPMorgan boosts Bitcoin, Ether ETF positions in Q2 filing",
-      "url": "https://cointelegraph.com/markets/jpmorgan-crypto-etf-moves-risk-not-bullish-bet-analyst?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "CoinTelegraph",
-      "published": "2026-08-14T14:14:06+00:00",
-      "tickers": [
-        "ETH-ETF",
-        "BTC-ETF",
-        "BTC",
-        "ETH"
-      ],
-      "currency_pairs": [],
-      "summary": "JPMorgan reported a 25% increase in its Bitcoin ETF position and more than quadrupled its Ether ETF position in the second quarter.",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "What the CLARITY Act Actually Does for Bitcoin",
-      "url": "https://bitcoinmagazine.com/takes/what-the-clarity-act-actually-does-for-bitcoin",
-      "source": "Bitcoin Magazine",
-      "published": "2026-08-14T14:09:26+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitcoin Magazine  \n  \n What the CLARITY Act Actually Does for Bitcoin  \n Behind the 256-Page Overhaul: Why the CLARITY Act is More Protection Than Price Catalyst for Bitcoin \n This post  What the CLARITY Act Actually Does for Bitcoin  first appeared on  Bitcoin Magazine  and is written by  Isaiah Au",
-      "sentiment": "Bearish",
-      "confidence": 0.2,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "US",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "groq",
@@ -15391,7 +15461,7 @@ window.newsData = {
     }
   ],
   "forex_sentiment": {
-    "updated_at": "2026-08-16T13:10:51.192814+00:00",
+    "updated_at": "2026-08-16T14:23:31.047913+00:00",
     "pairs": [
       {
         "symbol": "GBPJPY",
