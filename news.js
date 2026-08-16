@@ -1,7 +1,104 @@
 window.newsData = {
-  "updated_at": "2026-08-16T16:17:15.454127+00:00",
-  "total": 647,
+  "updated_at": "2026-08-16T16:45:57.218394+00:00",
+  "total": 642,
   "articles": [
+    {
+      "title": "Arab nations condemn Israel’s rejection of Trump’s Gaza plan",
+      "url": "https://cryptobriefing.com/arab-nations-condemn-israels-rejection-of-trumps-gaza-plan/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T16:41:38+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The condemnation may signal a shift in diplomatic relations, potentially influencing future recognition efforts and regional stability. \n The post  Arab nations condemn Israel&#8217;s rejection of Trump&#8217;s Gaza plan  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "J.P. Morgan ended Polymarket banking relationship over regulatory concerns",
+      "url": "https://seekingalpha.com/news/4633606-j-p-morgan-ended-polymarket-banking-relationship-over-regulatory-concerns?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-16T16:33:54+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bearish",
+      "confidence": 0.9203,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Kazeem Olaigbe scores late winner for Basel against Barcelona in preseason friendly",
+      "url": "https://cryptobriefing.com/olaigbe-basel-beats-barcelona-preseason/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T16:29:09+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Olaigbe's decisive goal could boost his career trajectory, positioning him as a promising talent for top European leagues and Basel's success. \n The post  Kazeem Olaigbe scores late winner for Basel against Barcelona in preseason friendly  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "I’m 63, a retired CPA with a $1.2 million 401(k). Do I need to bother with a Roth conversion?",
+      "url": "https://www.marketwatch.com/story/im-63-and-a-retired-cpa-i-have-a-1-2-million-401-k-do-i-need-a-roth-conversion-0a227302?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "published": "2026-08-16T16:22:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "“I don’t expect my marginal tax rate to be materially different in the future.”",
+      "sentiment": "Neutral",
+      "confidence": 0.7444,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "$30 Million Aftermath: Why Binance's Founder Is Now Abandoning His Public Wallet",
+      "url": "https://u.today/30-million-aftermath-why-binances-founder-is-now-abandoning-his-public-wallet",
+      "source": "U.Today",
+      "published": "2026-08-16T16:17:30+00:00",
+      "tickers": [
+        "BNB"
+      ],
+      "currency_pairs": [],
+      "summary": "Binance founder CZ completely abandons his public wallet after a routine spam cleanup accidentally triggered a $30 million meme coin pump.",
+      "sentiment": "Bearish",
+      "confidence": 0.922,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Google’s Gemini 3.7 Flash model achieves playable game output from text prompts alone",
       "url": "https://cryptobriefing.com/google-gemini-flash-playable-game-output/",
@@ -231,7 +328,8 @@ window.newsData = {
       "sentiment_engine": "usgs_magnitude",
       "source_type": "rss",
       "event_source": "usgs",
-      "magnitude": 5.2
+      "magnitude": 5.2,
+      "is_crypto_relevant": true
     },
     {
       "title": "Bitcoin Price Analysis: Will BTC Finally Break Out of Consolidation Next Week?",
@@ -521,8 +619,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-16T15:30:52+00:00",
       "tickers": [
-        "REQ",
-        "AZTEC"
+        "AZTEC",
+        "REQ"
       ],
       "currency_pairs": [],
       "summary": "Its provider feed showed 16 delegations after Aug. 15, while the cost of missing its Aug. 5 request remains unknown. \n The post  Over 1.3 million staked tokens remain stranded onchain after a major validator missed its deadline to exit Aztec  appeared first on  CryptoSlate .",
@@ -955,8 +1053,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T15:00:07+00:00",
       "tickers": [
-        "SFP",
-        "BNB"
+        "BNB",
+        "SFP"
       ],
       "currency_pairs": [],
       "summary": "Non custodial wallet, SafePal issues urgent disclosure after customer information is accessed.",
@@ -1818,44 +1916,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Bruno Guimarães to make first start for Arsenal in Community Shield against Manchester City",
-      "url": "https://cryptobriefing.com/bruno-guimaraes-arsenal-community-shield-start/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T13:27:35+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Guimares' debut could redefine Arsenal's midfield dynamics, influencing their title defense and future European ambitions significantly. \n The post  Bruno Guimarães to make first start for Arsenal in Community Shield against Manchester City  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.6909,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Iran criminalizes interviews with US, Israeli media amid tensions",
-      "url": "https://cryptobriefing.com/iran-criminalizes-interviews-with-us-israeli-media-amid-tensions/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T13:20:19+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Iran's media restrictions may escalate regional tensions, hinder diplomatic efforts, and complicate international nuclear oversight. \n The post  Iran criminalizes interviews with US, Israeli media amid tensions  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.8982,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "$ETHFI and $LINK are maybe the only 2 coins I'm interested in top blasting right now. but overall still a v. choppy",
       "url": "https://x.com/AltcoinSherpa/status/2088976592181551114",
       "source": "@AltcoinSherpa",
@@ -1983,25 +2043,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Voters say their finances have worsened under Trump as midterms approach",
-      "url": "https://seekingalpha.com/news/4633597-voters-say-their-finances-have-worsened-under-trump-as-midterms-approach?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-16T13:07:44+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.9684,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "How Low Will Bitcoin Go? Analysts Pinpoint a Bottom Date and Price Range",
       "url": "https://cryptopotato.com/how-low-will-bitcoin-go-analysts-pinpoint-a-bottom-date-and-price-range/",
       "source": "CryptoPotato",
@@ -2120,8 +2161,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-16T13:00:01+00:00",
       "tickers": [
-        "XRP",
-        "BNB"
+        "BNB",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP is back near $1 even as network activity rebounds, whale deposits to Binance collapse, and derivatives exposure builds near recent lows. The token fell to about $0.98 this week before recovering toward $1, according to CryptoSlate data, extending a retreat that has erased much of its May rally.",
@@ -2778,8 +2819,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T11:20:30+00:00",
       "tickers": [
-        "XRP",
-        "RLUSD"
+        "RLUSD",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ex-Ripple dev 'Bias Goose' confirms his mysterious new XRP Ledger startup will run on RLUSD stablecoin rails.",
@@ -3417,10 +3458,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T09:55:28+00:00",
       "tickers": [
-        "XRP",
-        "BNB",
         "FORM",
-        "RLUSD"
+        "BNB",
+        "RLUSD",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Major crypto exchange Binance announces extension of RLUSD campaign with XRP in rewards for holders.",
@@ -3679,9 +3720,9 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-16T09:20:53+00:00",
       "tickers": [
-        "WLF",
         "USD1",
-        "WLFI"
+        "WLFI",
+        "WLF"
       ],
       "currency_pairs": [],
       "summary": "The Office of the Comptroller of the Currency (OCC) gave World Liberty Financial, a DeFi venture associated with President Donald Trump, preliminary conditional approval to charter a national trust bank built around its roughly $4 billion USD1 stablecoin. World Liberty Trust Company would eventually",
@@ -3820,8 +3861,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-16T08:51:03+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "CZ says millionaires will soon fail to afford one full Bitcoin, because lost and dormant coins keep shrinking the float. \n The post  Millionaires Soon Won&#8217;t Be Able to Afford 1 Bitcoin, Says Binance Founder CZ  appeared first on  BeInCrypto .",
@@ -4790,13 +4831,13 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-16T05:21:04+00:00",
       "tickers": [
-        "BTC",
-        "ZEC",
         "XMR",
+        "ADA",
+        "BTC",
         "LINK",
-        "XRP",
         "BCH",
-        "ADA"
+        "ZEC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP, ZEC, ADA, and BCH stand in one corner, while XMR and LINK are in the opposite.",
@@ -5457,8 +5498,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T01:00:00+00:00",
       "tickers": [
-        "XRP",
-        "BNB"
+        "BNB",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP's whale deposits to Binance remain high as whales continue to dump large amounts of the token on the exchange amid prolonged volatility.",
@@ -6606,25 +6647,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "I’m 63, a retired CPA with a $1.2 million 401(k). Do I need to bother with a Roth conversion?",
-      "url": "https://www.marketwatch.com/story/im-63-and-a-retired-cpa-i-have-a-1-2-million-401-k-do-i-need-a-roth-conversion-0a227302?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "published": "2026-08-15T20:00:00+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "“I don’t expect my marginal tax rate to be materially different in the future.”",
-      "sentiment": "Neutral",
-      "confidence": 0.7444,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Who is keeping $XRP in business 🤣",
       "url": "https://x.com/TheDividendDog/status/2088715464423723380",
       "source": "@TheDividendDog",
@@ -7436,8 +7458,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-15T18:37:59+00:00",
       "tickers": [
-        "BTC",
-        "IBIT"
+        "IBIT",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "UAE-based Mubadala Investment Company and the Abu Dhabi Investment Council also retained their combined 22.9 million IBIT shares.",
@@ -8068,8 +8090,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T17:39:38+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance founder Changpeng Zhao, also known as CZ, is once again gaining attention from the crypto market participants with his latest analysis and comments. For context, CZ has recently warned that owning one full Bitcoin would become difficult even for millionaires. Notably, his latest comments foc",
@@ -8727,8 +8749,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-15T16:13:59+00:00",
       "tickers": [
-        "SOL",
-        "HSDT"
+        "HSDT",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Solana Company posted a $30.3 million Q2 loss on SOL writedowns. HSDT stock dropped 5.56% to $1.70. \n The post  Solana Company Q2 Loss Hits $30.3 Million as SOL Treasury Suffers  appeared first on  BeInCrypto .",
@@ -8749,8 +8771,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T15:58:44+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance's CZ discusses Bitcoin's growing scarcity, suggesting that the number of tokens left in the Bitcoin available supply may be lower than expected.",
@@ -9214,8 +9236,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-15T15:12:29+00:00",
       "tickers": [
-        "BTC",
-        "BRK"
+        "BRK",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -10029,8 +10051,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-15T13:01:04+00:00",
       "tickers": [
-        "WLT",
         "USD1",
+        "WLT",
         "TRUMP"
       ],
       "currency_pairs": [],
@@ -10115,9 +10137,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T12:30:31+00:00",
       "tickers": [
-        "LINK",
+        "SHIB",
         "SOL",
-        "SHIB"
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "The crypto market is moving in a narrow range today, August 15, albeit for a few altcoins such as Chainlink (LINK) and Shiba Inu (SHIB), which are up by 5% and 2%, respectively. Solana (SOL) is also down by 0.86% despite SOL ETFs recording the highest inflows in the week between August 10 and August",
@@ -10138,9 +10160,9 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-15T12:19:16+00:00",
       "tickers": [
-        "LINK",
+        "NEAR",
         "BTC",
-        "NEAR"
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "Van de Poppe says Chainlink left its bear market and targets $11, while Bitcoin stalls in a quiet range near $62,968. \n The post  Chainlink Bull Market Returns as Analyst Targets $11 for LINK  appeared first on  BeInCrypto .",
@@ -10265,8 +10287,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-15T12:00:00+00:00",
       "tickers": [
-        "ETH",
-        "ETHEREUM"
+        "ETHEREUM",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -10593,12 +10615,12 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T11:41:06+00:00",
       "tickers": [
-        "BTC",
         "ETH",
-        "XRP",
-        "NEAR",
         "DOGE",
-        "TRUMP"
+        "BTC",
+        "NEAR",
+        "TRUMP",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Dogecoin price hovered near $0.069 after a mild market correction, while gaining 0.8% over the past 24 hours.  Bitcoin price failed to break above $63,000, XRP price continued to hover around $1, and Ethereum also failed to hold support. Now traders are waiting for Wednesday&#8217;s White House cryp",
@@ -11222,9 +11244,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T10:36:53+00:00",
       "tickers": [
+        "BNB",
         "BGB",
-        "HTX",
-        "BNB"
+        "HTX"
       ],
       "currency_pairs": [],
       "summary": "Bitget has announced enhanced compliance controls on transactions linked to 16 designated entities, including HTX and EXMO, citing overlapping US and EU regulatory actions. The exchange joins Binance in applying staggered restrictions on the same platforms, signaling a coordinated industry-wide resp",
@@ -11245,10 +11267,10 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T10:29:01+00:00",
       "tickers": [
-        "SHORT",
-        "BTC",
         "ETH",
+        "BTC",
         "OP",
+        "SHORT",
         "XRP"
       ],
       "currency_pairs": [],
@@ -11345,9 +11367,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-15T10:20:22+00:00",
       "tickers": [
-        "LINK",
+        "VELVET",
         "BTC",
-        "VELVET"
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "VELVET has entered the top 100 alts after a massive 150% weekly surge.",
@@ -13513,8 +13535,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T21:19:39+00:00",
       "tickers": [
-        "TRUMP",
-        "WLFI"
+        "WLFI",
+        "TRUMP"
       ],
       "currency_pairs": [],
       "summary": "President Donald Trump-backed World Liberty Financial secured preliminary approval to become a national trust bank on Friday.",
@@ -13541,8 +13563,8 @@ window.newsData = {
       "source": "Bitcoin Magazine",
       "published": "2026-08-14T21:17:12+00:00",
       "tickers": [
-        "IBITON",
-        "BTC"
+        "BTC",
+        "IBITON"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Abu Dhabi Sovereign Wealth Funds Keep Big Bitcoin Positions   \n Bitcoin is the most important asset in two of Abu Dhabi sovereign wealth funds, according to regulatory filings.&#160; Abu Dhabi&#8217;s Mubadala Investment Company disclosed Friday that it held a $490 million sta",
@@ -14817,8 +14839,8 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-14T18:23:49+00:00",
       "tickers": [
-        "BTC",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin (BTC), the largest cryptocurrency by market capitalization, has fallen roughly 2% over the past week, keeping traders cautious as broader macroeconomic uncertainty and the delayed U.S. CLARITY Act weigh on sentiment. Bitcoin’s recent weakness is now being accompanied by an unusual burst of a",
@@ -15262,137 +15284,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "The Dow Jones Industrial Average learns who paid for disinflation",
-      "url": "https://www.fxstreet.com/news/the-dow-jones-industrial-average-learns-who-paid-for-disinflation-202608141635",
-      "source": "FXStreet",
-      "published": "2026-08-14T16:35:16+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Two cooling inflation readings carried the broad market to a record on Thursday, taking the S&amp;P 500 through 7,800 for the first time, and Friday morning supplied the explanation for where the cooling came from.",
-      "sentiment": "Neutral",
-      "confidence": 0.8359,
-      "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "New Zealand Dollar charges toward 0.5900 as US Dollar loses ground",
-      "url": "https://www.fxstreet.com/news/new-zealand-dollar-charges-toward-05900-as-us-dollar-loses-ground-202608141628",
-      "source": "FXStreet",
-      "published": "2026-08-14T16:28:19+00:00",
-      "tickers": [],
-      "currency_pairs": [
-        "USD",
-        "NZD"
-      ],
-      "summary": "NZD/USD gains 0.75% on Friday and trades around 0.5895 at the time of writing, with its rally losing some momentum as it approaches the psychological 0.5900 level.",
-      "sentiment": "Bearish",
-      "confidence": 0.8222,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Bitcoin, Ethereum and Solana in Spotlight as Israel's Largest Bank Joins Crypto Bandwagon",
-      "url": "https://u.today/bitcoin-ethereum-and-solana-in-spotlight-as-israels-largest-bank-joins-crypto-bandwagon",
-      "source": "U.Today",
-      "published": "2026-08-14T16:23:55+00:00",
-      "tickers": [
-        "ETH",
-        "SOL",
-        "BTC",
-        "ASSET"
-      ],
-      "currency_pairs": [],
-      "summary": "Israel's largest bank has integrated cryptocurrencies into its services, becoming the first bank to offer digital asset services in the country.",
-      "sentiment": "Bullish",
-      "confidence": 0.6806,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Another Bitcoin Miner Sells Off BTC to Fund AI Data Center Pivot",
-      "url": "https://decrypt.co/375655/bitcoin-miner-sells-btc-ai-pivot-hyperscale",
-      "source": "Decrypt",
-      "published": "2026-08-14T16:23:20+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitcoin miner Hyperscale sold most of its Bitcoin but said it plans to rebuild its holdings through mining and future purchases.",
-      "sentiment": "Bearish",
-      "confidence": 0.85,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "My wallet smells bullish  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab some ",
-      "url": "https://x.com/SOLWhaleEntry/status/2088299450091425852",
-      "source": "@SOLWhaleEntry",
-      "published": "2026-08-14T16:19:22+00:00",
-      "tickers": [
-        "ARB",
-        "SN44"
-      ],
-      "currency_pairs": [],
-      "summary": "My wallet smells bullish  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab some $JIMOTHY.\n\nGot it here https://jimothys.xyz\n\n$ARB",
-      "sentiment": "Bullish",
-      "confidence": 0.9201,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 28313,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Natural gas: Tight European balance and storage risks – Commerzbank",
-      "url": "https://www.fxstreet.com/news/natural-gas-tight-european-balance-and-storage-risks-commerzbank-202608141617",
-      "source": "FXStreet",
-      "published": "2026-08-14T16:17:00+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Commerzbank’s Norman Liebke stresses that European natural gas remains structurally tighter than Oil as Qatar LNG is cut off and US cargoes are redirected to Asia.",
-      "sentiment": "Neutral",
-      "confidence": 0.72,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "MENA",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Bitcoin analysis shows what bulls need to do next to end this bearish 2026",
       "url": "https://investinglive.com/cryptocurrency/bitcoin-analysis-shows-what-bulls-need-to-do-next-to-end-this-bearish-2026/",
       "source": "InvestingLive",
@@ -15719,7 +15610,7 @@ window.newsData = {
     }
   ],
   "forex_sentiment": {
-    "updated_at": "2026-08-16T15:36:53.191609+00:00",
+    "updated_at": "2026-08-16T16:44:52.218111+00:00",
     "pairs": [
       {
         "symbol": "GBPJPY",
