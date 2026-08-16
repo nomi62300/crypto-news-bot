@@ -1,7 +1,26 @@
 window.newsData = {
-  "updated_at": "2026-08-16T20:38:50.936729+00:00",
-  "total": 619,
+  "updated_at": "2026-08-16T20:59:44.036572+00:00",
+  "total": 616,
   "articles": [
+    {
+      "title": "RC Lens defeats PSG to win first-ever Trophée des Champions",
+      "url": "https://cryptobriefing.com/rc-lens-defeats-psg-trophee-des-champions/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T20:48:18+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Lens' victory disrupts PSG's dominance, signaling a potential shift in French football's competitive landscape and inspiring underdog teams. \n The post  RC Lens defeats PSG to win first-ever Trophée des Champions  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Robinhood Chain sees nasty retrace with only 5 tokens above $10M market cap",
       "url": "https://cryptobriefing.com/robinhood-chain-retrace-five-tokens/",
@@ -18,6 +37,27 @@ window.newsData = {
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "20-Year Tech Veteran Spent 15,000 Hours Trying to Kill Bitcoin, What Did He Find?",
+      "url": "https://beincrypto.com/jeff-booth-15000-hours-kill-bitcoin/",
+      "source": "BeInCrypto",
+      "published": "2026-08-16T20:29:14+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Jeff Booth spent 15,000 hours trying to kill Bitcoin. The attacks failed, and the research changed how he invests. \n The post  20-Year Tech Veteran Spent 15,000 Hours Trying to Kill Bitcoin, What Did He Find?  appeared first on  BeInCrypto .",
+      "sentiment": "Neutral",
+      "confidence": 0.8,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "groq",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -111,8 +151,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-16T19:56:22+00:00",
       "tickers": [
-        "ETH",
-        "BNB"
+        "BNB",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Testnet addresses can become dangerous when users assume the same address works identically on the mainnet.",
@@ -635,8 +675,8 @@ window.newsData = {
       "tickers": [
         "LINK",
         "WLFI",
-        "JST",
-        "BTC"
+        "BTC",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "During the past week, bitcoin tumbled from over $65,000 to close just above $63,200, an approximately 3.2% weekly loss and briefly hit a low below $62,500 on Aug. 14. Bitcoin Leads Mid-August Market Pullback After finishing the first week of August with modest gains, the cryptocurrency market ended",
@@ -1099,9 +1139,9 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-16T18:01:52+00:00",
       "tickers": [
-        "ETH",
         "USDT",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "This week’s stories spanned old crypto fortunes, transparency, market forecasts, trading expansion, and macro shifts. Dormant Ethereum whales moved millions after more than a decade, while KPMG issued Tether a clean audit on its 2025 financials. Arthur Hayes warned bitcoin could fall to $50,000 befo",
@@ -1709,27 +1749,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Tesla and SpaceX merger speculation grows amid 65% chance prediction",
-      "url": "https://cryptobriefing.com/tesla-and-spacex-merger-speculation-grows-amid-65-chance-prediction/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T17:14:58+00:00",
-      "tickers": [
-        "SPCXB"
-      ],
-      "currency_pairs": [],
-      "summary": "A potential Tesla-SpaceX merger could reshape industries, influencing market dynamics, innovation trajectories, and regulatory landscapes. \n The post  Tesla and SpaceX merger speculation grows amid 65% chance prediction  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8859,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "M 4.9 - South Atlantic Ocean",
       "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usd0015e96",
       "source": "USGS",
@@ -1846,8 +1865,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-16T17:00:30+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Ethereum’s setup strengthens as ETH/BTC presses against resistance.",
@@ -2169,8 +2188,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-16T16:50:42+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "The proposal remains pending, while ETHU's sponsor-reported -96.15% average annualized NAV figure through June 30 shows the stakes. \n The post  Cboe pushes for 3x Bitcoin and Ethereum ETFs after 2x crypto funds suffer losses of up to 96%  appeared first on  CryptoSlate .",
@@ -2197,8 +2216,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-16T16:50:42+00:00",
       "tickers": [
-        "ENA",
-        "USDE"
+        "USDE",
+        "ENA"
       ],
       "currency_pairs": [],
       "summary": "StablecoinX Inc. emerged from its Nasdaq merger with about 3 billion ENA tokens, a position equal to roughly 20% of the token’s supply. The New York company disclosed the stake with results for the quarter ended June 30. StablecoinX started trading as USDE on June 26, one day after closing its merge",
@@ -2881,8 +2900,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T15:00:07+00:00",
       "tickers": [
-        "SFP",
-        "BNB"
+        "BNB",
+        "SFP"
       ],
       "currency_pairs": [],
       "summary": "Non custodial wallet, SafePal issues urgent disclosure after customer information is accessed.",
@@ -3552,8 +3571,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-16T13:00:01+00:00",
       "tickers": [
-        "XRP",
-        "BNB"
+        "BNB",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP is back near $1 even as network activity rebounds, whale deposits to Binance collapse, and derivatives exposure builds near recent lows. The token fell to about $0.98 this week before recovering toward $1, according to CryptoSlate data, extending a retreat that has erased much of its May rally.",
@@ -3766,9 +3785,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-16T12:30:39+00:00",
       "tickers": [
+        "BTC",
         "ETH",
-        "XRP",
-        "BTC"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "The crypto market is up slightly today, August 16, as traders await the release of the Federal Open Market Committee (FOMC) meeting, which will come out on August 19. Bitcoin (BTC) and Ethereum (ETH) are stuck at $63,000 and $1,800, respectively, while Ripple (XRP) is defending the support at $1. Ad",
@@ -4849,10 +4868,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T09:55:28+00:00",
       "tickers": [
-        "FORM",
-        "RLUSD",
+        "BNB",
         "XRP",
-        "BNB"
+        "FORM",
+        "RLUSD"
       ],
       "currency_pairs": [],
       "summary": "Major crypto exchange Binance announces extension of RLUSD campaign with XRP in rewards for holders.",
@@ -5111,9 +5130,9 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-16T09:20:53+00:00",
       "tickers": [
+        "WLF",
         "WLFI",
-        "USD1",
-        "WLF"
+        "USD1"
       ],
       "currency_pairs": [],
       "summary": "The Office of the Comptroller of the Currency (OCC) gave World Liberty Financial, a DeFi venture associated with President Donald Trump, preliminary conditional approval to charter a national trust bank built around its roughly $4 billion USD1 stablecoin. World Liberty Trust Company would eventually",
@@ -5140,8 +5159,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-16T09:20:03+00:00",
       "tickers": [
-        "MSTR",
-        "BTC"
+        "BTC",
+        "MSTR"
       ],
       "currency_pairs": [],
       "summary": "Strategy's preferred shares beat Bitcoin over one year, but MSTR stock fell 75%. See who really won the duel. \n The post  MicroStrategy vs. Bitcoin: Who Won the 1-Year Performance Duel?  appeared first on  BeInCrypto .",
@@ -5252,8 +5271,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-16T08:51:03+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "CZ says millionaires will soon fail to afford one full Bitcoin, because lost and dormant coins keep shrinking the float. \n The post  Millionaires Soon Won&#8217;t Be Able to Afford 1 Bitcoin, Says Binance Founder CZ  appeared first on  BeInCrypto .",
@@ -5378,8 +5397,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-16T08:25:28+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "After the major inflows during the first week of August, all eyes turned to the second. However, reality settled in.",
@@ -5944,8 +5963,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T06:11:50+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Veteran trader Peter Brandt has once again taken aim at XRP, dismissing the cryptocurrency and saying he would immediately convert even a 500,000-XRP position into Bitcoin.",
@@ -6139,12 +6158,12 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-16T05:21:04+00:00",
       "tickers": [
-        "ADA",
-        "XMR",
-        "XRP",
-        "LINK",
         "BCH",
+        "LINK",
+        "XRP",
+        "ADA",
         "ZEC",
+        "XMR",
         "BTC"
       ],
       "currency_pairs": [],
@@ -6806,8 +6825,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T01:00:00+00:00",
       "tickers": [
-        "XRP",
-        "BNB"
+        "BNB",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP's whale deposits to Binance remain high as whales continue to dump large amounts of the token on the exchange amid prolonged volatility.",
@@ -7933,8 +7952,8 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-15T19:48:49+00:00",
       "tickers": [
-        "SOL",
-        "BTC"
+        "BTC",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Solana’s reversal is imminent, an important development for crypto traders looking to capitalize on emerging trends in the crypto market. According to data shared today by analyst Max Crypto, Solana is nearing a break above its 19-month downtrend against Bitcoin. The asset has regained attention as",
@@ -9264,8 +9283,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T17:39:38+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance founder Changpeng Zhao, also known as CZ, is once again gaining attention from the crypto market participants with his latest analysis and comments. For context, CZ has recently warned that owning one full Bitcoin would become difficult even for millionaires. Notably, his latest comments foc",
@@ -9853,35 +9872,13 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Solana Company Q2 Loss Hits $30.3 Million as SOL Treasury Suffers",
-      "url": "https://beincrypto.com/solana-company-q2-loss-sol-writedowns/",
-      "source": "BeInCrypto",
-      "published": "2026-08-15T16:13:59+00:00",
-      "tickers": [
-        "HSDT",
-        "SOL"
-      ],
-      "currency_pairs": [],
-      "summary": "Solana Company posted a $30.3 million Q2 loss on SOL writedowns. HSDT stock dropped 5.56% to $1.70. \n The post  Solana Company Q2 Loss Hits $30.3 Million as SOL Treasury Suffers  appeared first on  BeInCrypto .",
-      "sentiment": "Bearish",
-      "confidence": 0.85,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Binance's CZ Hints Bitcoin's Supply Is Even Lower Than Expected",
       "url": "https://u.today/binances-cz-hints-bitcoins-supply-is-even-lower-than-expected",
       "source": "U.Today",
       "published": "2026-08-15T15:58:44+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance's CZ discusses Bitcoin's growing scarcity, suggesting that the number of tokens left in the Bitcoin available supply may be lower than expected.",
@@ -10664,8 +10661,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-15T14:00:00+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -11047,8 +11044,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T13:30:49+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple CTO emeritus, David Schwartz explains the reasoning behind proof-of-work (PoW) forks.",
@@ -11111,8 +11108,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-15T13:01:04+00:00",
       "tickers": [
-        "TRUMP",
         "USD1",
+        "TRUMP",
         "WLT"
       ],
       "currency_pairs": [],
@@ -11652,11 +11649,11 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T11:41:06+00:00",
       "tickers": [
-        "DOGE",
+        "NEAR",
         "TRUMP",
         "ETH",
         "XRP",
-        "NEAR",
+        "DOGE",
         "BTC"
       ],
       "currency_pairs": [],
@@ -12281,9 +12278,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T10:36:53+00:00",
       "tickers": [
-        "HTX",
         "BGB",
-        "BNB"
+        "BNB",
+        "HTX"
       ],
       "currency_pairs": [],
       "summary": "Bitget has announced enhanced compliance controls on transactions linked to 16 designated entities, including HTX and EXMO, citing overlapping US and EU regulatory actions. The exchange joins Binance in applying staggered restrictions on the same platforms, signaling a coordinated industry-wide resp",
@@ -12305,9 +12302,9 @@ window.newsData = {
       "published": "2026-08-15T10:29:01+00:00",
       "tickers": [
         "SHORT",
+        "OP",
         "ETH",
         "XRP",
-        "OP",
         "BTC"
       ],
       "currency_pairs": [],
@@ -12405,8 +12402,8 @@ window.newsData = {
       "published": "2026-08-15T10:20:22+00:00",
       "tickers": [
         "LINK",
-        "VELVET",
-        "BTC"
+        "BTC",
+        "VELVET"
       ],
       "currency_pairs": [],
       "summary": "VELVET has entered the top 100 alts after a massive 150% weekly surge.",
@@ -12887,8 +12884,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T08:42:36+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "The Cboe exchange is seeking approval to list the first triple-leveraged Bitcoin and Ethereum ETFs in the US. The filing comes on the back of weakening demand for crypto ETFs amid the ongoing price weakness. The Cboe filing has not driven gains for Bitcoin and Ethereum, with the two trading at $63,0",
@@ -13972,8 +13969,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T04:00:00+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Sinking against the dollar, XRP flashes a Bollinger Bands setup that could leave an exhausted Bitcoin behind.",
@@ -14120,10 +14117,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T00:01:00+00:00",
       "tickers": [
-        "HYPE",
-        "SHIB",
         "NEAR",
-        "BTC"
+        "BTC",
+        "SHIB",
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "The market might be aiming for the recovery, but the current situation is far from looking bearish.",
@@ -14600,8 +14597,8 @@ window.newsData = {
       "source": "Bitcoin Magazine",
       "published": "2026-08-14T21:17:12+00:00",
       "tickers": [
-        "IBITON",
-        "BTC"
+        "BTC",
+        "IBITON"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Abu Dhabi Sovereign Wealth Funds Keep Big Bitcoin Positions   \n Bitcoin is the most important asset in two of Abu Dhabi sovereign wealth funds, according to regulatory filings.&#160; Abu Dhabi&#8217;s Mubadala Investment Company disclosed Friday that it held a $490 million sta",
@@ -14711,65 +14708,21 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Mexican Peso refreshes multi-month highs, Banxico minutes eyed",
-      "url": "https://www.fxstreet.com/news/mexican-peso-refreshes-multi-month-highs-banxico-minutes-eyed-202608142044",
-      "source": "FXStreet",
-      "published": "2026-08-14T20:44:08+00:00",
+      "title": "Oil- weekend recap & what's ahead: Iran vows to keep Hormuz shut, Trump tells Americans to accept high gas prices",
+      "url": "https://investinglive.com/commodities/oil-weekend-recap-what-s-ahead-iran-vows-to-keep-hormuz-shut-trump-tells-americans-to-accept-high-gas-prices/",
+      "source": "InvestingLive",
+      "published": null,
       "tickers": [],
-      "currency_pairs": [
-        "USD"
-      ],
-      "summary": "USD/MXN refreshed 24-month lows below 17.00 on Friday, but it has recovered some ground, with buyers stepping in and reclaiming the 17.00 level. Data from the United States (US) weighed on the Greenback, as consumer sentiment and Retail Sales deteriorated.",
-      "sentiment": "Bullish",
-      "confidence": 0.9248,
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.8733,
       "other_sources": [],
       "category": "FOREX",
-      "region": "US",
+      "region": "GLOBAL",
       "asset_class": "forex",
       "source_flag": null,
       "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Bitcoiners Warned After French Tax Authority Confirms Data Breach Affecting Hundreds of Thousands",
-      "url": "https://bitcoinmagazine.com/news/bitcoiners-warned-of-wrench-attacks",
-      "source": "Bitcoin Magazine",
-      "published": "2026-08-14T20:42:48+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitcoin Magazine  \n  \n Bitcoiners Warned After French Tax Authority Confirms Data Breach Affecting Hundreds of Thousands  \n France is already the epicenter of wrench attacks, where investors are targeted and forced to hand over their crypto.  \n This post  Bitcoiners Warned After French Tax Authority",
-      "sentiment": "Bearish",
-      "confidence": 0.9,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "EU",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Ripple to Attend Major White House Meeting",
-      "url": "https://u.today/ripple-to-attend-major-white-house-meeting",
-      "source": "U.Today",
-      "published": "2026-08-14T20:39:27+00:00",
-      "tickers": [
-        "XRP"
-      ],
-      "currency_pairs": [],
-      "summary": "Ripple is set to return to the White House next week as part of a high-profile crypto meeting that will bring together some of the industry’s biggest companies and U.S. financial regulators.",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -15076,25 +15029,6 @@ window.newsData = {
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Oil- weekend recap & what's ahead: Iran vows to keep Hormuz shut, Trump tells Americans to accept high gas prices",
-      "url": "https://investinglive.com/commodities/oil-weekend-recap-what-s-ahead-iran-vows-to-keep-hormuz-shut-trump-tells-americans-to-accept-high-gas-prices/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.8733,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
     }
