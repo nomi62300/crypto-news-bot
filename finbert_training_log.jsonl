@@ -417,3 +417,6 @@
 {"headline": "Here are the major earnings before the open Monday", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.9209, "timestamp": "2026-08-16T22:13:08.269912+00:00"}
 {"headline": "Trump orders reduction in U.S.-South Korea military exercises", "summary": "", "finbert_label": "Bearish", "finbert_score": 0.9187, "timestamp": "2026-08-16T22:13:08.325814+00:00"}
 {"headline": "China delays July economic data release to late afternoon slot", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.5467, "timestamp": "2026-08-16T22:13:08.373039+00:00"}
+{"headline": "A2 Milk profit tumbles 44% after China formula shortage", "summary": "", "finbert_label": "Bearish", "finbert_score": 0.9682, "timestamp": "2026-08-16T22:37:31.415064+00:00"}
+{"headline": "U.S. stock futures little changed as investors ponder the Fed’s next move", "summary": "U.S. stock-index futures were little changed on Sunday after a quiet week on Wall Street, as investors await hints from the Fed concerning the outlook for interest rates.", "finbert_label": "Neutral", "finbert_score": 0.5251, "timestamp": "2026-08-16T22:37:31.474319+00:00"}
+{"headline": "Globex is open for the new week, oil a touch higher (not much)", "summary": "", "finbert_label": "Bullish", "finbert_score": 0.8235, "timestamp": "2026-08-16T22:37:31.530535+00:00"}
