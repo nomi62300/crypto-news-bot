@@ -1,7 +1,101 @@
 {
-  "updated_at": "2026-08-16T07:28:57.703227+00:00",
-  "total": 615,
+  "updated_at": "2026-08-16T07:55:05.741907+00:00",
+  "total": 617,
   "articles": [
+    {
+      "title": "You have 20 hours\n\nDrop your $SOL address\n\nLike & RT\n\nMust be following 🔔",
+      "url": "https://x.com/AlphaLabx/status/2088896941887484050",
+      "source": "@AlphaLabx",
+      "published": "2026-08-16T07:53:35+00:00",
+      "tickers": [
+        "SOL"
+      ],
+      "currency_pairs": [],
+      "summary": "You have 20 hours\n\nDrop your $SOL address\n\nLike & RT\n\nMust be following 🔔",
+      "sentiment": "Bullish",
+      "confidence": 0.6011,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 2,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 149823,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "seeing a lot of tweets about $LINK on the timeline\nmaybe not impossible it gets a bit of an isolated run... \n\nif it",
+      "url": "https://x.com/dirkcryptodiggy/status/2088895868405698701",
+      "source": "@dirkcryptodiggy",
+      "published": "2026-08-16T07:49:19+00:00",
+      "tickers": [
+        "LINK"
+      ],
+      "currency_pairs": [],
+      "summary": "seeing a lot of tweets about $LINK on the timeline\nmaybe not impossible it gets a bit of an isolated run... \n\nif it does, probably worth watching that descending trendline around 18-20 for exits on longs",
+      "sentiment": "Bearish",
+      "confidence": 0.7787,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 11669,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "German companies cut US investment to three-year low as tariff uncertainty bites",
+      "url": "https://cryptobriefing.com/german-companies-cut-us-investment-three-year-low/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T07:35:22+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "German firms' reduced US investments highlight a strategic pivot towards Asia, reflecting broader shifts in global economic alliances. \n The post  German companies cut US investment to three-year low as tariff uncertainty bites  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.9158,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "5- @NEARProtocol - $NEAR\n\nSix years in the making, and NEAR is still here. NEAR is a Layer 1 network that is BUIDLing",
+      "url": "https://x.com/AltCryptoGems/status/2088890690532991023",
+      "source": "@AltCryptoGems",
+      "published": "2026-08-16T07:28:44+00:00",
+      "tickers": [
+        "NEAR"
+      ],
+      "currency_pairs": [],
+      "summary": "5- @NEARProtocol - $NEAR\n\nSix years in the making, and NEAR is still here. NEAR is a Layer 1 network that is BUIDLing an all-in-one hub for AI Agents and applications. Their mission is to create the ultimate decentralized infrastructure, where AI agents and users can interact seamlessly between",
+      "sentiment": "Bullish",
+      "confidence": 0.6366,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 3,
+      "reposts": 1,
+      "replies": 1,
+      "follower_count": 473517,
+      "is_crypto_relevant": true
+    },
     {
       "title": "🚨NEW: $1.79 BILLION Franklin Templeton OFFICIALLY INCREASED It's $XRP ETF Holdings By OVER 65 MILLION in Just ONE",
       "url": "https://x.com/TheMoonHailey/status/2088890315977421222",
@@ -568,8 +662,8 @@
       "source": "U.Today",
       "published": "2026-08-16T06:11:50+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Veteran trader Peter Brandt has once again taken aim at XRP, dismissing the cryptocurrency and saying he would immediately convert even a 500,000-XRP position into Bitcoin.",
@@ -785,11 +879,11 @@
       "published": "2026-08-16T05:21:04+00:00",
       "tickers": [
         "LINK",
+        "BCH",
+        "XRP",
         "ADA",
         "ZEC",
-        "XRP",
         "BTC",
-        "BCH",
         "XMR"
       ],
       "currency_pairs": [],
@@ -2359,8 +2453,8 @@
       "published": "2026-08-15T22:59:05+00:00",
       "tickers": [
         "SOL",
-        "PUMP",
-        "USDT"
+        "USDT",
+        "PUMP"
       ],
       "currency_pairs": [],
       "summary": "Pump.fun's rise highlights the growing influence of retail-driven crypto activity and Solana's role as a hub for rapid memecoin trading. \n The post  Pump.fun ranks third in 7-day revenue among all protocols, trailing only Tether and Circle  appeared first on  Crypto Briefing .",
@@ -2874,25 +2968,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Jon Guridi equalizes for Sevilla, halting Vallecano celebrations",
-      "url": "https://cryptobriefing.com/guridi-equalizer-sevilla-rayo-vallecano/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-15T21:23:41+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Guridi's equalizer underscores Sevilla's resilience and highlights the competitive nature of La Liga, impacting both teams' season momentum. \n The post  Jon Guridi equalizes for Sevilla, halting Vallecano celebrations  appeared first on  Crypto Briefing .",
-      "sentiment": "Neutral",
-      "confidence": 0.5445,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Taiwanese banks are done debating tokenization — they're asking how, not if. @Ripple is already making it real with DBS",
       "url": "https://x.com/RipBullWinkle/status/2088737089642807306",
       "source": "@RipBullWinkle",
@@ -3067,8 +3142,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-15T20:40:13+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "President Donald Trump and the heads of the SEC and CFTC are expected to meet crypto and prediction-market executives at the White House next week as the industry’s biggest legislative priority faces dwindling odds of becoming law this year. According to reports, the Aug. 19 gathering is expected to",
@@ -3273,27 +3348,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Edelman Financial’s $34M Bitcoin ETF Bet Tops Its Amazon Stake",
-      "url": "https://news.bitcoin.com/crypto-news/edelman-financial-bitcoin-etf-34-million/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-15T20:05:42+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Edelman Financial Engines, which manages $326 billion in client assets, disclosed a $34 million position in spot bitcoin exchange-traded funds (ETFs) in its latest regulatory filing, a stake that now exceeds the firm&#8217;s holding in Amazon. A New Line in the Filing Edelman Financial Engines, the",
-      "sentiment": "Bullish",
-      "confidence": 0.8753,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Bank Leumi Taps Galaxy to Launch Israel’s First Bank Crypto Trading in Early 2027",
       "url": "https://cryptopotato.com/bank-leumi-taps-galaxy-to-launch-israels-first-bank-crypto-trading-in-early-2027/",
       "source": "CryptoPotato",
@@ -3383,8 +3437,8 @@
       "source": "ZyCrypto",
       "published": "2026-08-15T19:48:49+00:00",
       "tickers": [
-        "SOL",
-        "BTC"
+        "BTC",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Solana’s reversal is imminent, an important development for crypto traders looking to capitalize on emerging trends in the crypto market. According to data shared today by analyst Max Crypto, Solana is nearing a break above its 19-month downtrend against Bitcoin. The asset has regained attention as",
@@ -4205,8 +4259,8 @@
       "source": "The Block",
       "published": "2026-08-15T18:37:59+00:00",
       "tickers": [
-        "IBIT",
-        "BTC"
+        "BTC",
+        "IBIT"
       ],
       "currency_pairs": [],
       "summary": "UAE-based Mubadala Investment Company and the Abu Dhabi Investment Council also retained their combined 22.9 million IBIT shares.",
@@ -4775,8 +4829,8 @@
       "source": "@justinsuntron",
       "published": "2026-08-15T17:42:46+00:00",
       "tickers": [
-        "TRON",
         "TRX",
+        "TRON",
         "RLB"
       ],
       "currency_pairs": [],
@@ -4831,8 +4885,8 @@
       "source": "Coingape",
       "published": "2026-08-15T17:39:38+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance founder Changpeng Zhao, also known as CZ, is once again gaining attention from the crypto market participants with his latest analysis and comments. For context, CZ has recently warned that owning one full Bitcoin would become difficult even for millionaires. Notably, his latest comments foc",
@@ -5549,8 +5603,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-15T16:13:59+00:00",
       "tickers": [
-        "SOL",
-        "HSDT"
+        "HSDT",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Solana Company posted a $30.3 million Q2 loss on SOL writedowns. HSDT stock dropped 5.56% to $1.70. \n The post  Solana Company Q2 Loss Hits $30.3 Million as SOL Treasury Suffers  appeared first on  BeInCrypto .",
@@ -5609,8 +5663,8 @@
       "source": "U.Today",
       "published": "2026-08-15T15:58:44+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance's CZ discusses Bitcoin's growing scarcity, suggesting that the number of tokens left in the Bitcoin available supply may be lower than expected.",
@@ -6112,8 +6166,8 @@
       "source": "CoinDesk",
       "published": "2026-08-15T15:12:29+00:00",
       "tickers": [
-        "BRK",
-        "BTC"
+        "BTC",
+        "BRK"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -6926,8 +6980,8 @@
       "source": "U.Today",
       "published": "2026-08-15T13:30:49+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple CTO emeritus, David Schwartz explains the reasoning behind proof-of-work (PoW) forks.",
@@ -6969,8 +7023,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-15T13:20:07+00:00",
       "tickers": [
-        "FORM",
-        "BTC"
+        "BTC",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "June 30 snapshots separate unchanged sovereign units, JPMorgan share additions, UBS options and a newly reported Morgan Stanley wrapper. \n The post  Bitcoin’s $16.3 billion Wall Street stress test splits into four positional patterns  appeared first on  CryptoSlate .",
@@ -7104,8 +7158,8 @@
       "source": "Coingape",
       "published": "2026-08-15T12:30:31+00:00",
       "tickers": [
-        "SOL",
         "LINK",
+        "SOL",
         "SHIB"
       ],
       "currency_pairs": [],
@@ -7128,8 +7182,8 @@
       "published": "2026-08-15T12:19:16+00:00",
       "tickers": [
         "NEAR",
-        "LINK",
-        "BTC"
+        "BTC",
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "Van de Poppe says Chainlink left its bear market and targets $11, while Bitcoin stalls in a quiet range near $62,968. \n The post  Chainlink Bull Market Returns as Analyst Targets $11 for LINK  appeared first on  BeInCrypto .",
@@ -7302,8 +7356,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-15T11:57:32+00:00",
       "tickers": [
-        "WLFI",
-        "USD1"
+        "USD1",
+        "WLFI"
       ],
       "currency_pairs": [],
       "summary": "The conditional approval would allow it to bring the issuance and custody of its USD1 stablecoin under its own federally supervised trust bank.",
@@ -7532,8 +7586,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-15T11:45:34+00:00",
       "tickers": [
-        "BLCK",
-        "BTC"
+        "BTC",
+        "BLCK"
       ],
       "currency_pairs": [],
       "summary": "The June 30 snapshot shows a far less call-heavy mix, with reported put equivalents nearly unchanged. \n The post  Institutional investor Paul Tudor Jones adds 109,446 BlackRock Bitcoin ETF shares while cutting calls by 85%  appeared first on  CryptoSlate .",
@@ -7610,11 +7664,11 @@
       "source": "Coingape",
       "published": "2026-08-15T11:41:06+00:00",
       "tickers": [
-        "ETH",
-        "TRUMP",
         "NEAR",
+        "ETH",
         "XRP",
         "BTC",
+        "TRUMP",
         "DOGE"
       ],
       "currency_pairs": [],
@@ -8206,8 +8260,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-15T10:52:02+00:00",
       "tickers": [
-        "ROSE",
-        "DIS"
+        "DIS",
+        "ROSE"
       ],
       "currency_pairs": [],
       "summary": "Disney stock rose 1.96% on Friday as Marvel Studios unveiled a new Avengers Doomsday trailer for December. \n The post  Disney Stock Extends Rally as New Avengers Doomsday Trailer Drops  appeared first on  BeInCrypto .",
@@ -8376,9 +8430,9 @@
       "source": "Coingape",
       "published": "2026-08-15T10:36:53+00:00",
       "tickers": [
-        "BNB",
+        "BGB",
         "HTX",
-        "BGB"
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Bitget has announced enhanced compliance controls on transactions linked to 16 designated entities, including HTX and EXMO, citing overlapping US and EU regulatory actions. The exchange joins Binance in applying staggered restrictions on the same platforms, signaling a coordinated industry-wide resp",
@@ -8400,10 +8454,10 @@
       "published": "2026-08-15T10:29:01+00:00",
       "tickers": [
         "ETH",
-        "XRP",
-        "BTC",
+        "SHORT",
         "OP",
-        "SHORT"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "XRP price remains above the crucial $1 support despite a mild cryptocurrency market pullback. Network activity reached a two-month high, supporting cautious optimism.  Bitcoin price trades below $63,000, while Ethereum stays under $1,900. Holding $1 could preserve XRP’s recovery outlook and encourag",
@@ -8499,9 +8553,9 @@
       "source": "CryptoPotato",
       "published": "2026-08-15T10:20:22+00:00",
       "tickers": [
-        "VELVET",
+        "BTC",
         "LINK",
-        "BTC"
+        "VELVET"
       ],
       "currency_pairs": [],
       "summary": "VELVET has entered the top 100 alts after a massive 150% weekly surge.",
@@ -8522,8 +8576,8 @@
       "source": "@justinsuntron",
       "published": "2026-08-15T10:17:48+00:00",
       "tickers": [
-        "TRON",
-        "TRX"
+        "TRX",
+        "TRON"
       ],
       "currency_pairs": [],
       "summary": "👀 Tron leads 4",
@@ -9921,8 +9975,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-15T06:00:24+00:00",
       "tickers": [
-        "IBITON",
-        "BTC"
+        "BTC",
+        "IBITON"
       ],
       "currency_pairs": [],
       "summary": "Two Abu Dhabi sovereign investors kept their BlackRock Bitcoin ETF holdings unchanged through the second quarter, retaining $764 million of exposure even as the cryptocurrency remained mired in one of its steepest annual declines. Mubadala Investment Company and the Abu Dhabi Investment Council held",
@@ -10150,10 +10204,10 @@
       "source": "CryptoSlate",
       "published": "2026-08-15T04:00:13+00:00",
       "tickers": [
+        "APE",
         "ETH",
         "JST",
-        "APES",
-        "APE"
+        "APES"
       ],
       "currency_pairs": [],
       "summary": "Lookonchain tied three loss-making Bored Ape sales to the trade, but the public record does not trace the proceeds into margin. \n The post  Machi Big Brother sells 3 Bored Apes to cut his Ethereum long in 52%, but liquidation moved to just $22 away  appeared first on  CryptoSlate .",
@@ -10180,8 +10234,8 @@
       "source": "U.Today",
       "published": "2026-08-15T04:00:00+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Sinking against the dollar, XRP flashes a Bollinger Bands setup that could leave an exhausted Bitcoin behind.",
@@ -10350,9 +10404,9 @@
       "published": "2026-08-15T00:01:00+00:00",
       "tickers": [
         "NEAR",
-        "HYPE",
         "BTC",
-        "SHIB"
+        "SHIB",
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "The market might be aiming for the recovery, but the current situation is far from looking bearish.",
@@ -10850,8 +10904,8 @@
       "source": "Bitcoin Magazine",
       "published": "2026-08-14T21:17:12+00:00",
       "tickers": [
-        "IBITON",
-        "BTC"
+        "BTC",
+        "IBITON"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Abu Dhabi Sovereign Wealth Funds Keep Big Bitcoin Positions   \n Bitcoin is the most important asset in two of Abu Dhabi sovereign wealth funds, according to regulatory filings.&#160; Abu Dhabi&#8217;s Mubadala Investment Company disclosed Friday that it held a $490 million sta",
@@ -11291,8 +11345,8 @@
       "source": "Coingape",
       "published": "2026-08-14T20:04:47+00:00",
       "tickers": [
-        "TRUMP",
-        "XRP"
+        "XRP",
+        "TRUMP"
       ],
       "currency_pairs": [],
       "summary": "Coinbase and Ripple executives are expected to be among the crypto executives who will attend the White House crypto meeting with President Donald Trump and his officials. Notably, CEOs Brian Armstrong and Brad Garlinghouse have been among the crypto stakeholders actively pushing the Senate to pass",
@@ -11313,8 +11367,8 @@
       "source": "Bitcoin Magazine",
       "published": "2026-08-14T20:03:41+00:00",
       "tickers": [
-        "SAFE",
-        "BTC"
+        "BTC",
+        "SAFE"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Citi CEO Wants &#8216;Good&#8217; Crypto Clarity Act To Get Passed  \n Citigroup CEO Jane Fraser has said that while some improvements need to be made to the crypto Clarity Act, the bank wants a &#8220;good bill to go through.&#8221; The banking executive said that the bank was",
@@ -11552,8 +11606,8 @@
       "source": "@justinsuntron",
       "published": "2026-08-14T19:05:58+00:00",
       "tickers": [
-        "BNB",
-        "HTX"
+        "HTX",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "I have been in communication with Binance. This matter concerns only Binance’s UK and EU users. HTX does not conduct business in the UK or EU, and settlement negotiations with UK and EU regulators are already in progress. Any users affected in the course of these negotiations are welcome to contact",
@@ -11658,8 +11712,8 @@
       "published": "2026-08-14T18:57:04+00:00",
       "tickers": [
         "ETH",
-        "SOL",
-        "BTC"
+        "BTC",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "The value of the university endowment’s holdings in the Bitwise Solana staking ETF, Grayscale Ethereum staking ETF and BlackRock’s iShares Bitcoin ETF dropped to about $12 million.",
@@ -12148,8 +12202,8 @@
       "source": "ZyCrypto",
       "published": "2026-08-14T18:23:49+00:00",
       "tickers": [
-        "FORM",
-        "BTC"
+        "BTC",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin (BTC), the largest cryptocurrency by market capitalization, has fallen roughly 2% over the past week, keeping traders cautious as broader macroeconomic uncertainty and the delayed U.S. CLARITY Act weigh on sentiment. Bitcoin’s recent weakness is now being accompanied by an unusual burst of a",
@@ -12211,8 +12265,8 @@
       "published": "2026-08-14T18:05:15+00:00",
       "tickers": [
         "ETH",
-        "SOL",
-        "BTC"
+        "BTC",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "The leading bank in Israel, Bank Leumi, has caught the eyes of crypto market traders with its recent announcement to allow crypto trading for its customers through a partnership with Galaxy. According to the announcement, the customers would be able to buy, sell, or hold cryptocurrencies like Bitcoi",
@@ -12469,8 +12523,8 @@
       "published": "2026-08-14T17:09:37+00:00",
       "tickers": [
         "ETH",
-        "SOL",
-        "BTC"
+        "BTC",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Israel received an estimated $22 billion in onchain crypto value during the 12 months ending June 2025, according to Chainalysis.",
@@ -12640,9 +12694,9 @@
       "published": "2026-08-14T16:23:55+00:00",
       "tickers": [
         "ETH",
+        "BTC",
         "SOL",
-        "ASSET",
-        "BTC"
+        "ASSET"
       ],
       "currency_pairs": [],
       "summary": "Israel's largest bank has integrated cryptocurrencies into its services, becoming the first bank to offer digital asset services in the country.",
@@ -12750,9 +12804,9 @@
       "source": "U.Today",
       "published": "2026-08-14T16:10:45+00:00",
       "tickers": [
+        "RLUSD",
         "ETH",
-        "XRP",
-        "RLUSD"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple's new $50 million stablecoin mint pushes RLUSD supply on Ethereum blockchain close to a record parity with XRP Ledger.",
@@ -12927,8 +12981,8 @@
       "source": "The Block",
       "published": "2026-08-14T15:43:26+00:00",
       "tickers": [
-        "BNB",
-        "HTX"
+        "HTX",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance said it will no longer process transactions from 16 exchanges, including five already blocked, citing regulatory compliance needs.",
@@ -13201,8 +13255,8 @@
       "published": "2026-08-14T14:22:57+00:00",
       "tickers": [
         "ETH",
-        "ROSE",
         "BTC",
+        "ROSE",
         "BIT"
       ],
       "currency_pairs": [],
@@ -13225,9 +13279,9 @@
       "published": "2026-08-14T14:14:06+00:00",
       "tickers": [
         "ETH",
-        "BTC-ETF",
+        "BTC",
         "ETH-ETF",
-        "BTC"
+        "BTC-ETF"
       ],
       "currency_pairs": [],
       "summary": "JPMorgan reported a 25% increase in its Bitcoin ETF position and more than quadrupled its Ether ETF position in the second quarter.",
@@ -13353,8 +13407,8 @@
       "source": "CoinTelegraph",
       "published": "2026-08-14T13:36:34+00:00",
       "tickers": [
-        "BNB",
-        "HTX"
+        "HTX",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance said it will stop processing transactions for involving 11 crypto platforms, including HTX, which was recently listed in the EU’s sanctions package targeting Russia.",
@@ -13506,8 +13560,8 @@
       "source": "Coingape",
       "published": "2026-08-14T12:30:50+00:00",
       "tickers": [
-        "UNI",
-        "BTC"
+        "BTC",
+        "UNI"
       ],
       "currency_pairs": [],
       "summary": "The crypto market is down today, August 14, as a hawkish monetary outlook by the Bank of Japan (BoJ) and geopolitical risks weigh on prices. Bitcoin (BTC) has dropped to retest $62,000, while Uniswap (UNI) has made the biggest daily loss among altcoins. Ad Ad What is Driving the Crypto Market Down T",
@@ -13709,8 +13763,8 @@
       "published": "2026-08-14T11:52:25+00:00",
       "tickers": [
         "ETH",
-        "ADA",
-        "BTC"
+        "BTC",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "A closer look at the recent performance of BTC, ETH, and ADA and what could be coming next.",
@@ -13815,8 +13869,8 @@
       "published": "2026-08-14T11:23:28+00:00",
       "tickers": [
         "SHORT",
-        "PLUME",
-        "ASSET"
+        "ASSET",
+        "PLUME"
       ],
       "currency_pairs": [],
       "summary": "Shinhan Asset Management and Plume will test a tokenized fund using a Korean won-denominated ultra-short-term bond fund as its underlying asset.",
@@ -13859,10 +13913,10 @@
       "published": "2026-08-14T11:16:26+00:00",
       "tickers": [
         "ETH",
-        "ADA",
-        "HYPE",
         "XRP",
-        "BNB"
+        "ADA",
+        "BNB",
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "This Friday, we examine Ethereum, Ripple, Cardano, Binance Coin, and Hyperliquid in greater detail. Ethereum (ETH) This week, Ethereum hugged the key support at $1,800 with a minor loss of 2%. While this puts sellers in a more favorable position, they will need to break the support if they want to t",
@@ -14009,8 +14063,8 @@
       "source": "CoinTelegraph",
       "published": "2026-08-14T10:43:57+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin futures open interest on Binance fell alongside BTC price as analysis published on CryptoQuant flagged mounting pressure on leveraged longs.",
@@ -14291,8 +14345,8 @@
       "source": "U.Today",
       "published": "2026-08-14T09:15:45+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Following the BIP-110 collapse, David Schwartz fires back at Bitcoin cando-purists, declaring that network opinions \"don't matter one bit\".",
