@@ -61,6 +61,7 @@ jobs:
           git add news.json news.js
           [ -f token_usage.json ] && git add token_usage.json
           [ -f finbert_training_log.jsonl ] && git add finbert_training_log.jsonl
+          [ -f metrics_history.csv ] && git add metrics_history.csv
           # Only commit if the files actually changed
           git diff --cached --quiet || git commit -m "chore: update news data [skip ci]"
           git push

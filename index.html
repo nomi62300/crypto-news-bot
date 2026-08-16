@@ -2799,35 +2799,69 @@
       // first load), never throw uncaught.
     }
 
-    // Rolling local history for the crypto Market Cap/24h Volume/BTC
-    // Dominance stat boxes. CoinGecko's free tier has no historical
-    // endpoint for these aggregate figures (the real chart endpoint,
-    // /global/market_cap_chart, 402s with "PRO API subscribers only" —
-    // confirmed live) — building a proper server-side series would mean
-    // adding a whole new daily-gated news.json field. Instead, one point
-    // per calendar day accumulates in localStorage on each visit, so the
-    // sparkline fills in gradually over real usage; same-day revisits just
-    // update that day's point rather than adding a new one. Honest
-    // trade-off: a brand-new browser sees no chart until day 2.
-    const LOCAL_HISTORY_MAX_POINTS = 30;
-    function recordLocalHistoryPoint(key, value) {
-      if (value == null || !isFinite(value)) return null;
-      try {
-        const storageKey = 'snitchHistory_' + key;
-        const raw = localStorage.getItem(storageKey);
-        let points = raw ? JSON.parse(raw) : [];
-        const today = new Date().toISOString().slice(0, 10);
-        if (points.length && points[points.length - 1].date === today) {
-          points[points.length - 1].value = value;
-        } else {
-          points.push({ date: today, value });
-        }
-        if (points.length > LOCAL_HISTORY_MAX_POINTS) points = points.slice(-LOCAL_HISTORY_MAX_POINTS);
-        localStorage.setItem(storageKey, JSON.stringify(points));
-        return points.map(p => p.value);
-      } catch (err) {
-        return null; // localStorage unavailable (private browsing, quota) — fail soft, just no chart
+    // Real historical series for the crypto Market Cap/24h Volume/BTC
+    // Dominance stat boxes (and the macro Market Risk Premium tile), backed
+    // by metrics_history.csv — a small file the cron run appends one row
+    // to per metric per hourly/daily refresh (see append_metrics_history()
+    // in fetch_news.py). Queried client-side with DuckDB-Wasm, loaded lazily
+    // (its bundle is multiple MB) only once a tab that needs it activates.
+    // Replaces an earlier per-browser localStorage rolling-history hack —
+    // this is real, server-persisted, shared history instead.
+    let metricHistoryCache = {}; // metric -> number[] (chronological) | null
+    let duckDbConnPromise = null;
+
+    async function ensureDuckDb() {
+      if (!duckDbConnPromise) {
+        duckDbConnPromise = (async () => {
+          try {
+            const duckdb = await import('https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm');
+            const bundle = await duckdb.selectBundle(duckdb.getJsDelivrBundles());
+            const workerUrl = URL.createObjectURL(new Blob([`importScripts("${bundle.mainWorker}");`], { type: 'text/javascript' }));
+            const worker = new Worker(workerUrl);
+            const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(duckdb.LogLevel.WARNING), worker);
+            await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+            URL.revokeObjectURL(workerUrl);
+            return await db.connect();
+          } catch (err) {
+            console.warn('DuckDB-Wasm failed to load — metric history sparklines unavailable:', err);
+            return null;
+          }
+        })();
       }
+      return duckDbConnPromise;
+    }
+
+    async function queryMetricHistory(metric, limit = 60) {
+      const conn = await ensureDuckDb();
+      if (!conn) return null;
+      try {
+        const csvUrl = new URL('metrics_history.csv', location.href).href;
+        const result = await conn.query(`
+          SELECT value FROM (
+            SELECT value, timestamp FROM read_csv_auto('${csvUrl}')
+            WHERE metric = '${metric}'
+            ORDER BY timestamp DESC LIMIT ${limit}
+          ) ORDER BY timestamp ASC
+        `);
+        const values = result.toArray().map(r => Number(r.value)).filter(v => isFinite(v));
+        return values.length >= 2 ? values : null;
+      } catch (err) {
+        console.warn(`DuckDB query failed for metric "${metric}":`, err);
+        return null;
+      }
+    }
+
+    let metricHistoryFetchedAt = 0;
+    const METRIC_HISTORY_TTL = 5 * 60 * 1000; // matches how often the underlying CSV can even change (hourly/daily-gated writes)
+    const METRIC_HISTORY_NAMES = ['crypto_market_cap', 'crypto_volume_24h', 'btc_dominance', 'market_risk_premium'];
+
+    async function refreshMetricHistorySparklines() {
+      if (Date.now() - metricHistoryFetchedAt < METRIC_HISTORY_TTL) return;
+      metricHistoryFetchedAt = Date.now();
+      const results = await Promise.all(METRIC_HISTORY_NAMES.map(m => queryMetricHistory(m)));
+      METRIC_HISTORY_NAMES.forEach((m, i) => { metricHistoryCache[m] = results[i]; });
+      renderCryptoGlobalStats();
+      renderMacroSnapshot();
     }
 
     function renderCryptoGlobalStats() {
@@ -2836,9 +2870,9 @@
       const s = cryptoGlobalStats;
       const fng = window.fngData;
       const fngColor = fng ? (fng.value >= 55 ? 'var(--bullish)' : fng.value <= 45 ? 'var(--bearish)' : 'var(--neutral)') : 'var(--text-primary)';
-      const mcSeries = s ? recordLocalHistoryPoint('cryptoMarketCap', s.marketCap) : null;
-      const volSeries = s ? recordLocalHistoryPoint('cryptoVolume', s.volume) : null;
-      const domSeries = s ? recordLocalHistoryPoint('btcDominance', s.btcDominance) : null;
+      const mcSeries = metricHistoryCache.crypto_market_cap;
+      const volSeries = metricHistoryCache.crypto_volume_24h;
+      const domSeries = metricHistoryCache.btc_dominance;
       const chart = (series) => (Array.isArray(series) && series.length >= 2) ? `<div class="mkt-stat-tile-chart">${renderLineSparkline(series, 100, 28)}</div>` : '';
       // When CoinGecko's own /global endpoint failed and these are derived
       // from the top-100 markets table instead (computeApproxGlobalStats),
@@ -2969,6 +3003,7 @@
         renderCryptoGainersLosersTables();
         renderCryptoMarketTable();
         buildTickerTape();
+        refreshMetricHistorySparklines();
         return;
       }
 
@@ -2998,6 +3033,7 @@
       renderCryptoGlobalStats();
       renderCryptoGainersLosersTables();
       renderCryptoMarketTable();
+      refreshMetricHistorySparklines(); // fire-and-forget — re-renders the stat boxes once real history resolves
     }
 
     // ----------------------------------------------------------------
@@ -3358,17 +3394,20 @@
       }
       // Treasury Yield and Fed Funds Rate carry real sparkline history from
       // FMP (treasury-rates returns ~60 days free; economic-indicators only
-      // has 3 monthly FOMC-decision points, thin but real). The others have
-      // no time-series source, so they render as plain tiles — same
-      // optional-sparkline handling renderStatTileRow already uses for the
-      // Indices/FX/Commodities rows.
+      // has 3 monthly FOMC-decision points, thin but real). Market Risk
+      // Premium has no time-series source of its own (FMP's endpoint is a
+      // cross-sectional country snapshot, not history) — its sparkline
+      // instead comes from metrics_history.csv, built up one point per day
+      // by the cron run and queried client-side via DuckDB (see
+      // refreshMetricHistorySparklines()). CPI/GDP/Unemployment/Payroll
+      // still have no source at all, so they render as plain tiles.
       const tiles = [
         { label: 'Treasury 10Y Yield', value: snap.treasury_yield_10y, suffix: '%', sparkline: snap.treasury_yield_10y_sparkline },
         { label: 'Fed Funds Rate', value: snap.fed_funds_rate, suffix: '%', sparkline: snap.fed_funds_rate_sparkline },
         { label: 'CPI YoY', value: snap.cpi_yoy, suffix: '%' },
         { label: 'Real GDP', value: snap.gdp_real, suffix: '' },
         { label: 'Unemployment Rate', value: snap.unemployment_rate, suffix: '%' },
-        { label: 'Market Risk Premium', value: snap.market_risk_premium, suffix: '%' },
+        { label: 'Market Risk Premium', value: snap.market_risk_premium, suffix: '%', sparkline: metricHistoryCache.market_risk_premium },
         { label: 'Nonfarm Payroll', value: snap.nonfarm_payroll, suffix: '' },
       ];
       const asOf = snap.updated_at ? new Date(snap.updated_at).toLocaleDateString() : '—';
@@ -3868,6 +3907,7 @@
         await fetchEconCalendar();
       }
       renderEconCalendar();
+      refreshMetricHistorySparklines(); // fire-and-forget — feeds the Market Risk Premium sparkline once resolved
     }
 
     // ----------------------------------------------------------------

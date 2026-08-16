@@ -10,6 +10,43 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-08-16
+### Added
+- **New `crypto_global_snapshot` field** in `fetch_news.py`/`news.json`:
+  hourly-gated, server-side CoinGecko `/global` fetch (Market Cap, 24h
+  Volume, BTC Dominance) — same pattern as `forex_sentiment`. Previously
+  this data was fetched directly from the browser on every visit with no
+  server-side anchor point, which is what forced the localStorage
+  rolling-history workaround below to exist.
+- **New `metrics_history.csv`**, appended to once per hourly/daily refresh
+  by `append_metrics_history()` — normalized `(timestamp, metric, value)`
+  long-format rows for `crypto_market_cap`, `crypto_volume_24h`,
+  `btc_dominance`, `treasury_yield_10y`, `fed_funds_rate`, and
+  `market_risk_premium`. Only appends when the underlying snapshot's own
+  gate actually produced a fresh fetch (compares `updated_at` against what
+  was already stored), so a 15-minute cron tick doesn't append duplicate
+  rows of unchanged data. Trimmed to the last 60 days on every write.
+  Committed by `scrape_news.yml` alongside `news.json`/`news.js`.
+- **DuckDB-Wasm integration** (`index.html`): lazily loaded (its bundle is
+  several MB, so it's only pulled in once the Crypto Market or Forex
+  Market tab actually activates) to run SQL directly against
+  `metrics_history.csv` client-side — `SELECT value FROM
+  read_csv_auto('metrics_history.csv') WHERE metric = '...' ORDER BY
+  timestamp`. Feeds real line-chart sparklines for the Crypto Market tab's
+  Market Cap/24h Volume/BTC Dominance stat boxes and the Macro Snapshot's
+  Market Risk Premium tile (which never had a sparkline source at all
+  before — FMP's risk-premium endpoint is a cross-sectional country
+  snapshot, not a time series).
+
+### Changed
+- Replaced the per-browser localStorage rolling-history hack
+  (`recordLocalHistoryPoint()`) for the crypto stat-box sparklines with the
+  DuckDB-backed real history above. The old approach only accumulated one
+  point per calendar day *per browser* (reset on clearing storage, invisible
+  to any other visitor); the new one is server-persisted and identical for
+  everyone, at the cost of needing the DuckDB-Wasm bundle to load — it
+  degrades gracefully to no chart (not an error) if that fails.
+
 ## [0.9.1] - 2026-08-16
 ### Added
 - Tweets Only now has a "Whales / Crypto / Economic" sub-filter — three

@@ -8,6 +8,7 @@ fuzzy matching, classifies sentiment via a tiered Groq / VADER / keyword-scorer
 engine chain, and writes the result to news.json.
 """
 
+import csv
 import json
 import os
 import re
@@ -1628,6 +1629,140 @@ def fetch_stocks_snapshot(old_data: dict) -> Optional[dict]:
     return None
 
 
+CRYPTO_GLOBAL_TTL_SECONDS = 60 * 60  # 1 hour — same cadence as forex_sentiment
+
+
+def fetch_crypto_global_snapshot(old_data: dict) -> Optional[dict]:
+    """Hourly-gated, server-side CoinGecko /global fetch. Previously this
+    data (Market Cap/24h Volume/BTC Dominance on the Crypto Market tab) was
+    fetched directly from the browser on every visit — fine for display,
+    but it meant there was no server-side anchor point to build real
+    history from, so the sparklines on those stat boxes were patched with a
+    per-browser localStorage hack instead of a real time series. Landing
+    this server-side is what makes metrics_history.csv (see
+    append_metrics_history()) possible: one authoritative value per hour,
+    written by the one process that actually persists data (the cron run),
+    not by any individual visitor's browser."""
+    previous = old_data.get("crypto_global_snapshot")
+    if previous and previous.get("updated_at"):
+        try:
+            prev_dt = datetime.fromisoformat(previous["updated_at"])
+            age = (datetime.now(timezone.utc) - prev_dt).total_seconds()
+            if age < CRYPTO_GLOBAL_TTL_SECONDS:
+                return previous
+        except Exception:
+            pass
+
+    try:
+        resp = requests.get("https://api.coingecko.com/api/v3/global", headers=DEFAULT_HEADERS, timeout=10)
+        resp.raise_for_status()
+        data = resp.json().get("data")
+        if not data:
+            raise ValueError("no data in response")
+        snapshot = {
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "source": "coingecko",
+            "market_cap": data.get("total_market_cap", {}).get("usd"),
+            "market_cap_change_pct_24h": data.get("market_cap_change_percentage_24h_usd"),
+            "volume_24h": data.get("total_volume", {}).get("usd"),
+            "btc_dominance": data.get("market_cap_percentage", {}).get("btc"),
+        }
+        if snapshot["market_cap"] is None:
+            raise ValueError("missing market_cap in response")
+        print("  [INFO] crypto_global_snapshot: using CoinGecko")
+        return snapshot
+    except Exception as exc:
+        print(f"  [WARN] crypto_global_snapshot fetch failed: {exc}")
+        if previous:
+            return {**previous, "stale": True}
+        return None
+
+
+METRICS_HISTORY_FILE = os.path.join(os.path.dirname(__file__), "metrics_history.csv")
+METRICS_HISTORY_RETENTION_DAYS = 60
+
+
+def append_metrics_history(old_data: dict, crypto_global: Optional[dict], macro: Optional[dict]) -> None:
+    """Appends one row per metric to metrics_history.csv, normalized
+    (timestamp, metric, value) long format — easy to query client-side with
+    DuckDB-Wasm (e.g. SELECT * FROM read_csv('metrics_history.csv') WHERE
+    metric = 'btc_dominance' ORDER BY timestamp), and easy to extend with
+    new metrics later without a schema change. Only appends when the
+    underlying snapshot's own hourly/daily gate actually produced a fresh
+    fetch this run (detected by comparing updated_at against what was
+    already in news.json before this run started) — otherwise every
+    15-minute cron tick would append a duplicate row of unchanged data,
+    since fetch_crypto_global_snapshot()/fetch_macro_snapshot() both return
+    their cached value unchanged (including updated_at) when still within
+    TTL. Best-effort: a failure here must never break the scrape run."""
+    try:
+        rows = []
+
+        old_crypto_global = old_data.get("crypto_global_snapshot") or {}
+        if crypto_global and not crypto_global.get("stale") and crypto_global.get("updated_at") != old_crypto_global.get("updated_at"):
+            ts = crypto_global["updated_at"]
+            for metric, value in [
+                ("crypto_market_cap", crypto_global.get("market_cap")),
+                ("crypto_volume_24h", crypto_global.get("volume_24h")),
+                ("btc_dominance", crypto_global.get("btc_dominance")),
+            ]:
+                if value is not None:
+                    rows.append((ts, metric, value))
+
+        old_macro = old_data.get("macro_snapshot") or {}
+        if macro and not macro.get("stale") and macro.get("updated_at") != old_macro.get("updated_at"):
+            ts = macro["updated_at"]
+            for metric, value in [
+                ("treasury_yield_10y", macro.get("treasury_yield_10y")),
+                ("fed_funds_rate", macro.get("fed_funds_rate")),
+                ("market_risk_premium", macro.get("market_risk_premium")),
+            ]:
+                if value is not None:
+                    rows.append((ts, metric, value))
+
+        if not rows:
+            return
+
+        file_exists = os.path.exists(METRICS_HISTORY_FILE)
+        with open(METRICS_HISTORY_FILE, "a", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            if not file_exists:
+                writer.writerow(["timestamp", "metric", "value"])
+            writer.writerows(rows)
+
+        _trim_metrics_history()
+        print(f"  [INFO] metrics_history: appended {len(rows)} row(s)")
+    except Exception as exc:
+        print(f"  [WARN] append_metrics_history failed (non-fatal): {exc}")
+
+
+def _trim_metrics_history() -> None:
+    """Drops rows older than METRICS_HISTORY_RETENTION_DAYS so the file
+    doesn't grow forever. Rewrites the whole file — at the row counts this
+    produces (well under 100/day), that's cheap enough on every run rather
+    than adding date-partitioned files."""
+    if not os.path.exists(METRICS_HISTORY_FILE):
+        return
+    cutoff = datetime.now(timezone.utc) - timedelta(days=METRICS_HISTORY_RETENTION_DAYS)
+    with open(METRICS_HISTORY_FILE, "r", newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        header = next(reader, None)
+        kept = []
+        for row in reader:
+            if len(row) != 3:
+                continue
+            try:
+                ts = datetime.fromisoformat(row[0])
+            except Exception:
+                continue
+            if ts >= cutoff:
+                kept.append(row)
+    with open(METRICS_HISTORY_FILE, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(header or ["timestamp", "metric", "value"])
+        writer.writerows(kept)
+
+
 def _fetch_commodities_fmp() -> Optional[list[dict]]:
     """FMP's /stable/quote endpoint accepts a comma-joined symbol batch.
     Exact commodity ticker conventions (CLUSD/BZUSD/GCUSD/etc.) are FMP's
@@ -2621,6 +2756,11 @@ def main():
     print(f"[{datetime.now().isoformat()}] Checking stocks snapshot (Finnhub, daily-gated)…")
     stocks_snapshot = fetch_stocks_snapshot(old_data)
 
+    print(f"[{datetime.now().isoformat()}] Checking crypto global snapshot (CoinGecko, hourly-gated)…")
+    crypto_global_snapshot = fetch_crypto_global_snapshot(old_data)
+
+    append_metrics_history(old_data, crypto_global_snapshot, macro_snapshot)
+
     output = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "total":      len(final),
@@ -2630,6 +2770,7 @@ def main():
         "commodity_snapshot": commodity_snapshot,
         "index_snapshot": index_snapshot,
         "stocks_snapshot": stocks_snapshot,
+        "crypto_global_snapshot": crypto_global_snapshot,
     }
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
