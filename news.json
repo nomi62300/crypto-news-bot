@@ -1,7 +1,87 @@
 {
-  "updated_at": "2026-08-16T22:59:23.670999+00:00",
-  "total": 621,
+  "updated_at": "2026-08-16T23:16:10.248152+00:00",
+  "total": 647,
   "articles": [
+    {
+      "title": "China’s energy strategy vindicated by Iran conflict: FT",
+      "url": "https://cryptobriefing.com/chinas-energy-strategy-vindicated-by-iran-conflict-ft/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T23:12:05+00:00",
+      "tickers": [
+        "FT"
+      ],
+      "currency_pairs": [],
+      "summary": "China's energy strategy may inspire global shifts, potentially heightening geopolitical tensions and impacting financial markets, including gold. \n The post  China&#8217;s energy strategy vindicated by Iran conflict: FT  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.9037,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "ASIA",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Robert Kiyosaki Eyes $10K Gold, $200 Silver as US Debt Nears $40T",
+      "url": "https://news.bitcoin.com/market-updates/robert-kiyosaki-eyes-10k-gold-200-silver-as-us-debt-nears-40t/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-16T23:05:45+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Robert Kiyosaki is favoring silver as federal debt approaches $40 trillion, citing forecasts for gold and silver to rise sharply. His warning renews questions about cash, inflation, and volatile hard-asset strategies. Robert Kiyosaki Favors Silver as Federal Debt Approaches $40 Trillion Rich Dad Poo",
+      "sentiment": "Neutral",
+      "confidence": 0.532,
+      "other_sources": [],
+      "category": "ECONOMIC",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Israel attacks Lebanon as US prepares fresh Iran sanctions",
+      "url": "https://www.fxstreet.com/news/israel-strikes-lebanon-as-us-prepares-fresh-iran-sanctions-202608162303",
+      "source": "FXStreet",
+      "published": "2026-08-16T23:03:26+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Israel has resumed airstrikes against Lebanon in the past few days after scaling back its attacks in the enclave earlier this month, Reuters reported on Sunday.",
+      "sentiment": "Bearish",
+      "confidence": 0.546,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Bitcoin’s U.S. demand flashes a 90-day warning – What it means for BTC",
+      "url": "https://ambcrypto.com/bitcoins-u-s-demand-flashes-a-90-day-warning-what-it-means-for-btc/",
+      "source": "AMBCrypto",
+      "published": "2026-08-16T23:00:53+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Could the extended negative Coinbase Premium be a sign of ongoing selling pressure from American traders?",
+      "sentiment": "Bearish",
+      "confidence": 0.9375,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "People are always interested... \n\n$BTC $ETH $SOL",
       "url": "https://x.com/DrRitikaS/status/2089124093237018831",
@@ -582,10 +662,10 @@
       "source": "AMBCrypto",
       "published": "2026-08-16T22:00:18+00:00",
       "tickers": [
+        "WLFI",
         "UNI",
-        "ADA",
         "WLD",
-        "WLFI"
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "This week, macro FUD returned to the market. Here’s a quick look at how some of your favorite coins held up.",
@@ -610,7 +690,13 @@
       "summary": "",
       "sentiment": "Bearish",
       "confidence": 0.9187,
-      "other_sources": [],
+      "other_sources": [
+        {
+          "source": "bnonews.com",
+          "url": "https://bnonews.com/index.php/2026/08/trump-orders-reduction-in-u-s-south-korea-military-exercises/",
+          "published": null
+        }
+      ],
       "category": "STOCKS",
       "region": "GLOBAL",
       "asset_class": "stocks",
@@ -751,7 +837,28 @@
       "summary": "Scaling back US-South Korea military drills may weaken regional security, strain alliances, and embolden North Korea's strategic posture. \n The post  Trump directs Pentagon to reduce military drills with South Korea  appeared first on  Crypto Briefing .",
       "sentiment": "Neutral",
       "confidence": 0.5383,
-      "other_sources": [],
+      "other_sources": [
+        {
+          "source": "freemalaysiatoday.com",
+          "url": "https://www.freemalaysiatoday.com/category/highlight/2026/08/17/trump-instructs-pentagon-to-reduce-military-exercises-with-south-korea",
+          "published": null
+        },
+        {
+          "source": "nypost.com",
+          "url": "https://nypost.com/2026/08/16/world-news/trump-instructs-pentagon-to-reduce-military-exercises-with-south-korea/",
+          "published": null
+        },
+        {
+          "source": "wmur.com",
+          "url": "https://www.wmur.com/article/trump-scales-back-us-south-korea-military-exercises/73446771",
+          "published": null
+        },
+        {
+          "source": "wlwt.com",
+          "url": "https://www.wlwt.com/article/trump-scales-back-us-south-korea-military-exercises/73446771",
+          "published": null
+        }
+      ],
       "category": "CRYPTO",
       "region": "GLOBAL",
       "asset_class": "crypto",
@@ -809,7 +916,8 @@
       "sentiment_engine": "usgs_magnitude",
       "source_type": "rss",
       "event_source": "usgs",
-      "magnitude": 4.5
+      "magnitude": 4.5,
+      "is_crypto_relevant": true
     },
     {
       "title": "Trump welcomes trilateral defense agreement between Saudi Arabia, Turkey, and Pakistan",
@@ -900,8 +1008,8 @@
       "published": "2026-08-16T21:03:27+00:00",
       "tickers": [
         "XRP",
-        "BTC",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Trump meets crypto leaders, Fed minutes land, and Japan tests the carry trade. Four catalysts that could move Bitcoin and XRP. \n The post  4 Reasons This Could Be the Most Important Week of August for Bitcoin and XRP  appeared first on  BeInCrypto .",
@@ -922,8 +1030,8 @@
       "source": "AMBCrypto",
       "published": "2026-08-16T21:00:53+00:00",
       "tickers": [
-        "SOL",
-        "ETH"
+        "ETH",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Tokenization is expanding from Treasury issuance toward broader on-chain use across major blockchain networks.",
@@ -1590,10 +1698,10 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-16T19:00:34+00:00",
       "tickers": [
+        "WLFI",
         "LINK",
-        "BTC",
         "JST",
-        "WLFI"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "During the past week, bitcoin tumbled from over $65,000 to close just above $63,200, an approximately 3.2% weekly loss and briefly hit a low below $62,500 on Aug. 14. Bitcoin Leads Mid-August Market Pullback After finishing the first week of August with modest gains, the cryptocurrency market ended",
@@ -1841,25 +1949,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "US labs cut AI inference costs nearly 25% amid price war",
-      "url": "https://cryptobriefing.com/us-labs-ai-inference-price-war/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T18:36:54+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The price cuts in AI inference could accelerate AI adoption but challenge financial models, impacting investment strategies and valuations. \n The post  US labs cut AI inference costs nearly 25% amid price war  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.941,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "I mean for the bear market looking at returns and doing dry runs the best option for Crypto right now is $HYPE and",
       "url": "https://x.com/SonOfATech/status/2089058812514664845",
       "source": "@SonOfATech",
@@ -1955,9 +2044,9 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-16T18:01:52+00:00",
       "tickers": [
+        "ETH",
         "USDT",
-        "BTC",
-        "ETH"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "This week’s stories spanned old crypto fortunes, transparency, market forecasts, trading expansion, and macro shifts. Dormant Ethereum whales moved millions after more than a decade, while KPMG issued Tether a clean audit on its 2025 financials. Arthur Hayes warned bitcoin could fall to $50,000 befo",
@@ -2506,8 +2595,8 @@
       "source": "AMBCrypto",
       "published": "2026-08-16T17:00:30+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Ethereum’s setup strengthens as ETH/BTC presses against resistance.",
@@ -2829,8 +2918,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-16T16:50:42+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The proposal remains pending, while ETHU's sponsor-reported -96.15% average annualized NAV figure through June 30 shows the stakes. \n The post  Cboe pushes for 3x Bitcoin and Ethereum ETFs after 2x crypto funds suffer losses of up to 96%  appeared first on  CryptoSlate .",
@@ -3262,8 +3351,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-16T15:30:52+00:00",
       "tickers": [
-        "AZTEC",
-        "REQ"
+        "REQ",
+        "AZTEC"
       ],
       "currency_pairs": [],
       "summary": "Its provider feed showed 16 delegations after Aug. 15, while the cost of missing its Aug. 5 request remains unknown. \n The post  Over 1.3 million staked tokens remain stranded onchain after a major validator missed its deadline to exit Aztec  appeared first on  CryptoSlate .",
@@ -4240,8 +4329,8 @@
       "source": "CoinDesk",
       "published": "2026-08-16T13:00:00+00:00",
       "tickers": [
-        "USDT",
-        "USDC"
+        "USDC",
+        "USDT"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -4427,8 +4516,8 @@
       "published": "2026-08-16T12:30:39+00:00",
       "tickers": [
         "XRP",
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The crypto market is up slightly today, August 16, as traders await the release of the Federal Open Market Committee (FOMC) meeting, which will come out on August 19. Bitcoin (BTC) and Ethereum (ETH) are stuck at $63,000 and $1,800, respectively, while Ripple (XRP) is defending the support at $1. Ad",
@@ -4771,8 +4860,8 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-16T11:30:03+00:00",
       "tickers": [
-        "SOL",
-        "ETH"
+        "ETH",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Grayscale projects Ethereum&#8217;s annual supply inflation could shrink to roughly 0.4% and Solana&#8217;s to 1.1% by 2031 if two pending network proposals pass, pushing both issuance rates below gold&#8217;s roughly 1.8% annual supply growth. Two Networks, One Scarcity Bet Ethereum and Solana are",
@@ -5288,8 +5377,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-16T10:40:50+00:00",
       "tickers": [
-        "SOL",
-        "ETH"
+        "ETH",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Grayscale's July 17 SEC filings said its Ethereum and Solana staking ETFs would convert staking rewards to cash and distribute them to shareholders at least quarterly, with the changes expected around Aug. 7. Solana and Ethereum are each weighing protocol changes that would reduce that income at the",
@@ -5334,25 +5423,6 @@
       "reposts": 0,
       "replies": 0,
       "follower_count": 42423,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Roman Storm Targets Google and OpenAI Over DOJ Crypto Conviction",
-      "url": "https://news.bitcoin.com/crypto-news/roman-storm-targets-google-and-openai-over-doj-crypto-conviction/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-16T10:30:01+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Storm pointed out the flawed logic behind the case against him and Tornado Cash, stressing that Google and OpenAI would be liable as their products are being used by North Korean operatives to fund the country&#8217;s nuclear program. Roman Storm Points at Google and OpenAI as North Korea&#8217;s En",
-      "sentiment": "Bearish",
-      "confidence": 0.8404,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -5511,8 +5581,8 @@
       "tickers": [
         "XRP",
         "BNB",
-        "RLUSD",
-        "FORM"
+        "FORM",
+        "RLUSD"
       ],
       "currency_pairs": [],
       "summary": "Major crypto exchange Binance announces extension of RLUSD campaign with XRP in rewards for holders.",
@@ -5843,8 +5913,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-16T08:51:03+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "CZ says millionaires will soon fail to afford one full Bitcoin, because lost and dormant coins keep shrinking the float. \n The post  Millionaires Soon Won&#8217;t Be Able to Afford 1 Bitcoin, Says Binance Founder CZ  appeared first on  BeInCrypto .",
@@ -5969,8 +6039,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-16T08:25:28+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "After the major inflows during the first week of August, all eyes turned to the second. However, reality settled in.",
@@ -6730,13 +6800,13 @@
       "source": "CryptoPotato",
       "published": "2026-08-16T05:21:04+00:00",
       "tickers": [
-        "LINK",
-        "XMR",
         "ZEC",
-        "XRP",
-        "ADA",
+        "XMR",
         "BCH",
-        "BTC"
+        "BTC",
+        "ADA",
+        "XRP",
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "XRP, ZEC, ADA, and BCH stand in one corner, while XMR and LINK are in the opposite.",
@@ -6809,8 +6879,8 @@
       "source": "AMBCrypto",
       "published": "2026-08-16T05:00:32+00:00",
       "tickers": [
-        "SOL",
-        "ETH"
+        "ETH",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Would stronger long-term price support result from lower SOL and ETH inflation?",
@@ -7248,27 +7318,6 @@
       "reposts": 1,
       "replies": 1,
       "follower_count": 31812,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Lido launches $10M LDO buyback – But NEST may remain idle until…",
-      "url": "https://ambcrypto.com/lido-launches-10m-ldo-buyback-but-nest-may-remain-idle-until/",
-      "source": "AMBCrypto",
-      "published": "2026-08-16T02:00:21+00:00",
-      "tickers": [
-        "LDO"
-      ],
-      "currency_pairs": [],
-      "summary": "Daily staking revenue has stayed below $100K and could delay the impact of the buyback program.",
-      "sentiment": "Bullish",
-      "confidence": 0.696,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -9754,8 +9803,8 @@
       "source": "Coingape",
       "published": "2026-08-15T17:39:38+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance founder Changpeng Zhao, also known as CZ, is once again gaining attention from the crypto market participants with his latest analysis and comments. For context, CZ has recently warned that owning one full Bitcoin would become difficult even for millionaires. Notably, his latest comments foc",
@@ -10348,8 +10397,8 @@
       "source": "U.Today",
       "published": "2026-08-15T15:58:44+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Binance's CZ discusses Bitcoin's growing scarcity, suggesting that the number of tokens left in the Bitcoin available supply may be lower than expected.",
@@ -10786,8 +10835,8 @@
       "source": "CoinDesk",
       "published": "2026-08-15T15:12:29+00:00",
       "tickers": [
-        "BTC",
-        "BRK"
+        "BRK",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -11132,8 +11181,8 @@
       "source": "CoinDesk",
       "published": "2026-08-15T14:00:00+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -11580,8 +11629,8 @@
       "published": "2026-08-15T13:01:04+00:00",
       "tickers": [
         "WLT",
-        "TRUMP",
-        "USD1"
+        "USD1",
+        "TRUMP"
       ],
       "currency_pairs": [],
       "summary": "The proposed World Liberty Trust Company would take over issuance of the USD1 stablecoin from BitGo.",
@@ -11840,8 +11889,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-15T11:57:32+00:00",
       "tickers": [
-        "USD1",
-        "WLFI"
+        "WLFI",
+        "USD1"
       ],
       "currency_pairs": [],
       "summary": "The conditional approval would allow it to bring the issuance and custody of its USD1 stablecoin under its own federally supervised trust bank.",
@@ -12120,12 +12169,12 @@
       "source": "Coingape",
       "published": "2026-08-15T11:41:06+00:00",
       "tickers": [
-        "NEAR",
-        "XRP",
         "TRUMP",
-        "ETH",
         "BTC",
-        "DOGE"
+        "DOGE",
+        "NEAR",
+        "ETH",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Dogecoin price hovered near $0.069 after a mild market correction, while gaining 0.8% over the past 24 hours.  Bitcoin price failed to break above $63,000, XRP price continued to hover around $1, and Ethereum also failed to hold support. Now traders are waiting for Wednesday&#8217;s White House cryp",
@@ -12772,11 +12821,11 @@
       "source": "Coingape",
       "published": "2026-08-15T10:29:01+00:00",
       "tickers": [
-        "OP",
-        "XRP",
-        "ETH",
+        "BTC",
         "SHORT",
-        "BTC"
+        "OP",
+        "ETH",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP price remains above the crucial $1 support despite a mild cryptocurrency market pullback. Network activity reached a two-month high, supporting cautious optimism.  Bitcoin price trades below $63,000, while Ethereum stays under $1,900. Holding $1 could preserve XRP’s recovery outlook and encourag",
@@ -12873,8 +12922,8 @@
       "published": "2026-08-15T10:20:22+00:00",
       "tickers": [
         "LINK",
-        "BTC",
-        "VELVET"
+        "VELVET",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "VELVET has entered the top 100 alts after a massive 150% weekly surge.",
@@ -13355,8 +13404,8 @@
       "source": "Coingape",
       "published": "2026-08-15T08:42:36+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The Cboe exchange is seeking approval to list the first triple-leveraged Bitcoin and Ethereum ETFs in the US. The filing comes on the back of weakening demand for crypto ETFs amid the ongoing price weakness. The Cboe filing has not driven gains for Bitcoin and Ethereum, with the two trading at $63,0",
@@ -14735,44 +14784,15 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Five years deserves more than one collectible 🎉\n\nFor a limited time, unlock both Meta Pool anniversary editions:\n\n⭐ Conn",
-      "url": "https://x.com/meta_pool/status/2088400324424020401",
-      "source": "@meta_pool",
-      "published": "2026-08-14T23:00:12+00:00",
-      "tickers": [
-        "SOL",
-        "NEAR",
-        "META"
-      ],
-      "currency_pairs": [],
-      "summary": "Five years deserves more than one collectible 🎉\n\nFor a limited time, unlock both Meta Pool anniversary editions:\n\n⭐ Connect your wallet: claim Anniversary Edition\n⭐ Stake $25 in $NEAR or $SOL: unlock Special Gold Edition\n\nAvailable through August 31 → https://referrals.metapool.app/",
-      "sentiment": "Bullish",
-      "confidence": 0.8243,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 1,
-      "reposts": 0,
-      "replies": 1,
-      "follower_count": 56345,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Silver Price Forecast: XAG stalls as yields cap recovery",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-stalls-as-yields-cap-recovery-202608142259",
-      "source": "FXStreet",
-      "published": "2026-08-14T22:59:08+00:00",
+      "title": "Bessent eyes Iran economic squeeze, but Chinese teapot ties limit options",
+      "url": "https://investinglive.com/commodities/bessent-eyes-iran-economic-squeeze-but-chinese-teapot-ties-limit-options/",
+      "source": "InvestingLive",
+      "published": null,
       "tickers": [],
-      "currency_pairs": [
-        "USD"
-      ],
-      "summary": "Silver price advanced by some 0.39% on Friday, capped by rising US yields, even though US data was softer than expected. XAG/USD trades at $64.70, after bouncing off daily lows of $63.51.",
+      "currency_pairs": [],
+      "summary": "",
       "sentiment": "Bearish",
-      "confidence": 0.9062,
+      "confidence": 0.6473,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
@@ -14783,28 +14803,41 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Remember how everyone thought $BTC would follow global liquidity forever? \n\nStarting to look like it stopped working",
-      "url": "https://x.com/0xChainMind/status/2088399893266039006",
-      "source": "@0xChainMind",
-      "published": "2026-08-14T22:58:29+00:00",
-      "tickers": [
-        "BTC"
-      ],
+      "title": "More NZ data: Retail card spending (July) +1.3% m/m (prior -1.4%)",
+      "url": "https://investinglive.com/news/more-nz-data-retail-card-spending-july-1-3-m-m-prior-1-4/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
       "currency_pairs": [],
-      "summary": "Remember how everyone thought $BTC would follow global liquidity forever? \n\nStarting to look like it stopped working",
-      "sentiment": "Bullish",
-      "confidence": 0.6868,
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.6293,
       "other_sources": [],
-      "category": "CRYPTO",
+      "category": "FOREX",
       "region": "GLOBAL",
-      "asset_class": "crypto",
+      "asset_class": "forex",
       "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 2,
-      "reposts": 1,
-      "replies": 1,
-      "follower_count": 169593,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "NZ services sector holds above breakeven for second month as PMI eases to 50.6 (prior 50.9)",
+      "url": "https://investinglive.com/news/nz-services-sector-holds-above-breakeven-for-second-month-as-pmi-eases-to-50-6-prior-50-9/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bullish",
+      "confidence": 0.8913,
+      "other_sources": [],
+      "category": "ECONOMIC",
+      "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -15114,61 +15147,625 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Bessent eyes Iran economic squeeze, but Chinese teapot ties limit options",
-      "url": "https://investinglive.com/commodities/bessent-eyes-iran-economic-squeeze-but-chinese-teapot-ties-limit-options/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.6473,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "More NZ data: Retail card spending (July) +1.3% m/m (prior -1.4%)",
-      "url": "https://investinglive.com/news/more-nz-data-retail-card-spending-july-1-3-m-m-prior-1-4/",
-      "source": "InvestingLive",
+      "title": "Trump envoys meet with Middle East mediators as Israel strikes Gaza",
+      "url": "https://www.cnbc.com/2026/08/16/trumps-envoys-meet-mediators-israel-strikes-gaza.html",
+      "source": "cnbc.com",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
       "sentiment": "Neutral",
-      "confidence": 0.6293,
+      "confidence": 0.5,
       "other_sources": [],
-      "category": "FOREX",
+      "category": "GEOPOLITICS",
       "region": "GLOBAL",
-      "asset_class": "forex",
+      "asset_class": "geopolitics",
       "source_flag": null,
-      "sentiment_engine": "finbert",
+      "sentiment_engine": "gdelt_tone",
       "source_type": "rss",
-      "is_crypto_relevant": true
+      "event_source": "gdelt"
     },
     {
-      "title": "NZ services sector holds above breakeven for second month as PMI eases to 50.6 (prior 50.9)",
-      "url": "https://investinglive.com/news/nz-services-sector-holds-above-breakeven-for-second-month-as-pmi-eases-to-50-6-prior-50-9/",
-      "source": "InvestingLive",
+      "title": "Trump envoy Kushner meets with Hamas leader in push to revive Gaza peace plan",
+      "url": "https://www.sbs.com.au/news/article/jared-kushner-meets-with-hamas-on-gaza-peace-plan/6pl7kbhll",
+      "source": "sbs.com.au",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Bullish",
-      "confidence": 0.8913,
-      "other_sources": [],
-      "category": "ECONOMIC",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "oann.com",
+          "url": "https://www.oann.com/newsroom/report-kushner-met-with-hamas-leaders-to-advance-gaza-peace-plan-to-second-phase/",
+          "published": null
+        }
+      ],
+      "category": "GEOPOLITICS",
       "region": "GLOBAL",
-      "asset_class": "forex",
+      "asset_class": "geopolitics",
       "source_flag": null,
-      "sentiment_engine": "finbert",
+      "sentiment_engine": "gdelt_tone",
       "source_type": "rss",
-      "is_crypto_relevant": true
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Lebanon Reports 11 Killed in Israeli Airstrikes on Southern Region",
+      "url": "https://jowhar.com/lebanon-reports-11-killed-in-israeli-airstrikes-on-southern-region/",
+      "source": "jowhar.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Top U . S . commander visits aircraft carrier ; Gaza talks in Egypt and other Mideast news",
+      "url": "https://japantoday.com/category/world/us-top-middle-east-commander-visits-deployed-aircraft-carrier-and-other-mideast-news",
+      "source": "japantoday.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Kushner has a rare meeting with Hama leader on the Gaza road map . A meeting with Netanyahu is next",
+      "url": "https://www.clickondetroit.com/news/world/2026/08/16/us-envoy-kushner-meets-hamas-leader-in-push-for-a-gaza-road-map-before-heading-to-see-netanyahu/",
+      "source": "clickondetroit.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "kalw.org",
+          "url": "https://www.kalw.org/npr-news/2026-08-16/kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-with-netanyahu",
+          "published": null
+        },
+        {
+          "source": "wamc.org",
+          "url": "https://www.wamc.org/2026-08-16/kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-with-netanyahu",
+          "published": null
+        },
+        {
+          "source": "kpbs.org",
+          "url": "https://www.kpbs.org/news/international/2026/08/16/kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-with-netanyahu",
+          "published": null
+        },
+        {
+          "source": "kmxt.org",
+          "url": "https://www.kmxt.org/2026-08-16/kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-with-netanyahu",
+          "published": null
+        },
+        {
+          "source": "kuow.org",
+          "url": "https://www.kuow.org/npr-news/2026-08-16/kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-with-netanyahu",
+          "published": null
+        },
+        {
+          "source": "kawc.org",
+          "url": "https://www.kawc.org/npr-news/2026-08-16/kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-with-netanyahu",
+          "published": null
+        },
+        {
+          "source": "wfdd.org",
+          "url": "https://www.wfdd.org/national/2026-08-16/kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-with-netanyahu",
+          "published": null
+        },
+        {
+          "source": "ksmu.org",
+          "url": "https://www.ksmu.org/2026-08-16/kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-with-netanyahu",
+          "published": null
+        },
+        {
+          "source": "krmg.com",
+          "url": "https://krmg.com/2026/08/16/us-envoy-kushner-meets-hamas-leader-in-push-for-a-gaza-road-map-before-heading-to-see-netanyahu/",
+          "published": null
+        },
+        {
+          "source": "reflector.com",
+          "url": "http://www.reflector.com/news/national/kushner-has-a-rare-meeting-with-hamas-leader-on-the-gaza-road-map-a-meeting/article_b2a84ada-e0f2-55ed-9005-eb56ceb6cd1b.html",
+          "published": null
+        },
+        {
+          "source": "abcnews4.com",
+          "url": "https://abcnews4.com/news/nation-world/kushner-has-a-rare-meeting-with-hamas-leader-on-the-gaza-road-map",
+          "published": null
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "US Cant Bomb Its Way To Victory : Scotiabank Maps Bessent Coming Economic Hammer On Iran",
+      "url": "https://www.zerohedge.com/geopolitical/us-cant-bomb-its-way-victory-scotiabank-maps-bessents-coming-economic-hammer-iran",
+      "source": "zerohedge.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Israel wants ChatGPT to push its Gaza narrative - Politico",
+      "url": "https://www.sott.net/article/507948-Israel-wants-ChatGPT-to-push-its-Gaza-narrative-Politico",
+      "source": "sott.net",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Strikes kill 19 in Russia and Ukraine",
+      "url": "https://japantoday.com/category/world/mass-drone-attack-on-moscow-as-russian-strikes-kill-three-in-ukraine",
+      "source": "japantoday.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Sudan : The closing military gap between SAF and RSF and what comes next , by Yechale Degu",
+      "url": "https://theeagleonline.com.ng/sudan-the-closing-military-gap-between-saf-and-rsf-and-what-comes-next-by-yechale-degu/",
+      "source": "theeagleonline.com.ng",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "What shrinking US missile stocks means for allies and adversaries around the world",
+      "url": "https://www.atlanticcouncil.org/dispatches/what-shrinking-us-missile-stocks-means-for-allies-and-adversaries-around-the-world/",
+      "source": "atlanticcouncil.org",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Ukraine launches one of its largest aerial attacks of the war , killing at least 6 people in Russia",
+      "url": "https://www.local10.com/news/2026/08/16/ukraine-launches-one-of-its-largest-aerial-attacks-of-the-war-killing-at-least-6-people-in-russia/",
+      "source": "local10.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Arab countries , Indonesia and Türkiye condemn Israeli rejection of Gaza peace plan - 17 - Aug - 2026",
+      "url": "https://home.nzcity.co.nz/news/article.aspx?id=452085",
+      "source": "home.nzcity.co.nz",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "home.nzcity.co.nz",
+          "url": "https://home.nzcity.co.nz/news/article.aspx?id=452085&fm=psp,tst",
+          "published": null
+        },
+        {
+          "source": "home.nzcity.co.nz",
+          "url": "https://home.nzcity.co.nz/news/article.aspx?id=452085&fm=psp,tsf",
+          "published": null
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "White House  discussing using nuclear weapons on Iran , claims former Congresswoman | World | News",
+      "url": "https://www.express.co.uk/news/world/2239689/white-house-discussing-nuclear-weapons",
+      "source": "express.co.uk",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Humiliation for Putin as Russia loses 43 , 000 soldiers",
+      "url": "https://www.express.co.uk/news/world/2239684/putin-russia-loses-43000-soldiers",
+      "source": "express.co.uk",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Russia hits steel plant with new strikes on Ukraine",
+      "url": "https://www.thecourier.com.au/story/9331320/russia-hits-steel-plant-with-new-strikes-on-ukraine/",
+      "source": "thecourier.com.au",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "St . Catharines was a key staging ground during Fenian raids",
+      "url": "https://www.wellandtribune.ca/life/niagara-region/brian-narhi-history-fenian-raids-st-catharines/article_e1c8ba05-7675-55ff-824a-a9fd08071fdc.html",
+      "source": "wellandtribune.ca",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Carlos Saladrigas , businessman :  We recommend a Marshall Plan for Cuba  | International",
+      "url": "https://english.elpais.com/international/2026-08-16/carlos-saladrigas-businessman-we-recommend-a-marshall-plan-for-cuba.html",
+      "source": "english.elpais.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Reading Pakistan beyond the Mecca pact",
+      "url": "https://www.tribuneindia.com/news/comment/reading-pakistan-beyond-the-mecca-pact/",
+      "source": "tribuneindia.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Hamas urges pressure on Israel to approve roadmap for 2nd phase of Gaza ceasefire agreement - Xinhua",
+      "url": "https://english.news.cn/20260817/f6929fe4bd9d4e57abce229798f803dc/c.html",
+      "source": "english.news.cn",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Stock market today : Live updates",
+      "url": "https://www.cnbc.com/2026/08/16/stock-market-today-live-updates-.html",
+      "source": "cnbc.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Prescott , Wis ., Confluence of Communities celebrates a better history class",
+      "url": "https://www.twincities.com/2026/08/16/prescott-wis-confluence-of-communities-celebrates-a-better-history-class/",
+      "source": "twincities.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Castro - style capitalism : Havana promises economic changes without relinquishing political control",
+      "url": "https://english.elpais.com/international/2026-08-16/castro-style-capitalism-havana-promises-economic-changes-without-relinquishing-political-control.html",
+      "source": "english.elpais.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "US Navy Sailor Exposes Alleged Filthy Conditions Living Aboard the USS Abraham Lincoln After 250 Days at Sea",
+      "url": "https://www.ibtimes.co.uk/uss-abraham-lincoln-crew-hardships-record-deployment-1814477",
+      "source": "ibtimes.co.uk",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Israel - Gaza news : National Security head Itamar Ben - Gvir advocates killing  30 to 40  in Gaza nightly while speaking to ex - hostage",
+      "url": "https://abc11.com/post/israel-gaza-news-national-security-head-itamar-ben-gvir-advocates-killing-30-40-nightly-speaking-ex-hostage/19688373/",
+      "source": "abc11.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Fergie Chambers , the US millionaire activist detained in Ibiza :  I am a human rights defender  | U . S .",
+      "url": "https://english.elpais.com/usa/2026-08-16/fergie-chambers-the-us-millionaire-activist-detained-in-ibiza-i-am-a-human-rights-defender.html",
+      "source": "english.elpais.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Trump orders Pentagon to scale back joint exercises with South Korea",
+      "url": "https://japantoday.com/category/world/trump-orders-pentagon-to-scale-back-joint-exercises-with-south-korea",
+      "source": "japantoday.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "townhall.com",
+          "url": "https://townhall.com/news/scott-mcclallen/2026/08/16/trump-orders-hegseth-to-scale-back-joint-military-exercises-with-south-korea-n2681341",
+          "published": null
+        },
+        {
+          "source": "clickondetroit.com",
+          "url": "https://www.clickondetroit.com/news/politics/2026/08/16/trump-orders-pentagon-to-scale-back-joint-exercises-with-south-korea/",
+          "published": null
+        },
+        {
+          "source": "yahoo.com",
+          "url": "https://www.yahoo.com/news/politics/articles/trump-orders-pentagon-scale-back-213710682.html",
+          "published": null
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Why did our logistics fail in the Iran War ?",
+      "url": "https://www.dailykos.com/stories/2026/8/16/800085235/community/why-did-our-logistics-fail-in-the-iran-war/",
+      "source": "dailykos.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Moroccan security forces arrest nearly 300 migrants trying to reach Spain Ceuta",
+      "url": "https://www.clickondetroit.com/news/world/2026/08/16/moroccan-security-forces-arrest-nearly-300-migrants-trying-to-reach-spains-ceuta/",
+      "source": "clickondetroit.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
     }
   ],
   "forex_sentiment": {
