@@ -1,7 +1,691 @@
 window.newsData = {
-  "updated_at": "2026-08-16T12:31:04.920742+00:00",
-  "total": 664,
+  "updated_at": "2026-08-16T13:11:56.193073+00:00",
+  "total": 642,
   "articles": [
+    {
+      "title": "$ETHFI and $LINK are maybe the only 2 coins I'm interested in top blasting right now. but overall still a v. choppy",
+      "url": "https://x.com/AltcoinSherpa/status/2088976592181551114",
+      "source": "@AltcoinSherpa",
+      "published": "2026-08-16T13:10:05+00:00",
+      "tickers": [
+        "LINK",
+        "ETHFI"
+      ],
+      "currency_pairs": [],
+      "summary": "$ETHFI and $LINK are maybe the only 2 coins I'm interested in top blasting right now. but overall still a v. choppy market",
+      "sentiment": "Bullish",
+      "confidence": 0.8953,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 261771,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "#XRP $XRP #Ripple\nXRP is in the same position at the same time \n🔥🦅🌈🌊🚀",
+      "url": "https://x.com/Cryptobilbuwoo0/status/2088976524976501240",
+      "source": "@Cryptobilbuwoo0",
+      "published": "2026-08-16T13:09:49+00:00",
+      "tickers": [
+        "XRP"
+      ],
+      "currency_pairs": [],
+      "summary": "#XRP $XRP #Ripple\nXRP is in the same position at the same time \n🔥🦅🌈🌊🚀",
+      "sentiment": "Bearish",
+      "confidence": 0.793,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 24165,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "🚨 DON’T BUY $BTC NOW\n\nThe market has been stuck in a range for past month before its final move\n\nI saw same setup in",
+      "url": "https://x.com/0xAralez/status/2088976445104099476",
+      "source": "@0xAralez",
+      "published": "2026-08-16T13:09:30+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "🚨 DON’T BUY $BTC NOW\n\nThe market has been stuck in a range for past month before its final move\n\nI saw same setup in 2022, and what comes next could get ugly...\n\nHere’s my plan:\n1. Test of 0.5-0.618 IMB zone + Bull Trap formation\n2. 2-5 days of distribution\n3. Liquidity sweep at $57K\n4. 3-7 days of",
+      "sentiment": "Bearish",
+      "confidence": 0.8298,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 8,
+      "reposts": 4,
+      "replies": 4,
+      "follower_count": 32847,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "🚨 MASSIVE:\n\n🇺🇸 FED CHAIR KEVIN WARSH JUST CALLED BITCOIN:\n\n“THE NEWEST, COOLEST SOFTWARE THAT WILL ALLOW US TO DO",
+      "url": "https://x.com/torax_fi/status/2088976441673183333",
+      "source": "@torax_fi",
+      "published": "2026-08-16T13:09:29+00:00",
+      "tickers": [
+        "BTC",
+        "JST"
+      ],
+      "currency_pairs": [],
+      "summary": "🚨 MASSIVE:\n\n🇺🇸 FED CHAIR KEVIN WARSH JUST CALLED BITCOIN:\n\n“THE NEWEST, COOLEST SOFTWARE THAT WILL ALLOW US TO DO THINGS WE COULD NEVER HAVE DONE BEFORE.”\n\nA MASSIVE STATEMENT FROM THE FED CHAIR ON $BTC\n\nVERY BULLISH FOR BITCOIN 👀",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "US",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 6,
+      "reposts": 0,
+      "replies": 1,
+      "follower_count": 38387,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "~$380,000,000 worth of $BTC left spot ETFs this week.\n\ntotal: -6.03K BTC\n\n> mon: -2.23K BTC\n> tue: +122 BTC\n> wed: -961",
+      "url": "https://x.com/MookieNFT/status/2088976256427491394",
+      "source": "@MookieNFT",
+      "published": "2026-08-16T13:08:45+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "~$380,000,000 worth of $BTC left spot ETFs this week.\n\ntotal: -6.03K BTC\n\n> mon: -2.23K BTC\n> tue: +122 BTC\n> wed: -961 BTC\n> thu: -2.07K BTC\n> fri: -886 BTC\n\n4 red days, 1 barely green. FBTC led the selling. even IBIT turned red after last week's big buying.\n\ntough week. hope we see green next",
+      "sentiment": "Bullish",
+      "confidence": 0.67,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 6,
+      "reposts": 0,
+      "replies": 3,
+      "follower_count": 146251,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Arsenal’s Gabriel Martinelli and Gabriel Jesus ruled out for Manchester City match",
+      "url": "https://cryptobriefing.com/arsenal-martinelli-jesus-ruled-out-community-shield/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T13:05:04+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Arsenal's exclusion of key forwards hints at potential transfers, impacting team dynamics and strategy against Manchester City. \n The post  Arsenal&#8217;s Gabriel Martinelli and Gabriel Jesus ruled out for Manchester City match  appeared first on  Crypto Briefing .",
+      "sentiment": "Neutral",
+      "confidence": 0.5064,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Notable healthcare headlines for the week: Eli Lilly, Hims & Hers Health, and Merck in focus",
+      "url": "https://seekingalpha.com/news/4633536-notable-healthcare-headlines-for-the-week-eli-lilly-hims-and-hers-health-and-merck-in-focus?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-16T13:05:02+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.8993,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Finally, @cz_binance saved @fourdotmemezh, and the bStock community is working hard. \n\nIt's clear he hasn't forgotten",
+      "url": "https://x.com/easyforshopping/status/2088975308234035417",
+      "source": "@easyforshopping",
+      "published": "2026-08-16T13:04:59+00:00",
+      "tickers": [
+        "BNB"
+      ],
+      "currency_pairs": [],
+      "summary": "Finally, @cz_binance saved @fourdotmemezh, and the bStock community is working hard. \n\nIt's clear he hasn't forgotten anyone. Protect and make @BNBCHAIN great again!\n\nWhen @fourdotmemezh season starts, that's when #Bsc season arrives.\n\n$BNB will go back to $1k. Coded....",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 2,
+      "reposts": 0,
+      "replies": 1,
+      "follower_count": 34426,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "DeepSeek’s V4 Flash struggles with real-world tasks despite topping AI leaderboards",
+      "url": "https://cryptobriefing.com/deepseek-v4-flash-real-world-struggles/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T13:04:41+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Despite its low cost, V4 Flash's inconsistent real-world performance highlights the importance of integration and reliability over mere affordability. \n The post  DeepSeek&#8217;s V4 Flash struggles with real-world tasks despite topping AI leaderboards  appeared first on  Crypto Briefing .",
+      "sentiment": "Neutral",
+      "confidence": 0.5436,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "US redeploys last Pacific aircraft carrier to Middle East amid Iran conflict",
+      "url": "https://cryptobriefing.com/us-redeploys-last-pacific-aircraft-carrier-to-middle-east-amid-iran-conflict/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T13:02:55+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The redeployment may embolden Chinese military actions in the Indo-Pacific, altering regional power dynamics and affecting U.S. deterrence. \n The post  US redeploys last Pacific aircraft carrier to Middle East amid Iran conflict  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.6806,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "MENA",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "$ATOM - Cosmostation sắp rút khỏi Cosmos, và điều đáng nhìn là user sẽ đi đâu sau đó.\n\nCosmostation sẽ bắt đầu phase",
+      "url": "https://x.com/ffred9x/status/2088974557399167289",
+      "source": "@ffred9x",
+      "published": "2026-08-16T13:02:00+00:00",
+      "tickers": [
+        "ATOM"
+      ],
+      "currency_pairs": [],
+      "summary": "$ATOM - Cosmostation sắp rút khỏi Cosmos, và điều đáng nhìn là user sẽ đi đâu sau đó.\n\nCosmostation sẽ bắt đầu phase out ví từ 1/9/2026. Sau thời điểm này, người dùng chỉ còn các chức năng xuất seed phrase và private key; những tính năng khác sẽ lần lượt bị đóng.\n\nĐây là một wallet đã phục vụ hệ",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 1,
+      "reposts": 0,
+      "replies": 1,
+      "follower_count": 14097,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Bitcoin price enters ‘fire sale’ zone – Is the BTC bottom near?",
+      "url": "https://ambcrypto.com/bitcoin-price-enters-fire-sale-zone-is-the-btc-bottom-near/",
+      "source": "AMBCrypto",
+      "published": "2026-08-16T13:00:17+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Bitcoin’s historical bottom signals are emerging, but current market conditions remain different.",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Yellow Gold Stirs While Digital Gold Stays Quiescent – Week In Review",
+      "url": "https://news.bitcoin.com/opinion-and-analysis/yellow-gold-stirs-while-digital-gold-stays-quiescent-week-in-review/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-16T13:00:10+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "This editorial is from this week’s edition of the newsletter Week in Review, sent to subscribers on Friday. Subscribe to the newsletter to get this weekly editorial the second it’s finished. The newsletter also includes the biggest stories of the week, with a comment on each story. Bitcoin traded fl",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Record user activity and a collapse in whale selling should send XRP soaring, so why is it still pinned at $1?",
+      "url": "https://cryptoslate.com/record-user-activity-and-a-collapse-in-whale-selling-should-send-xrp-soaring-so-why-is-it-still-pinned-at-1/",
+      "source": "CryptoSlate",
+      "published": "2026-08-16T13:00:01+00:00",
+      "tickers": [
+        "BNB",
+        "XRP"
+      ],
+      "currency_pairs": [],
+      "summary": "XRP is back near $1 even as network activity rebounds, whale deposits to Binance collapse, and derivatives exposure builds near recent lows. The token fell to about $0.98 this week before recovering toward $1, according to CryptoSlate data, extending a retreat that has erased much of its May rally.",
+      "sentiment": "Bearish",
+      "confidence": 0.8,
+      "other_sources": [
+        {
+          "source": "Crypto Slate (PR)",
+          "url": "https://cryptoslate.com/record-user-activity-and-a-collapse-in-whale-selling-should-send-xrp-soaring-so-why-is-it-still-pinned-at-1/",
+          "published": "2026-08-16T13:00:01+00:00"
+        }
+      ],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "groq",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "The stablecoin yield clash that won't go away has banks, crypto battling over tradition",
+      "url": "https://www.coindesk.com/news-analysis/2026/08/14/the-stablecoin-yield-clash-that-won-t-go-away-has-banks-crypto-battling-over-tradition",
+      "source": "CoinDesk",
+      "published": "2026-08-16T13:00:00+00:00",
+      "tickers": [
+        "USDT",
+        "USDC"
+      ],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.4,
+      "other_sources": [],
+      "category": "STABLECOINS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "groq",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Here’s the real reason oil prices aren’t moving higher",
+      "url": "https://www.marketwatch.com/story/heres-the-real-reason-oil-prices-arent-moving-higher-256afdbc?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "published": "2026-08-16T13:00:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Oil prices are not higher largely because the world does not want as much oil as it used to — and that’s arguably the more troubling story.",
+      "sentiment": "Neutral",
+      "confidence": 0.864,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "💎 STAKE $TRX. GET $sTRX. TURN YOUR TRX INTO A WORKING ASSET.\n\nTurn your TRX into a working asset on JustLend DAO.\n\n📋",
+      "url": "https://x.com/Dalat_Ventures/status/2088973906711650690",
+      "source": "@Dalat_Ventures",
+      "published": "2026-08-16T12:59:25+00:00",
+      "tickers": [
+        "TRX"
+      ],
+      "currency_pairs": [],
+      "summary": "💎 STAKE $TRX. GET $sTRX. TURN YOUR TRX INTO A WORKING ASSET.\n\nTurn your TRX into a working asset on JustLend DAO.\n\n📋 What This Unlocks\n\n🏛️ TRON governance rewards\n⚡ Energy Rental income\n📊 7d Avg. APY: 4.32%\n\n🔍 Reading This Alongside the TRON DeFi Summer S2 TRX Pool\n\nWorth actually connecting this",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 14694,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Chainlink Price Forecast: Analyst Predicts $20 as Open Interest Surges 16%",
+      "url": "https://coingape.com/markets/chainlink-price-forecast-analyst-predicts-20-as-open-interest-surges-16/",
+      "source": "Coingape",
+      "published": "2026-08-16T12:59:03+00:00",
+      "tickers": [
+        "LINK"
+      ],
+      "currency_pairs": [],
+      "summary": "Chainlink price climbed 8% to $9.56 on August 15, supported by stronger activity across spot and derivatives markets. The token is up 15% over the last week, continuing its recovery from the more broad-based cryptocurrency market volatility. Derivatives participation further strengthened with open i",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "The MongolZ defeat paiN to advance to Paris playoffs",
+      "url": "https://cryptobriefing.com/mongolz-defeat-pain-paris-playoffs/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T12:48:42+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The MongolZ's victory highlights their growing dominance in esports, potentially reshaping competitive dynamics and strategies in CS2. \n The post  The MongolZ defeat paiN to advance to Paris playoffs  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.9037,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "DefiLlama delayed mobile launch over phishing apps on Apple Store, founder says",
+      "url": "https://cointelegraph.com/news/defillama-delayed-app-launch-fake-phishing-apps-apple?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "CoinTelegraph",
+      "published": "2026-08-16T12:48:09+00:00",
+      "tickers": [
+        "DLA"
+      ],
+      "currency_pairs": [],
+      "summary": "DefiLlama’s founder said Apple removed one fake app within days after the company documented it draining funds from a small crypto wallet.",
+      "sentiment": "Bearish",
+      "confidence": 0.9,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "groq",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Flights to resume at Iran’s Qeshm Airport amid ongoing conflict",
+      "url": "https://cryptobriefing.com/flights-to-resume-at-irans-qeshm-airport-amid-ongoing-conflict/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T12:48:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The resumption of flights at Qeshm Airport signals a tentative easing of regional tensions, yet the overarching conflict remains unresolved. \n The post  Flights to resume at Iran&#8217;s Qeshm Airport amid ongoing conflict  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.8825,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Iran says US forces expelled, barred from Persian Gulf, Gulf of Oman and Strait of Hormuz",
+      "url": "https://cryptobriefing.com/iran-says-us-forces-expelled-barred-from-persian-gulf-gulf-of-oman-and-strait/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T12:47:37+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Iran's move heightens geopolitical tensions, potentially prompting U.S. military or diplomatic responses, impacting global markets and security. \n The post  Iran says US forces expelled, barred from Persian Gulf, Gulf of Oman and Strait of Hormuz  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.7553,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "MENA",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "I dunno there are some bullish charts on alts and memes like $NEAR and $ANSEM and co but I'm still very cautious here",
+      "url": "https://x.com/greenytrades/status/2088970781829046688",
+      "source": "@greenytrades",
+      "published": "2026-08-16T12:47:00+00:00",
+      "tickers": [
+        "BTC",
+        "NEAR",
+        "ANSEM"
+      ],
+      "currency_pairs": [],
+      "summary": "I dunno there are some bullish charts on alts and memes like $NEAR and $ANSEM and co but I'm still very cautious here on $BTC and majors. \n\nKnowing when to put your foot down into strength and volume and when to avoid it all together is skill.",
+      "sentiment": "Bullish",
+      "confidence": 0.9068,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 18,
+      "reposts": 0,
+      "replies": 6,
+      "follower_count": 44838,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "I am constantly scanning and analyzing the #Crypto market regarding the best opportunities in every market phase.\n\nOne",
+      "url": "https://x.com/CryptoVince_/status/2088970026703524010",
+      "source": "@CryptoVince_",
+      "published": "2026-08-16T12:44:00+00:00",
+      "tickers": [
+        "ATOM"
+      ],
+      "currency_pairs": [],
+      "summary": "I am constantly scanning and analyzing the #Crypto market regarding the best opportunities in every market phase.\n\nOne coin that caught my attention is $ATOM, as there is a massive bullish formation currently forming.\n\nWatch my full #ATOM",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 16798,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "UK-made drones strike military targets inside Russia for first time",
+      "url": "https://cryptobriefing.com/uk-drones-strike-russia-first-time/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T12:43:35+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The use of UK-made drones in Ukraine's strategy against Russia highlights escalating Western involvement, potentially altering geopolitical dynamics. \n The post  UK-made drones strike military targets inside Russia for first time  appeared first on  Crypto Briefing .",
+      "sentiment": "Neutral",
+      "confidence": 0.5064,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Iran military appointments disrupt US, Israel plans, says security council",
+      "url": "https://cryptobriefing.com/iran-military-appointments-disrupt-us-israel-plans-says-security-council/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T12:39:55+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Iran's military appointments may enhance internal stability, potentially reducing the likelihood of leadership changes and affecting geopolitical dynamics. \n The post  Iran military appointments disrupt US, Israel plans, says security council  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.8548,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Trump backs Catalina Lauf in Florida’s 19th Congressional District race",
+      "url": "https://cryptobriefing.com/trump-backs-catalina-lauf-in-floridas-19th-congressional-district-race/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T12:37:15+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Trump's endorsement may significantly shift the political landscape, potentially consolidating Republican support and influencing future primaries. \n The post  Trump backs Catalina Lauf in Florida&#8217;s 19th Congressional District race  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.7787,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Credit Strategist Michael Lewitt warns CoreWeave’s debt load threatens survival",
+      "url": "https://seekingalpha.com/news/4633596-credit-strategist-michael-lewitt-warns-coreweave-s-debt-load-threatens-survival?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-16T12:35:44+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bearish",
+      "confidence": 0.9625,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Vitality advances to Esports World Cup 2026 playoffs",
+      "url": "https://cryptobriefing.com/vitality-advances-to-esports-world-cup-2026-playoffs/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T12:34:57+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Vitality's playoff advancement reshapes competitive dynamics, potentially altering team strategies and market odds in the EWC 2026 tournament. \n The post  Vitality advances to Esports World Cup 2026 playoffs  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.8753,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "【TRON】31,818,000 $TRX 大額轉帳（約 $10.56M）\n路徑：TRON｜驗證節點 → HTX（火幣）｜交易所錢包\nTRON幣種充值－後續用途待追蹤\n$TRX / #TRON /",
+      "url": "https://x.com/RelaxView/status/2088966839334240513",
+      "source": "@RelaxView",
+      "published": "2026-08-16T12:31:20+00:00",
+      "tickers": [
+        "TRX",
+        "HTX"
+      ],
+      "currency_pairs": [],
+      "summary": "【TRON】31,818,000 $TRX 大額轉帳（約 $10.56M）\n路徑：TRON｜驗證節點 → HTX（火幣）｜交易所錢包\nTRON幣種充值－後續用途待追蹤\n$TRX / #TRON / #大額轉帳\nhttps://relax.tianjifiles.com/chain/alert/trx-66497d6bbde01ad2838102448bd00acfa31fcd241557e21e84e8cd7d657fe418-0",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 23939,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Crypto Market Update August 16: Bitcoin, Ethereum and XRP Stall Ahead of FOMC Minutes",
+      "url": "https://coingape.com/markets/crypto-market-update-august-16-bitcoin-ethereum-and-xrp-stall-ahead-of-fomc-minutes/",
+      "source": "Coingape",
+      "published": "2026-08-16T12:30:39+00:00",
+      "tickers": [
+        "BTC",
+        "ETH",
+        "XRP"
+      ],
+      "currency_pairs": [],
+      "summary": "The crypto market is up slightly today, August 16, as traders await the release of the Federal Open Market Committee (FOMC) meeting, which will come out on August 19. Bitcoin (BTC) and Ethereum (ETH) are stuck at $63,000 and $1,800, respectively, while Ripple (XRP) is defending the support at $1. Ad",
+      "sentiment": "Bullish",
+      "confidence": 0.7859,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Iran accuses Qatar of detaining pilots amid regional tensions",
       "url": "https://cryptobriefing.com/iran-accuses-qatar-of-detaining-pilots-amid-regional-tensions/",
@@ -541,8 +1225,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-16T11:30:03+00:00",
       "tickers": [
-        "ETH",
-        "SOL"
+        "SOL",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Grayscale projects Ethereum&#8217;s annual supply inflation could shrink to roughly 0.4% and Solana&#8217;s to 1.1% by 2031 if two pending network proposals pass, pushing both issuance rates below gold&#8217;s roughly 1.8% annual supply growth. Two Networks, One Scarcity Bet Ethereum and Solana are",
@@ -654,6 +1338,102 @@ window.newsData = {
       "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
+    },
+    {
+      "title": "M 4.7 - 83 km NNE of Labuan Bajo, Indonesia",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usd0015e7s",
+      "source": "USGS",
+      "published": "2026-08-16T11:21:11.806000+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "83 km NNE of Labuan Bajo, Indonesia",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usd0015e7q",
+          "published": "2026-08-16T11:11:46.392000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usd0015e7k",
+          "published": "2026-08-16T10:31:34.822000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usd0015e7j",
+          "published": "2026-08-16T10:14:36.343000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl6a",
+          "published": "2026-08-16T06:51:47.338000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl55",
+          "published": "2026-08-16T03:42:59.885000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl44",
+          "published": "2026-08-15T23:12:54.664000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl3n",
+          "published": "2026-08-15T21:08:32.582000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl3k",
+          "published": "2026-08-15T20:29:44.571000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl31",
+          "published": "2026-08-15T18:40:21.369000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2u",
+          "published": "2026-08-15T17:51:27.384000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2t",
+          "published": "2026-08-15T17:44:14.375000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2p",
+          "published": "2026-08-15T17:21:07.767000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2c",
+          "published": "2026-08-15T16:58:05.970000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl1s",
+          "published": "2026-08-15T16:25:18.342000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl1p",
+          "published": "2026-08-15T15:52:32.416000+00:00"
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "usgs_magnitude",
+      "source_type": "rss",
+      "event_source": "usgs",
+      "magnitude": 4.7
     },
     {
       "title": "'Make RLUSD Great Again': Ex-Ripple Engineer Teases Secret XRP Ledger Startup",
@@ -796,103 +1576,6 @@ window.newsData = {
       "source_flag": null,
       "sentiment_engine": "groq",
       "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "M 4.9 - 112 km NNE of Ruteng, Indonesia",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usd0015e7q",
-      "source": "USGS",
-      "published": "2026-08-16T11:11:46.392000+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "112 km NNE of Ruteng, Indonesia",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usd0015e7k",
-          "published": "2026-08-16T10:31:34.822000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usd0015e7j",
-          "published": "2026-08-16T10:14:36.343000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl6a",
-          "published": "2026-08-16T06:51:47.338000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl55",
-          "published": "2026-08-16T03:42:59.885000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl44",
-          "published": "2026-08-15T23:12:54.664000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl3n",
-          "published": "2026-08-15T21:08:32.582000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl3k",
-          "published": "2026-08-15T20:29:44.571000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl31",
-          "published": "2026-08-15T18:40:21.369000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2u",
-          "published": "2026-08-15T17:51:27.384000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2t",
-          "published": "2026-08-15T17:44:14.375000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2p",
-          "published": "2026-08-15T17:21:07.767000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2c",
-          "published": "2026-08-15T16:58:05.970000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl1s",
-          "published": "2026-08-15T16:25:18.342000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl1p",
-          "published": "2026-08-15T15:52:32.416000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl0v",
-          "published": "2026-08-15T12:14:39.321000+00:00"
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "usgs_magnitude",
-      "source_type": "rss",
-      "event_source": "usgs",
-      "magnitude": 4.9,
       "is_crypto_relevant": true
     },
     {
@@ -1214,8 +1897,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-16T10:40:50+00:00",
       "tickers": [
-        "ETH",
-        "SOL"
+        "SOL",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Grayscale's July 17 SEC filings said its Ethereum and Solana staking ETFs would convert staking rewards to cash and distribute them to shareholders at least quarterly, with the changes expected around Aug. 7. Solana and Ethereum are each weighing protocol changes that would reduce that income at the",
@@ -1648,10 +2331,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-16T09:55:28+00:00",
       "tickers": [
-        "XRP",
         "RLUSD",
-        "BNB",
-        "FORM"
+        "XRP",
+        "FORM",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Major crypto exchange Binance announces extension of RLUSD campaign with XRP in rewards for holders.",
@@ -1739,25 +2422,6 @@ window.newsData = {
       "reposts": 1,
       "replies": 3,
       "follower_count": 819540,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Roundhill’s memory chip ETF parks more than a quarter of its assets in a single stock",
-      "url": "https://cryptobriefing.com/roundhill-dram-etf-micron-allocation/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T09:45:02+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The ETF's heavy reliance on Micron highlights concentration risk, potentially amplifying volatility and influencing broader market dynamics. \n The post  Roundhill&#8217;s memory chip ETF parks more than a quarter of its assets in a single stock  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.67,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -1903,25 +2567,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "OpenAI updates privacy policy for ad personalization on ChatGPT",
-      "url": "https://cryptobriefing.com/openai-privacy-policy-chatgpt-ad-personalization/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T09:27:15+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "OpenAI's ad personalization policy may heighten privacy concerns, influencing user trust and regulatory scrutiny across global markets. \n The post  OpenAI updates privacy policy for ad personalization on ChatGPT  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.7553,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Bitcoin price trades above $63,000 as Saylor calls it ‘digital monetary energy’",
       "url": "https://www.investing.com/news/cryptocurrency-news/bitcoin-price-trades-above-63000-as-saylor-calls-it-digital-monetary-energy-4861953",
       "source": "Investing.com Crypto",
@@ -1949,8 +2594,8 @@ window.newsData = {
       "published": "2026-08-16T09:20:53+00:00",
       "tickers": [
         "WLF",
-        "USD1",
-        "WLFI"
+        "WLFI",
+        "USD1"
       ],
       "currency_pairs": [],
       "summary": "The Office of the Comptroller of the Currency (OCC) gave World Liberty Financial, a DeFi venture associated with President Donald Trump, preliminary conditional approval to charter a national trust bank built around its roughly $4 billion USD1 stablecoin. World Liberty Trust Company would eventually",
@@ -2013,63 +2658,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Trump’s secret backchannel to Iran’s Revolutionary Guard revealed: Axios",
-      "url": "https://cryptobriefing.com/trumps-secret-backchannel-to-irans-revolutionary-guard-revealed-axios/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T09:14:23+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The revelation of a secret backchannel may influence future U.S.-Iran relations, potentially easing tensions and impacting geopolitical dynamics. \n The post  Trump&#8217;s secret backchannel to Iran&#8217;s Revolutionary Guard revealed: Axios  appeared first on  Crypto Briefing .",
-      "sentiment": "Neutral",
-      "confidence": 0.5257,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Policymakers push for profit-sharing from AI data centers as states revolt against Big Tech’s energy appetite",
-      "url": "https://cryptobriefing.com/policymakers-profit-sharing-ai-data-centers/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T09:08:52+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "State-led regulatory measures on AI data centers could reshape tech investment strategies, emphasizing energy accountability and cost transparency. \n The post  Policymakers push for profit-sharing from AI data centers as states revolt against Big Tech&#8217;s energy appetite  appeared first on  Cryp",
-      "sentiment": "Bullish",
-      "confidence": 0.8243,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Ukrainian bank worker tortured into terrorism confession in Russia: NYT",
-      "url": "https://cryptobriefing.com/ukrainian-bank-worker-tortured-into-terrorism-confession-in-russia-nyt/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T09:07:09+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The incident exacerbates Russia-Ukraine tensions, diminishing ceasefire prospects and highlighting the geopolitical instability in the region. \n The post  Ukrainian bank worker tortured into terrorism confession in Russia: NYT  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Dogecoin’s rare setup mirrors 2022 – Can DOGE repeat its 140% rally?",
       "url": "https://ambcrypto.com/dogecoin-mirrors-its-2022-setup-can-doge-repeat-its-140-rally/",
       "source": "AMBCrypto",
@@ -2081,25 +2669,6 @@ window.newsData = {
       "summary": "Technicals, whale accumulation, and historical cycles are lining up, raising the question of whether DOGE could repeat its big five-wave move by the end of Q3.",
       "sentiment": "Bullish",
       "confidence": 0.8825,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "GEN.G take the first game against T1 after 43-minute match",
-      "url": "https://cryptobriefing.com/geng-take-the-first-game-against-t1-after-43-minute-match/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T08:55:30+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "GEN.G's win could boost their future rankings and influence perceptions in the competitive League of Legends landscape. \n The post  GEN.G take the first game against T1 after 43-minute match  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.901,
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
@@ -2165,8 +2734,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-16T08:51:03+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "CZ says millionaires will soon fail to afford one full Bitcoin, because lost and dormant coins keep shrinking the float. \n The post  Millionaires Soon Won&#8217;t Be Able to Afford 1 Bitcoin, Says Binance Founder CZ  appeared first on  BeInCrypto .",
@@ -2178,25 +2747,6 @@ window.newsData = {
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Dhaval Joshi warns AI is not one bubble but a rolling sequence of them",
-      "url": "https://cryptobriefing.com/joshi-warns-rolling-ai-bubbles/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T08:50:53+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "AI's rolling bubbles may prevent a market crash but pose risks of misallocated capital and uncertain long-term returns amid economic shifts. \n The post  Dhaval Joshi warns AI is not one bubble but a rolling sequence of them  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -2254,25 +2804,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Ukrainian Navy strikes Russian Bastion missile system in Crimea",
-      "url": "https://cryptobriefing.com/ukrainian-navy-strikes-russian-bastion-missile-system-in-crimea/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T08:49:41+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The strike highlights Ukraine's growing military capabilities, potentially shifting strategic dynamics and market perceptions on Crimea's future. \n The post  Ukrainian Navy strikes Russian Bastion missile system in Crimea  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.7009,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "📱 Why are people watching $TON?\n\nTON (The Open Network) is a sharded Layer 1 originally designed by Telegram’s",
       "url": "https://x.com/FrankLambeek/status/2088909103313584178",
       "source": "@FrankLambeek",
@@ -2295,46 +2826,6 @@ window.newsData = {
       "reposts": 0,
       "replies": 0,
       "follower_count": 54878,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Tether CEO Paolo Ardoino denies plans to build blockchain",
-      "url": "https://cryptobriefing.com/tether-ceo-denies-blockchain-plans/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T08:41:07+00:00",
-      "tickers": [
-        "USDT"
-      ],
-      "currency_pairs": [],
-      "summary": "Tether's commitment to a multi-chain strategy ensures flexibility and adaptability, avoiding the risks of being tied to a single blockchain. \n The post  Tether CEO Paolo Ardoino denies plans to build blockchain  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.8125,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Iran lawmaker accused of firing at protesters during January crackdown",
-      "url": "https://cryptobriefing.com/iran-lawmaker-accused-of-firing-at-protesters-during-january-crackdown/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-16T08:40:29+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The alleged involvement of a lawmaker in protest crackdowns may heighten domestic unrest and international scrutiny, impacting regime stability. \n The post  Iran lawmaker accused of firing at protesters during January crackdown  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -2854,8 +3345,8 @@ window.newsData = {
       "source": "Investing.com Crypto",
       "published": "2026-08-16T07:02:04+00:00",
       "tickers": [
-        "NEAR",
-        "BTC"
+        "BTC",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -3213,13 +3704,13 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-16T05:21:04+00:00",
       "tickers": [
-        "XRP",
-        "XMR",
-        "ADA",
-        "BTC",
+        "ZEC",
         "BCH",
+        "XMR",
         "LINK",
-        "ZEC"
+        "XRP",
+        "BTC",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "XRP, ZEC, ADA, and BCH stand in one corner, while XMR and LINK are in the opposite.",
@@ -3292,8 +3783,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-16T05:00:32+00:00",
       "tickers": [
-        "ETH",
-        "SOL"
+        "SOL",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Would stronger long-term price support result from lower SOL and ETH inflation?",
@@ -4092,25 +4583,6 @@ window.newsData = {
       "reposts": 0,
       "replies": 0,
       "follower_count": 20804,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Trump asks Americans to accept high pump prices as Iran standoff drags on",
-      "url": "https://seekingalpha.com/news/4633590-trump-asks-americans-to-accept-high-pump-prices-as-iran-standoff-drags-on?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-16T00:25:46+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bullish",
-      "confidence": 0.5547,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -5161,8 +5633,8 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-15T19:48:49+00:00",
       "tickers": [
-        "BTC",
-        "SOL"
+        "SOL",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Solana’s reversal is imminent, an important development for crypto traders looking to capitalize on emerging trends in the crypto market. According to data shared today by analyst Max Crypto, Solana is nearing a break above its 19-month downtrend against Bitcoin. The asset has regained attention as",
@@ -5331,8 +5803,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T19:30:14+00:00",
       "tickers": [
-        "BNB",
-        "SOL"
+        "SOL",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "The paper trail instead reveals Binance pricing failures, on-chain ADL and a disclosure gap regulators have yet to close. \n The post  Crypto crash liquidations face massive data gap as public records contradict $18B Solana claim  appeared first on  CryptoSlate .",
@@ -5377,25 +5849,6 @@ window.newsData = {
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Key deals this week: Workday, Diversified Energy, Aurora Cannabis, and more",
-      "url": "https://seekingalpha.com/news/4633577-key-deals-this-week-workday-diversified-energy-aurora-cannabis-and-more?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-15T19:15:56+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.9433,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -5693,28 +6146,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Inside Cboe’s first 3x Bitcoin and Ether ETF filing and what comes next",
-      "url": "https://ambcrypto.com/inside-cboes-first-3x-bitcoin-and-ether-etf-filing-and-what-comes-next/",
-      "source": "AMBCrypto",
-      "published": "2026-08-15T19:00:22+00:00",
-      "tickers": [
-        "ETH",
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Cboe BZX Exchange filed a proposed rule change with SEC to list and trade Volatility Shares' 3x Bitcoin ETF and 3x Ether ETF.",
-      "sentiment": "Bullish",
-      "confidence": 0.648,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "This is what $1,000 invested at the ATH of each of the 15 largest Layer 1 coins would be worth today. \n\nSelected by",
       "url": "https://x.com/MastrXYZ/status/2088700497167262151",
       "source": "@MastrXYZ",
@@ -5983,8 +6414,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-15T18:37:59+00:00",
       "tickers": [
-        "IBIT",
-        "BTC"
+        "BTC",
+        "IBIT"
       ],
       "currency_pairs": [],
       "summary": "UAE-based Mubadala Investment Company and the Abu Dhabi Investment Council also retained their combined 22.9 million IBIT shares.",
@@ -6559,9 +6990,9 @@ window.newsData = {
       "source": "@justinsuntron",
       "published": "2026-08-15T17:42:46+00:00",
       "tickers": [
+        "TRON",
         "RLB",
-        "TRX",
-        "TRON"
+        "TRX"
       ],
       "currency_pairs": [],
       "summary": "Happy to see Rollbit on Tron @trondao",
@@ -6615,8 +7046,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T17:39:38+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance founder Changpeng Zhao, also known as CZ, is once again gaining attention from the crypto market participants with his latest analysis and comments. For context, CZ has recently warned that owning one full Bitcoin would become difficult even for millionaires. Notably, his latest comments foc",
@@ -7269,32 +7700,13 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Health insurers are dumping Medicare Advantage plans. Here’s how many seniors could be affected.",
-      "url": "https://www.marketwatch.com/story/health-insurers-are-dumping-medicare-advantage-plans-heres-how-many-seniors-could-be-affected-646b4e99?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "published": "2026-08-15T16:16:00+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Older adults could be scrambling for new health coverage next year, especially in rural markets that have fewer insurance choices.",
-      "sentiment": "Bearish",
-      "confidence": 0.8138,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Solana Company Q2 Loss Hits $30.3 Million as SOL Treasury Suffers",
       "url": "https://beincrypto.com/solana-company-q2-loss-sol-writedowns/",
       "source": "BeInCrypto",
       "published": "2026-08-15T16:13:59+00:00",
       "tickers": [
-        "HSDT",
-        "SOL"
+        "SOL",
+        "HSDT"
       ],
       "currency_pairs": [],
       "summary": "Solana Company posted a $30.3 million Q2 loss on SOL writedowns. HSDT stock dropped 5.56% to $1.70. \n The post  Solana Company Q2 Loss Hits $30.3 Million as SOL Treasury Suffers  appeared first on  BeInCrypto .",
@@ -7315,8 +7727,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T15:58:44+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance's CZ discusses Bitcoin's growing scarcity, suggesting that the number of tokens left in the Bitcoin available supply may be lower than expected.",
@@ -7780,8 +8192,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-15T15:12:29+00:00",
       "tickers": [
-        "BRK",
-        "BTC"
+        "BTC",
+        "BRK"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -8105,8 +8517,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-15T14:31:34+00:00",
       "tickers": [
-        "NEAR",
-        "BTC"
+        "BTC",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "The Shiller CAPE ratio for the S&#38;P 500 sits near 40 to 42, approaching the record of roughly 44 set during the late-1990s dot-com bubble. That reading places equity valuations in rare territory, and Bitcoin holders have reason to pay attention. What the CAPE Ratio Actually Measures The cyclicall",
@@ -8595,8 +9007,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T13:20:07+00:00",
       "tickers": [
-        "BTC",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "June 30 snapshots separate unchanged sovereign units, JPMorgan share additions, UBS options and a newly reported Morgan Stanley wrapper. \n The post  Bitcoin’s $16.3 billion Wall Street stress test splits into four positional patterns  appeared first on  CryptoSlate .",
@@ -8644,8 +9056,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-15T13:01:04+00:00",
       "tickers": [
-        "USD1",
         "WLT",
+        "USD1",
         "TRUMP"
       ],
       "currency_pairs": [],
@@ -8730,9 +9142,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T12:30:31+00:00",
       "tickers": [
-        "LINK",
         "SHIB",
-        "SOL"
+        "SOL",
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "The crypto market is moving in a narrow range today, August 15, albeit for a few altcoins such as Chainlink (LINK) and Shiba Inu (SHIB), which are up by 5% and 2%, respectively. Solana (SOL) is also down by 0.86% despite SOL ETFs recording the highest inflows in the week between August 10 and August",
@@ -8753,9 +9165,9 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-15T12:19:16+00:00",
       "tickers": [
+        "BTC",
         "NEAR",
-        "LINK",
-        "BTC"
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "Van de Poppe says Chainlink left its bear market and targets $11, while Bitcoin stalls in a quiet range near $62,968. \n The post  Chainlink Bull Market Returns as Analyst Targets $11 for LINK  appeared first on  BeInCrypto .",
@@ -8880,8 +9292,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-15T12:00:00+00:00",
       "tickers": [
-        "ETHEREUM",
-        "ETH"
+        "ETH",
+        "ETHEREUM"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -8928,8 +9340,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-15T11:57:32+00:00",
       "tickers": [
-        "USD1",
-        "WLFI"
+        "WLFI",
+        "USD1"
       ],
       "currency_pairs": [],
       "summary": "The conditional approval would allow it to bring the issuance and custody of its USD1 stablecoin under its own federally supervised trust bank.",
@@ -9158,8 +9570,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T11:45:34+00:00",
       "tickers": [
-        "BLCK",
-        "BTC"
+        "BTC",
+        "BLCK"
       ],
       "currency_pairs": [],
       "summary": "The June 30 snapshot shows a far less call-heavy mix, with reported put equivalents nearly unchanged. \n The post  Institutional investor Paul Tudor Jones adds 109,446 BlackRock Bitcoin ETF shares while cutting calls by 85%  appeared first on  CryptoSlate .",
@@ -9236,12 +9648,12 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T11:41:06+00:00",
       "tickers": [
-        "XRP",
-        "TRUMP",
+        "NEAR",
         "ETH",
-        "BTC",
+        "XRP",
         "DOGE",
-        "NEAR"
+        "BTC",
+        "TRUMP"
       ],
       "currency_pairs": [],
       "summary": "Dogecoin price hovered near $0.069 after a mild market correction, while gaining 0.8% over the past 24 hours.  Bitcoin price failed to break above $63,000, XRP price continued to hover around $1, and Ethereum also failed to hold support. Now traders are waiting for Wednesday&#8217;s White House cryp",
@@ -9905,9 +10317,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T10:36:53+00:00",
       "tickers": [
-        "BNB",
+        "BGB",
         "HTX",
-        "BGB"
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Bitget has announced enhanced compliance controls on transactions linked to 16 designated entities, including HTX and EXMO, citing overlapping US and EU regulatory actions. The exchange joins Binance in applying staggered restrictions on the same platforms, signaling a coordinated industry-wide resp",
@@ -9928,11 +10340,11 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T10:29:01+00:00",
       "tickers": [
-        "XRP",
-        "SHORT",
-        "ETH",
         "OP",
-        "BTC"
+        "ETH",
+        "XRP",
+        "BTC",
+        "SHORT"
       ],
       "currency_pairs": [],
       "summary": "XRP price remains above the crucial $1 support despite a mild cryptocurrency market pullback. Network activity reached a two-month high, supporting cautious optimism.  Bitcoin price trades below $63,000, while Ethereum stays under $1,900. Holding $1 could preserve XRP’s recovery outlook and encourag",
@@ -10029,8 +10441,8 @@ window.newsData = {
       "published": "2026-08-15T10:20:22+00:00",
       "tickers": [
         "VELVET",
-        "LINK",
-        "BTC"
+        "BTC",
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "VELVET has entered the top 100 alts after a massive 150% weekly surge.",
@@ -10245,33 +10657,6 @@ window.newsData = {
       "reposts": 0,
       "replies": 0,
       "follower_count": 23028,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Solana treasury earns $2.5M in staking rewards but had to sell equity to raise $12M in cash for operations",
-      "url": "https://cryptoslate.com/solana-treasury-earns-2-5m-in-staking-rewards-but-had-to-sell-equity-to-raise-12m-in-cash-for-operations/",
-      "source": "CryptoSlate",
-      "published": "2026-08-15T09:39:17+00:00",
-      "tickers": [
-        "SOL"
-      ],
-      "currency_pairs": [],
-      "summary": "Restaked rewards did not supply operating cash, while asset sales, a divestiture and equity financing supported the quarter. \n The post  Solana treasury earns $2.5M in staking rewards but had to sell equity to raise $12M in cash for operations  appeared first on  CryptoSlate .",
-      "sentiment": "Bearish",
-      "confidence": 0.75,
-      "other_sources": [
-        {
-          "source": "Crypto Slate (PR)",
-          "url": "https://cryptoslate.com/solana-treasury-earns-2-5m-in-staking-rewards-but-had-to-sell-equity-to-raise-12m-in-cash-for-operations/",
-          "published": "2026-08-15T09:39:17+00:00"
-        }
-      ],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -11772,9 +12157,9 @@ window.newsData = {
       "published": "2026-08-15T00:01:00+00:00",
       "tickers": [
         "HYPE",
-        "NEAR",
+        "SHIB",
         "BTC",
-        "SHIB"
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "The market might be aiming for the recovery, but the current situation is far from looking bearish.",
@@ -12223,8 +12608,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T21:19:39+00:00",
       "tickers": [
-        "TRUMP",
-        "WLFI"
+        "WLFI",
+        "TRUMP"
       ],
       "currency_pairs": [],
       "summary": "President Donald Trump-backed World Liberty Financial secured preliminary approval to become a national trust bank on Friday.",
@@ -12692,8 +13077,8 @@ window.newsData = {
       "source": "Bitcoin Magazine",
       "published": "2026-08-14T20:03:41+00:00",
       "tickers": [
-        "BTC",
-        "SAFE"
+        "SAFE",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Citi CEO Wants &#8216;Good&#8217; Crypto Clarity Act To Get Passed  \n Citigroup CEO Jane Fraser has said that while some improvements need to be made to the crypto Clarity Act, the bank wants a &#8220;good bill to go through.&#8221; The banking executive said that the bank was",
@@ -13036,9 +13421,9 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T18:57:04+00:00",
       "tickers": [
+        "SOL",
         "ETH",
-        "BTC",
-        "SOL"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The value of the university endowment’s holdings in the Bitwise Solana staking ETF, Grayscale Ethereum staking ETF and BlackRock’s iShares Bitcoin ETF dropped to about $12 million.",
@@ -13527,8 +13912,8 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-14T18:23:49+00:00",
       "tickers": [
-        "BTC",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin (BTC), the largest cryptocurrency by market capitalization, has fallen roughly 2% over the past week, keeping traders cautious as broader macroeconomic uncertainty and the delayed U.S. CLARITY Act weigh on sentiment. Bitcoin’s recent weakness is now being accompanied by an unusual burst of a",
@@ -13589,9 +13974,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-14T18:05:15+00:00",
       "tickers": [
+        "SOL",
         "ETH",
-        "BTC",
-        "SOL"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The leading bank in Israel, Bank Leumi, has caught the eyes of crypto market traders with its recent announcement to allow crypto trading for its customers through a partnership with Galaxy. According to the announcement, the customers would be able to buy, sell, or hold cryptocurrencies like Bitcoi",
@@ -13847,9 +14232,9 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T17:09:37+00:00",
       "tickers": [
+        "SOL",
         "ETH",
-        "BTC",
-        "SOL"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Israel received an estimated $22 billion in onchain crypto value during the 12 months ending June 2025, according to Chainalysis.",
@@ -14018,10 +14403,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-14T16:23:55+00:00",
       "tickers": [
+        "SOL",
         "ETH",
-        "ASSET",
         "BTC",
-        "SOL"
+        "ASSET"
       ],
       "currency_pairs": [],
       "summary": "Israel's largest bank has integrated cryptocurrencies into its services, becoming the first bank to offer digital asset services in the country.",
@@ -14129,9 +14514,9 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-14T16:10:45+00:00",
       "tickers": [
-        "RLUSD",
+        "XRP",
         "ETH",
-        "XRP"
+        "RLUSD"
       ],
       "currency_pairs": [],
       "summary": "Ripple's new $50 million stablecoin mint pushes RLUSD supply on Ethereum blockchain close to a record parity with XRP Ledger.",
@@ -14306,8 +14691,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T15:43:26+00:00",
       "tickers": [
-        "BNB",
-        "HTX"
+        "HTX",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance said it will no longer process transactions from 16 exchanges, including five already blocked, citing regulatory compliance needs.",
@@ -14579,10 +14964,10 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T14:22:57+00:00",
       "tickers": [
-        "BIT",
-        "ETH",
         "ROSE",
-        "BTC"
+        "ETH",
+        "BTC",
+        "BIT"
       ],
       "currency_pairs": [],
       "summary": "Morgan Stanley’s reported IBIT holdings rose to 16.5 million shares in Q2, while Ether ETF positions and several crypto-linked stocks also increased.",
@@ -14603,10 +14988,10 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T14:14:06+00:00",
       "tickers": [
+        "ETH-ETF",
         "ETH",
-        "BTC-ETF",
         "BTC",
-        "ETH-ETF"
+        "BTC-ETF"
       ],
       "currency_pairs": [],
       "summary": "JPMorgan reported a 25% increase in its Bitcoin ETF position and more than quadrupled its Ether ETF position in the second quarter.",
@@ -14732,8 +15117,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T13:36:34+00:00",
       "tickers": [
-        "BNB",
-        "HTX"
+        "HTX",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance said it will stop processing transactions for involving 11 crypto platforms, including HTX, which was recently listed in the EU’s sanctions package targeting Russia.",
@@ -14772,132 +15157,6 @@ window.newsData = {
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Hyperscale Data sells 685 bitcoin for $43 million to fund Michigan data center",
-      "url": "https://www.theblock.co/news/business/2026-08-14-hyperscale-data-sells-685-bitcoin-for-43-million-to-fund-michigan-data-center-411827",
-      "source": "The Block",
-      "published": "2026-08-14T12:59:18+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Hyperscale Data sold 685 bitcoin for approximately $43 million as it reduced debt and funded its Michigan AI data center.",
-      "sentiment": "Bearish",
-      "confidence": 0.7,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Shiba Inu Network Rebounds Amid 11 Million SHIB Burn",
-      "url": "https://u.today/shiba-inu-network-rebounds-amid-11-million-shib-burn",
-      "source": "U.Today",
-      "published": "2026-08-14T12:46:01+00:00",
-      "tickers": [
-        "SHIB"
-      ],
-      "currency_pairs": [],
-      "summary": "Shiba Inu has destroyed over 11 million SHIB tokens after multiple days of dormant activity, suggesting that its network is regaining strength.",
-      "sentiment": "Bullish",
-      "confidence": 0.7107,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "RedotPay Pushes U.S. IPO Beyond 2026 Amid $473 Million Binance Linked Lawsuit",
-      "url": "https://coingape.com/redotpay-pushes-u-s-ipo-beyond-2026-amid-473-million-binance-linked-lawsuit/",
-      "source": "Coingape",
-      "published": "2026-08-14T12:39:40+00:00",
-      "tickers": [
-        "BNB"
-      ],
-      "currency_pairs": [],
-      "summary": "RedotPay has pushed its planned U.S. IPO beyond 2026 as the stablecoin payments company seeks regulatory approvals while defending a nearly $473 million lawsuit filed by Binance linked entities in Hong Kong. Ad Ad RedotPay Delays Planned U.S. IPO Hong Kong-based RedotPay had considered completing it",
-      "sentiment": "Bearish",
-      "confidence": 0.8753,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "ASIA",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Ireland’s New AML Strategy Brings ‘Enhanced Checks’ on Private Crypto Wallets",
-      "url": "https://decrypt.co/375628/irelands-new-aml-strategy-brings-enhanced-checks-on-private-crypto-wallets",
-      "source": "Decrypt",
-      "published": "2026-08-14T12:38:39+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The country's first strategy of its kind also brings stricter due diligence for firms dealing with overseas crypto companies.",
-      "sentiment": "Bearish",
-      "confidence": 0.7,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "EU",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Shiba Inu Price Forecast as Burn Rate Soars 530%",
-      "url": "https://coingape.com/markets/shiba-inu-price-forecast-as-burn-rate-soars-530/",
-      "source": "Coingape",
-      "published": "2026-08-14T12:31:50+00:00",
-      "tickers": [
-        "ROSE",
-        "SHIB"
-      ],
-      "currency_pairs": [],
-      "summary": "Shiba Inu price rose 0.93% to $0.0000045 as the token’s burn rate increased sharply during the past 24 hours. The burn tracker recorded a 530.03% increase in daily activity. Meanwhile, 448,431 SHIB were destroyed through one transaction during the latest hour. The token’s market capitalization climb",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Crypto Market Update August 14: Bitcoin Retests $62K as BoJ Eyes Faster Rate Hikes, UNI Leads Altcoin Losses",
-      "url": "https://coingape.com/markets/crypto-market-update-august-14-bitcoin-retests-62k-as-boj-eyes-faster-rate-hikes-uni-crashes/",
-      "source": "Coingape",
-      "published": "2026-08-14T12:30:50+00:00",
-      "tickers": [
-        "UNI",
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "The crypto market is down today, August 14, as a hawkish monetary outlook by the Bank of Japan (BoJ) and geopolitical risks weigh on prices. Bitcoin (BTC) has dropped to retest $62,000, while Uniswap (UNI) has made the biggest daily loss among altcoins. Ad Ad What is Driving the Crypto Market Down T",
-      "sentiment": "Bearish",
-      "confidence": 0.8635,
-      "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "ASIA",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -15225,714 +15484,10 @@ window.newsData = {
       "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
-    },
-    {
-      "title": "North Korea Kim , Russia Putin reaffirm ties on Korean Liberation Day",
-      "url": "https://www.nbcnews.com/world/north-korea/north-koreas-kim-russias-putin-reaffirm-ties-korean-liberation-day-rcna592762",
-      "source": "nbcnews.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "bworldonline.com",
-          "url": "https://bworldonline.com/world/2026/08/16/770404/north-koreas-kim-russias-putin-reaffirm-ties-on-korean-liberation-day/",
-          "published": null
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Israel escalation in southern Lebanon threatens to derail settlement efforts : Arab League – Middle East Monitor",
-      "url": "https://www.middleeastmonitor.com/20260816-israels-escalation-in-southern-lebanon-threatens-to-derail-settlement-efforts-arab-league/",
-      "source": "middleeastmonitor.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "On Independence - Day , Pakistan top leadership calls for national unity and peace",
-      "url": "https://theshillongtimes.com/2026/08/15/on-independence-day-pakistans-top-leadership-calls-for-national-unity-and-peace/",
-      "source": "theshillongtimes.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Russia War Toll Mounts In Ukraine Amid A Possible Mobilization",
-      "url": "https://www.forbes.com/sites/marktemnycky/2026/08/16/russias-war-toll-mounts-in-ukraine-amid-a-possible-mobilization/",
-      "source": "forbes.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Iran , Oman home in on Hormuz Strait deal as ship attacks mount",
-      "url": "https://www.westhawaiitoday.com/2026/08/16/nation-world-news/iran-oman-home-in-on-hormuz-strait-deal-as-ship-attacks-mount/",
-      "source": "westhawaiitoday.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Iran calls on US to accept defeat as Trump tells Americans to accept high gasoline prices",
-      "url": "https://www.newstribune.com/news/2026/aug/16/iran-calls-on-us-to-accept-defeat-as-trump-tells/",
-      "source": "newstribune.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Why has Israel escalated attacks in southern Lebanon despite ceasefire ?",
-      "url": "https://www.aljazeera.com/news/2026/8/16/why-has-israel-escalated-attacks-in-southern-lebanon-despite-ceasefire",
-      "source": "aljazeera.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Trump weighs more economic pressure on Iran : What are his options ?",
-      "url": "https://www.business-standard.com/world-news/trump-weighs-more-economic-pressure-on-iran-what-are-his-options-126081600377_1.html",
-      "source": "business-standard.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "economictimes.indiatimes.com",
-          "url": "https://economictimes.indiatimes.com/news/international/world-news/trump-wants-more-economic-pressure-on-iran-what-are-his-options/articleshow/133273712.cms",
-          "published": null
-        },
-        {
-          "source": "moneycontrol.com",
-          "url": "https://www.moneycontrol.com/world/donald-trump-wants-more-economic-pressure-on-iran-what-are-his-options-article-14006758.html",
-          "published": null
-        },
-        {
-          "source": "al-monitor.com",
-          "url": "https://www.al-monitor.com/originals/2026/08/explainer-trump-wants-more-economic-pressure-iran-what-are-his-options",
-          "published": null
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "US top Middle East commander visits deployed aircraft carrier , and other Mideast news",
-      "url": "https://lancasteronline.com/news/world/us-top-middle-east-commander-visits-deployed-aircraft-carrier-and-other-mideast-news/article_83faf8b7-9db7-586b-b670-8601d3ea631f.html",
-      "source": "lancasteronline.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "idahopress.com",
-          "url": "http://www.idahopress.com/ap_news/us/us-top-middle-east-commander-visits-deployed-aircraft-carrier-and-other-mideast-news/article_5838ae5d-3ed7-5b4c-868e-b457bba58045.html",
-          "published": null
-        },
-        {
-          "source": "rockymounttelegram.com",
-          "url": "http://www.rockymounttelegram.com/news/national/us-top-middle-east-commander-visits-deployed-aircraft-carrier-and-other-mideast-news/article_5cc701b6-fee8-56b8-b514-b9b1af8a0cfa.html",
-          "published": null
-        },
-        {
-          "source": "yankton.net",
-          "url": "https://www.yankton.net/news/national_ap/article_e7d0ecde-f334-56e2-b1ba-e83f8a00f6ae.html",
-          "published": null
-        },
-        {
-          "source": "wgauradio.com",
-          "url": "https://www.wgauradio.com/news/world/us-top-middle-east/J5MXLX44AMZFBFJPKXXMLIJULA/",
-          "published": null
-        },
-        {
-          "source": "woonsocketcall.com",
-          "url": "https://www.woonsocketcall.com/news/national_and_world_news/us-top-middle-east-commander-visits-deployed-aircraft-carrier-and-other-mideast-news/article_2dea00c9-e719-533f-ba7f-9241a25e4543.html",
-          "published": null
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Why Putin is testing Japan limits with visit to contested Pacific islands",
-      "url": "https://www.independent.co.uk/asia/japan/vladimir-putin-japan-kuril-island-sanae-takaichi-b3033551.html",
-      "source": "independent.co.uk",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Netanyahu office claims 3 Israeli soldiers wounded in Hezbollah attack near border – Middle East Monitor",
-      "url": "https://www.middleeastmonitor.com/20260816-netanyahus-office-claims-3-israeli-soldiers-wounded-in-hezbollah-attack-near-border/",
-      "source": "middleeastmonitor.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Korean Peninsula on Edge : Peace Offer , Border Clashes and US – South Korea War Games Raise Tensions with North Korea",
-      "url": "https://openthemagazine.com/world/peace-offer-warning-shots-and-war-games-why-the-korean-peninsula-is-heating-up-again",
-      "source": "openthemagazine.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Trump dismisses reports about dire conditions aboard US aircraft carrier",
-      "url": "https://www.westhawaiitoday.com/2026/08/16/nation-world-news/trump-dismisses-reports-about-dire-conditions-aboard-us-aircraft-carrier/",
-      "source": "westhawaiitoday.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Trump Iran Strategy Strains Gulf Ties : Why Arab Allies Are Losing Faith in US Diplomacy and Security Guarantees",
-      "url": "https://openthemagazine.com/world/trumps-iran-diplomacy-is-testing-gulf-patience-why-americas-arab-allies-are-losing-faith",
-      "source": "openthemagazine.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Gulf allies growing frustrated with US over prolonged Iran war : Report",
-      "url": "https://www.middleeastmonitor.com/20260816-gulf-allies-growing-frustrated-with-us-over-prolonged-iran-war-report/",
-      "source": "middleeastmonitor.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Hamas delegation led by al - Hayya heads to Cairo to discuss Gaza ceasefire agreement",
-      "url": "https://www.middleeastmonitor.com/20260816-hamas-delegation-led-by-al-hayya-heads-to-cairo-to-discuss-gaza-ceasefire-agreement/",
-      "source": "middleeastmonitor.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Ukraine launches one of its largest aerial attacks of the war , killing at least 6 people in Russia",
-      "url": "https://www.news4jax.com/news/world/2026/08/16/ukraine-launches-one-of-its-largest-aerial-attacks-of-the-war-killing-at-least-6-people-in-russia/",
-      "source": "news4jax.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "wsls.com",
-          "url": "https://www.wsls.com/news/world/2026/08/16/ukraine-launches-one-of-its-largest-aerial-attacks-of-the-war-killing-at-least-6-people-in-russia/",
-          "published": null
-        },
-        {
-          "source": "lancasteronline.com",
-          "url": "https://lancasteronline.com/news/world/ukraine-launches-one-of-its-largest-aerial-attacks-of-the-war-killing-at-least-6/article_957d1d30-3bef-5377-9097-92e44cf88187.html",
-          "published": null
-        },
-        {
-          "source": "idahopress.com",
-          "url": "http://www.idahopress.com/ap_news/us/ukraine-launches-one-of-its-largest-aerial-attacks-of-the-war-killing-at-least-6/article_85e033b9-ec9e-5175-862a-1631355c641e.html",
-          "published": null
-        },
-        {
-          "source": "eadt.co.uk",
-          "url": "https://www.eadt.co.uk/news/national/26468347.ukraine-launches-one-largest-attacks-killing-least-six-russia/",
-          "published": null
-        },
-        {
-          "source": "houstonpublicmedia.org",
-          "url": "https://www.houstonpublicmedia.org/npr/2026/08/16/nx-s1-5933006/ukraine-launches-one-of-its-largest-aerial-attacks-of-the-war-killing-at-least-6-people-in-russia/",
-          "published": null
-        },
-        {
-          "source": "oxfordmail.co.uk",
-          "url": "https://www.oxfordmail.co.uk/news/national/26468347.ukraine-launches-one-largest-attacks-killing-least-six-russia/",
-          "published": null
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Cypriot MP raises destruction of cultural heritage with Pope Leo",
-      "url": "https://cyprus-mail.com/2026/08/16/cypriot-mp-raises-destruction-of-cultural-heritage-with-pope-leo",
-      "source": "cyprus-mail.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "11 Dead , Including 3 Children : What Triggered Israel Deadliest Lebanon Strikes Since Truce ?",
-      "url": "https://www.newsx.com/world/11-dead-including-3-children-what-triggered-israels-deadliest-lebanon-strikes-since-truce-261042/",
-      "source": "newsx.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Iran unveils Downed US Drones with  Elon Musk Starlink Gear  in dramatic display",
-      "url": "https://en.dailypakistan.com.pk/16-Aug-2026/iran-unveils-downed-us-drones-with-elon-musks-starlink-gear-in-dramatic-display",
-      "source": "en.dailypakistan.com.pk",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Ben Franklin chose America . Son William chose the crown . This civil war is a microcosm of revolution",
-      "url": "https://www.clickorlando.com/news/politics/2026/08/16/ben-franklin-chose-america-son-william-chose-the-crown-this-civil-war-is-a-microcosm-of-revolution/",
-      "source": "clickorlando.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Israel wants ChatGPT to push its Gaza narrative",
-      "url": "http://www.greekherald.com/news/279245022/israel-wants-chatgpt-to-push-its-gaza-narrative-politico",
-      "source": "greekherald.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Six dead as Ukraine launches massive aerial attack",
-      "url": "https://www.standard.net.au/story/9330962/six-dead-as-ukraine-launches-massive-aerial-attack/",
-      "source": "standard.net.au",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Talladega Nights  predicted America Sunbelt shift",
-      "url": "https://www.salon.com/2026/08/16/talladega-nights-predicted-americas-sunbelt-shift/",
-      "source": "salon.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Afghan advocates urge action for women as Taliban marks five years since takeover",
-      "url": "https://calgary.citynews.ca/2026/08/15/afghan-advocates-urge-action-for-women-as-taliban-marks-five-years-since-takeover/",
-      "source": "calgary.citynews.ca",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Iran Demands Access To Qatar In Dispute Over Downed Pilots",
-      "url": "http://www.southeastasiapost.com/news/279244938/iran-demands-access-to-qatar-in-dispute-over-downed-pilots",
-      "source": "southeastasiapost.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "newyorkstatesman.com",
-          "url": "http://www.newyorkstatesman.com/news/279244938/iran-demands-access-to-qatar-in-dispute-over-downed-pilots",
-          "published": null
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Anti - terrorism measures hindering Muslim charitie humanitarian efforts : study",
-      "url": "https://www.stcatharinesstandard.ca/business/anti-terrorism-measures-hindering-muslim-charities-humanitarian-efforts-study/article_61be7de6-cbd1-5731-8bd8-bece3c37be5b.html",
-      "source": "stcatharinesstandard.ca",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "The Third Phase of the Iranian Revolution",
-      "url": "https://www.middleeastmonitor.com/20260816-the-third-phase-of-the-iranian-revolution/",
-      "source": "middleeastmonitor.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "CHR calls for collective action and accountability in observance of International Humanitarian Law Month",
-      "url": "https://www.manilatimes.net/2026/08/16/tmt-newswire/chr-calls-for-collective-action-and-accountabilityin-observance-of-international-humanitarian-law-month/2406326",
-      "source": "manilatimes.net",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "India must strengthen shipping capacity , naval protection amid growing chokepoints : GTRI",
-      "url": "https://www.thehindubusinessline.com/economy/logistics/india-must-strengthen-shipping-capacity-naval-protection-amid-growing-chokepoints-gtri/article71352225.ece",
-      "source": "thehindubusinessline.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Iran accuses Qatar of thwarting probe into fate of pilots",
-      "url": "https://thefrontierpost.com/iran-accuses-qatar-of-thwarting-probe-into-fate-of-pilots/",
-      "source": "thefrontierpost.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
-    },
-    {
-      "title": "Trump Says US Could Claim Strait of Hormuz as Iran Keeps Shipping Route Nearly Shut",
-      "url": "https://www.1290wlby.com/2026/08/16/trump-says-us-could-claim-strait-of-hormuz-as-iran-keeps-shipping-route-nearly-shut/",
-      "source": "1290wlby.com",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "kxly920.com",
-          "url": "https://kxly920.com/2026/08/16/trump-says-us-could-claim-strait-of-hormuz-as-iran-keeps-shipping-route-nearly-shut/",
-          "published": null
-        },
-        {
-          "source": "newsradio1029.com",
-          "url": "https://www.newsradio1029.com/2026/08/16/trump-says-us-could-claim-strait-of-hormuz-as-iran-keeps-shipping-route-nearly-shut/",
-          "published": null
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "gdelt_tone",
-      "source_type": "rss",
-      "event_source": "gdelt"
     }
   ],
   "forex_sentiment": {
-    "updated_at": "2026-08-16T11:44:07.423708+00:00",
+    "updated_at": "2026-08-16T13:10:51.192814+00:00",
     "pairs": [
       {
         "symbol": "GBPJPY",
