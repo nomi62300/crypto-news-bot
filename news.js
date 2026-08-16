@@ -1,7 +1,348 @@
 window.newsData = {
-  "updated_at": "2026-08-16T03:14:51.159163+00:00",
-  "total": 594,
+  "updated_at": "2026-08-16T04:01:11.745403+00:00",
+  "total": 598,
   "articles": [
+    {
+      "title": "If your active, drop your $SOL wallet..\n\nPicking a few lucky ppl",
+      "url": "https://x.com/juliadotsol/status/2088837924033057027",
+      "source": "@juliadotsol",
+      "published": "2026-08-16T03:59:04+00:00",
+      "tickers": [
+        "SOL"
+      ],
+      "currency_pairs": [],
+      "summary": "If your active, drop your $SOL wallet..\n\nPicking a few lucky ppl",
+      "sentiment": "Bullish",
+      "confidence": 0.8891,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 4,
+      "reposts": 2,
+      "replies": 9,
+      "follower_count": 65504,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Récap des dernières 24h 👇\n\nDepuis la fausse sortie de vendredi soir, BTC n'a pas bougé de 250$ en 36 heures. Le marché",
+      "url": "https://x.com/AlanTradingYT/status/2088836996349448516",
+      "source": "@AlanTradingYT",
+      "published": "2026-08-16T03:55:23+00:00",
+      "tickers": [
+        "BTC",
+        "ETH",
+        "BNB",
+        "XRP",
+        "NVDAON"
+      ],
+      "currency_pairs": [],
+      "summary": "Récap des dernières 24h 👇\n\nDepuis la fausse sortie de vendredi soir, BTC n'a pas bougé de 250$ en 36 heures. Le marché est gelé sur 63k, pile au milieu de la zone morte.\n\n🪙 CRYPTO\n\n$BTC 63 100$ : plus bas 62 920$, plus haut 63 175$ sur 24h. Un range de 0,4%, le plus étroit depuis le début du récap.",
+      "sentiment": "Bearish",
+      "confidence": 0.7294,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 1,
+      "follower_count": 80043,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "So Bitcoin $BTC is gay now?",
+      "url": "https://x.com/SexyStockSlayer/status/2088836942150459636",
+      "source": "@SexyStockSlayer",
+      "published": "2026-08-16T03:55:10+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "So Bitcoin $BTC is gay now?",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 10692,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "M 5.0 - 45 km NNW of Ende, Indonesia",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl55",
+      "source": "USGS",
+      "published": "2026-08-16T03:42:59.885000+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "45 km NNW of Ende, Indonesia",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl44",
+          "published": "2026-08-15T23:12:54.664000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl3n",
+          "published": "2026-08-15T21:08:32.582000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl3k",
+          "published": "2026-08-15T20:29:44.571000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl31",
+          "published": "2026-08-15T18:40:21.369000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2u",
+          "published": "2026-08-15T17:51:27.384000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2t",
+          "published": "2026-08-15T17:44:14.375000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2p",
+          "published": "2026-08-15T17:21:07.767000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2c",
+          "published": "2026-08-15T16:58:05.970000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl1s",
+          "published": "2026-08-15T16:25:18.342000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl1p",
+          "published": "2026-08-15T15:52:32.416000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl0v",
+          "published": "2026-08-15T12:14:39.321000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyk",
+          "published": "2026-08-15T10:54:51.796000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyg",
+          "published": "2026-08-15T10:31:30.185000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkya",
+          "published": "2026-08-15T09:51:45.571000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tky8",
+          "published": "2026-08-15T09:32:53.800000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tky5",
+          "published": "2026-08-15T09:08:22.294000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkx5",
+          "published": "2026-08-15T07:39:38.975000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwz",
+          "published": "2026-08-15T07:16:07.016000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwt",
+          "published": "2026-08-15T06:43:07.500000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwq",
+          "published": "2026-08-15T06:28:51.109000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwj",
+          "published": "2026-08-15T05:45:08.046000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwd",
+          "published": "2026-08-15T04:23:07.762000+00:00"
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "usgs_magnitude",
+      "source_type": "rss",
+      "event_source": "usgs",
+      "magnitude": 5
+    },
+    {
+      "title": "Romanian F-16s shoot down drones violating NATO airspace near Black Sea",
+      "url": "https://cryptobriefing.com/romanian-f16s-shoot-down-drones-nato-airspace/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T03:33:11+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "NATO's decisive action against drones signals a heightened readiness to defend its airspace, potentially escalating regional tensions. \n The post  Romanian F-16s shoot down drones violating NATO airspace near Black Sea  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "SEC Reviews Cboe Bid to List 3x Bitcoin and Ether ETFs",
+      "url": "https://news.bitcoin.com/featured/sec-reviews-cboe-bid-to-list-3x-bitcoin-and-ether-etfs/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-16T03:30:03+00:00",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "currency_pairs": [],
+      "summary": "U.S. traders could gain access to bitcoin and ether funds designed to deliver three times each asset&#8217;s daily performance under a Cboe proposal covering six leveraged commodity products. The SEC initially has 45 days from Federal Register publication to approve, reject, or begin proceedings. Si",
+      "sentiment": "Neutral",
+      "confidence": 0.5445,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "US",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "@KongBTC I'm going with $LTC, but I'd choose $BTC for its market stability and widespread adoption features.",
+      "url": "https://x.com/bella_quack/status/2088829559970189690",
+      "source": "@bella_quack",
+      "published": "2026-08-16T03:25:50+00:00",
+      "tickers": [
+        "BTC",
+        "LTC"
+      ],
+      "currency_pairs": [],
+      "summary": "@KongBTC I'm going with $LTC, but I'd choose $BTC for its market stability and widespread adoption features.",
+      "sentiment": "Bullish",
+      "confidence": 0.9063,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 1,
+      "reposts": 0,
+      "replies": 1,
+      "follower_count": 16876,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "🚨 TRX’te 0,325 dolar desteği kritik eşik olarak öne çıktı.\n\n 📉 Bu seviye kırılırsa $TRX için 0,29 dolar ihtimali",
+      "url": "https://x.com/CointurkMedia/status/2088829066115690675",
+      "source": "@CointurkMedia",
+      "published": "2026-08-16T03:23:52+00:00",
+      "tickers": [
+        "TRX"
+      ],
+      "currency_pairs": [],
+      "summary": "🚨 TRX’te 0,325 dolar desteği kritik eşik olarak öne çıktı.\n\n 📉 Bu seviye kırılırsa $TRX için 0,29 dolar ihtimali gündeme gelebilir.\n\n 📈 Direnç aşılırsa piyasada 0,36 dolar hedefi izlenebilir.\n\n 🏢 Tron Inc. 149.297 TRX daha alarak toplam rezervini 709,9 milyonun üstüne taşıdı.",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 28519,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "M 6.1 - 56 km NNE of Port-Olry, Vanuatu",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl4w",
+      "source": "USGS",
+      "published": "2026-08-16T03:20:24.373000+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "56 km NNE of Port-Olry, Vanuatu",
+      "sentiment": "Bearish",
+      "confidence": 0.5125,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "usgs_magnitude",
+      "source_type": "rss",
+      "event_source": "usgs",
+      "magnitude": 6.1
+    },
+    {
+      "title": "A Russian attack on Kyiv sparked a fire at the Pochaina Market, local reports say",
+      "url": "https://cryptobriefing.com/a-russian-attack-on-kyiv-sparked-a-fire-at-the-pochaina-market-local-reports-say/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-16T03:17:32+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The attack highlights escalating tensions and risks to civilian areas, influencing geopolitical dynamics and prediction market assessments. \n The post  A Russian attack on Kyiv sparked a fire at the Pochaina Market, local reports say  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "@kof_new Em nghĩ $BTC sẽ ổn ở vùng hỗ trợ đó.",
       "url": "https://x.com/HanaTran86/status/2088825975123652679",
@@ -1016,183 +1357,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "M 5.0 - 80 km N of Ruteng, Indonesia",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl44",
-      "source": "USGS",
-      "published": "2026-08-15T23:12:54.664000+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "80 km N of Ruteng, Indonesia",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl3k",
-          "published": "2026-08-15T20:29:44.571000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl31",
-          "published": "2026-08-15T18:40:21.369000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2u",
-          "published": "2026-08-15T17:51:27.384000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2t",
-          "published": "2026-08-15T17:44:14.375000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2p",
-          "published": "2026-08-15T17:21:07.767000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl2c",
-          "published": "2026-08-15T16:58:05.970000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl1s",
-          "published": "2026-08-15T16:25:18.342000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl1p",
-          "published": "2026-08-15T15:52:32.416000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl0v",
-          "published": "2026-08-15T12:14:39.321000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyg",
-          "published": "2026-08-15T10:31:30.185000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkya",
-          "published": "2026-08-15T09:51:45.571000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tky8",
-          "published": "2026-08-15T09:32:53.800000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tky5",
-          "published": "2026-08-15T09:08:22.294000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkx5",
-          "published": "2026-08-15T07:39:38.975000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwz",
-          "published": "2026-08-15T07:16:07.016000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwt",
-          "published": "2026-08-15T06:43:07.500000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwq",
-          "published": "2026-08-15T06:28:51.109000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwj",
-          "published": "2026-08-15T05:45:08.046000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkwd",
-          "published": "2026-08-15T04:23:07.762000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkw9",
-          "published": "2026-08-15T03:54:13.099000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkw2",
-          "published": "2026-08-15T02:46:55.923000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkw0",
-          "published": "2026-08-15T02:18:46.795000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvy",
-          "published": "2026-08-15T02:03:45.840000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvt",
-          "published": "2026-08-15T01:37:40.307000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvp",
-          "published": "2026-08-15T01:17:20.014000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvh",
-          "published": "2026-08-15T00:40:18.406000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvg",
-          "published": "2026-08-15T00:20:27.120000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvd",
-          "published": "2026-08-15T00:03:22.963000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvc",
-          "published": "2026-08-14T23:52:55.591000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkvb",
-          "published": "2026-08-14T23:49:58.157000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl3n",
-          "published": "2026-08-15T21:08:32.582000+00:00"
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "usgs_magnitude",
-      "source_type": "rss",
-      "event_source": "usgs",
-      "magnitude": 5,
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Bitcoin Is a ‘Deep Freeze’ for Money. What Does That Actually Mean?",
       "url": "https://beincrypto.com/bitcoin-money-energy-saylor-thesis/",
       "source": "BeInCrypto",
@@ -1285,8 +1449,8 @@ window.newsData = {
       "published": "2026-08-15T22:59:05+00:00",
       "tickers": [
         "SOL",
-        "USDT",
-        "PUMP"
+        "PUMP",
+        "USDT"
       ],
       "currency_pairs": [],
       "summary": "Pump.fun's rise highlights the growing influence of retail-driven crypto activity and Solana's role as a hub for rapid memecoin trading. \n The post  Pump.fun ranks third in 7-day revenue among all protocols, trailing only Tether and Circle  appeared first on  Crypto Briefing .",
@@ -2092,8 +2256,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T20:40:13+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "President Donald Trump and the heads of the SEC and CFTC are expected to meet crypto and prediction-market executives at the White House next week as the industry’s biggest legislative priority faces dwindling odds of becoming law this year. According to reports, the Aug. 19 gathering is expected to",
@@ -2368,44 +2532,6 @@ window.newsData = {
       "confidence": 0.5445,
       "other_sources": [],
       "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "xStocks dominates tokenized stock deposits into DeFi with 58% share",
-      "url": "https://cryptobriefing.com/xstocks-dominates-tokenized-stock-defi-deposits/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-15T20:07:22+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "xStocks' dominance in tokenized stocks within DeFi could centralize influence, impacting market dynamics and innovation in decentralized finance. \n The post  xStocks dominates tokenized stock deposits into DeFi with 58% share  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.926,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "AI boom creates new billionaires, fuels luxury spending spree",
-      "url": "https://cryptobriefing.com/ai-boom-creates-new-billionaires-fuels-luxury-spending-spree/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-15T20:07:10+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The AI sector's wealth surge may drive increased investment and innovation, potentially reshaping market dynamics and economic landscapes. \n The post  AI boom creates new billionaires, fuels luxury spending spree  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
       "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
@@ -2992,8 +3118,8 @@ window.newsData = {
       "source": "Investing.com Crypto",
       "published": "2026-08-15T19:02:45+00:00",
       "tickers": [
-        "NEAR",
-        "BTC"
+        "BTC",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -3170,9 +3296,9 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-15T18:45:48+00:00",
       "tickers": [
+        "BTC",
         "FORM",
-        "JST",
-        "BTC"
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Since Bitcoin split at block 961632 on Aug. 8, the tiny Roughnecks pool has burned scarce hashpower chasing a chain almost nobody can trade, grinding out just four blocks across seven days. Now, BIP-110 supporters are preparing an even bigger gamble: abandoning double SHA-256 for Blake2b, a proof-of",
@@ -3961,9 +4087,9 @@ window.newsData = {
       "source": "@justinsuntron",
       "published": "2026-08-15T17:42:46+00:00",
       "tickers": [
-        "TRX",
+        "TRON",
         "RLB",
-        "TRON"
+        "TRX"
       ],
       "currency_pairs": [],
       "summary": "Happy to see Rollbit on Tron @trondao",
@@ -4017,8 +4143,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T17:39:38+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance founder Changpeng Zhao, also known as CZ, is once again gaining attention from the crypto market participants with his latest analysis and comments. For context, CZ has recently warned that owning one full Bitcoin would become difficult even for millionaires. Notably, his latest comments foc",
@@ -4383,8 +4509,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-15T17:20:57+00:00",
       "tickers": [
-        "IBITON",
-        "BTC"
+        "BTC",
+        "IBITON"
       ],
       "currency_pairs": [],
       "summary": "Billionaire hedge fund manager Paul Tudor Jones&#8217; Tudor Investment Corp increased its stake in Blackrock&#8217;s spot Bitcoin exchange-traded fund (ETF) to $22.9 million, according to a newly filed 13F. A Growing Bitcoin Bet Tudor Investment Corp, the Connecticut-based macro hedge fund Jones fo",
@@ -4733,28 +4859,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Fairlead Strategies: Bitcoin May Have Found Its Major Low",
-      "url": "https://news.bitcoin.com/market-updates/katie-stockton-bitcoin-major-low/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-15T16:18:21+00:00",
-      "tickers": [
-        "ETH",
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Technical research firm Fairlead&#8217;s Katie Stockton says bitcoin is flashing a rare long-term oversold signal after its slide toward $60,000, and now argues ether&#8217;s chart may have already carved out its own major low too. A Long-Term Oversold Signal Fairlead Strategies founder Katie Stockt",
-      "sentiment": "Bearish",
-      "confidence": 0.8748,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Health insurers are dumping Medicare Advantage plans. Here’s how many seniors could be affected.",
       "url": "https://www.marketwatch.com/story/health-insurers-are-dumping-medicare-advantage-plans-heres-how-many-seniors-could-be-affected-646b4e99?mod=mw_rss_topstories",
       "source": "MarketWatch",
@@ -4839,8 +4943,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T15:58:44+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance's CZ discusses Bitcoin's growing scarcity, suggesting that the number of tokens left in the Bitcoin available supply may be lower than expected.",
@@ -5709,8 +5813,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-15T14:31:34+00:00",
       "tickers": [
-        "NEAR",
-        "BTC"
+        "BTC",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "The Shiller CAPE ratio for the S&#38;P 500 sits near 40 to 42, approaching the record of roughly 44 set during the late-1990s dot-com bubble. That reading places equity valuations in rare territory, and Bitcoin holders have reason to pay attention. What the CAPE Ratio Actually Measures The cyclicall",
@@ -6156,8 +6260,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T13:30:49+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple CTO emeritus, David Schwartz explains the reasoning behind proof-of-work (PoW) forks.",
@@ -6199,8 +6303,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T13:20:07+00:00",
       "tickers": [
-        "FORM",
-        "BTC"
+        "BTC",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "June 30 snapshots separate unchanged sovereign units, JPMorgan share additions, UBS options and a newly reported Morgan Stanley wrapper. \n The post  Bitcoin’s $16.3 billion Wall Street stress test splits into four positional patterns  appeared first on  CryptoSlate .",
@@ -6248,9 +6352,9 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-15T13:01:04+00:00",
       "tickers": [
+        "TRUMP",
         "USD1",
-        "WLT",
-        "TRUMP"
+        "WLT"
       ],
       "currency_pairs": [],
       "summary": "The proposed World Liberty Trust Company would take over issuance of the USD1 stablecoin from BitGo.",
@@ -6357,9 +6461,9 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-15T12:19:16+00:00",
       "tickers": [
+        "BTC",
         "NEAR",
-        "LINK",
-        "BTC"
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "Van de Poppe says Chainlink left its bear market and targets $11, while Bitcoin stalls in a quiet range near $62,968. \n The post  Chainlink Bull Market Returns as Analyst Targets $11 for LINK  appeared first on  BeInCrypto .",
@@ -6484,8 +6588,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-15T12:00:00+00:00",
       "tickers": [
-        "ETHEREUM",
-        "ETH"
+        "ETH",
+        "ETHEREUM"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -6532,8 +6636,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-15T11:57:32+00:00",
       "tickers": [
-        "USD1",
-        "WLFI"
+        "WLFI",
+        "USD1"
       ],
       "currency_pairs": [],
       "summary": "The conditional approval would allow it to bring the issuance and custody of its USD1 stablecoin under its own federally supervised trust bank.",
@@ -6840,12 +6944,12 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T11:41:06+00:00",
       "tickers": [
-        "XRP",
-        "NEAR",
-        "ETH",
-        "DOGE",
         "BTC",
-        "TRUMP"
+        "NEAR",
+        "DOGE",
+        "ETH",
+        "TRUMP",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Dogecoin price hovered near $0.069 after a mild market correction, while gaining 0.8% over the past 24 hours.  Bitcoin price failed to break above $63,000, XRP price continued to hover around $1, and Ethereum also failed to hold support. Now traders are waiting for Wednesday&#8217;s White House cryp",
@@ -7259,8 +7363,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T11:00:05+00:00",
       "tickers": [
-        "XRP",
-        "SOL"
+        "SOL",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "The development marks a new interoperability milestone for the XRP Ledger but carries an important warning.",
@@ -7399,27 +7503,6 @@ window.newsData = {
       "reposts": 0,
       "replies": 0,
       "follower_count": 16180,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "M 6.9 - 15 km NNW of Pematangsiantar, Indonesia",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyk",
-      "source": "USGS",
-      "published": "2026-08-15T10:54:51.796000+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "15 km NNW of Pematangsiantar, Indonesia",
-      "sentiment": "Bearish",
-      "confidence": 0.6125,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "usgs_magnitude",
-      "source_type": "rss",
-      "event_source": "usgs",
-      "magnitude": 6.9,
       "is_crypto_relevant": true
     },
     {
@@ -7625,9 +7708,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T10:36:53+00:00",
       "tickers": [
+        "HTX",
         "BGB",
-        "BNB",
-        "HTX"
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Bitget has announced enhanced compliance controls on transactions linked to 16 designated entities, including HTX and EXMO, citing overlapping US and EU regulatory actions. The exchange joins Binance in applying staggered restrictions on the same platforms, signaling a coordinated industry-wide resp",
@@ -7648,11 +7731,11 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-15T10:29:01+00:00",
       "tickers": [
-        "XRP",
-        "SHORT",
-        "ETH",
+        "BTC",
         "OP",
-        "BTC"
+        "ETH",
+        "SHORT",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP price remains above the crucial $1 support despite a mild cryptocurrency market pullback. Network activity reached a two-month high, supporting cautious optimism.  Bitcoin price trades below $63,000, while Ethereum stays under $1,900. Holding $1 could preserve XRP’s recovery outlook and encourag",
@@ -7749,8 +7832,8 @@ window.newsData = {
       "published": "2026-08-15T10:20:22+00:00",
       "tickers": [
         "VELVET",
-        "LINK",
-        "BTC"
+        "BTC",
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "VELVET has entered the top 100 alts after a massive 150% weekly surge.",
@@ -7771,8 +7854,8 @@ window.newsData = {
       "source": "@justinsuntron",
       "published": "2026-08-15T10:17:48+00:00",
       "tickers": [
-        "TRX",
-        "TRON"
+        "TRON",
+        "TRX"
       ],
       "currency_pairs": [],
       "summary": "👀 Tron leads 4",
@@ -8000,8 +8083,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T09:30:33+00:00",
       "tickers": [
-        "NEAR",
-        "BTC"
+        "BTC",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin trades near $62,900 heading into the weekend, having touched an intraday low of $62,538 on Aug. 14. That low effectively tested the $62,500 to $62,560 zone that has held as the floor of a five-week trading range between roughly $62,000 and $66,000. Bitfinex found Bitcoin tested the $65,000 t",
@@ -8135,8 +8218,8 @@ window.newsData = {
       "source": "The Daily Hodl",
       "published": "2026-08-15T09:15:18+00:00",
       "tickers": [
-        "OP",
-        "BTC"
+        "BTC",
+        "OP"
       ],
       "currency_pairs": [],
       "summary": "Mike Novogratz is highlighting the U.S. government's massive spending shortfalls as a key reason for his ongoing optimism on Bitcoin. He points to a $432 billion July deficit and ties rising debt to inflation pressures. \n The post  US Fiscal Deficits Keep Galaxy Digital CEO Mike Novogratz Bullish on",
@@ -9190,8 +9273,8 @@ window.newsData = {
       "published": "2026-08-15T06:00:51+00:00",
       "tickers": [
         "ETH",
-        "BNB",
-        "CROSS"
+        "CROSS",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "How do attackers target cryptocurrency users by taking advantage of cross-chain address confusion?",
@@ -9212,8 +9295,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T06:00:24+00:00",
       "tickers": [
-        "IBITON",
-        "BTC"
+        "BTC",
+        "IBITON"
       ],
       "currency_pairs": [],
       "summary": "Two Abu Dhabi sovereign investors kept their BlackRock Bitcoin ETF holdings unchanged through the second quarter, retaining $764 million of exposure even as the cryptocurrency remained mired in one of its steepest annual declines. Mubadala Investment Company and the Abu Dhabi Investment Council held",
@@ -9441,10 +9524,10 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-15T04:00:13+00:00",
       "tickers": [
-        "APES",
-        "APE",
         "ETH",
-        "JST"
+        "APES",
+        "JST",
+        "APE"
       ],
       "currency_pairs": [],
       "summary": "Lookonchain tied three loss-making Bored Ape sales to the trade, but the public record does not trace the proceeds into margin. \n The post  Machi Big Brother sells 3 Bored Apes to cut his Ethereum long in 52%, but liquidation moved to just $22 away  appeared first on  CryptoSlate .",
@@ -9471,8 +9554,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T04:00:00+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Sinking against the dollar, XRP flashes a Bollinger Bands setup that could leave an exhausted Bitcoin behind.",
@@ -9640,10 +9723,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-15T00:01:00+00:00",
       "tickers": [
-        "HYPE",
         "SHIB",
-        "NEAR",
-        "BTC"
+        "BTC",
+        "HYPE",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "The market might be aiming for the recovery, but the current situation is far from looking bearish.",
@@ -10113,8 +10196,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T21:19:39+00:00",
       "tickers": [
-        "WLFI",
-        "TRUMP"
+        "TRUMP",
+        "WLFI"
       ],
       "currency_pairs": [],
       "summary": "President Donald Trump-backed World Liberty Financial secured preliminary approval to become a national trust bank on Friday.",
@@ -10141,8 +10224,8 @@ window.newsData = {
       "source": "Bitcoin Magazine",
       "published": "2026-08-14T21:17:12+00:00",
       "tickers": [
-        "IBITON",
-        "BTC"
+        "BTC",
+        "IBITON"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Abu Dhabi Sovereign Wealth Funds Keep Big Bitcoin Positions   \n Bitcoin is the most important asset in two of Abu Dhabi sovereign wealth funds, according to regulatory filings.&#160; Abu Dhabi&#8217;s Mubadala Investment Company disclosed Friday that it held a $490 million sta",
@@ -10194,8 +10277,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-14T21:09:59+00:00",
       "tickers": [
-        "USD1",
-        "TRUMP"
+        "TRUMP",
+        "USD1"
       ],
       "currency_pairs": [],
       "summary": "A Trump-appointed regulator cleared World Liberty to run its own bank and issue the $4 billion USD1 stablecoin. \n The post  World Liberty Wins Bank Charter From Trump-Appointed Regulator for $4 Billion Stablecoin  appeared first on  BeInCrypto .",
@@ -10604,8 +10687,8 @@ window.newsData = {
       "source": "Bitcoin Magazine",
       "published": "2026-08-14T20:03:41+00:00",
       "tickers": [
-        "SAFE",
-        "BTC"
+        "BTC",
+        "SAFE"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Citi CEO Wants &#8216;Good&#8217; Crypto Clarity Act To Get Passed  \n Citigroup CEO Jane Fraser has said that while some improvements need to be made to the crypto Clarity Act, the bank wants a &#8220;good bill to go through.&#8221; The banking executive said that the bank was",
@@ -10843,8 +10926,8 @@ window.newsData = {
       "source": "@justinsuntron",
       "published": "2026-08-14T19:05:58+00:00",
       "tickers": [
-        "BNB",
-        "HTX"
+        "HTX",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "I have been in communication with Binance. This matter concerns only Binance’s UK and EU users. HTX does not conduct business in the UK or EU, and settlement negotiations with UK and EU regulators are already in progress. Any users affected in the course of these negotiations are welcome to contact",
@@ -11439,8 +11522,8 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-14T18:23:49+00:00",
       "tickers": [
-        "FORM",
-        "BTC"
+        "BTC",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin (BTC), the largest cryptocurrency by market capitalization, has fallen roughly 2% over the past week, keeping traders cautious as broader macroeconomic uncertainty and the delayed U.S. CLARITY Act weigh on sentiment. Bitcoin’s recent weakness is now being accompanied by an unusual burst of a",
@@ -11932,8 +12015,8 @@ window.newsData = {
       "tickers": [
         "SOL",
         "ETH",
-        "ASSET",
-        "BTC"
+        "BTC",
+        "ASSET"
       ],
       "currency_pairs": [],
       "summary": "Israel's largest bank has integrated cryptocurrencies into its services, becoming the first bank to offer digital asset services in the country.",
@@ -12041,8 +12124,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-14T16:10:45+00:00",
       "tickers": [
-        "XRP",
         "ETH",
+        "XRP",
         "RLUSD"
       ],
       "currency_pairs": [],
@@ -12218,8 +12301,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-14T15:43:26+00:00",
       "tickers": [
-        "BNB",
-        "HTX"
+        "HTX",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance said it will no longer process transactions from 16 exchanges, including five already blocked, citing regulatory compliance needs.",
@@ -12410,8 +12493,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T14:38:27+00:00",
       "tickers": [
-        "SPK",
-        "BTC"
+        "BTC",
+        "SPK"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin falls further toward new August lows, ignoring positive US inflation trends while US stocks continue to circle all-time highs.",
@@ -12491,10 +12574,10 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T14:22:57+00:00",
       "tickers": [
-        "ROSE",
         "ETH",
+        "BTC",
         "BIT",
-        "BTC"
+        "ROSE"
       ],
       "currency_pairs": [],
       "summary": "Morgan Stanley’s reported IBIT holdings rose to 16.5 million shares in Q2, while Ether ETF positions and several crypto-linked stocks also increased.",
@@ -12516,9 +12599,9 @@ window.newsData = {
       "published": "2026-08-14T14:14:06+00:00",
       "tickers": [
         "ETH",
-        "BTC-ETF",
         "BTC",
-        "ETH-ETF"
+        "ETH-ETF",
+        "BTC-ETF"
       ],
       "currency_pairs": [],
       "summary": "JPMorgan reported a 25% increase in its Bitcoin ETF position and more than quadrupled its Ether ETF position in the second quarter.",
@@ -12644,8 +12727,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T13:36:34+00:00",
       "tickers": [
-        "BNB",
-        "HTX"
+        "HTX",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance said it will stop processing transactions for involving 11 crypto platforms, including HTX, which was recently listed in the EU’s sanctions package targeting Russia.",
@@ -12775,8 +12858,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-14T12:31:50+00:00",
       "tickers": [
-        "ROSE",
-        "SHIB"
+        "SHIB",
+        "ROSE"
       ],
       "currency_pairs": [],
       "summary": "Shiba Inu price rose 0.93% to $0.0000045 as the token’s burn rate increased sharply during the past 24 hours. The burn tracker recorded a 530.03% increase in daily activity. Meanwhile, 448,431 SHIB were destroyed through one transaction during the latest hour. The token’s market capitalization climb",
@@ -12884,8 +12967,8 @@ window.newsData = {
       "source": "Crypto News",
       "published": "2026-08-14T12:25:07+00:00",
       "tickers": [
-        "NEAR",
-        "BTC"
+        "BTC",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin trades near $62,850 as ETF outflows offset soft inflation data. Key support, resistance levels, and an emerging L3 presale alternative. \n The post  Bitcoin Price Analysis: Can BTC Hit $64K This Weekend?  appeared first on  Cryptonews .",
@@ -13042,9 +13125,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-14T11:52:25+00:00",
       "tickers": [
-        "ADA",
         "ETH",
-        "BTC"
+        "BTC",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "A closer look at the recent performance of BTC, ETH, and ADA and what could be coming next.",
@@ -13148,9 +13231,9 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T11:23:28+00:00",
       "tickers": [
+        "PLUME",
         "SHORT",
-        "ASSET",
-        "PLUME"
+        "ASSET"
       ],
       "currency_pairs": [],
       "summary": "Shinhan Asset Management and Plume will test a tokenized fund using a Korean won-denominated ultra-short-term bond fund as its underlying asset.",
@@ -13192,11 +13275,11 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-14T11:16:26+00:00",
       "tickers": [
-        "BNB",
         "HYPE",
-        "XRP",
+        "BNB",
         "ADA",
-        "ETH"
+        "ETH",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "This Friday, we examine Ethereum, Ripple, Cardano, Binance Coin, and Hyperliquid in greater detail. Ethereum (ETH) This week, Ethereum hugged the key support at $1,800 with a minor loss of 2%. While this puts sellers in a more favorable position, they will need to break the support if they want to t",
@@ -13257,9 +13340,9 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-14T11:07:49+00:00",
       "tickers": [
-        "WLF",
+        "TRUMP",
         "WLFI",
-        "TRUMP"
+        "WLF"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -13280,8 +13363,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-14T11:06:12+00:00",
       "tickers": [
-        "SPK",
-        "BTC"
+        "BTC",
+        "SPK"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -13321,8 +13404,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-14T10:58:54+00:00",
       "tickers": [
-        "ADA",
-        "NEAR"
+        "NEAR",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "Cardano (ADA) price is defending the support level at $0.18 as the network’s DeFi Total Value Locked (TVL) adds 14 million ADA coins in one week since August 8. Still, institutional demand for Cardano remains weak, dimming hopes for a strong recovery in the near term. Ad Ad Cardano’s DeFi TVL Surges",
@@ -13343,8 +13426,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-14T10:43:57+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin futures open interest on Binance fell alongside BTC price as analysis published on CryptoQuant flagged mounting pressure on leveraged longs.",
@@ -13625,8 +13708,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-14T09:15:45+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Following the BIP-110 collapse, David Schwartz fires back at Bitcoin cando-purists, declaring that network opinions \"don't matter one bit\".",
@@ -13750,9 +13833,9 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-14T07:14:37+00:00",
       "tickers": [
-        "XRP",
+        "BTC",
         "NEAR",
-        "BTC"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -13890,27 +13973,6 @@ window.newsData = {
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Washington court orders Kalshi to halt most prediction market offerings in state",
-      "url": "https://www.theblock.co/news/regulation/2026-08-13-washington-court-orders-kalshi-411785",
-      "source": "The Block",
-      "published": "2026-08-14T03:21:28+00:00",
-      "tickers": [
-        "KALSHI"
-      ],
-      "currency_pairs": [],
-      "summary": "The Washington court, however, allows Kalshi to continue offering commodities, climate, economics and finance-related markets in the state.",
-      "sentiment": "Bearish",
-      "confidence": 0.8,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "US",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "groq",
