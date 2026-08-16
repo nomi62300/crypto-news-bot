@@ -10,6 +10,39 @@ change are PATCH.
 
 ## [Unreleased]
 
+## [0.10.1] - 2026-08-16
+### Changed
+- **Indices/Commodities sparklines now come from `dukascopy-python`
+  instead of Twelve Data's `time_series` endpoint.** Live-verified before
+  adopting: free, keyless, MIT-licensed, no rate limit observed across 12
+  rapid-fire fetches (14.4s total) — a direct replacement for the 8 req/min
+  cap that forced the elaborate pacing added earlier today
+  (`time.sleep(len(items) * 8)` + 8s between each call, up to ~80s/run).
+  That pacing code is now removed entirely from `_fetch_commodities_twelvedata()`
+  and `fetch_index_snapshot()`; `_twelvedata_time_series()` is deleted
+  (no remaining callers). Current price/% change stays on Twelve Data/FMP
+  as before — Dukascopy's `fetch()` data lags ~1 day (confirmed live via
+  its internal "current timestamp" log), so it's used only for the
+  historical sparkline, never the live quote. Sparkline attachment is now
+  decoupled from whichever provider wins the current price for a given
+  commodity (`fetch_commodity_snapshot()`), so e.g. a commodity priced by
+  API Ninjas (which has no historical endpoint at all on its free tier)
+  still gets a real sparkline it never had before.
+  - Found and fixed one wrong instrument constant along the way: Russell
+    2000 (`IWM`) was mapped to `INSTRUMENT_IDX_AMERICA_RUSSELL_IDX_USD`
+    ("RUSSELL.IDX/USD"), which returns an empty dataframe — confirmed
+    live. `INSTRUMENT_IDX_AMERICA_USSC2000_IDX_USD` ("USSC2000.IDX/USD")
+    is the symbol that actually has data.
+  - Also found, live-verified: Dukascopy's WTI closed at $82.37 the same
+    day Twelve Data's `USO`-ETF-proxy price showed $126.60 for the "same"
+    instrument — a real accuracy gap in the existing ETF-proxy approach,
+    not just a reliability one. Not changed in this pass (current price
+    stays on the existing providers per this session's decision), but
+    worth knowing when reviewing commodity data.
+  - New `dukascopy-python` dependency in `requirements.txt`, imported with
+    the same optional/graceful-degradation pattern already used for
+    VADER/FinBERT — never a hard requirement that can break the run.
+
 ## [0.10.0] - 2026-08-16
 ### Added
 - **New `crypto_global_snapshot` field** in `fetch_news.py`/`news.json`:

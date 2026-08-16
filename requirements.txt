@@ -6,3 +6,4 @@ torch
 transformers
 numpy<2
 scrapling
+dukascopy-python

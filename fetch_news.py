@@ -21,6 +21,24 @@ from typing import Optional
 import feedparser
 import requests
 
+# Optional dependency, same graceful-degradation pattern as VADER/FinBERT
+# below — dukascopy-python must never become a hard requirement that breaks
+# the script if unavailable. Used only for building real daily-bar
+# historical sparklines for Indices/Commodities (see
+# _dukascopy_daily_history()) — live-tested free/keyless/no rate limit
+# (12 rapid-fire fetches in 14.4s, vs Twelve Data's 8 req/min cap that
+# needed extensive pacing workarounds), but its data lags ~1 day, so
+# current price/% change stays on Twelve Data/FMP.
+try:
+    import dukascopy_python as _dukascopy
+    from dukascopy_python import instruments as _dukascopy_instruments
+    _DUKASCOPY_AVAILABLE = True
+except Exception as exc:
+    print(f"  [WARN] dukascopy-python unavailable ({exc}). Indices/Commodities sparklines will be unavailable.")
+    _dukascopy = None
+    _dukascopy_instruments = None
+    _DUKASCOPY_AVAILABLE = False
+
 # ---------------------------------------------------------------------------
 # 1. RSS FEED REGISTRY
 # ---------------------------------------------------------------------------
@@ -1342,6 +1360,53 @@ COMMODITY_WATCHLIST = [
     {"symbol": "COPPER", "label": "Copper", "fmp_symbol": "HGUSD", "twelvedata_symbol": "CPER", "apininja_name": "copper"},
 ]
 
+# Dukascopy instrument constants for the sparkline-only history backfill —
+# resolved lazily (function, not module-level dict) since _dukascopy_instruments
+# is None when the optional import above failed.
+def _dukascopy_commodity_instrument(symbol: str):
+    m = {
+        "CRUDE_OIL": _dukascopy_instruments.INSTRUMENT_CMD_ENERGY_E_LIGHT,
+        "BRENT_CRUDE": _dukascopy_instruments.INSTRUMENT_CMD_ENERGY_E_BRENT,
+        "GOLD": _dukascopy_instruments.INSTRUMENT_FX_METALS_XAU_USD,
+        "SILVER": _dukascopy_instruments.INSTRUMENT_FX_METALS_XAG_USD,
+        "NATURAL_GAS": _dukascopy_instruments.INSTRUMENT_CMD_ENERGY_GAS_CMD_USD,
+        "COPPER": _dukascopy_instruments.INSTRUMENT_CMD_METALS_COPPER_CMD_USD,
+    }
+    return m.get(symbol)
+
+
+def _dukascopy_index_instrument(symbol: str):
+    m = {
+        "SPY": _dukascopy_instruments.INSTRUMENT_IDX_AMERICA_E_SANDP_500,
+        "QQQ": _dukascopy_instruments.INSTRUMENT_IDX_AMERICA_E_NQ_100,
+        "DIA": _dukascopy_instruments.INSTRUMENT_IDX_AMERICA_E_D_J_IND,
+        # Real bug found live: INSTRUMENT_IDX_AMERICA_RUSSELL_IDX_USD
+        # ("RUSSELL.IDX/USD") returns an empty dataframe — confirmed live.
+        # USSC2000.IDX/USD is the symbol that actually has data.
+        "IWM": _dukascopy_instruments.INSTRUMENT_IDX_AMERICA_USSC2000_IDX_USD,
+        "VIXY": _dukascopy_instruments.INSTRUMENT_IDX_AMERICA_VOL_IDX_USD,
+    }
+    return m.get(symbol)
+
+
+def _dukascopy_daily_history(instrument, days: int = 10) -> Optional[list[float]]:
+    """Chronological (oldest-first) daily close series via dukascopy-python
+    — free, keyless, no rate limit observed live (12 rapid-fire fetches in
+    14.4s during evaluation). Data lags ~1 day behind real-time (confirmed
+    live), which is exactly why this is used only for the sparkline history,
+    never for current price/% change — those stay on Twelve Data/FMP."""
+    if not _DUKASCOPY_AVAILABLE or instrument is None:
+        return None
+    try:
+        end = datetime.utcnow()
+        start = end - timedelta(days=days)
+        df = _dukascopy.fetch(instrument, _dukascopy.INTERVAL_DAY_1, _dukascopy.OFFER_SIDE_BID, start, end)
+        closes = [float(v) for v in df["close"].tolist() if v is not None]
+        return closes if len(closes) >= 2 else None
+    except Exception as exc:
+        print(f"  [WARN] Dukascopy history fetch failed for {instrument}: {exc}")
+        return None
+
 
 def _fetch_commodities_apininja(previous_prices: dict) -> Optional[list[dict]]:
     """PRIMARY commodity source: API Ninjas' Commodity Price API returns a
@@ -1425,42 +1490,15 @@ def _twelvedata_quote_batch(symbols: list[str]) -> Optional[dict]:
         return None
 
 
-def _twelvedata_time_series(symbol: str, outputsize: int = 7) -> Optional[list[float]]:
-    """Daily-bar close series for a single symbol, oldest-first (Twelve
-    Data's /time_series returns newest-first) — feeds the tile sparklines.
-    Unlike /quote, this endpoint doesn't accept a batched symbol list, so
-    callers must pace repeated calls to stay under the free tier's 8
-    req/min cap (confirmed live: a 6-symbol quote batch immediately
-    followed by a 5-symbol quote batch already 429's, so per-symbol calls
-    need even more spacing)."""
-    api_key = os.environ.get("TWELVE_DATA_API_KEY", "")
-    if not api_key:
-        return None
-    try:
-        resp = requests.get(
-            f"{TWELVE_DATA_BASE}/time_series",
-            params={"symbol": symbol, "interval": "1day", "outputsize": outputsize, "apikey": api_key},
-            timeout=10,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        values = data.get("values")
-        if not isinstance(values, list) or not values:
-            print(f"  [WARN] Twelve Data time_series {symbol}: no values ({data.get('message') or data})")
-            return None
-        closes = []
-        for v in reversed(values):  # API is newest-first; reverse to chronological
-            try:
-                closes.append(float(v["close"]))
-            except (KeyError, ValueError, TypeError):
-                continue
-        return closes if len(closes) >= 2 else None
-    except Exception as exc:
-        print(f"  [WARN] Twelve Data time_series {symbol} failed: {exc}")
-        return None
-
-
 def _fetch_commodities_twelvedata() -> Optional[list[dict]]:
+    """Current price/% change only — sparkline history is attached
+    separately via Dukascopy in fetch_commodity_snapshot() (see
+    _dukascopy_daily_history()), decoupled from whichever provider wins the
+    price for a given symbol. This used to also fetch each symbol's
+    time_series here, individually paced to stay under Twelve Data's 8
+    req/min cap — removed since Dukascopy has no such limit (confirmed
+    live: 12 rapid-fire fetches in 14.4s) and the pacing cost up to 80s
+    per run for data that's now sourced elsewhere."""
     symbol_map = {c["twelvedata_symbol"]: c for c in COMMODITY_WATCHLIST}
     quotes = _twelvedata_quote_batch(list(symbol_map.keys()))
     if not quotes:
@@ -1479,27 +1517,9 @@ def _fetch_commodities_twelvedata() -> Optional[list[dict]]:
             pct = float(pct) if pct is not None else None
         except (ValueError, TypeError):
             pct = None
-        items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct, "_td_symbol": td_symbol})
+        items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
     if not items:
         return None
-    # Real bug found live: 8s between time_series calls only paces the calls
-    # against each other — it ignores that the quote batch just before this
-    # loop already burned len(items) requests against the same 8 req/min
-    # window (a batch counts its symbols individually, not as one request;
-    # see the module docstring note on this). Starting the loop right after
-    # (old code: no sleep before i==0) meant the first 2-3 time_series calls
-    # landed while the batch's requests were still "in window", 429ing —
-    # confirmed live (GLD/SLV failed, IWM/VIXY failed the same way in
-    # fetch_index_snapshot below). Sleeping len(items)*8s upfront gives the
-    # batch's requests time to age out of the rolling window before the
-    # per-symbol loop's own pacing takes over.
-    time.sleep(len(items) * 8)
-    for i, item in enumerate(items):
-        if i > 0:
-            time.sleep(8)  # stay under the 8 req/min cap across these single-symbol calls
-        sparkline = _twelvedata_time_series(item.pop("_td_symbol"))
-        if sparkline:
-            item["sparkline"] = sparkline
     return items
 
 
@@ -1532,17 +1552,11 @@ def fetch_index_snapshot(old_data: dict) -> Optional[dict]:
                 pct = None
             items.append({"symbol": watch["symbol"], "label": watch["label"], "price": price, "changes_percentage": pct})
         if items:
-            # See the matching comment in _fetch_commodities_twelvedata — the
-            # quote batch just above already spent len(items) requests
-            # against the same 8 req/min window; this upfront sleep lets
-            # that batch age out before the per-symbol time_series loop
-            # starts its own pacing (confirmed live: IWM/VIXY were 429ing
-            # without this).
-            time.sleep(len(items) * 8)
-            for i, item in enumerate(items):
-                if i > 0:
-                    time.sleep(8)
-                sparkline = _twelvedata_time_series(item["symbol"])
+            # Sparkline history is attached via Dukascopy below, not Twelve
+            # Data time_series — no more per-symbol 8 req/min pacing needed
+            # for this (confirmed live: Dukascopy has no comparable limit).
+            for item in items:
+                sparkline = _dukascopy_daily_history(_dukascopy_index_instrument(item["symbol"]))
                 if sparkline:
                     item["sparkline"] = sparkline
             print("  [INFO] index_snapshot: using Twelve Data")
@@ -1972,6 +1986,14 @@ def fetch_commodity_snapshot(old_data: dict) -> Optional[dict]:
 
     if by_symbol:
         items = [by_symbol[w["symbol"]] for w in COMMODITY_WATCHLIST if w["symbol"] in by_symbol]
+        # Sparkline history via Dukascopy — decoupled from whichever
+        # provider above won the current price for a given symbol, so e.g.
+        # a commodity priced by API Ninjas (no historical endpoint at all)
+        # still gets a real sparkline.
+        for item in items:
+            sparkline = _dukascopy_daily_history(_dukascopy_commodity_instrument(item["symbol"]))
+            if sparkline:
+                item["sparkline"] = sparkline
         source = "+".join(sorted(sources_used))
         print(f"  [INFO] commodity_snapshot: {len(items)}/{len(COMMODITY_WATCHLIST)} symbols via {source}")
         return {"updated_at": datetime.now(timezone.utc).isoformat(), "source": source, "items": items}
