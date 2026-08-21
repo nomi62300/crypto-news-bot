@@ -1,7 +1,466 @@
 {
-  "updated_at": "2026-08-20T23:50:31.056256+00:00",
-  "total": 782,
+  "updated_at": "2026-08-21T00:46:09.244787+00:00",
+  "total": 785,
   "articles": [
+    {
+      "title": "$XRP price news: Ripple-linked token jumps 15% as network most active in banker hours",
+      "url": "https://x.com/AndroOxinu/status/2090600546512117852",
+      "source": "@AndroOxinu",
+      "published": "2026-08-21T00:43:06+00:00",
+      "tickers": [
+        "XRP"
+      ],
+      "currency_pairs": [],
+      "summary": "$XRP price news: Ripple-linked token jumps 15% as network most active in banker hours https://share.google/qfj0gWz87wf4jbrOV",
+      "sentiment": "Bullish",
+      "confidence": 0.8586,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 26521,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "aside from the put reversal i had some short dated $ETH call options with a strike of $2050\n\nbought 800 for $1.20 on",
+      "url": "https://x.com/litocoen/status/2090600411682247072",
+      "source": "@litocoen",
+      "published": "2026-08-21T00:42:34+00:00",
+      "tickers": [
+        "ETH"
+      ],
+      "currency_pairs": [],
+      "summary": "aside from the put reversal i had some short dated $ETH call options with a strike of $2050\n\nbought 800 for $1.20 on Wednesday\n\nsold for $1.80 on Thursday (bc im a retard)\n\nif i had held 24 hours longer i would have turned $1000 into $234,000 within 48hrs\n\noptions are crazy",
+      "sentiment": "Bearish",
+      "confidence": 0.8404,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 1,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 32908,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "$OP - 1d\nBias: Bearish 🔴\nTrend Score: 16/100 | Confidence: 7.5/10\n\nCurrent price at $0.09500000 reflects a bearish",
+      "url": "https://x.com/DyorNetCrypto/status/2090598904673051019",
+      "source": "@DyorNetCrypto",
+      "published": "2026-08-21T00:36:34+00:00",
+      "tickers": [
+        "OP",
+        "SN44"
+      ],
+      "currency_pairs": [],
+      "summary": "$OP - 1d\nBias: Bearish 🔴\nTrend Score: 16/100 | Confidence: 7.5/10\n\nCurrent price at $0.09500000 reflects a bearish trend with a strength of 46/100 and setup confidence of 7.5/10. The Active Bearish Pennant and Descending Triangle patterns are signaling further downside potential. However, caution",
+      "sentiment": "Bearish",
+      "confidence": 0.9201,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 1,
+      "follower_count": 81941,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Texas energy regulators set mid-December deadline for data center and crypto-mining project reviews",
+      "url": "https://cryptobriefing.com/texas-regulators-december-deadline-data-center-crypto-mining/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-21T00:34:52+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The deadline aims to streamline grid planning, potentially reducing speculative projects and aligning infrastructure investments with viable developments. \n The post  Texas energy regulators set mid-December deadline for data center and crypto-mining project reviews  appeared first on  Crypto Briefi",
+      "sentiment": "Bullish",
+      "confidence": 0.7787,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "CFTC to set crypto regulations if Clarity Act stalls, says chairman",
+      "url": "https://cryptobriefing.com/cftc-to-set-crypto-regulations-if-clarity-act-stalls-says-chairman/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-21T00:34:18+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The CFTC's proactive stance may accelerate regulatory clarity, potentially stabilizing crypto markets and influencing digital asset valuations. \n The post  CFTC to set crypto regulations if Clarity Act stalls, says chairman  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "$ARB getting into its end stage of this move",
+      "url": "https://x.com/BullChain/status/2090597474951934217",
+      "source": "@BullChain",
+      "published": "2026-08-21T00:30:54+00:00",
+      "tickers": [
+        "ARB"
+      ],
+      "currency_pairs": [],
+      "summary": "$ARB getting into its end stage of this move",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 58076,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Hey guys, I just had to share this cool thing I found in JustLendDAO. It’s a game-changer for TRX holders like me.\n\nSo,",
+      "url": "https://x.com/ncwbtc/status/2090595798774112542",
+      "source": "@ncwbtc",
+      "published": "2026-08-21T00:24:14+00:00",
+      "tickers": [
+        "BNB",
+        "TRX",
+        "JST"
+      ],
+      "currency_pairs": [],
+      "summary": "Hey guys, I just had to share this cool thing I found in JustLendDAO. It’s a game-changer for TRX holders like me.\n\nSo, JustLendDAO has this Energy Rental feature that lets you stake your $TRX and get $sTRX back. This is awesome because it not only boosts your staking rewards but also gives you",
+      "sentiment": "Bullish",
+      "confidence": 0.9394,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 11832,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Micro1 reaches $500M gross run rate amid AI training boom",
+      "url": "https://cryptobriefing.com/micro1-500m-run-rate-ai-training/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-21T00:18:22+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Micro1's rapid growth highlights the increasing demand for high-quality AI training data, potentially reshaping the AI supply chain landscape. \n The post  Micro1 reaches $500M gross run rate amid AI training boom  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.7859,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "MANTRA Chain halts operations amid investigation of unspecified incident",
+      "url": "https://cryptobriefing.com/mantra-chain-halts-operations-investigation/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-21T00:16:12+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The operational halt raises concerns about MANTRA Chain's resilience and transparency, potentially affecting investor confidence and regulatory scrutiny. \n The post  MANTRA Chain halts operations amid investigation of unspecified incident  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.6591,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "OSI Systems forecasts $1.875B-$1.93B fiscal 2027 revenue as Middle East deliveries shift into 2H",
+      "url": "https://seekingalpha.com/news/4635735-osi-systems-forecasts-1_875b-1_93b-fiscal-2027-revenue-as-middle-east-deliveries-shift-into?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-21T00:13:33+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bullish",
+      "confidence": 0.8511,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "MENA",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Flux Power expects Q1 2027 revenue of $6M-$7M while expanding into robotics testing with 70 batteries",
+      "url": "https://seekingalpha.com/news/4635734-flux-power-expects-q1-2027-revenue-of-6m-7m-while-expanding-into-robotics-testing-with-70?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-21T00:13:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5189,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Bitgo Breaks Into Korea With Hana and SK Telecom in Its Corner",
+      "url": "https://news.bitcoin.com/regulation-and-legal/bitgo-breaks-into-korea-with-hana-and-sk-telecom-in-its-corner/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-21T00:05:54+00:00",
+      "tickers": [
+        "JST"
+      ],
+      "currency_pairs": [],
+      "summary": "Bitgo Korea just cracked one of Asia’s toughest crypto markets, securing regulatory registration to provide cryptocurrency custody and transfer services to institutional clients in South Korea and planting a direct flag in one of the world’s busiest digital asset markets. The Korea Financial Intelli",
+      "sentiment": "Bullish",
+      "confidence": 0.7712,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Ok so I was looking into JustLendDAO today, and there's this really interesting mechanism around Energy Rental that",
+      "url": "https://x.com/0xLsun/status/2090590948917141611",
+      "source": "@0xLsun",
+      "published": "2026-08-21T00:04:58+00:00",
+      "tickers": [
+        "TRX",
+        "JST"
+      ],
+      "currency_pairs": [],
+      "summary": "Ok so I was looking into JustLendDAO today, and there's this really interesting mechanism around Energy Rental that caught my eye. It’s like a cool feature that helps users leverage their staked $TRX in unique ways.\n\nBasically, when you stake your TRX on the platform, it generates something called",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 2,
+      "reposts": 0,
+      "replies": 2,
+      "follower_count": 38563,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Nvidia pays $6B to license AI models from Poolside, invests $1B in the startup",
+      "url": "https://cryptobriefing.com/nvidia-6b-poolside-ai-licensing-deal/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-21T00:03:03+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Nvidia's investment in Poolside highlights the escalating value and strategic importance of AI talent and technology in software development. \n The post  Nvidia pays $6B to license AI models from Poolside, invests $1B in the startup  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.8859,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Bitcoin (BTC), Ethereum (ETH), Hyperliquid (HYPE) and Near Protocol (NEAR) Price Analysis for August 21: Crypto Market Finally Revitalized",
+      "url": "https://u.today/price-analysis/bitcoin-btc-ethereum-eth-hyperliquid-hype-and-near-protocol-near-price-analysis-for-august-21",
+      "source": "U.Today",
+      "published": "2026-08-21T00:01:00+00:00",
+      "tickers": [
+        "BTC",
+        "ETH",
+        "HYPE",
+        "NEAR",
+        "JST"
+      ],
+      "currency_pairs": [],
+      "summary": "The cryptocurrency market just became spicier following the rapid and unexpected surge of volatility.",
+      "sentiment": "Bullish",
+      "confidence": 0.8185,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "PENDLE crypto breaks downtrend with 12% rally – Can bulls target $2?",
+      "url": "https://ambcrypto.com/pendle-crypto-breaks-downtrend-with-12-rally-can-bulls-target-2/",
+      "source": "AMBCrypto",
+      "published": "2026-08-21T00:00:35+00:00",
+      "tickers": [
+        "BNB",
+        "PENDLE"
+      ],
+      "currency_pairs": [],
+      "summary": "Pendle&#8217;s [PENDLE] supply pressure was renewed when a whale transferred all of its tokens, valued at $1.28 million, to Binance without staking them.  The whale&#8217;s Binance deposit immediately sparked distribution concerns since transfers to exchanges usually create more available selling pr",
+      "sentiment": "Bullish",
+      "confidence": 0.6828,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Bessent says US unlikely to resume large-scale Iran combat, steps up economic pressure",
+      "url": "https://www.fxstreet.com/news/bessent-says-us-unlikely-to-resume-large-scale-iran-combat-steps-up-economic-pressure-202608202352",
+      "source": "FXStreet",
+      "published": "2026-08-20T23:52:36+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "US Treasury Secretary Scott Bessent said that the US President Donald Trump administration’s plan to crush Iran’s economy will likely negate the need for major US military operations against the Islamic Republic, CNBC reported on Thursday.",
+      "sentiment": "Bullish",
+      "confidence": 0.916,
+      "other_sources": [],
+      "category": "FOREX",
+      "region": "US",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "FIFA faces no-confidence vote as regional powerhouses target Infantino",
+      "url": "https://cryptobriefing.com/fifa-no-confidence-vote-infantino/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-20T23:50:56+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Infantino's leadership faces scrutiny, potentially reshaping FIFA's governance dynamics and impacting global soccer's power structure. \n The post  FIFA faces no-confidence vote as regional powerhouses target Infantino  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.6366,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "My jimothy bag thriving  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab some",
+      "url": "https://x.com/SOLWhaleEntry/status/2090587361230929942",
+      "source": "@SOLWhaleEntry",
+      "published": "2026-08-20T23:50:42+00:00",
+      "tickers": [
+        "APT",
+        "SN44"
+      ],
+      "currency_pairs": [],
+      "summary": "My jimothy bag thriving  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab some $JIMOTHY.\n\nGot it here https://jimothys.xyz\n\n$APT",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "@SOLWhaleEntry",
+          "url": "https://x.com/SOLWhaleEntry/status/2090586186968416343",
+          "published": "2026-08-20T23:46:02+00:00"
+        },
+        {
+          "source": "@SOLWhaleEntry",
+          "url": "https://x.com/SOLWhaleEntry/status/2090585284287098916",
+          "published": "2026-08-20T23:42:27+00:00"
+        },
+        {
+          "source": "@SOLWhaleEntry",
+          "url": "https://x.com/SOLWhaleEntry/status/2090597826363367909",
+          "published": "2026-08-21T00:32:17+00:00"
+        },
+        {
+          "source": "@SOLWhaleEntry",
+          "url": "https://x.com/SOLWhaleEntry/status/2090563064991019057",
+          "published": "2026-08-20T22:14:10+00:00"
+        }
+      ],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 27990,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Trump targets Dubai-Iran economic ties to pressure Tehran amid fragile ceasefire",
+      "url": "https://cryptobriefing.com/trump-targets-dubai-iran-economic-ties-to-pressure-tehran-amid-fragile-ceasefire/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-20T23:49:11+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Trump's strategy may hinder U.S.-Iran diplomatic progress, risking economic isolation for Tehran and complicating future reconstruction deals. \n The post  Trump targets Dubai-Iran economic ties to pressure Tehran amid fragile ceasefire  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.8404,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "MENA",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Securitize And Neuberger Berman Bring Tokenized HINC Fund To Sui",
       "url": "https://bitcoinist.com/securitize-and-neuberger-berman-bring-tokenized-hinc-fund-to-sui/",
@@ -60,6 +519,26 @@
       "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
+    },
+    {
+      "title": "M 5.0 - Pacific-Antarctic Ridge",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmbw",
+      "source": "USGS",
+      "published": "2026-08-20T23:36:41.054000+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Pacific-Antarctic Ridge",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "usgs_magnitude",
+      "source_type": "rss",
+      "event_source": "usgs",
+      "magnitude": 5
     },
     {
       "title": "Oil rises for fifth straight day as Trump promises to crush Iran's economy",
@@ -1101,8 +1580,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-20T22:15:15+00:00",
       "tickers": [
-        "BTC",
-        "JST"
+        "JST",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Only $35 million of BUZZ’s stated $180 million ARR is active; the rest depends on Q4 deployments. \n The post  This Bitcoin miner just signed a $350 million AI deal, but it needs $185 million to make it work  appeared first on  CryptoSlate .",
@@ -1419,25 +1898,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "STRACON Group withdraws proposed IPO",
-      "url": "https://seekingalpha.com/news/4635729-stracon-group-withdraws-proposed-ipo?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-20T21:40:23+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.7606,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "New Zealand Dollar holds early June high",
       "url": "https://www.fxstreet.com/news/new-zealand-dollar-holds-early-june-high-202608202139",
       "source": "FXStreet",
@@ -1475,25 +1935,6 @@
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Gold could top $5,000 by next year, Morgan Stanley says",
-      "url": "https://seekingalpha.com/news/4635714-gold-could-top-5000-by-next-year-morgan-stanley-says?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-20T21:36:35+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bullish",
-      "confidence": 0.713,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -1637,44 +2078,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Broadcom seeks over $60B in debt for AI chip financing deal",
-      "url": "https://cryptobriefing.com/broadcom-60b-debt-ai-chip-financing/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-20T21:21:36+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Broadcom's massive AI chip financing could reshape tech infrastructure funding, highlighting the growing financialization of AI development. \n The post  Broadcom seeks over $60B in debt for AI chip financing deal  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.7553,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Russia places German journalist on wanted list amid media crackdown",
-      "url": "https://cryptobriefing.com/russia-places-german-journalist-on-wanted-list-amid-media-crackdown/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-20T21:19:57+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Russia's media crackdown on foreign journalists may hinder diplomatic efforts and exacerbate tensions with Western nations. \n The post  Russia places German journalist on wanted list amid media crackdown  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.7009,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Japanese Yen slips as firmer yields lift US Dollar ahead of global PMIs",
       "url": "https://www.fxstreet.com/news/japanese-yen-slips-as-firmer-yields-lift-us-dollar-ahead-of-global-pmis-202608202118",
       "source": "FXStreet",
@@ -1697,115 +2100,18 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Justin Sun scores partial court win in World Liberty Financial lawsuit",
-      "url": "https://cryptobriefing.com/justin-sun-scores-partial-court-win-in-world-liberty-financial-lawsuit/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-20T21:17:56+00:00",
-      "tickers": [
-        "WLFI"
-      ],
-      "currency_pairs": [],
-      "summary": "Justin Sun said a federal judge kept his individual claims against World Liberty Financial in open court while other claims remain under review. \n The post  Justin Sun scores partial court win in World Liberty Financial lawsuit  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Bitcoin Could Attract More Buyers As Fast Money Is Washed Out, Says Lyn Alden",
       "url": "https://bitcoinmagazine.com/news/bitcoin-price-to-rise-says-lyn-alden",
       "source": "Bitcoin Magazine",
       "published": "2026-08-20T21:16:08+00:00",
       "tickers": [
-        "BTC",
-        "JST"
+        "JST",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Bitcoin Could Attract More Buyers As Fast Money Is Washed Out, Says Lyn Alden  \n While Bitcoin may not be \"out of the woods\" just yet, Macro expert Lyn Alden thinks new buyers could be entering the market soon.  \n This post  Bitcoin Could Attract More Buyers As Fast Money Is W",
       "sentiment": "Bullish",
       "confidence": 0.879,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Canada says trade deal with US is very close, more work needed",
-      "url": "https://cryptobriefing.com/canada-us-trade-deal-close/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-20T21:15:38+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "A near trade deal could stabilize North American commerce, boost industries, and strengthen economic ties, but risks remain if talks falter. \n The post  Canada says trade deal with US is very close, more work needed  appeared first on  Crypto Briefing .",
-      "sentiment": "Neutral",
-      "confidence": 0.5097,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Interactive Brokers’ margin loans grow 49% to $100.7B as investors pile into leverage",
-      "url": "https://cryptobriefing.com/interactive-brokers-margin-loans-growth/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-20T21:13:52+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Rising margin loans signal heightened market risk appetite, potentially leading to volatility if economic conditions shift unexpectedly. \n The post  Interactive Brokers&#8217; margin loans grow 49% to $100.7B as investors pile into leverage  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.6366,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Citigroup strategists bearish on US dollar amid Fed, Treasury moves",
-      "url": "https://cryptobriefing.com/citigroup-strategists-bearish-on-us-dollar-amid-fed-treasury-moves/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-20T21:05:09+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "A weaker US dollar could boost gold prices, reflecting market anticipation of shifts in US monetary policy and fiscal strategies. \n The post  Citigroup strategists bearish on US dollar amid Fed, Treasury moves  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.8676,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Anthropic launches Claude Academy to teach AI skills at scale",
-      "url": "https://cryptobriefing.com/anthropic-launches-claude-academy/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-20T21:04:36+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Anthropic's free AI learning platform democratizes AI education, potentially broadening AI literacy and fostering diverse innovation globally. \n The post  Anthropic launches Claude Academy to teach AI skills at scale  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8548,
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
@@ -2087,8 +2393,8 @@
       "source": "Bitcoin Magazine",
       "published": "2026-08-20T20:49:28+00:00",
       "tickers": [
-        "BTC",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Open Source vs. Source-Available: What the Coldcard Failure Teaches About Bitcoin Software Incentives  \n FOSS rests on four essential freedoms defined by the Free Software Foundation and the Open Source Initiative’s ten criteria. Licenses that withhold commercial rights, such",
@@ -2526,10 +2832,10 @@
       "published": "2026-08-20T20:05:35+00:00",
       "tickers": [
         "TUSD",
-        "BNB",
         "WLFI",
         "JST",
         "USD1",
+        "BNB",
         "FDUSD"
       ],
       "currency_pairs": [],
@@ -2981,10 +3287,10 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-20T19:30:48+00:00",
       "tickers": [
-        "BTC",
         "ETH",
-        "SOL",
-        "XRP"
+        "BTC",
+        "XRP",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "U.S. spot bitcoin ETFs drew $517.19 million on Wednesday, their strongest daily inflow since May 4, as bitcoin climbed above $70,000. Ether funds also surged with $189.15 million in net inflows, while XRP and solana ETFs finished higher. Bitcoin ETFs Add $517M as Bitcoin Breaks Above $70,000 A price",
@@ -3157,8 +3463,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-20T19:14:02+00:00",
       "tickers": [
-        "SOL",
-        "BNB"
+        "BNB",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Meme coin season added $3 billion in a day. Volume and fee data reveal whether Solana, BNB or Robinhood Chain leads. \n The post  Solana, Robinhood, BNB Clash for Meme Coin Season: Who is Winning the $3 Billion Rally?  appeared first on  BeInCrypto .",
@@ -3945,8 +4251,8 @@
       "source": "Crypto News",
       "published": "2026-08-20T17:57:00+00:00",
       "tickers": [
-        "SOL",
-        "JST"
+        "JST",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Three years of development have just become a live production system. Meta AI predicts that changes the argument entirely, and the price prediction places Solana at $180 to $250 by the end of 2026, with a $210 base case from $83 today.The framing matters as much as the numbers. Meta AI calls this bu",
@@ -4103,8 +4409,8 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-20T17:45:02+00:00",
       "tickers": [
-        "BTC",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin surged past $72,000 to a session high of $72,850, gaining approximately 14% over four days and raising its market capitalization to $1.45 trillion. Intraday Price Action and Breakout Bitcoin’s unrelenting surge showed no signs of abating Thursday afternoon as the top cryptocurrency capitaliz",
@@ -5524,25 +5830,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Bessent wants bigger bond buybacks, but markets barely blink",
-      "url": "https://www.fxstreet.com/news/bessent-wants-bigger-bond-buybacks-but-markets-barely-blink-202608201527",
-      "source": "FXStreet",
-      "published": "2026-08-20T15:27:44+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "United States (US) Treasury Secretary Scott Bessent said on Thursday that the Treasury could increase bond buybacks beyond $4 billion, partly to signal that current yields do not reflect underlying economic fundamentals. He stressed that interest rates have nothing to do with the buyback decision.",
-      "sentiment": "Neutral",
-      "confidence": 0.8549,
-      "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "US",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "🚨 BRIAN ARMSTRONG SAYS WE ARE ON THE VERGE OF THE NEXT BULL MARKET.\n\nBitcoin is moving again, institutional money is",
       "url": "https://x.com/TheCryptoSquire/status/2090460360285303268",
       "source": "@TheCryptoSquire",
@@ -6382,8 +6669,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-20T13:49:35+00:00",
       "tickers": [
-        "BTC",
-        "JST"
+        "JST",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "In addition, the BTC demand in both spot and perpetual futures turned positive for the first time in almost a year.",
@@ -6602,8 +6889,8 @@
       "source": "Coingape",
       "published": "2026-08-20T13:22:07+00:00",
       "tickers": [
-        "BTC",
         "OP",
+        "BTC",
         "XRP"
       ],
       "currency_pairs": [],
@@ -6751,9 +7038,9 @@
       "source": "Coingape",
       "published": "2026-08-20T13:01:46+00:00",
       "tickers": [
-        "CRCLB",
         "CRCLON",
-        "USDC"
+        "USDC",
+        "CRCLB"
       ],
       "currency_pairs": [],
       "summary": "Elon Musk&#8217;s X is investigating the possibility of using stablecoins for creator rewards. The platform, according to one person close to the plans, is in discussions regarding Circle Internet Group&#8217;s USDC stablecoin for payments to key users. Ad Ad Elon Musk&#8217;s X Explores Stablecoin",
@@ -6762,27 +7049,6 @@
       "other_sources": [],
       "category": "GEOPOLITICS",
       "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "TRUMP jumps 18% after U.S. President’s crypto purchase plan – $2 next IF…",
-      "url": "https://ambcrypto.com/trump-jumps-18-after-u-s-presidents-crypto-purchase-plan-2-next-if/",
-      "source": "AMBCrypto",
-      "published": "2026-08-20T13:00:49+00:00",
-      "tickers": [
-        "TRUMP"
-      ],
-      "currency_pairs": [],
-      "summary": "TRUMP’s strongest catalyst may also be its weakness: every rally still depends on one man.",
-      "sentiment": "Bullish",
-      "confidence": 0.8125,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
@@ -6896,9 +7162,9 @@
       "source": "Coingape",
       "published": "2026-08-20T12:30:21+00:00",
       "tickers": [
-        "BTC",
+        "HYPE",
         "PEPE",
-        "HYPE"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The crypto market is making massive gains today, August 20, with Bitcoin (BTC) price reaching $72,000 for the first time since June 1. Hyperliquid (HYPE) and Pepe Coin (PEPE) are leading altcoins after rising by more than 20%. These gains have caused the biggest short liquidation event in crypto his",
@@ -7610,8 +7876,8 @@
       "source": "CoinTelegraph",
       "published": "2026-08-20T11:16:41+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Investors have poured more than $1 billion into US spot Bitcoin ETFs this week as BTC neared $72,000 and Ether climbed 19% to about $2,286 on Thursday.",
@@ -7834,8 +8100,8 @@
       "source": "Coingape",
       "published": "2026-08-20T10:46:26+00:00",
       "tickers": [
-        "USDT",
-        "VSN"
+        "VSN",
+        "USDT"
       ],
       "currency_pairs": [],
       "summary": "Popular cryptocurrency exchange Toobit is no stranger to introducing new crypto-based competitions, to bring vigor into the act of trading assets. This time around, it has embraced a racing theme, creating Toobit TIFT 2026, an event featuring a prize pool of 3,000,000 USDT. A near month-long competi",
@@ -8112,9 +8378,9 @@
       "source": "Coingape",
       "published": "2026-08-20T10:26:57+00:00",
       "tickers": [
-        "HYPE",
+        "BNB",
         "JST",
-        "BNB"
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "Binance founder Changpeng &#8216;CZ&#8217; Zhao on Thursday said many people missed the bigger picture of the CFTC bringing Hyperliquid to the United States. He claimed the policy would benefit the whole crypto industry rather than a single project. Ad Ad Changpeng &#8216;CZ&#8217; Zhao Reacts to CF",
@@ -8967,8 +9233,8 @@
       "source": "CoinTelegraph",
       "published": "2026-08-20T08:59:40+00:00",
       "tickers": [
-        "ETH",
-        "GNO"
+        "GNO",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Gnosis Chain was approved to transition to an EEZ rollup, enabling it to settle directly to Ethereum rather than continue with an independent validator set.",
@@ -9079,9 +9345,9 @@
       "source": "CryptoPotato",
       "published": "2026-08-20T08:12:27+00:00",
       "tickers": [
-        "BTC",
-        "ETH",
         "HYPE",
+        "ETH",
+        "BTC",
         "XRP"
       ],
       "currency_pairs": [],
@@ -9683,8 +9949,8 @@
       "source": "CoinDesk",
       "published": "2026-08-20T06:21:17+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -9756,8 +10022,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-20T06:17:14+00:00",
       "tickers": [
-        "BTC",
         "ETH",
+        "BTC",
         "XRP"
       ],
       "currency_pairs": [],
@@ -10310,8 +10576,8 @@
       "source": "CoinDesk",
       "published": "2026-08-20T04:10:40+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -10409,8 +10675,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-20T03:51:12+00:00",
       "tickers": [
-        "XRP",
-        "BNB"
+        "BNB",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Binance has seen the sharpest percentage drop in XRP reserves, while Upbit and Bithumb continue to hold the bulk of tracked supply.",
@@ -11106,27 +11372,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "M 5.0 - 87 km S of Isangel, Vanuatu",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm16",
-      "source": "USGS",
-      "published": "2026-08-20T00:20:24.938000+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "87 km S of Isangel, Vanuatu",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "usgs_magnitude",
-      "source_type": "rss",
-      "event_source": "usgs",
-      "magnitude": 5,
-      "is_crypto_relevant": true
-    },
-    {
       "title": "The original, timestamped Discord records for all four setups are attached below. Each was documented prior to",
       "url": "https://x.com/alienops/status/2090231767017943298",
       "source": "@alienops",
@@ -11229,9 +11474,9 @@
       "source": "U.Today",
       "published": "2026-08-20T00:01:00+00:00",
       "tickers": [
+        "SHIB",
         "BTC",
-        "XRP",
-        "SHIB"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "It's not clear who'll take an upper hand on the cryptocurrency market: bulls or bears.",
@@ -12429,8 +12674,8 @@
       "source": "The Block",
       "published": "2026-08-19T19:05:42+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The move triggered nearly $2 billion in crypto liquidations and lifted crypto-linked stocks, with Strategy and Bitmine gaining around 10%.",
@@ -13299,8 +13544,8 @@
       "source": "The Defiant",
       "published": "2026-08-19T17:16:33+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Ether gained 9% and total crypto market value rose 5.1% after the U.S. Treasury said it would at least double the size of its long-dated bond buybacks. Short positions accounted for 91% of the day's liquidations.",
@@ -13682,8 +13927,8 @@
       "source": "The Block",
       "published": "2026-08-19T16:01:13+00:00",
       "tickers": [
-        "LINK",
         "ETH",
+        "LINK",
         "ZRO"
       ],
       "currency_pairs": [],
@@ -13868,8 +14113,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-19T15:35:30+00:00",
       "tickers": [
-        "BTC",
         "ETH",
+        "BTC",
         "XRP"
       ],
       "currency_pairs": [],
@@ -14231,8 +14476,8 @@
       "source": "Crypto News",
       "published": "2026-08-19T14:33:00+00:00",
       "tickers": [
-        "BTC",
-        "JST"
+        "JST",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "BlackRock stays bullish on Bitcoin despite a 30% YTD drop, citing strong ETF inflows and reduced leverage. Full price analysis and key levels inside. \n The post  Bitcoin Price Prediction: BlackRock Just Cut Its Bitcoin ETF Minimum by 96%  appeared first on  Cryptonews .",
@@ -14317,8 +14562,8 @@
       "source": "The Defiant",
       "published": "2026-08-19T14:25:49+00:00",
       "tickers": [
-        "ETH",
-        "GNO"
+        "GNO",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "GnosisDAO approved a strategic shift from standalone Layer 1 to an Ethereum-settled rollup, unlocking about 350,000 GNO and ending treasury-funded staking rewards.",
@@ -14360,8 +14605,8 @@
       "source": "U.Today",
       "published": "2026-08-19T13:55:05+00:00",
       "tickers": [
-        "SUI",
         "BNB",
+        "SUI",
         "LTC"
       ],
       "currency_pairs": [],
@@ -14426,8 +14671,8 @@
       "source": "Crypto News",
       "published": "2026-08-19T13:29:42+00:00",
       "tickers": [
-        "BTC",
-        "JST"
+        "JST",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Strategy holds 840,447 BTC while building a $4.8B reserve, shifting capital toward preferred-stock obligations as its bitcoin buying pauses. \n The post  Strategy Just Stopped Bitcoin News: Is the Market&#8217;s Biggest Corporate Bid Gone for Good?  appeared first on  Cryptonews .",
@@ -15204,8 +15449,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-19T12:11:41+00:00",
       "tickers": [
-        "BTC",
-        "JST"
+        "JST",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "VanEck is seeing Bitcoin nearing accumulation as eight capitulation signals flash.",
@@ -18180,214 +18425,15 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Raccoon bags staying juicy  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab",
-      "url": "https://x.com/SOLWhaleEntry/status/2089872900329287989",
-      "source": "@SOLWhaleEntry",
-      "published": "2026-08-19T00:31:42+00:00",
-      "tickers": [
-        "LINK",
-        "SN44"
-      ],
+      "title": "Iran plans oil strikes to hurt Trump before midterms, official says",
+      "url": "https://investinglive.com/commodities/iran-plans-oil-strikes-to-hurt-trump-before-midterms-official-says/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
       "currency_pairs": [],
-      "summary": "Raccoon bags staying juicy  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab some $JIMOTHY.\n\nGot it here https://jimothys.xyz\n\n$LINK",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "@SOLWhaleEntry",
-          "url": "https://x.com/SOLWhaleEntry/status/2089876560526361047",
-          "published": "2026-08-19T00:46:14+00:00"
-        },
-        {
-          "source": "@SOLWhaleEntry",
-          "url": "https://x.com/SOLWhaleEntry/status/2089875871561568359",
-          "published": "2026-08-19T00:43:30+00:00"
-        },
-        {
-          "source": "@SOLWhaleEntry",
-          "url": "https://x.com/SOLWhaleEntry/status/2089873751563280427",
-          "published": "2026-08-19T00:35:05+00:00"
-        },
-        {
-          "source": "@SOLWhaleEntry",
-          "url": "https://x.com/SOLWhaleEntry/status/2089873579936526662",
-          "published": "2026-08-19T00:34:24+00:00"
-        }
-      ],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 28113,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Added more $SOL , $ETH , $NEAR , $LINK , $AVAX , $XRP , $INJ  to my bags",
-      "url": "https://x.com/Sheldino_D/status/2089872474427334874",
-      "source": "@Sheldino_D",
-      "published": "2026-08-19T00:30:00+00:00",
-      "tickers": [
-        "ETH",
-        "XRP",
-        "SOL",
-        "LINK",
-        "AVAX",
-        "NEAR",
-        "INJ"
-      ],
-      "currency_pairs": [],
-      "summary": "Added more $SOL , $ETH , $NEAR , $LINK , $AVAX , $XRP , $INJ  to my bags",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 24,
-      "reposts": 0,
-      "replies": 7,
-      "follower_count": 547873,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Aptos and XRP Ledger are fighting to become top-10 stablecoin chains.\n\n@Ripple's $XRP Ledger and @Aptos' L1 currently",
-      "url": "https://x.com/BSCNews/status/2089871215036961130",
-      "source": "@BSCNews",
-      "published": "2026-08-19T00:25:00+00:00",
-      "tickers": [
-        "XRP",
-        "AVAX",
-        "JST",
-        "APT"
-      ],
-      "currency_pairs": [],
-      "summary": "Aptos and XRP Ledger are fighting to become top-10 stablecoin chains.\n\n@Ripple's $XRP Ledger and @Aptos' L1 currently rank 12th and 11th by stablecoin supply.\n\nThat said, $XRPL's stablecoin supply is up +8.64% over the past week, while $APT's has grown by +2.6%.\n\nEach L1 is now just a few hundred",
+      "summary": "",
       "sentiment": "Bearish",
-      "confidence": 0.7294,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 3,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 1370411,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Was it ever competition to $LINK ?\n\nIt was literally called \n\nLAYER",
-      "url": "https://x.com/BullNakedCrypto/status/2089867615808455007",
-      "source": "@BullNakedCrypto",
-      "published": "2026-08-19T00:10:42+00:00",
-      "tickers": [
-        "LINK"
-      ],
-      "currency_pairs": [],
-      "summary": "Was it ever competition to $LINK ?\n\nIt was literally called \n\nLAYER",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 17,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 41410,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Bitcoin (BTC), Ethereum (ETH), Dogecoin (DOGE) and XRP Price Analysis for August 19: Liquidity and Volatility at Pivotal Moment",
-      "url": "https://u.today/bitcoin-btc-ethereum-eth-dogecoin-doge-and-xrp-price-analysis-for-august-19-liquidity-and",
-      "source": "U.Today",
-      "published": "2026-08-19T00:01:00+00:00",
-      "tickers": [
-        "BTC",
-        "ETH",
-        "DOGE",
-        "XRP"
-      ],
-      "currency_pairs": [],
-      "summary": "The market stays in front of a pivoting structure and it's not clear if it'll improve or not.",
-      "sentiment": "Neutral",
-      "confidence": 0.5454,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "@TryHarderInvest $BTC $PLTR $SOFI $COIN \nDifferent approaches",
-      "url": "https://x.com/chad_ventures/status/2089864534915723451",
-      "source": "@chad_ventures",
-      "published": "2026-08-18T23:58:27+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "@TryHarderInvest $BTC $PLTR $SOFI $COIN \nDifferent approaches",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 1,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 23822,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "UK consumer confidence hits two year high despite inflation warning",
-      "url": "https://investinglive.com/news/uk-consumer-confidence-hits-two-year-high-despite-inflation-warning/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bullish",
-      "confidence": 0.8719,
-      "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Australia private sector growth softens as cost pressures intensify in August",
-      "url": "https://investinglive.com/news/australia-private-sector-growth-softens-as-cost-pressures-intensify-in-august/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bullish",
-      "confidence": 0.7235,
+      "confidence": 0.7794,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
@@ -18417,15 +18463,34 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Panama Canal caps daily transits as El Niño threatens water levels",
-      "url": "https://investinglive.com/commodities/panama-canal-caps-daily-transits-as-el-nino-threatens-water-levels/",
+      "title": "Japan July Core CPI 1.8%  y/y (expected 1.8%)",
+      "url": "https://investinglive.com/news/japan-july-headline-cpi-1-8-y-y-expected-1-8/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5935,
+      "other_sources": [],
+      "category": "ECONOMIC",
+      "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Iran \"in bad shape,\" Trump says, citing weapon production collapse",
+      "url": "https://investinglive.com/commodities/iran-in-bad-shape-trump-says-citing-weapon-production-collapse/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
       "sentiment": "Bearish",
-      "confidence": 0.9478,
+      "confidence": 0.969,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
@@ -18436,36 +18501,17 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "New Zealand July trade balance NZ$-1.95 billion (prior 23mn)",
-      "url": "https://investinglive.com/news/new-zealand-july-trade-balance-nz-1-95-billion-prior-23mn/",
+      "title": "UK consumer confidence hits two year high despite inflation warning",
+      "url": "https://investinglive.com/news/uk-consumer-confidence-hits-two-year-high-despite-inflation-warning/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.7372,
+      "sentiment": "Bullish",
+      "confidence": 0.8719,
       "other_sources": [],
-      "category": "FOREX",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Citi says debasement trade needs new outlet, pointing markets back to gold",
-      "url": "https://investinglive.com/commodities/citi-says-debasement-trade-needs-new-outlet-pointing-markets-back-to-gold/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5174,
-      "other_sources": [],
-      "category": "FOREX",
+      "category": "ECONOMIC",
       "region": "GLOBAL",
       "asset_class": "forex",
       "source_flag": null,
@@ -18531,56 +18577,56 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "South Korea producer prices fall for first time in 11 months on cheaper oil that month",
-      "url": "https://investinglive.com/news/south-korea-producer-prices-fall-for-first-time-in-11-months-on-cheaper-oil-that-month/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.9695,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Fed's Daly, Musalem united on credibility concerns as bond selloff persists, but split on policy",
-      "url": "https://investinglive.com/central-banks/fed-s-daly-musalem-united-on-credibility-concerns-as-bond-selloff-persists-but-split-on-policy/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.5093,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Preview: Japan core CPI seen hitting six month high, lifting bets on BoJ September hike",
-      "url": "https://investinglive.com/central-banks/preview-japan-core-cpi-seen-hitting-six-month-high-lifting-bets-on-boj-september-hike/",
+      "title": "Australia private sector growth softens as cost pressures intensify in August",
+      "url": "https://investinglive.com/news/australia-private-sector-growth-softens-as-cost-pressures-intensify-in-august/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
       "sentiment": "Bullish",
-      "confidence": 0.9101,
+      "confidence": 0.7235,
       "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "ASIA",
+      "category": "FOREX",
+      "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Panama Canal caps daily transits as El Niño threatens water levels",
+      "url": "https://investinglive.com/commodities/panama-canal-caps-daily-transits-as-el-nino-threatens-water-levels/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bearish",
+      "confidence": 0.9478,
+      "other_sources": [],
+      "category": "FOREX",
+      "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "New Zealand July trade balance NZ$-1.95 billion (prior 23mn)",
+      "url": "https://investinglive.com/news/new-zealand-july-trade-balance-nz-1-95-billion-prior-23mn/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.7372,
+      "other_sources": [],
+      "category": "FOREX",
+      "region": "GLOBAL",
       "asset_class": "forex",
       "source_flag": null,
       "sentiment_engine": "finbert",
@@ -18607,18 +18653,18 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Wall Street slides as Treasury yields, Walmart miss, and ongoing war hit stocks",
-      "url": "https://investinglive.com/stock-market-update/wall-street-slides-as-treasury-yields-walmart-miss-and-ongoing-war-hit-stocks/",
+      "title": "Citi says debasement trade needs new outlet, pointing markets back to gold",
+      "url": "https://investinglive.com/commodities/citi-says-debasement-trade-needs-new-outlet-pointing-markets-back-to-gold/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.9609,
+      "sentiment": "Neutral",
+      "confidence": 0.5174,
       "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "US",
+      "category": "FOREX",
+      "region": "GLOBAL",
       "asset_class": "forex",
       "source_flag": null,
       "sentiment_engine": "finbert",
@@ -18626,17 +18672,17 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Economic and event calendar in Asia Friday, August 21, 2026 - focus on Japanese inflation data",
-      "url": "https://investinglive.com/news/economic-and-event-calendar-in-asia-friday-august-21-2026-focus-on-japanese-inflation-data/",
+      "title": "South Korea producer prices fall for first time in 11 months on cheaper oil that month",
+      "url": "https://investinglive.com/news/south-korea-producer-prices-fall-for-first-time-in-11-months-on-cheaper-oil-that-month/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.9207,
+      "sentiment": "Bearish",
+      "confidence": 0.9695,
       "other_sources": [],
-      "category": "ECONOMIC",
+      "category": "FOREX",
       "region": "GLOBAL",
       "asset_class": "forex",
       "source_flag": null,
@@ -18687,34 +18733,15 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Iran plans oil strikes to hurt Trump before midterms, official says",
-      "url": "https://investinglive.com/commodities/iran-plans-oil-strikes-to-hurt-trump-before-midterms-official-says/",
+      "title": "Flash PMI shows Japan factories leading strongest growth since February",
+      "url": "https://investinglive.com/news/flash-pmi-shows-japan-factories-leading-strongest-growth-since-february/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.7794,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Japan July Core CPI 1.8%  y/y (expected 1.8%)",
-      "url": "https://investinglive.com/news/japan-july-headline-cpi-1-8-y-y-expected-1-8/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5935,
+      "sentiment": "Bullish",
+      "confidence": 0.9004,
       "other_sources": [],
       "category": "ECONOMIC",
       "region": "GLOBAL",
@@ -18725,18 +18752,59 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Iran \"in bad shape,\" Trump says, citing weapon production collapse",
-      "url": "https://investinglive.com/commodities/iran-in-bad-shape-trump-says-citing-weapon-production-collapse/",
+      "title": "Once the world's top gold buyer, Russia's central bank now a steady seller",
+      "url": "https://investinglive.com/commodities/once-the-world-s-top-gold-buyer-russia-s-central-bank-now-a-steady-seller/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.969,
+      "sentiment": "Neutral",
+      "confidence": 0.5478,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "PBOC is expected to set the USD/CNY reference rate at 6.7262 – Reuters estimate",
+      "url": "https://investinglive.com/central-banks/pboc-is-expected-to-set-the-usd-cny-reference-rate-at-6-7262-reuters-estimate/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [
+        "USD",
+        "CNY"
+      ],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.9285,
+      "other_sources": [],
+      "category": "FOREX",
+      "region": "US",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "BOJ seen hiking to 1.25% in September as Japan inflation pressures broaden",
+      "url": "https://investinglive.com/central-banks/boj-seen-hiking-to-1-25-in-september-as-japan-inflation-pressures-broaden/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bullish",
+      "confidence": 0.876,
+      "other_sources": [],
+      "category": "ECONOMIC",
+      "region": "ASIA",
       "asset_class": "forex",
       "source_flag": null,
       "sentiment_engine": "finbert",
@@ -19960,17 +20028,17 @@
     ]
   },
   "macro_snapshot": {
-    "updated_at": "2026-08-20T00:01:07.392919+00:00",
+    "updated_at": "2026-08-21T00:44:27.363610+00:00",
     "source": "fmp",
-    "treasury_yield_10y": 4.72,
+    "treasury_yield_10y": 4.71,
     "treasury_yield_10y_sparkline": [
-      4.65,
       4.72,
       4.7,
       4.68,
       4.63,
       4.68,
-      4.72
+      4.72,
+      4.71
     ],
     "fed_funds_rate": 3.88,
     "fed_funds_rate_sparkline": [
@@ -19985,300 +20053,306 @@
     "nonfarm_payroll": null
   },
   "commodity_snapshot": {
-    "updated_at": "2026-08-20T00:01:18.870622+00:00",
+    "updated_at": "2026-08-21T00:44:37.139593+00:00",
     "source": "api_ninjas+twelvedata",
     "items": [
       {
         "symbol": "CRUDE_OIL",
         "label": "Crude Oil (WTI)",
-        "price": 130.91,
-        "changes_percentage": 0.19133629,
+        "price": 134.53999,
+        "changes_percentage": 2.77289,
         "sparkline": [
-          83.405,
           82.64,
           81.305,
           82.372,
           82.31,
           84.055,
-          84.485
+          84.485,
+          84.276,
+          86.185
         ]
       },
       {
         "symbol": "BRENT_CRUDE",
         "label": "Brent Crude",
-        "price": 52.32,
-        "changes_percentage": 0.40299191,
+        "price": 53.49,
+        "changes_percentage": 2.23624,
         "sparkline": [
-          88.944,
           88.344,
           86.934,
           88.582,
           91.044,
-          91.274
+          91.274,
+          91.554,
+          93.174
         ]
       },
       {
         "symbol": "GOLD",
         "label": "Gold",
-        "price": 413.84,
-        "changes_percentage": 3.83641,
+        "price": 415.26001,
+        "changes_percentage": 0.34313103,
         "sparkline": [
-          4371.165,
           4414.105,
           4356.035,
           4374.205,
           4370.125,
           4425.605,
-          4332.785
+          4332.785,
+          4511.055,
+          4526.195
         ]
       },
       {
         "symbol": "SILVER",
         "label": "Silver",
-        "price": 60.0099983,
-        "changes_percentage": 4.47423,
+        "price": 61.66,
+        "changes_percentage": 2.74954,
         "sparkline": [
-          64.758,
           65.28,
           64.522,
           64.62,
           64.804,
           65.949,
-          62.918
+          62.918,
+          66.949,
+          68.182
         ]
       },
       {
         "symbol": "NATURAL_GAS",
         "label": "Natural Gas",
-        "price": 2.777,
-        "changes_percentage": -0.4302617425600577,
+        "price": 2.763,
+        "changes_percentage": -0.5041411595246753,
         "sparkline": [
-          2.7433,
           2.7909,
           2.7299,
           2.7099,
           2.6662,
           2.6939,
-          2.7849
+          2.7849,
+          2.7713,
+          2.7569
         ]
       },
       {
         "symbol": "COPPER",
         "label": "Copper",
-        "price": 39.39,
-        "changes_percentage": 0.53598541,
+        "price": 39.35,
+        "changes_percentage": -0.10155094,
         "sparkline": [
-          6.6365,
           6.6024,
           6.5834,
           6.6047,
           6.6278,
           6.6126,
-          6.5456
+          6.5456,
+          6.5926,
+          6.5875
         ]
       }
     ]
   },
   "index_snapshot": {
-    "updated_at": "2026-08-20T00:02:28.218166+00:00",
+    "updated_at": "2026-08-21T00:45:48.608457+00:00",
     "source": "twelvedata",
     "items": [
       {
         "symbol": "SPY",
         "label": "S&P 500 (SPY)",
-        "price": 769.059998,
-        "changes_percentage": 0.20978374,
+        "price": 762.59998,
+        "changes_percentage": -0.83998934,
         "sparkline": [
-          7733.901,
           7746.922,
           7804.491,
           7779.969,
           7791.406,
           7747.872,
           7689.951,
-          7719.684
+          7719.684,
+          7647.783
         ]
       },
       {
         "symbol": "QQQ",
         "label": "Nasdaq 100 (QQQ)",
-        "price": 716.080017,
-        "changes_percentage": -0.19929933,
+        "price": 710.92999,
+        "changes_percentage": -0.71919678,
         "sparkline": [
-          29556.153,
           29701.389,
           30105.198,
           30035.521,
           30119.875,
           30001.997,
           29440.232,
-          29537.264
+          29537.264,
+          29211.019
         ]
       },
       {
         "symbol": "DIA",
         "label": "Dow Jones (DIA)",
-        "price": 534.27002,
-        "changes_percentage": 0.25521128,
+        "price": 527.51001,
+        "changes_percentage": -1.26528,
         "sparkline": [
-          53801.599,
           53785.039,
           53867.851,
           53701.527,
           53741.399,
           53466.875,
           53333.387,
-          53492.239
+          53492.239,
+          52799.215
         ]
       },
       {
         "symbol": "IWM",
         "label": "Russell 2000 (IWM)",
-        "price": 301.72,
-        "changes_percentage": 0.49628291,
+        "price": 297.67001,
+        "changes_percentage": -1.3423,
         "sparkline": [
-          3028.862,
           3047.263,
           3050.472,
           3067.662,
           3069.367,
           3057.774,
           3018.863,
-          3036.367
+          3036.367,
+          2995.569
         ]
       },
       {
         "symbol": "VIXY",
         "label": "Volatility (VIXY)",
-        "price": 18.31,
-        "changes_percentage": -2.91623,
+        "price": 18.44,
+        "changes_percentage": 0.71000039,
         "sparkline": [
-          16.73,
           15.92,
           15.88,
           15.53,
           15.52,
           17.93,
           18.17,
-          17.43
+          17.43,
+          17.67
         ]
       }
     ]
   },
   "stocks_snapshot": {
-    "updated_at": "2026-08-20T00:02:47.131111+00:00",
+    "updated_at": "2026-08-21T00:46:09.089610+00:00",
     "source": "finnhub",
     "items": [
       {
         "symbol": "SPY",
         "label": "S&P 500 (SPY)",
-        "price": 769.06,
-        "changes_percentage": 0.20978565378850736
+        "price": 762.6,
+        "changes_percentage": -0.8399864769978835
       },
       {
         "symbol": "QQQ",
         "label": "Nasdaq 100 (QQQ)",
-        "price": 716.08,
-        "changes_percentage": -0.19930035818315422
+        "price": 710.93,
+        "changes_percentage": -0.7191933862138435
       },
       {
         "symbol": "DIA",
         "label": "Dow Jones (DIA)",
-        "price": 534.27,
-        "changes_percentage": 0.25520256703758865
+        "price": 527.51,
+        "changes_percentage": -1.2652778557658098
       },
       {
         "symbol": "IWM",
         "label": "Russell 2000 (IWM)",
-        "price": 301.72,
-        "changes_percentage": 0.4962861805948802
+        "price": 297.67,
+        "changes_percentage": -1.3423041230279766
       },
       {
         "symbol": "VIXY",
         "label": "Volatility (VIXY)",
-        "price": 18.31,
-        "changes_percentage": -2.9162248144220615
+        "price": 18.44,
+        "changes_percentage": 0.709994538503564
       },
       {
         "symbol": "GLD",
         "label": "Gold (GLD)",
-        "price": 413.84,
-        "changes_percentage": 3.8364069752854
+        "price": 415.26,
+        "changes_percentage": 0.343127778851734
       },
       {
         "symbol": "AAPL",
         "label": "Apple (AAPL)",
-        "price": 316.83,
-        "changes_percentage": 2.193336128761737
+        "price": 311.3,
+        "changes_percentage": -1.7454155225199548
       },
       {
         "symbol": "AMZN",
         "label": "Amazon (AMZN)",
-        "price": 265.84,
-        "changes_percentage": 2.462902293312772
+        "price": 260.11,
+        "changes_percentage": -2.155431838699956
       },
       {
         "symbol": "COIN",
         "label": "Coinbase (COIN)",
-        "price": 160.2,
-        "changes_percentage": 9.5534432059085
+        "price": 172.35,
+        "changes_percentage": 7.584269662921353
       },
       {
         "symbol": "CRCL",
         "label": "Circle (CRCL)",
-        "price": 78.59,
-        "changes_percentage": 9.563641433152096
+        "price": 83.66,
+        "changes_percentage": 6.451202443058904
       },
       {
         "symbol": "GOOGL",
         "label": "Alphabet (GOOGL)",
-        "price": 344.72,
-        "changes_percentage": 0.15107495642069688
+        "price": 340.67,
+        "changes_percentage": -1.1748665583662135
       },
       {
         "symbol": "HOOD",
         "label": "Robinhood (HOOD)",
-        "price": 95.77,
-        "changes_percentage": 4.632360974543859
+        "price": 95.1,
+        "changes_percentage": -0.6995927743552278
       },
       {
         "symbol": "MCD",
         "label": "McDonald's (MCD)",
-        "price": 267.45,
-        "changes_percentage": 0.17229109704482548
+        "price": 269.13,
+        "changes_percentage": 0.6281547952888415
       },
       {
         "symbol": "META",
         "label": "Meta (META)",
-        "price": 546.03,
-        "changes_percentage": 0.43408685415785564
+        "price": 545.83,
+        "changes_percentage": -0.03662802410122737
       },
       {
         "symbol": "NVDA",
         "label": "Nvidia (NVDA)",
-        "price": 217.56,
-        "changes_percentage": -0.9920815509238221
+        "price": 216.85,
+        "changes_percentage": -0.32634675491818715
       },
       {
         "symbol": "SPCX",
         "label": "SPCX",
-        "price": 139.65,
-        "changes_percentage": -2.574298869820007
+        "price": 134,
+        "changes_percentage": -4.045828857858937
       },
       {
         "symbol": "TSLA",
         "label": "Tesla (TSLA)",
-        "price": 351.12,
-        "changes_percentage": 4.230118443316413
+        "price": 345.13,
+        "changes_percentage": -1.7059694691273664
       }
     ]
   },
   "crypto_global_snapshot": {
-    "updated_at": "2026-08-20T22:55:27.254646+00:00",
+    "updated_at": "2026-08-21T00:46:09.243016+00:00",
     "source": "coingecko",
-    "market_cap": 2481101800346.658,
-    "market_cap_change_pct_24h": 0.7526954015042722,
-    "volume_24h": 128775414760.74516,
-    "btc_dominance": 58.67654207994792
+    "market_cap": 2502480784319.9966,
+    "market_cap_change_pct_24h": 2.042130337827248,
+    "volume_24h": 131173132123.16418,
+    "btc_dominance": 58.869308184788984
   }
 }
