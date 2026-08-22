@@ -1,7 +1,127 @@
 {
-  "updated_at": "2026-08-22T14:21:38.308435+00:00",
+  "updated_at": "2026-08-22T14:48:16.371580+00:00",
   "total": 676,
   "articles": [
+    {
+      "title": "Pantera Capital notes Bitcoin positioning shifts from short to long after 10-month consolidation",
+      "url": "https://cryptobriefing.com/pantera-bitcoin-positioning-short-to-long/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-22T14:39:42+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Bitcoin's shift to long positions signals renewed investor confidence, potentially driving market growth and innovation in crypto infrastructure. \n The post  Pantera Capital notes Bitcoin positioning shifts from short to long after 10-month consolidation  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.9088,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "France to boost Ukraine support with missile deliveries, says Macron",
+      "url": "https://cryptobriefing.com/france-to-boost-ukraine-support-with-missile-deliveries-says-macron/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-22T14:35:16+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "France's increased military aid to Ukraine may alter Russian strategies and influence market perceptions of the conflict's trajectory. \n The post  France to boost Ukraine support with missile deliveries, says Macron  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.9489,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Ipswich Town leads 1-0 as Emerson scores first Premier League goal",
+      "url": "https://cryptobriefing.com/ipswich-emersonn-first-premier-league-goal/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-22T14:30:40+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Emerson's debut goal signals Ipswich's strategic investment in youth and potential, impacting both their Premier League aspirations and Toulouse's financial strategy. \n The post  Ipswich Town leads 1-0 as Emerson scores first Premier League goal  appeared first on  Crypto Briefing .",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Galaxy Research Analysis Flags Bitcoin 50-Week MA Reclaim as Bull Market Trigger",
+      "url": "https://dailyhodl.com/2026/08/22/galaxy-research-analysis-flags-bitcoin-50-week-ma-reclaim-as-bull-market-trigger/",
+      "source": "The Daily Hodl",
+      "published": "2026-08-22T14:30:31+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Galaxy Research analysis shows Bitcoin at $77,500 after a 32.4% rally, with the 50-week moving average near $82,470 as the key test; historical data indicates 11 of 13 prior reclaims confirmed the bear market low. \n The post  Galaxy Research Analysis Flags Bitcoin 50-Week MA Reclaim as Bull Market T",
+      "sentiment": "Bullish",
+      "confidence": 0.8635,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "HYPE Hits $82 Record High While Multicoin Moves $20M to Coinbase",
+      "url": "https://news.bitcoin.com/crypto-news/hype-all-time-high-multicoin-coinbase-prime/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-22T14:30:06+00:00",
+      "tickers": [
+        "HYPE"
+      ],
+      "currency_pairs": [],
+      "summary": "Hyperliquid&#8217;s native token HYPE touched a fresh all-time high above $77 at the same time venture firm Multicoin Capital kept shuffling large batches of the token into Coinbase Prime. Fresh High Amid Trump-Fueled Momentum HYPE hit a fresh all-time high near $82 over the past day, extending a ra",
+      "sentiment": "Bullish",
+      "confidence": 0.8548,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "US Treasury faces growing competition as foreign bonds offer higher yields and debt tops $40 trillion",
+      "url": "https://cryptobriefing.com/us-treasury-competition-foreign-bonds-yields/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-22T14:28:58+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Rising foreign bond yields challenge US fiscal stability, increasing debt servicing costs and pressuring economic growth and investment. \n The post  US Treasury faces growing competition as foreign bonds offer higher yields and debt tops $40 trillion  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.8404,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "US",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Sandbox halts Base and BNB Chain bridging after exploit mints billions of unbacked SAND tokens",
       "url": "https://cryptobriefing.com/sandbox-halts-bridging-sand-exploit/",
@@ -176,6 +296,27 @@
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "'Bitcoin Exists Outside the Financial System,' Metaplanet CEO Says This Is No Longer Valid",
+      "url": "https://u.today/bitcoin-exists-outside-the-financial-system-metaplanet-ceo-says-this-is-no-longer-valid",
+      "source": "U.Today",
+      "published": "2026-08-22T14:07:58+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Metaplanet's CEO has shared thoughts about the drive behind Bitcoin's parabolic move, saying the asset reacts to the U.S. Treasury decision.",
+      "sentiment": "Bullish",
+      "confidence": 0.7712,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "US",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
@@ -1183,13 +1324,13 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-22T12:30:19+00:00",
       "tickers": [
-        "OP",
-        "BCH",
-        "ADA",
-        "LINK",
         "ZEC",
         "DOGE",
-        "BTC"
+        "OP",
+        "ADA",
+        "LINK",
+        "BTC",
+        "BCH"
       ],
       "currency_pairs": [],
       "summary": "Zcash (ZEC) jumped 47.1% in 24 hours to lead a broad altcoin rally on August 22, with bitcoin cash, cardano, dogecoin and chainlink all posting double-digit gains as bond buybacks and Clarity Act optimism lifted the wider crypto market. Zcash Extends Its 2026 Breakout Multiple altcoins rallied over",
@@ -1393,69 +1534,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Ukraine marks 35 years of independence amid Russian missile attacks",
-      "url": "https://cryptobriefing.com/ukraine-marks-35-years-of-independence-amid-russian-missile-attacks/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-22T12:05:41+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Ukraine's struggle with corruption and defense issues amid Russian attacks may lead to further conflict escalation and regional instability. \n The post  Ukraine marks 35 years of independence amid Russian missile attacks  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.9479,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Hull City takes early lead against Manchester United with Semi Ajayi goal",
-      "url": "https://cryptobriefing.com/hull-city-ajayi-goal-manchester-united/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-22T12:05:19+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Hull City's early lead against a top club highlights their potential to disrupt the Premier League status quo after a long absence. \n The post  Hull City takes early lead against Manchester United with Semi Ajayi goal  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8753,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Hull City stuns Manchester United 1-0 in Premier League opener",
-      "url": "https://cryptobriefing.com/hull-city-stuns-manchester-united-1-0-in-premier-league-opener/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-22T12:02:21+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Hull City's victory may alter perceptions of Manchester United's title chances and boost Hull's reputation in their Premier League return. \n The post  Hull City stuns Manchester United 1-0 in Premier League opener  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.926,
-      "other_sources": [
-        {
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/hull-city-manchester-united-premier-league-opener/",
-          "published": "2026-08-22T10:16:08+00:00"
-        }
-      ],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Marvell's tightening ties with hyperscalers likely prompts guidance raise: GF",
       "url": "https://seekingalpha.com/news/4636031-marvells-tightening-ties-with-hyperscalers-likely-prompts-guidance-raise-gf?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
       "source": "Seeking Alpha",
@@ -1550,25 +1628,6 @@
       "asset_class": "stocks",
       "source_flag": null,
       "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Leon Goretzka close to joining Aston Villa as free agent after Bayern Munich exit",
-      "url": "https://cryptobriefing.com/goretzka-aston-villa-free-agent/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-22T11:55:09+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Goretzka's potential move to Aston Villa highlights the club's strategic shift towards acquiring experienced players to stabilize their midfield. \n The post  Leon Goretzka close to joining Aston Villa as free agent after Bayern Munich exit  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8825,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -2439,11 +2498,11 @@
       "source": "BeInCrypto",
       "published": "2026-08-22T08:20:49+00:00",
       "tickers": [
-        "MATIC",
-        "ETH",
         "BNB",
+        "ETH",
+        "SAND",
         "POL",
-        "SAND"
+        "MATIC"
       ],
       "currency_pairs": [],
       "summary": "The Sandbox said it has contained a vulnerability in the SAND cross-chain bridge on Base and BNB Smart Chain after an attacker minted unbacked tokens on both networks. The project put the impact at under 0.01% of the total SAND supply. It said that tokens on Ethereum (ETH) and Polygon (POL) are unaf",
@@ -2841,8 +2900,8 @@
       "published": "2026-08-22T06:42:47+00:00",
       "tickers": [
         "JST",
-        "XRP",
         "VSN",
+        "XRP",
         "BTC"
       ],
       "currency_pairs": [],
@@ -3052,10 +3111,10 @@
       "source": "CryptoPotato",
       "published": "2026-08-22T05:08:55+00:00",
       "tickers": [
-        "TRUMP",
         "BNB",
         "ZEC",
-        "XRP"
+        "XRP",
+        "TRUMP"
       ],
       "currency_pairs": [],
       "summary": "Official Trump (TRUMP) has reentered the top 100 alts after a massive 62% pump. ZCASH is up by 40%. Alts are on fire on Saturday morning.",
@@ -3097,8 +3156,8 @@
       "source": "Coingape",
       "published": "2026-08-22T05:00:36+00:00",
       "tickers": [
-        "BGB",
-        "SPCXB"
+        "SPCXB",
+        "BGB"
       ],
       "currency_pairs": [],
       "summary": "For years, getting into a promising private company before it went public was something only a small group of investors could do. By the time companies like SpaceX or OpenAI list on public markets, most of the early gains have already gone. Venture capital firms and big institutional investors got t",
@@ -3745,29 +3804,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Grayscale Names 3 Crypto Tokens That Could Gain From New SEC Rules",
-      "url": "https://news.bitcoin.com/regulation-and-legal/grayscale-names-3-crypto-tokens-that-could-gain-from-new-sec-rules/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-22T01:30:24+00:00",
-      "tickers": [
-        "ETH",
-        "SOL",
-        "BNB"
-      ],
-      "currency_pairs": [],
-      "summary": "Grayscale says proposed SEC fundraising rules could benefit ETH, SOL and BNB by increasing token issuance, bringing more U.S. issuers and investors onchain and potentially driving value to the three native assets. Grayscale Identifies Three Potential Beneficiaries Public blockchain activity could ex",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Raccoon conviction runs deep  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab",
       "url": "https://x.com/SOLWhaleEntry/status/2090972923544682992",
       "source": "@SOLWhaleEntry",
@@ -3827,10 +3863,10 @@
       "source": "U.Today",
       "published": "2026-08-22T00:01:00+00:00",
       "tickers": [
-        "SHIB",
         "HYPE",
-        "DOGE",
-        "XRP"
+        "SHIB",
+        "XRP",
+        "DOGE"
       ],
       "currency_pairs": [],
       "summary": "The picture on the market is certainly improving, but there's a long way to go forward.",
@@ -5523,8 +5559,8 @@
       "source": "U.Today",
       "published": "2026-08-21T20:12:03+00:00",
       "tickers": [
-        "PYUSD",
         "RLUSD",
+        "PYUSD",
         "XRP"
       ],
       "currency_pairs": [],
@@ -6021,6 +6057,28 @@
       "is_crypto_relevant": true
     },
     {
+      "title": "Crypto Founder Declares $3 ADA Is Inevitable— Is a Full-Scale 1,349% Breakout Rally Underway?",
+      "url": "https://zycrypto.com/crypto-founder-declares-3-ada-is-inevitable-is-a-full-scale-1349-breakout-rally-underway/",
+      "source": "ZyCrypto",
+      "published": "2026-08-21T19:01:26+00:00",
+      "tickers": [
+        "ADA",
+        "OP"
+      ],
+      "currency_pairs": [],
+      "summary": "Optimism is rocketing across the Cardano community after one cryptocurrency founder voiced strong confidence that ADA is on track to reclaim the highly anticipated $3 milestone. The bold outlook has reignited bullish sentiment, with investors increasingly wondering whether the next major breakout is",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "Hashdex Liquidates DEFI As First US Spot Bitcoin ETF Closure Arrives",
       "url": "https://www.newsbtc.com/news/hashdex-liquidates-defi-first-us-spot-bitcoin-etf-closure/",
       "source": "NewsBTC",
@@ -6068,8 +6126,8 @@
       "source": "Decrypt",
       "published": "2026-08-21T18:45:01+00:00",
       "tickers": [
-        "JST",
-        "SOL"
+        "SOL",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Solana has activated the first reduction in its block timing since launch, speeding up transactions on the network.",
@@ -6757,11 +6815,11 @@
       "source": "The Block",
       "published": "2026-08-21T17:24:02+00:00",
       "tickers": [
-        "HYPE",
-        "LINK",
         "ZEC",
+        "XRP",
+        "LINK",
         "BTC",
-        "XRP"
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "Amid this week's crypto rally, HYPE is up nearly 40%, while other altcoins such as XRP, ZEC and LINK have risen over 30%.",
@@ -7929,8 +7987,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-21T15:04:52+00:00",
       "tickers": [
-        "XRP",
         "ETH",
+        "XRP",
         "BTC"
       ],
       "currency_pairs": [],
@@ -9274,8 +9332,8 @@
       "source": "Coingape",
       "published": "2026-08-21T11:52:22+00:00",
       "tickers": [
-        "FORM",
-        "SOL"
+        "SOL",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "&#160; Solana price climbed 5% to $91.28 on Friday, extending its four-day advance to roughly 21% in active trading. SOL is back above $90 for the first time in over 3 months. The gain came after the strongest net inflows into U.S. spot Solana ETFs in three weeks, of 14.59 million. SOL was supported",
@@ -9668,8 +9726,8 @@
       "source": "U.Today",
       "published": "2026-08-21T10:35:00+00:00",
       "tickers": [
-        "OP",
-        "DOGE"
+        "DOGE",
+        "OP"
       ],
       "currency_pairs": [],
       "summary": "The warning comes as optimism returns to the crypto market following a period of significant selling.",
@@ -9690,8 +9748,8 @@
       "source": "Coingape",
       "published": "2026-08-21T10:27:34+00:00",
       "tickers": [
-        "JST",
         "ETH",
+        "JST",
         "FORM"
       ],
       "currency_pairs": [],
@@ -10222,8 +10280,8 @@
       "source": "U.Today",
       "published": "2026-08-21T09:25:30+00:00",
       "tickers": [
-        "BUIDL",
-        "SOL"
+        "SOL",
+        "BUIDL"
       ],
       "currency_pairs": [],
       "summary": "Shinhan replicates BlackRock’s BUIDL fund model on Solana, launching an offshore won RWA pilot to capture a share of the projected $30 trillion tokenization boom.",
@@ -10588,12 +10646,12 @@
       "source": "CryptoPotato",
       "published": "2026-08-21T08:43:16+00:00",
       "tickers": [
-        "ADA",
-        "HYPE",
-        "BTC",
-        "ETH",
         "XRP",
-        "BNB"
+        "BNB",
+        "ETH",
+        "ADA",
+        "BTC",
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "This Friday, we examine Ethereum, Ripple, Cardano, Binance Coin, and Hyperliquid in greater detail. Ethereum (ETH) In a major reversal, ETH has pumped 27% this week after sentiment turned positive, with Bitcoin leading and pulling most of the market higher. Ethereum shot up from $1,800 and did not s",
@@ -10812,8 +10870,8 @@
       "source": "CoinJournal",
       "published": "2026-08-21T08:20:33+00:00",
       "tickers": [
-        "XRP",
         "ETH",
+        "XRP",
         "BTC"
       ],
       "currency_pairs": [],
@@ -10872,6 +10930,29 @@
       "asset_class": "forex",
       "source_flag": null,
       "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Analyst Predicts 800% ADA Rocket Surge Amid Cardano’s Major Ecosystem Upgrades",
+      "url": "https://zycrypto.com/analyst-predicts-800-ada-rocket-surge-amid-cardanos-major-ecosystem-upgrades/",
+      "source": "ZyCrypto",
+      "published": "2026-08-21T07:53:43+00:00",
+      "tickers": [
+        "ADA",
+        "JST",
+        "OP"
+      ],
+      "currency_pairs": [],
+      "summary": "Cardano (ADA) traded mostly sideways on Thursday, although the token remained just over 9% higher over the past week as optimism around its growing ecosystem continued to build. The improving momentum could be linked to optimism surrounding President Trump’s broader positive stance on crypto followi",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -11348,6 +11429,27 @@
       "is_crypto_relevant": true
     },
     {
+      "title": "Bitcoin Reclaims Bull Market Support Band as BTC Hits $75k — 3 Factors Behind This Boost",
+      "url": "https://zycrypto.com/bitcoin-reclaims-bull-market-support-band-as-btc-hits-75k-3-factors-behind-this-boost/",
+      "source": "ZyCrypto",
+      "published": "2026-08-21T07:11:03+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "BTC is showing a robust rebound, with its price surging to $75,000 for the first time since May, according to metrics released by market watchers. The asset currently trades at $75,723, a significant bounce from the June 30 low of $58,856. The move comes amid Bitcoin’s continued rebound, highlighted",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "Good morning 🌅 \n\nWhat memes are we buying on $TON today, I have 200 the-open-network:native I want to bid 😎",
       "url": "https://x.com/0xJeribond/status/2090698035349123203",
       "source": "@0xJeribond",
@@ -11617,8 +11719,8 @@
       "published": "2026-08-21T06:10:58+00:00",
       "tickers": [
         "ETH",
-        "FORM",
         "SOL",
+        "FORM",
         "BTC"
       ],
       "currency_pairs": [],
@@ -12331,11 +12433,11 @@
       "source": "U.Today",
       "published": "2026-08-21T00:01:00+00:00",
       "tickers": [
-        "NEAR",
+        "ETH",
         "JST",
-        "HYPE",
         "BTC",
-        "ETH"
+        "HYPE",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "The cryptocurrency market just became spicier following the rapid and unexpected surge of volatility.",
@@ -14180,8 +14282,8 @@
       "source": "Crypto News",
       "published": "2026-08-20T17:57:00+00:00",
       "tickers": [
-        "JST",
-        "SOL"
+        "SOL",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Three years of development have just become a live production system. Meta AI predicts that changes the argument entirely, and the price prediction places Solana at $180 to $250 by the end of 2026, with a $210 base case from $83 today.The framing matters as much as the numbers. Meta AI calls this bu",
@@ -15529,122 +15631,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "XRP Whales Go Crazy With 300 Million Tokens Scooped Up in 25% Price Surge",
-      "url": "https://u.today/xrp-whales-go-crazy-with-300-million-tokens-scooped-up-in-25-price-surge",
-      "source": "U.Today",
-      "published": "2026-08-20T14:45:46+00:00",
-      "tickers": [
-        "XRP"
-      ],
-      "currency_pairs": [],
-      "summary": "XRP price has risen over 25%, marking two days of sharp increases.",
-      "sentiment": "Bullish",
-      "confidence": 0.793,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "New event added\n\nPenn State Rewards\n\nAvalanche · $AVAX\n20 Aug 2026\nImpact",
-      "url": "https://x.com/cmcal_bot/status/2090449068577140938",
-      "source": "@cmcal_bot",
-      "published": "2026-08-20T14:41:11+00:00",
-      "tickers": [
-        "AVAX"
-      ],
-      "currency_pairs": [],
-      "summary": "New event added\n\nPenn State Rewards\n\nAvalanche · $AVAX\n20 Aug 2026\nImpact 4/10\n\nhttps://coinmarketcal.com/event/penn-state-rewards-63589794-1",
-      "sentiment": "Bullish",
-      "confidence": 0.8676,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 34138,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "X in Talks to Use Stablecoins for Content Creator Royalties: Report",
-      "url": "https://cryptopotato.com/x-in-talks-to-use-stablecoins-for-content-creator-royalties-report/",
-      "source": "CryptoPotato",
-      "published": "2026-08-20T14:36:39+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "X stablecoin discussions could eventually change how millions of dollars in creator rewards are delivered.",
-      "sentiment": "Bullish",
-      "confidence": 0.7384,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "New event added\n\nZK Block Proving\n\nArbitrum · $ARB\n20 Aug 2026\nImpact 6/10\n\nhttps://coinmarketcal.com/event/zk-block-pro",
-      "url": "https://x.com/cmcal_bot/status/2090445790057558073",
-      "source": "@cmcal_bot",
-      "published": "2026-08-20T14:28:09+00:00",
-      "tickers": [
-        "ARB",
-        "ZK"
-      ],
-      "currency_pairs": [],
-      "summary": "New event added\n\nZK Block Proving\n\nArbitrum · $ARB\n20 Aug 2026\nImpact 6/10\n\nhttps://coinmarketcal.com/event/zk-block-proving-25240743-1",
-      "sentiment": "Bearish",
-      "confidence": 0.8501,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "INDIA",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 34138,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "@hyperion_xyz Only 4 days left! 🔥 321 entries are already in, with 500 $APT up for grabs. Trade, stack tickets, stake",
-      "url": "https://x.com/abubakarweeb3/status/2090445549111521424",
-      "source": "@abubakarweeb3",
-      "published": "2026-08-20T14:27:12+00:00",
-      "tickers": [
-        "APT"
-      ],
-      "currency_pairs": [],
-      "summary": "@hyperion_xyz Only 4 days left! 🔥 321 entries are already in, with 500 $APT up for grabs. Trade, stack tickets, stake $RION, and chase the rewards before time runs out!",
-      "sentiment": "Bullish",
-      "confidence": 0.7449,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 66376,
-      "is_crypto_relevant": true
-    },
-    {
       "title": "investingLive Americas FX news wrap 21 Aug: Trump folds on beef tariffs.",
       "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-21-aug-trump-folds-on-beef-tariffs-0/",
       "source": "InvestingLive",
@@ -15936,6 +15922,27 @@
       "is_crypto_relevant": true
     },
     {
+      "title": "Crypto Stocks on the Rise as Bitcoin Nears a Return to $80,000",
+      "url": "https://watcher.guru/news/crypto-stocks-on-the-rise-as-bitcoin-nears-a-return-to-80000",
+      "source": "Watcher.Guru",
+      "published": null,
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "Binance’s BNB Coin Reclaims $700: Is $1000 Next?",
       "url": "https://watcher.guru/news/binances-bnb-coin-reclaims-700-is-1000-next",
       "source": "Watcher.Guru",
@@ -15995,31 +16002,10 @@
       "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
-    },
-    {
-      "title": "Crypto Stocks on the Rise as Bitcoin Nears a Return to $80,000",
-      "url": "https://watcher.guru/news/crypto-stocks-on-the-rise-as-bitcoin-nears-a-return-to-80000",
-      "source": "Watcher.Guru",
-      "published": null,
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
     }
   ],
   "forex_sentiment": {
-    "updated_at": "2026-08-22T13:44:46.092156+00:00",
+    "updated_at": "2026-08-22T14:47:11.280702+00:00",
     "pairs": [
       {
         "symbol": "GBPUSD",
@@ -17564,11 +17550,11 @@
     ]
   },
   "crypto_global_snapshot": {
-    "updated_at": "2026-08-22T13:45:51.187368+00:00",
+    "updated_at": "2026-08-22T14:48:16.367757+00:00",
     "source": "coingecko",
-    "market_cap": 2627570114907.4263,
-    "market_cap_change_pct_24h": -1.63737085999961,
-    "volume_24h": 157840169309.87207,
-    "btc_dominance": 58.809130490063374
+    "market_cap": 2615486452894.787,
+    "market_cap_change_pct_24h": -1.803954087535606,
+    "volume_24h": 152415342108.30295,
+    "btc_dominance": 58.86210853632227
   }
 }
