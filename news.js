@@ -1,7 +1,102 @@
 window.newsData = {
-  "updated_at": "2026-08-22T19:46:59.263568+00:00",
-  "total": 637,
+  "updated_at": "2026-08-22T19:59:55.492832+00:00",
+  "total": 634,
   "articles": [
+    {
+      "title": "CZ Reveals Why He Didn’t Use UAE Citizenship to Avoid US Charges",
+      "url": "https://cryptopotato.com/cz-reveals-why-he-didnt-use-uae-citizenship-to-avoid-us-charges/",
+      "source": "CryptoPotato",
+      "published": "2026-08-22T19:51:19+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Changpeng Zhao says he viewed confronting the case as a matter of personal responsibility rather than avoiding prosecution.",
+      "sentiment": "Bearish",
+      "confidence": 0.9278,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "MENA",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Canada announces retaliatory tariffs on U.S. goods after trade talks break down",
+      "url": "https://www.marketwatch.com/story/canada-announces-retaliatory-tariffs-on-u-s-goods-after-trade-talks-break-down-45081c2f?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "published": "2026-08-22T19:51:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Canada Prime Minister Mark Carney on Saturday announced his country would impose “dollar-for-dollar” tariffs on U.S. goods — a retaliatory measure after trade talks between the two nations broke down.",
+      "sentiment": "Bearish",
+      "confidence": 0.8813,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "SA Asks: How could Trump's new executive order impact vaccine makers?",
+      "url": "https://seekingalpha.com/news/4636043-sa-asks-how-could-trumps-new-executive-order-impact-vaccine-makers?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-22T19:49:45+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.7547,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Diesel supply concerns overshadow tanker transit in Strait of Hormuz",
+      "url": "https://cryptobriefing.com/diesel-supply-concerns-overshadow-tanker-transit-in-strait-of-hormuz/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-22T19:47:22+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Geopolitical tensions and diesel supply issues in the Strait of Hormuz could lead to prolonged market instability and logistical challenges. \n The post  Diesel supply concerns overshadow tanker transit in Strait of Hormuz  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.67,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Donald Trump makes over 1,000 securities trades in June, buys Berkshire Hathaway, Visa, Mastercard, and Cintas",
+      "url": "https://cryptobriefing.com/trump-1000-securities-trades-june/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-22T19:45:14+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Trump's extensive trading activity highlights potential conflicts of interest and raises questions about transparency and market influence. \n The post  Donald Trump makes over 1,000 securities trades in June, buys Berkshire Hathaway, Visa, Mastercard, and Cintas  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.901,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "NASDAQ 100 ETF pulls $11B in August, outpacing Bitcoin ETFs",
       "url": "https://cryptobriefing.com/nasdaq-100-etf-outflows-outpace-bitcoin-etfs-august/",
@@ -34,6 +129,34 @@ window.newsData = {
       "sentiment": "Bearish",
       "confidence": 0.95,
       "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Bitcoin and ether ETFs draw $2.6 billion in strongest inflow week since October, tripling volume",
+      "url": "https://www.theblock.co/news/markets/2026-08-22-bitcoin-and-ether-etfs-draw-2-6-billion-in-strongest-inflow-week-since-october-tripling-volume-412531",
+      "source": "The Block",
+      "published": "2026-08-22T19:31:35+00:00",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "currency_pairs": [],
+      "summary": "Combined ETF weekly trading volume more than tripled to $29 billion as bitcoin and ether prices rallied, though both categories are negative on the year.",
+      "sentiment": "Bullish",
+      "confidence": 0.6011,
+      "other_sources": [
+        {
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/bitcoin-ether-etfs-3b-inflow-week/",
+          "published": "2026-08-22T19:56:08+00:00"
+        }
+      ],
       "category": "CRYPTO",
       "region": "GLOBAL",
       "asset_class": "crypto",
@@ -438,25 +561,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Canada announces retaliatory tariffs on U.S. goods after trade talks break down",
-      "url": "https://www.marketwatch.com/story/canada-announces-retaliatory-tariffs-on-u-s-goods-after-trade-talks-break-down-45081c2f?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "published": "2026-08-22T18:55:00+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Canada Prime Minister Mark Carney on Saturday announced his country would impose “dollar-for-dollar” tariffs on U.S. goods — a retaliatory measure after trade talks between the two nations broke down.",
-      "sentiment": "Bearish",
-      "confidence": 0.8813,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "M 4.6 - 32 km NNE of Calama, Chile",
       "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmtm",
       "source": "USGS",
@@ -480,7 +584,8 @@ window.newsData = {
       "sentiment_engine": "usgs_magnitude",
       "source_type": "rss",
       "event_source": "usgs",
-      "magnitude": 4.6
+      "magnitude": 4.6,
+      "is_crypto_relevant": true
     },
     {
       "title": "Polymarket shows Democrats heavily favored for House, slight edge in Senate in 2026",
@@ -507,8 +612,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-22T18:37:00+00:00",
       "tickers": [
-        "XRP",
-        "TRUMP"
+        "TRUMP",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "South Korea&#8217;s Upbit recorded 1.15 trillion won, roughly $830 million, in trading volume within a single hour on Saturday, with XRP and TRUMP dominating the surge. The spike extends a rebound that began the previous day, when Upbit&#8217;s daily volume already jumped 273%. What Drove Upbit&#821",
@@ -548,8 +653,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-22T18:32:04+00:00",
       "tickers": [
-        "BTC",
         "SN44",
+        "BTC",
         "ETH"
       ],
       "currency_pairs": [],
@@ -957,8 +1062,8 @@ window.newsData = {
       "source": "Crypto Briefing",
       "published": "2026-08-22T17:38:34+00:00",
       "tickers": [
-        "STX",
-        "BTC"
+        "BTC",
+        "STX"
       ],
       "currency_pairs": [],
       "summary": "AI agents autonomously transacting with Bitcoin onchain could revolutionize digital economies, enhancing efficiency and scalability. \n The post  Stacks enables AI agents to transact with BTC onchain  appeared first on  Crypto Briefing .",
@@ -1539,25 +1644,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Charlton beats West Ham 2-1, maintaining perfect Championship start",
-      "url": "https://cryptobriefing.com/charlton-beats-west-ham-championship/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-22T16:35:30+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Charlton's strong start highlights their promotion potential, while West Ham's struggles deepen concerns over their Championship campaign. \n The post  Charlton beats West Ham 2-1, maintaining perfect Championship start  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Illinois’ 0.2% Crypto Tax Sparks a Full-Blown Courtroom War",
       "url": "https://news.bitcoin.com/regulation-and-legal/illinois-0-2-crypto-tax-sparks-a-full-blown-courtroom-war/",
       "source": "Bitcoin.com News",
@@ -1613,44 +1699,6 @@ window.newsData = {
       ],
       "currency_pairs": [],
       "summary": "BounceBit will permanently shut down its Layer 1 blockchain after an attacker moved 286.5 million BB out of nine mainnet accounts. The project will reissue the token as a BEP-20 asset on BNB Chain. The team said the attacker compromised no private keys, wallets, or hardware devices. The unauthorized",
-      "sentiment": "Bearish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Everton defeats Crystal Palace 2-0 in Premier League opener at Hill Dickinson Stadium",
-      "url": "https://cryptobriefing.com/everton-defeats-crystal-palace-premier-league/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-22T16:25:42+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Everton's victory highlights their continued dominance over Palace, while Palace faces challenges adapting to new management and tactics. \n The post  Everton defeats Crystal Palace 2-0 in Premier League opener at Hill Dickinson Stadium  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.6806,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Mark Carney outlines retaliatory import taxes on key sectors as US-Canada trade talks collapse",
-      "url": "https://cryptobriefing.com/carney-retaliatory-import-taxes-us-canada/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-22T16:19:03+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The collapse of US-Canada trade talks and ensuing tariffs could strain bilateral relations, disrupt industries, and impact global trade dynamics. \n The post  Mark Carney outlines retaliatory import taxes on key sectors as US-Canada trade talks collapse  appeared first on  Crypto Briefing .",
       "sentiment": "Bearish",
       "confidence": 0.95,
       "other_sources": [],
@@ -1863,8 +1911,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-22T15:45:52+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP exploded to a six-month high on its Bitcoin chart, completing double golden cross signals.",
@@ -1933,10 +1981,10 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-22T15:30:50+00:00",
       "tickers": [
-        "XRP",
-        "SOL",
         "BTC",
-        "ETH"
+        "ETH",
+        "SOL",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "U.S. spot bitcoin ETFs closed Friday with $307.45 million in net inflows, completing five consecutive positive sessions worth $1.92 billion. Ether funds added $184.93 million, while XRP and solana ETFs also drew fresh capital. Ether ETFs Add $184.93M as Demand Stays Strong Wall Street’s crypto bid h",
@@ -2247,8 +2295,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-22T14:10:17+00:00",
       "tickers": [
-        "SAND",
-        "BNB"
+        "BNB",
+        "SAND"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -2567,25 +2615,6 @@ window.newsData = {
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "TikTok to pay $400M to settle DOJ's child privacy case",
-      "url": "https://seekingalpha.com/news/4636040-tiktok-pay-400m-settle-doj-child-privacy-case?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-22T13:46:30+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.6739,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -2925,12 +2954,12 @@ window.newsData = {
       "published": "2026-08-22T12:30:19+00:00",
       "tickers": [
         "DOGE",
-        "ADA",
         "ZEC",
-        "BCH",
-        "BTC",
         "OP",
-        "LINK"
+        "ADA",
+        "LINK",
+        "BTC",
+        "BCH"
       ],
       "currency_pairs": [],
       "summary": "Zcash (ZEC) jumped 47.1% in 24 hours to lead a broad altcoin rally on August 22, with bitcoin cash, cardano, dogecoin and chainlink all posting double-digit gains as bond buybacks and Clarity Act optimism lifted the wider crypto market. Zcash Extends Its 2026 Breakout Multiple altcoins rallied over",
@@ -3480,8 +3509,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-22T10:39:24+00:00",
       "tickers": [
-        "XRP",
         "XLM",
+        "XRP",
         "RLUSD"
       ],
       "currency_pairs": [],
@@ -3764,8 +3793,8 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-22T08:35:21+00:00",
       "tickers": [
-        "JST",
-        "GENIUS"
+        "GENIUS",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "By July 18, 2028, a stablecoin could still move freely across blockchains and yet disappear from the buy menu on an American exchange. Under the Treasury Department’s proposed GENIUS Act rules, a digital asset service provider wouldn't be able to offer or sell a payment stablecoin to someone in the",
@@ -3892,10 +3921,10 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-22T08:20:49+00:00",
       "tickers": [
-        "MATIC",
         "ETH",
-        "BNB",
         "SAND",
+        "BNB",
+        "MATIC",
         "POL"
       ],
       "currency_pairs": [],
@@ -4272,10 +4301,10 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-22T06:42:47+00:00",
       "tickers": [
-        "XRP",
-        "VSN",
+        "JST",
         "BTC",
-        "JST"
+        "VSN",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Vice President JD Vance sat down with Newsmax&#8217;s Carl Higbie Frontline on August 20, 2026, just hours after U.S. national debt topped $40 trillion. During the segment, Higbie asked Vance whether a crypto reserve, potentially holding Bitcoin, XRP, and other digital assets, could help bring down",
@@ -4462,10 +4491,10 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-22T05:08:55+00:00",
       "tickers": [
-        "XRP",
-        "TRUMP",
         "BNB",
-        "ZEC"
+        "ZEC",
+        "TRUMP",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Official Trump (TRUMP) has reentered the top 100 alts after a massive 62% pump. ZCASH is up by 40%. Alts are on fire on Saturday morning.",
@@ -4507,8 +4536,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-22T05:00:36+00:00",
       "tickers": [
-        "SPCXB",
-        "BGB"
+        "BGB",
+        "SPCXB"
       ],
       "currency_pairs": [],
       "summary": "For years, getting into a promising private company before it went public was something only a small group of investors could do. By the time companies like SpaceX or OpenAI list on public markets, most of the early gains have already gone. Venture capital firms and big institutional investors got t",
@@ -5100,9 +5129,9 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-22T00:01:00+00:00",
       "tickers": [
-        "XRP",
         "HYPE",
         "SHIB",
+        "XRP",
         "DOGE"
       ],
       "currency_pairs": [],
@@ -5628,8 +5657,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-21T23:00:00+00:00",
       "tickers": [
-        "SPCXB",
-        "BTC"
+        "BTC",
+        "SPCXB"
       ],
       "currency_pairs": [],
       "summary": "Elon Musk said Bitcoin has no throat to choke. Filings show Tesla sold 75% and SpaceX never sold a coin. \n The post  Elon Musk Said Bitcoin Has No Throat to Choke: Why Does That Matter?  appeared first on  BeInCrypto .",
@@ -5770,8 +5799,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T21:56:30+00:00",
       "tickers": [
-        "ADA",
-        "ETH"
+        "ETH",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "Ethereum and Cardano are among the assets the analyst believes could benefit if the 2020 comparison holds.",
@@ -6502,8 +6531,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-21T20:26:16+00:00",
       "tickers": [
-        "BTC",
-        "BGB"
+        "BGB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Gracy Chen says macroeconomic uncertainty could keep Bitcoin within $10,000 to $20,000 of current levels, while US government purchases remain unlikely within the next two years.",
@@ -7067,8 +7096,8 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-21T19:01:26+00:00",
       "tickers": [
-        "ADA",
-        "OP"
+        "OP",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "Optimism is rocketing across the Cardano community after one cryptocurrency founder voiced strong confidence that ADA is on track to reclaim the highly anticipated $3 milestone. The bold outlook has reignited bullish sentiment, with investors increasingly wondering whether the next major breakout is",
@@ -7791,8 +7820,8 @@ window.newsData = {
         "XRP",
         "HYPE",
         "ZEC",
-        "BTC",
-        "LINK"
+        "LINK",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Amid this week's crypto rally, HYPE is up nearly 40%, while other altcoins such as XRP, ZEC and LINK have risen over 30%.",
@@ -8603,8 +8632,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-21T16:02:42+00:00",
       "tickers": [
-        "BTC",
-        "PI"
+        "PI",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Pi Network price is nearing $0.10 as a cryptocurrency rally strengthens momentum across major digital assets.  Pi Coin is up by  4% to $0.0939 in 24 hours following recovery.  The crypto market rose by 6.09% over the past 24 hours and currently has a market cap of $2.57 trillion. Bitcoin price reach",
@@ -8918,9 +8947,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T15:04:52+00:00",
       "tickers": [
-        "XRP",
         "BTC",
-        "ETH"
+        "ETH",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "It was one of the most impressive endings to a business week in a long, long time. Let's dive in.",
@@ -9676,8 +9705,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T13:30:00+00:00",
       "tickers": [
-        "XRP",
         "RLUSD",
+        "XRP",
         "ETH"
       ],
       "currency_pairs": [],
@@ -9872,8 +9901,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T13:13:15+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Key crypto updates for Aug. 21: Bitcoin surges to $76,945, Strategy hits profit on $64.6B treasury, while XRP scales to $1.37 on Korean stock rotation.",
@@ -10375,8 +10404,8 @@ window.newsData = {
       "source": "Crypto News",
       "published": "2026-08-21T11:35:00+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP surges 22% to $1.30 on macro tailwinds. Breakdown of key resistance, support levels, and why traders are eyeing early-stage plays like Bitcoin Hyper. \n The post  XRP Price Prediction: 22% Rally, But Ripple Still is Undervalued  appeared first on  Cryptonews .",
@@ -10544,8 +10573,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T10:59:12+00:00",
       "tickers": [
-        "XRP",
-        "BNB"
+        "BNB",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP is back in demand and its derivatives market is on fire as the metric on Binance reaches its highest level since October 2025.",
@@ -10680,8 +10709,8 @@ window.newsData = {
       "published": "2026-08-21T10:27:34+00:00",
       "tickers": [
         "FORM",
-        "JST",
-        "ETH"
+        "ETH",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Ethereum price surged above $2,400 on Friday after strong buying lifted ETH from its recent consolidation range.  Ethereum just broke $2,400 for the first time in over 3 months. ETH is now up +28% in the last 4 days. Ether rose in the past four hours by 5% to trade near $2,410. The token also \n The",
@@ -11555,11 +11584,11 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T08:43:16+00:00",
       "tickers": [
-        "ETH",
         "XRP",
+        "ETH",
         "HYPE",
-        "BNB",
         "ADA",
+        "BNB",
         "BTC"
       ],
       "currency_pairs": [],
@@ -11779,9 +11808,9 @@ window.newsData = {
       "source": "CoinJournal",
       "published": "2026-08-21T08:20:33+00:00",
       "tickers": [
-        "XRP",
         "BTC",
-        "ETH"
+        "ETH",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Key takeaways Bitcoin, Ethereum, and XRP have gained nearly 20%, over 25%, and almost 30%, respectively, this week. Expanded U.S. Treasury debt buybacks have improved liquidity expectations and boosted demand for risk assets. Bitcoin trades around $76,800 after breaking above its 50-day, 100-day, an",
@@ -11848,9 +11877,9 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-21T07:53:43+00:00",
       "tickers": [
-        "ADA",
         "JST",
-        "OP"
+        "OP",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "Cardano (ADA) traded mostly sideways on Thursday, although the token remained just over 9% higher over the past week as optimism around its growing ecosystem continued to build. The improving momentum could be linked to optimism surrounding President Trump’s broader positive stance on crypto followi",
@@ -12315,8 +12344,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T07:11:46+00:00",
       "tickers": [
-        "SOL",
-        "USDC"
+        "USDC",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "[PRESS RELEASE &#8211; Panama City, Panama, August 21st, 2026] Finassets.io, a crypto payment gateway for businesses, has added USDC (SOL) to its Back Office, giving merchants a cost-effective network for stablecoin payments. Solana is among the fastest, lowest-cost networks for settling USDC today,",
@@ -12628,9 +12657,9 @@ window.newsData = {
       "published": "2026-08-21T06:10:58+00:00",
       "tickers": [
         "FORM",
-        "SOL",
         "BTC",
-        "ETH"
+        "ETH",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin has surged above $75,000, extending a sharp four-day rebound of roughly 20% and reaching its highest level since late May.",
@@ -12720,8 +12749,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T05:09:15+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Numerous altcoins have recorded more impressive gains today, led by Ripple's XRP.",
@@ -12742,9 +12771,9 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-21T04:56:30+00:00",
       "tickers": [
-        "SOL",
         "BTC",
-        "ETH"
+        "ETH",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -13323,11 +13352,11 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T00:01:00+00:00",
       "tickers": [
-        "NEAR",
-        "JST",
         "ETH",
         "HYPE",
-        "BTC"
+        "NEAR",
+        "BTC",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "The cryptocurrency market just became spicier following the rapid and unexpected surge of volatility.",
@@ -14567,116 +14596,6 @@ window.newsData = {
       "reposts": 1,
       "replies": 0,
       "follower_count": 176815,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "$XRP  is approaching the only significant level seen in years.\n\nOn the monthly chart, $XRP has tested this exact level",
-      "url": "https://x.com/Maxi_Dec2020/status/2090527978019016795",
-      "source": "@Maxi_Dec2020",
-      "published": "2026-08-20T19:54:44+00:00",
-      "tickers": [
-        "XRP"
-      ],
-      "currency_pairs": [],
-      "summary": "$XRP  is approaching the only significant level seen in years.\n\nOn the monthly chart, $XRP has tested this exact level as support/resistance five times.",
-      "sentiment": "Bullish",
-      "confidence": 0.6909,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 26108,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "𝗣𝗮𝘅𝗼𝘀 𝗔𝗱𝗱𝘀 𝗧𝗥𝗫 𝗧𝗼 𝗜𝘁𝘀 𝗖𝗿𝘆𝗽𝘁𝗼 𝗕𝗿𝗼𝗸𝗲𝗿𝗮𝗴𝗲 𝗔𝘀 𝗦𝘂𝗽𝗽𝗼𝗿𝘁𝗲𝗱 𝗔𝘀𝘀𝗲𝘁𝘀 𝗥𝗲𝗮𝗰𝗵 𝟯𝟮 \n\nPaxos is expanding its Crypto Brokerage offering",
-      "url": "https://x.com/The_Cryptiq/status/2090527711185789247",
-      "source": "@The_Cryptiq",
-      "published": "2026-08-20T19:53:41+00:00",
-      "tickers": [
-        "APT",
-        "OP",
-        "TRX"
-      ],
-      "currency_pairs": [],
-      "summary": "𝗣𝗮𝘅𝗼𝘀 𝗔𝗱𝗱𝘀 𝗧𝗥𝗫 𝗧𝗼 𝗜𝘁𝘀 𝗖𝗿𝘆𝗽𝘁𝗼 𝗕𝗿𝗼𝗸𝗲𝗿𝗮𝗴𝗲 𝗔𝘀 𝗦𝘂𝗽𝗽𝗼𝗿𝘁𝗲𝗱 𝗔𝘀𝘀𝗲𝘁𝘀 𝗥𝗲𝗮𝗰𝗵 𝟯𝟮 \n\nPaxos is expanding its Crypto Brokerage offering with three new assets:\n\n❏ $APT — @Aptos\n❏ $OP — @Optimism\n❏ $TRX — @trondao\n\nWith these additions, Paxos now supports 32 digital assets, giving financial institutions broader",
-      "sentiment": "Bullish",
-      "confidence": 0.9345,
-      "other_sources": [
-        {
-          "source": "@The_Cryptiq",
-          "url": "https://x.com/The_Cryptiq/status/2090527711185789247",
-          "published": "2026-08-20T19:53:41+00:00"
-        }
-      ],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 16042,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "$TAO's staking reward rate rose 1.17pp to 17.55% last week, the biggest move across major PoS networks.\n\nIt rose",
-      "url": "https://x.com/StakingRewards/status/2090527211468259751",
-      "source": "@StakingRewards",
-      "published": "2026-08-20T19:51:41+00:00",
-      "tickers": [
-        "BNB",
-        "TAO"
-      ],
-      "currency_pairs": [],
-      "summary": "$TAO's staking reward rate rose 1.17pp to 17.55% last week, the biggest move across major PoS networks.\n\nIt rose because stake left: about $9.4M flowed out that week, and a fixed emission split among fewer stakers pays each one more.\n\n$OM and $BNB followed at +0.47pp and +0.37pp.",
-      "sentiment": "Bullish",
-      "confidence": 0.9063,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 41275,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "⚡️ TOKENIZED STOCKS ARE BOOMING 🚀\n\nMARKET CAP HITS $2.8B, WITH ONDO, xSTOCKS & BINANCE bSTOCKS CONTROLLING",
-      "url": "https://x.com/iiam_Akshay/status/2090526021254877324",
-      "source": "@iiam_Akshay",
-      "published": "2026-08-20T19:46:58+00:00",
-      "tickers": [
-        "BNB",
-        "ONDO"
-      ],
-      "currency_pairs": [],
-      "summary": "⚡️ TOKENIZED STOCKS ARE BOOMING 🚀\n\nMARKET CAP HITS $2.8B, WITH ONDO, xSTOCKS & BINANCE bSTOCKS CONTROLLING 78.6%.\n\nTOKENIZED EQUITIES ARE GOING MAINSTREAM. 👀🔥\n\n$ONDO $BNB",
-      "sentiment": "Bearish",
-      "confidence": 0.67,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 46300,
       "is_crypto_relevant": true
     },
     {
