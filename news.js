@@ -1,7 +1,47 @@
 window.newsData = {
-  "updated_at": "2026-08-21T23:48:44.857222+00:00",
-  "total": 755,
+  "updated_at": "2026-08-22T00:04:28.676604+00:00",
+  "total": 751,
   "articles": [
+    {
+      "title": "Iranian oil supply to Chinese buyers squeezed by U.S. blockade",
+      "url": "https://seekingalpha.com/news/4636035-iranian-oil-supply-to-chinese-buyers-squeezed-by-us-blockade?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-21T23:56:42+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bearish",
+      "confidence": 0.9023,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Dow surges 559 points as US business activity hits four-year high",
+      "url": "https://cryptobriefing.com/dow-surges-559-points-business-activity-high/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-21T23:55:43+00:00",
+      "tickers": [
+        "FORM"
+      ],
+      "currency_pairs": [],
+      "summary": "The surge in US business activity suggests a broadening economic momentum, indicating potential for sustainable growth amid easing inflation. \n The post  Dow surges 559 points as US business activity hits four-year high  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "ECONOMIC",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Shorting $ETH here is like playing Russian Roulette",
       "url": "https://x.com/EthereanVibin/status/2090948881781596411",
@@ -127,6 +167,25 @@ window.newsData = {
       "reposts": 0,
       "replies": 0,
       "follower_count": 49282,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "US Treasury doubles bond buybacks, clashing with Fed Chair Warsh’s market-independence approach",
+      "url": "https://cryptobriefing.com/treasury-undercuts-fed-warsh-bond-buybacks/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-21T23:46:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The Treasury's intervention risks undermining central bank independence, potentially leading to market instability and mispriced assets. \n The post  US Treasury doubles bond buybacks, clashing with Fed Chair Warsh&#8217;s market-independence approach  appeared first on  Crypto Briefing .",
+      "sentiment": "Neutral",
+      "confidence": 0.5193,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "US",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -1052,8 +1111,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T21:56:30+00:00",
       "tickers": [
-        "ETH",
-        "ADA"
+        "ADA",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Ethereum and Cardano are among the assets the analyst believes could benefit if the 2020 comparison holds.",
@@ -1586,25 +1645,6 @@ window.newsData = {
       "confidence": 0.9239,
       "other_sources": [],
       "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "SolarMax Technology receives Nasdaq notice",
-      "url": "https://seekingalpha.com/news/4636028-solarmax-technology-receives-nasdaq-notice?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-21T21:16:16+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.8834,
-      "other_sources": [],
-      "category": "STOCKS",
       "region": "GLOBAL",
       "asset_class": "stocks",
       "source_flag": null,
@@ -2443,46 +2483,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Institutions leverage Coinbase staking, boosting Ethereum confidence",
-      "url": "https://cryptobriefing.com/institutions-leverage-coinbase-staking-boosting-ethereum-confidence/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-21T20:19:34+00:00",
-      "tickers": [
-        "ETH"
-      ],
-      "currency_pairs": [],
-      "summary": "Institutional staking via Coinbase may enhance Ethereum's market perception, potentially influencing its long-term price trajectory positively. \n The post  Institutions leverage Coinbase staking, boosting Ethereum confidence  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Dow Jones Industrial Average closes over 500 points higher as risk appetite returns",
-      "url": "https://cryptobriefing.com/dow-jones-closes-500-points-higher-rally/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-21T20:16:45+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The Dow's surge signals renewed investor confidence, potentially stabilizing markets and boosting crypto-related equities amid policy shifts. \n The post  Dow Jones Industrial Average closes over 500 points higher as risk appetite returns  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8859,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Legendary Investor Ray Dalio Touts Bitcoin — With Gold — To Hedge Against Incoming Debt Crisis",
       "url": "https://bitcoinmagazine.com/news/ray-dalio-touts-bitcoin",
       "source": "Bitcoin Magazine",
@@ -2509,9 +2509,9 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T20:12:03+00:00",
       "tickers": [
-        "PYUSD",
         "RLUSD",
-        "XRP"
+        "XRP",
+        "PYUSD"
       ],
       "currency_pairs": [],
       "summary": "Ripple's RLUSD stablecoin has crossed the $2 billion market capitalization milestone, rapidly closing the gap with PayPal USD (PYUSD).",
@@ -3216,8 +3216,8 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-21T19:01:26+00:00",
       "tickers": [
-        "OP",
-        "ADA"
+        "ADA",
+        "OP"
       ],
       "currency_pairs": [],
       "summary": "Optimism is rocketing across the Cardano community after one cryptocurrency founder voiced strong confidence that ADA is on track to reclaim the highly anticipated $3 milestone. The bold outlook has reignited bullish sentiment, with investors increasingly wondering whether the next major breakout is",
@@ -3320,8 +3320,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-21T18:45:01+00:00",
       "tickers": [
-        "JST",
-        "SOL"
+        "SOL",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Solana has activated the first reduction in its block timing since launch, speeding up transactions on the network.",
@@ -3517,8 +3517,8 @@ window.newsData = {
       "source": "NewsBTC",
       "published": "2026-08-21T18:15:00+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "SEC Opens Comment Period On Cboe 3x Bitcoin And Ethereum ETF Proposal - Read the full analysis.",
@@ -5224,8 +5224,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-21T15:50:08+00:00",
       "tickers": [
-        "BTC",
-        "ZEC"
+        "ZEC",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin rallied as Treasury bond buybacks fueled the “not-QE” trade, while Metaplanet expanded to the US and Cypherpunk made a $33 million Zcash mining bet.",
@@ -5375,11 +5375,11 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-21T15:19:46+00:00",
       "tickers": [
-        "HYPE",
-        "SOL",
         "XRP",
         "BTC",
-        "ETH"
+        "ETH",
+        "SOL",
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin ETFs attracted $606.29 million on Thursday, their strongest session of the week, while ether funds added $220.77 million. Solana, XRP and HYPE ETFs also finished in positive territory as the crypto rally spread across the fund market. Demand Surges as Bitcoin ETFs Add $606.29M The ETF market",
@@ -5492,9 +5492,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T15:04:52+00:00",
       "tickers": [
-        "BTC",
         "ETH",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "It was one of the most impressive endings to a business week in a long, long time. Let's dive in.",
@@ -5602,9 +5602,9 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-21T15:00:42+00:00",
       "tickers": [
+        "USDT",
         "BTC",
-        "TRX",
-        "USDT"
+        "TRX"
       ],
       "currency_pairs": [],
       "summary": "Dubai, United Arab Emirates, August 21, 2026 — Bitcoin.com, one of the world&#8217;s most widely used cryptocurrency platforms, today announced that its self-custody Bitcoin.com Wallet app now natively supports the TRON network. Users can hold, send, swap, and buy TRX and USDT on TRON directly withi",
@@ -6003,8 +6003,8 @@ window.newsData = {
       "source": "NewsBTC",
       "published": "2026-08-21T14:30:00+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin And Ethereum ETFs Pull $825M As Institutional Demand Returns - Read the full analysis.",
@@ -6031,8 +6031,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-21T14:27:31+00:00",
       "tickers": [
-        "BTC",
-        "ZEC"
+        "ZEC",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Meanwhile crypto majors and alts continue to soar, with BTC nearing $80k and alts like Pump and ZEC putting up big candles.",
@@ -6428,8 +6428,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T13:30:00+00:00",
       "tickers": [
-        "ETH",
         "RLUSD",
+        "ETH",
         "XRP"
       ],
       "currency_pairs": [],
@@ -6624,8 +6624,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T13:13:15+00:00",
       "tickers": [
-        "BTC",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Key crypto updates for Aug. 21: Bitcoin surges to $76,945, Strategy hits profit on $64.6B treasury, while XRP scales to $1.37 on Korean stock rotation.",
@@ -7071,8 +7071,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-21T11:52:22+00:00",
       "tickers": [
-        "FORM",
-        "SOL"
+        "SOL",
+        "FORM"
       ],
       "currency_pairs": [],
       "summary": "&#160; Solana price climbed 5% to $91.28 on Friday, extending its four-day advance to roughly 21% in active trading. SOL is back above $90 for the first time in over 3 months. The gain came after the strongest net inflows into U.S. spot Solana ETFs in three weeks, of 14.59 million. SOL was supported",
@@ -7183,8 +7183,8 @@ window.newsData = {
       "source": "Crypto News",
       "published": "2026-08-21T11:35:00+00:00",
       "tickers": [
-        "BTC",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "XRP surges 22% to $1.30 on macro tailwinds. Breakdown of key resistance, support levels, and why traders are eyeing early-stage plays like Bitcoin Hyper. \n The post  XRP Price Prediction: 22% Rally, But Ripple Still is Undervalued  appeared first on  Cryptonews .",
@@ -7352,8 +7352,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T10:59:12+00:00",
       "tickers": [
-        "BNB",
-        "XRP"
+        "XRP",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "XRP is back in demand and its derivatives market is on fire as the metric on Binance reaches its highest level since October 2025.",
@@ -7465,8 +7465,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T10:35:00+00:00",
       "tickers": [
-        "DOGE",
-        "OP"
+        "OP",
+        "DOGE"
       ],
       "currency_pairs": [],
       "summary": "The warning comes as optimism returns to the crypto market following a period of significant selling.",
@@ -7487,9 +7487,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-21T10:27:34+00:00",
       "tickers": [
-        "JST",
         "ETH",
-        "FORM"
+        "FORM",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Ethereum price surged above $2,400 on Friday after strong buying lifted ETH from its recent consolidation range.  Ethereum just broke $2,400 for the first time in over 3 months. ETH is now up +28% in the last 4 days. Ether rose in the past four hours by 5% to trade near $2,410. The token also \n The",
@@ -7976,8 +7976,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-21T09:31:58+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin market cap ranking has crossed a landmark threshold. Bitcoin has officially overtaken Meta Platforms to claim the 13th spot among the world&#8217;s largest assets by market cap. Bitcoin reached a valuation of approximately $1.53 trillion as of August 21, 2026. Ethereum is not far behind. It",
@@ -8393,12 +8393,12 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T08:43:16+00:00",
       "tickers": [
-        "BNB",
-        "HYPE",
         "XRP",
-        "ADA",
         "BTC",
-        "ETH"
+        "ETH",
+        "ADA",
+        "BNB",
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "This Friday, we examine Ethereum, Ripple, Cardano, Binance Coin, and Hyperliquid in greater detail. Ethereum (ETH) In a major reversal, ETH has pumped 27% this week after sentiment turned positive, with Bitcoin leading and pulling most of the market higher. Ethereum shot up from $1,800 and did not s",
@@ -8617,9 +8617,9 @@ window.newsData = {
       "source": "CoinJournal",
       "published": "2026-08-21T08:20:33+00:00",
       "tickers": [
-        "BTC",
         "ETH",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Key takeaways Bitcoin, Ethereum, and XRP have gained nearly 20%, over 25%, and almost 30%, respectively, this week. Expanded U.S. Treasury debt buybacks have improved liquidity expectations and boosted demand for risk assets. Bitcoin trades around $76,800 after breaking above its 50-day, 100-day, an",
@@ -8734,9 +8734,9 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-08-21T07:53:43+00:00",
       "tickers": [
+        "ADA",
         "OP",
-        "JST",
-        "ADA"
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Cardano (ADA) traded mostly sideways on Thursday, although the token remained just over 9% higher over the past week as optimism around its growing ecosystem continued to build. The improving momentum could be linked to optimism surrounding President Trump’s broader positive stance on crypto followi",
@@ -8757,8 +8757,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-21T07:50:12+00:00",
       "tickers": [
-        "TRX",
-        "WLFI"
+        "WLFI",
+        "TRX"
       ],
       "currency_pairs": [],
       "summary": "TRON founder Justin Sun has scored a key procedural win in his World Liberty Financial lawsuit. On August 20, 2026, a California federal judge rejected an attempt by the Trump-backed World Liberty Financial project to push Sun&#8217;s claims into secret arbitration. Sun&#8217;s individual claims wil",
@@ -8779,8 +8779,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-21T07:50:01+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin ETF inflows pushed August’s total to a 2026 high of $2.07 billion as Bitcoin traded above $75,000 and Ether climbed to $2,357.",
@@ -9390,8 +9390,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-21T06:43:24+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -9437,8 +9437,8 @@ window.newsData = {
       "source": "Bitcoinist",
       "published": "2026-08-21T06:30:00+00:00",
       "tickers": [
-        "BNB",
         "LTC",
+        "BNB",
         "SUI"
       ],
       "currency_pairs": [],
@@ -9537,10 +9537,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T06:10:58+00:00",
       "tickers": [
-        "FORM",
-        "BTC",
+        "SOL",
         "ETH",
-        "SOL"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin has surged above $75,000, extending a sharp four-day rebound of roughly 20% and reaching its highest level since late May.",
@@ -9670,8 +9670,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T05:09:15+00:00",
       "tickers": [
-        "BTC",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Numerous altcoins have recorded more impressive gains today, led by Ripple's XRP.",
@@ -9692,9 +9692,9 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-21T04:56:30+00:00",
       "tickers": [
-        "BTC",
+        "SOL",
         "ETH",
-        "SOL"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -10333,10 +10333,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T00:01:00+00:00",
       "tickers": [
-        "HYPE",
+        "BTC",
         "JST",
         "ETH",
-        "BTC",
+        "HYPE",
         "NEAR"
       ],
       "currency_pairs": [],
@@ -11122,8 +11122,8 @@ window.newsData = {
       "source": "Bitcoin Magazine",
       "published": "2026-08-20T20:49:28+00:00",
       "tickers": [
-        "BTC",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Open Source vs. Source-Available: What the Coldcard Failure Teaches About Bitcoin Software Incentives  \n FOSS rests on four essential freedoms defined by the Free Software Foundation and the Open Source Initiative’s ten criteria. Licenses that withhold commercial rights, such",
@@ -11757,8 +11757,8 @@ window.newsData = {
       "source": "Crypto News",
       "published": "2026-08-20T19:23:00+00:00",
       "tickers": [
-        "BTC",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "XRP jumps 7.96% to $1.1866 after beating Bitcoin in a record short squeeze. Can it clear $1.20 resistance and extend its biggest rally since 2020? \n The post  XRP Price Prediction: Can Ripple Extend Its Biggest Rally Since 2020?  appeared first on  Cryptonews .",
@@ -12188,8 +12188,8 @@ window.newsData = {
       "source": "Crypto News",
       "published": "2026-08-20T17:57:00+00:00",
       "tickers": [
-        "JST",
-        "SOL"
+        "SOL",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Three years of development have just become a live production system. Meta AI predicts that changes the argument entirely, and the price prediction places Solana at $180 to $250 by the end of 2026, with a $210 base case from $83 today.The framing matters as much as the numbers. Meta AI calls this bu",
@@ -12262,8 +12262,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-20T17:46:08+00:00",
       "tickers": [
-        "BTC",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The token's steepest daily and weekly gains in months rode Bitcoin's record liquidation wave—though ETF flows and futures data hint the move is running on borrowed momentum.",
@@ -14636,8 +14636,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-20T11:16:41+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Investors have poured more than $1 billion into US spot Bitcoin ETFs this week as BTC neared $72,000 and Ether climbed 19% to about $2,286 on Thursday.",
@@ -14658,8 +14658,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-20T11:16:13+00:00",
       "tickers": [
-        "JST",
-        "ETH"
+        "ETH",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Data shows that the average returns following major one-day ETH rallies reached nearly 60% after 180 days.",
@@ -15770,10 +15770,10 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-20T08:12:27+00:00",
       "tickers": [
-        "BTC",
         "ETH",
         "XRP",
-        "HYPE"
+        "HYPE",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "ETH and HYPE are the two top gainers from the larger caps. XRP has successfully defended the $1.00 support.",
@@ -16360,9 +16360,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-20T06:17:14+00:00",
       "tickers": [
-        "BTC",
         "ETH",
-        "XRP"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin, Ethereum, and XRP rallied after Trump's crypto meeting, but the CLARITY Act still faces political disagreements in the Senate.",
@@ -16909,8 +16909,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-20T03:51:12+00:00",
       "tickers": [
-        "BNB",
-        "XRP"
+        "XRP",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Binance has seen the sharpest percentage drop in XRP reserves, while Upbit and Bithumb continue to hold the bulk of tracked supply.",
@@ -17663,107 +17663,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "What's First For Bitcoin (BTC): $70,000 or $60,000? XRP Fights For $1 Threshold, Shiba Inu (SHIB) Billion Flows Gone: Crypto Market Review",
-      "url": "https://u.today/whats-first-for-bitcoin-btc-70000-or-60000-xrp-fights-for-1-threshold-shiba-inu-shib-billion-flows",
-      "source": "U.Today",
-      "published": "2026-08-20T00:01:00+00:00",
-      "tickers": [
-        "BTC",
-        "SHIB",
-        "XRP"
-      ],
-      "currency_pairs": [],
-      "summary": "It's not clear who'll take an upper hand on the cryptocurrency market: bulls or bears.",
-      "sentiment": "Neutral",
-      "confidence": 0.5435,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "$ARB (Crypto): Bearish distribution teases—price sits above VWAP, yet sell-dominant volume and an overbought MFI signal",
-      "url": "https://x.com/olaxbt_agent/status/2090227392413630945",
-      "source": "@olaxbt_agent",
-      "published": "2026-08-20T00:00:19+00:00",
-      "tickers": [
-        "ARB"
-      ],
-      "currency_pairs": [],
-      "summary": "$ARB (Crypto): Bearish distribution teases—price sits above VWAP, yet sell-dominant volume and an overbought MFI signal exhaustion. With price diverging from the cooling MFI and the channel breakout showing signs of strain, the momentum feels fragile as sell pressure quietly builds in the shadows.",
-      "sentiment": "Bearish",
-      "confidence": 0.9278,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 28783,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "$NEAR is printing a buy signal as I pointed out days ago.\n\nIs price going to blast through all four targets like",
-      "url": "https://x.com/JesseOlson/status/2090226052953964827",
-      "source": "@JesseOlson",
-      "published": "2026-08-19T23:55:00+00:00",
-      "tickers": [
-        "ETH",
-        "LINK",
-        "NEAR",
-        "FORM"
-      ],
-      "currency_pairs": [],
-      "summary": "$NEAR is printing a buy signal as I pointed out days ago.\n\nIs price going to blast through all four targets like Chainlink and Ethereum? 🤞",
-      "sentiment": "Bullish",
-      "confidence": 0.8062,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 20,
-      "reposts": 0,
-      "replies": 1,
-      "follower_count": 80937,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "$ARB thinking if we get a push up (blowoff) i'll ladder up a short in the red zone. then you see the rest...",
-      "url": "https://x.com/BullChain/status/2090224399618056702",
-      "source": "@BullChain",
-      "published": "2026-08-19T23:48:26+00:00",
-      "tickers": [
-        "ARB"
-      ],
-      "currency_pairs": [],
-      "summary": "$ARB thinking if we get a push up (blowoff) i'll ladder up a short in the red zone. then you see the rest...",
-      "sentiment": "Bullish",
-      "confidence": 0.8592,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 58077,
-      "is_crypto_relevant": true
-    },
-    {
       "title": "investingLive Americas FX news wrap 21 Aug: Trump folds on beef tariffs.",
       "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-21-aug-trump-folds-on-beef-tariffs-0/",
       "source": "InvestingLive",
@@ -18102,8 +18001,8 @@ window.newsData = {
       "source": "Watcher.Guru",
       "published": null,
       "tickers": [
-        "BTC",
-        "SOL"
+        "SOL",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -18120,7 +18019,7 @@ window.newsData = {
     }
   ],
   "forex_sentiment": {
-    "updated_at": "2026-08-21T23:01:26.260869+00:00",
+    "updated_at": "2026-08-22T00:02:53.307082+00:00",
     "pairs": [
       {
         "symbol": "GBPUSD",
@@ -19345,17 +19244,17 @@ window.newsData = {
     ]
   },
   "macro_snapshot": {
-    "updated_at": "2026-08-21T00:44:27.363610+00:00",
+    "updated_at": "2026-08-22T00:02:53.529728+00:00",
     "source": "fmp",
-    "treasury_yield_10y": 4.71,
+    "treasury_yield_10y": 4.65,
     "treasury_yield_10y_sparkline": [
-      4.72,
       4.7,
       4.68,
       4.63,
       4.68,
       4.72,
-      4.71
+      4.71,
+      4.65
     ],
     "fed_funds_rate": 3.88,
     "fed_funds_rate_sparkline": [
@@ -19370,306 +19269,306 @@ window.newsData = {
     "nonfarm_payroll": null
   },
   "commodity_snapshot": {
-    "updated_at": "2026-08-21T00:44:37.139593+00:00",
+    "updated_at": "2026-08-22T00:03:00.437313+00:00",
     "source": "api_ninjas+twelvedata",
     "items": [
       {
         "symbol": "CRUDE_OIL",
         "label": "Crude Oil (WTI)",
-        "price": 134.53999,
-        "changes_percentage": 2.77289,
+        "price": 134.64,
+        "changes_percentage": 0.074331878,
         "sparkline": [
-          82.64,
           81.305,
           82.372,
           82.31,
           84.055,
           84.485,
           84.276,
-          86.185
+          86.185,
+          86.612
         ]
       },
       {
         "symbol": "BRENT_CRUDE",
         "label": "Brent Crude",
-        "price": 53.49,
-        "changes_percentage": 2.23624,
+        "price": 53.8,
+        "changes_percentage": 0.579543,
         "sparkline": [
-          88.344,
           86.934,
           88.582,
           91.044,
           91.274,
           91.554,
-          93.174
+          93.174,
+          93.857
         ]
       },
       {
         "symbol": "GOLD",
         "label": "Gold",
-        "price": 415.26001,
-        "changes_percentage": 0.34313103,
+        "price": 423.35999,
+        "changes_percentage": 1.95058,
         "sparkline": [
-          4414.105,
           4356.035,
           4374.205,
           4370.125,
           4425.605,
           4332.785,
           4511.055,
-          4526.195
+          4526.195,
+          4602.055
         ]
       },
       {
         "symbol": "SILVER",
         "label": "Silver",
-        "price": 61.66,
-        "changes_percentage": 2.74954,
+        "price": 62.72,
+        "changes_percentage": 1.71911,
         "sparkline": [
-          65.28,
           64.522,
           64.62,
           64.804,
           65.949,
           62.918,
           66.949,
-          68.182
+          68.182,
+          68.802
         ]
       },
       {
         "symbol": "NATURAL_GAS",
         "label": "Natural Gas",
-        "price": 2.763,
-        "changes_percentage": -0.5041411595246753,
+        "price": 2.773,
+        "changes_percentage": 0.3619254433586765,
         "sparkline": [
-          2.7909,
           2.7299,
           2.7099,
           2.6662,
           2.6939,
           2.7849,
           2.7713,
-          2.7569
+          2.7569,
+          2.7499
         ]
       },
       {
         "symbol": "COPPER",
         "label": "Copper",
-        "price": 39.35,
-        "changes_percentage": -0.10155094,
+        "price": 39.99,
+        "changes_percentage": 1.62644,
         "sparkline": [
-          6.6024,
           6.5834,
           6.6047,
           6.6278,
           6.6126,
           6.5456,
           6.5926,
-          6.5875
+          6.5875,
+          6.6794
         ]
       }
     ]
   },
   "index_snapshot": {
-    "updated_at": "2026-08-21T00:45:48.608457+00:00",
+    "updated_at": "2026-08-22T00:04:09.387645+00:00",
     "source": "twelvedata",
     "items": [
       {
         "symbol": "SPY",
         "label": "S&P 500 (SPY)",
-        "price": 762.59998,
-        "changes_percentage": -0.83998934,
+        "price": 765.71997,
+        "changes_percentage": 0.40912604,
         "sparkline": [
-          7746.922,
           7804.491,
           7779.969,
           7791.406,
           7747.872,
           7689.951,
           7719.684,
-          7647.783
+          7647.783,
+          7674.034
         ]
       },
       {
         "symbol": "QQQ",
         "label": "Nasdaq 100 (QQQ)",
-        "price": 710.92999,
-        "changes_percentage": -0.71919678,
+        "price": 713.44,
+        "changes_percentage": 0.35306005,
         "sparkline": [
-          29701.389,
           30105.198,
           30035.521,
           30119.875,
           30001.997,
           29440.232,
           29537.264,
-          29211.019
+          29211.019,
+          29302.843
         ]
       },
       {
         "symbol": "DIA",
         "label": "Dow Jones (DIA)",
-        "price": 527.51001,
-        "changes_percentage": -1.26528,
+        "price": 532.21997,
+        "changes_percentage": 0.89286665,
         "sparkline": [
-          53785.039,
           53867.851,
           53701.527,
           53741.399,
           53466.875,
           53333.387,
           53492.239,
-          52799.215
+          52799.215,
+          53264.975
         ]
       },
       {
         "symbol": "IWM",
         "label": "Russell 2000 (IWM)",
-        "price": 297.67001,
-        "changes_percentage": -1.3423,
+        "price": 299.95999,
+        "changes_percentage": 0.76930088,
         "sparkline": [
-          3047.263,
           3050.472,
           3067.662,
           3069.367,
           3057.774,
           3018.863,
           3036.367,
-          2995.569
+          2995.569,
+          3016.468
         ]
       },
       {
         "symbol": "VIXY",
         "label": "Volatility (VIXY)",
-        "price": 18.44,
-        "changes_percentage": 0.71000039,
+        "price": 18.21,
+        "changes_percentage": -1.2473,
         "sparkline": [
-          15.92,
           15.88,
           15.53,
           15.52,
           17.93,
           18.17,
           17.43,
-          17.67
+          17.67,
+          17.38
         ]
       }
     ]
   },
   "stocks_snapshot": {
-    "updated_at": "2026-08-21T00:46:09.089610+00:00",
+    "updated_at": "2026-08-22T00:04:28.591553+00:00",
     "source": "finnhub",
     "items": [
       {
         "symbol": "SPY",
         "label": "S&P 500 (SPY)",
-        "price": 762.6,
-        "changes_percentage": -0.8399864769978835
+        "price": 765.72,
+        "changes_percentage": 0.409126671911881
       },
       {
         "symbol": "QQQ",
         "label": "Nasdaq 100 (QQQ)",
-        "price": 710.93,
-        "changes_percentage": -0.7191933862138435
+        "price": 713.44,
+        "changes_percentage": 0.3530586696299361
       },
       {
         "symbol": "DIA",
         "label": "Dow Jones (DIA)",
-        "price": 527.51,
-        "changes_percentage": -1.2652778557658098
+        "price": 532.22,
+        "changes_percentage": 0.8928740687380403
       },
       {
         "symbol": "IWM",
         "label": "Russell 2000 (IWM)",
-        "price": 297.67,
-        "changes_percentage": -1.3423041230279766
+        "price": 299.96,
+        "changes_percentage": 0.769308294419983
       },
       {
         "symbol": "VIXY",
         "label": "Volatility (VIXY)",
-        "price": 18.44,
-        "changes_percentage": 0.709994538503564
+        "price": 18.21,
+        "changes_percentage": -1.2472885032537984
       },
       {
         "symbol": "GLD",
         "label": "Gold (GLD)",
-        "price": 415.26,
-        "changes_percentage": 0.343127778851734
+        "price": 423.36,
+        "changes_percentage": 1.950585175552671
       },
       {
         "symbol": "AAPL",
         "label": "Apple (AAPL)",
-        "price": 311.3,
-        "changes_percentage": -1.7454155225199548
+        "price": 309.35,
+        "changes_percentage": -0.6264053967234142
       },
       {
         "symbol": "AMZN",
         "label": "Amazon (AMZN)",
-        "price": 260.11,
-        "changes_percentage": -2.155431838699956
+        "price": 258.63,
+        "changes_percentage": -0.5689900426742601
       },
       {
         "symbol": "COIN",
         "label": "Coinbase (COIN)",
-        "price": 172.35,
-        "changes_percentage": 7.584269662921353
+        "price": 186.49,
+        "changes_percentage": 8.204235567159857
       },
       {
         "symbol": "CRCL",
         "label": "Circle (CRCL)",
-        "price": 83.66,
-        "changes_percentage": 6.451202443058904
+        "price": 87.98,
+        "changes_percentage": 5.163758068371991
       },
       {
         "symbol": "GOOGL",
         "label": "Alphabet (GOOGL)",
-        "price": 340.67,
-        "changes_percentage": -1.1748665583662135
+        "price": 344.82,
+        "changes_percentage": 1.2181876889658545
       },
       {
         "symbol": "HOOD",
         "label": "Robinhood (HOOD)",
-        "price": 95.1,
-        "changes_percentage": -0.6995927743552278
+        "price": 108.13,
+        "changes_percentage": 13.701366982124084
       },
       {
         "symbol": "MCD",
         "label": "McDonald's (MCD)",
-        "price": 269.13,
-        "changes_percentage": 0.6281547952888415
+        "price": 270.95,
+        "changes_percentage": 0.676253111879015
       },
       {
         "symbol": "META",
         "label": "Meta (META)",
-        "price": 545.83,
-        "changes_percentage": -0.03662802410122737
+        "price": 549.9,
+        "changes_percentage": 0.7456534085704223
       },
       {
         "symbol": "NVDA",
         "label": "Nvidia (NVDA)",
-        "price": 216.85,
-        "changes_percentage": -0.32634675491818715
+        "price": 214.72,
+        "changes_percentage": -0.9822457920221331
       },
       {
         "symbol": "SPCX",
         "label": "SPCX",
-        "price": 134,
-        "changes_percentage": -4.045828857858937
+        "price": 136.97,
+        "changes_percentage": 2.21641791044776
       },
       {
         "symbol": "TSLA",
         "label": "Tesla (TSLA)",
-        "price": 345.13,
-        "changes_percentage": -1.7059694691273664
+        "price": 362.86,
+        "changes_percentage": 5.137194680265413
       }
     ]
   },
   "crypto_global_snapshot": {
-    "updated_at": "2026-08-21T23:02:31.348655+00:00",
+    "updated_at": "2026-08-22T00:04:28.674750+00:00",
     "source": "coingecko",
-    "market_cap": 2665706468567.5293,
-    "market_cap_change_pct_24h": 4.557645725750134,
-    "volume_24h": 170807832542.78552,
-    "btc_dominance": 58.981127619686134
+    "market_cap": 2664873732750.7324,
+    "market_cap_change_pct_24h": 4.08580405351646,
+    "volume_24h": 174019297656.48016,
+    "btc_dominance": 58.98796671822558
   }
 };
