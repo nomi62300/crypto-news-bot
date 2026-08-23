@@ -1,7 +1,85 @@
 {
-  "updated_at": "2026-08-23T19:19:00.263032+00:00",
-  "total": 473,
+  "updated_at": "2026-08-23T19:40:17.134256+00:00",
+  "total": 467,
   "articles": [
+    {
+      "title": "My son does not work, yet pays $500 for Affordable Care Act health insurance. Is that fair?",
+      "url": "https://www.marketwatch.com/story/my-son-does-not-work-yet-he-pays-500-for-aca-health-insurance-how-is-that-fair-92f578c4?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "published": "2026-08-23T19:30:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "“I see people who have a lot of money but little or no taxable income who still qualify for ACA Marketplace subsidies.”",
+      "sentiment": "Neutral",
+      "confidence": 0.7217,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "South Korean crypto exchanges report 566K foreign accounts, but only 90 are active",
+      "url": "https://cryptobriefing.com/south-korea-crypto-foreign-accounts-dormant/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-23T19:28:24+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "South Korea's stringent crypto regulations deter foreign investment, potentially undermining its position as a competitive crypto hub. \n The post  South Korean crypto exchanges report 566K foreign accounts, but only 90 are active  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.8548,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Peter Schiff Says AI Could Turn Into Bitcoin’s Biggest Threat",
+      "url": "https://news.bitcoin.com/crypto-news/peter-schiff-says-ai-could-turn-into-bitcoins-biggest-threat/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-23T19:19:42+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "American economist Peter Schiff is warning that artificial intelligence (AI) could become a threat to the leading crypto asset bitcoin. Schiff further argued that the two technologies compete for money, electricity and infrastructure, while increasingly powerful AI could potentially uncover weakness",
+      "sentiment": "Bearish",
+      "confidence": 0.8635,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Ohtani may return to Dodgers pitching sooner than expected",
+      "url": "https://cryptobriefing.com/ohtani-may-return-to-dodgers-pitching-sooner-than-expected/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-23T19:17:14+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Ohtani's early return could enhance his MVP prospects, impacting market sentiment and boosting the Dodgers' competitive edge. \n The post  Ohtani may return to Dodgers pitching sooner than expected  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.8243,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Hugging Face explores potential $13B sale amid acquisition talks",
       "url": "https://cryptobriefing.com/hugging-face-13b-sale-talks/",
@@ -15,6 +93,27 @@
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Japan Borrowing Costs Reach 1996 Highs: Will the Weak Yen Hurt Bitcoin?",
+      "url": "https://beincrypto.com/japan-borrowing-costs-weak-yen-bitcoin/",
+      "source": "BeInCrypto",
+      "published": "2026-08-23T19:14:03+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Japan borrowing costs hit 1996 highs and the yen is sliding again. Bitcoin is up 22% anyway. Here is what breaks that calm. \n The post  Japan Borrowing Costs Reach 1996 Highs: Will the Weak Yen Hurt Bitcoin?  appeared first on  BeInCrypto .",
+      "sentiment": "Bearish",
+      "confidence": 0.9288,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "ASIA",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
@@ -108,6 +207,27 @@
       "is_crypto_relevant": true
     },
     {
+      "title": "Bitcoin coils in bull flag near $77K: Live levels",
+      "url": "https://www.investing.com/news/cryptocurrency-news/bitcoin-coiled-at-63591-with-volatility-at-6month-lows-live-levels-93CH-4862234",
+      "source": "Investing.com Crypto",
+      "published": "2026-08-23T19:02:13+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.6,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "groq",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
       "title": "‘The market is obviously on fire’: Should I take $1,000 from my brokerage account to pay off my car loan?",
       "url": "https://www.marketwatch.com/story/the-market-is-obviously-on-fire-is-it-a-mistake-to-take-1-000-from-my-brokerage-account-to-pay-my-car-loan-65800d1f?mod=mw_rss_topstories",
       "source": "MarketWatch",
@@ -144,7 +264,8 @@
       "sentiment_engine": "usgs_magnitude",
       "source_type": "rss",
       "event_source": "usgs",
-      "magnitude": 4.7
+      "magnitude": 4.7,
+      "is_crypto_relevant": true
     },
     {
       "title": "SA Asks: Will Bessent's recent moves to curb bond yields boost the stock market?",
@@ -824,8 +945,8 @@
       "source": "The Block",
       "published": "2026-08-23T17:02:20+00:00",
       "tickers": [
-        "BTC",
-        "USDT"
+        "USDT",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "UTE cut power to Tether's mining sites in July 2025 after Tether representatives did not attend the signing of a revised contract, per the report.",
@@ -957,8 +1078,8 @@
       "source": "The Daily Hodl",
       "published": "2026-08-23T16:55:39+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "An analyst known for making timely crypto calls is revealing his bullish price targets for Ethereum (ETH), including a potential move to five figures. The pseudonymous analyst DonAlt tells his 788,700 followers on X that it is within the realm of possibility for Ethereum to surge to five figures. &#",
@@ -1315,9 +1436,9 @@
       "source": "CryptoPotato",
       "published": "2026-08-23T16:30:41+00:00",
       "tickers": [
+        "ETH",
         "XRP",
-        "BTC",
-        "ETH"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Unlike the BTC and ETH ETF inflows, Friday was actually the best day for the XRP ETFs.",
@@ -1817,8 +1938,8 @@
       "source": "Crypto Briefing",
       "published": "2026-08-23T16:00:02+00:00",
       "tickers": [
-        "PYUSD",
-        "USDG"
+        "USDG",
+        "PYUSD"
       ],
       "currency_pairs": [],
       "summary": "Paxos' stablecoin growth highlights increasing institutional trust and integration, potentially reshaping digital payment ecosystems globally. \n The post  Paxos stablecoins USDG and PYUSD add $314M in market cap across chains  appeared first on  Crypto Briefing .",
@@ -1864,8 +1985,8 @@
       "source": "Crypto Briefing",
       "published": "2026-08-23T15:58:34+00:00",
       "tickers": [
-        "USDC",
-        "USDT"
+        "USDT",
+        "USDC"
       ],
       "currency_pairs": [],
       "summary": "Tether's expanding user base amid a cooling stablecoin market highlights its role in providing liquidity in emerging economies. \n The post  Tether&#8217;s USDT gains 1.6M holders in past week, outpacing USDC by nearly 3x  appeared first on  Crypto Briefing .",
@@ -2032,27 +2153,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Federal Reserve Bank of Cleveland study reveals crypto investors swayed by Bitcoin returns",
-      "url": "https://cryptobriefing.com/fed-cleveland-study-crypto-investors-bitcoin-returns/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-23T15:43:05+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "The study highlights how Bitcoin's past performance influences investor behavior, potentially impacting broader economic spending patterns. \n The post  Federal Reserve Bank of Cleveland study reveals crypto investors swayed by Bitcoin returns  appeared first on  Crypto Briefing .",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Senator Seeks Trump Crypto Ban as 63% Call His Profits Inappropriate",
       "url": "https://news.bitcoin.com/regulation-and-legal/senator-seeks-trump-crypto-ban-as-63-call-his-profits-inappropriate/",
       "source": "Bitcoin.com News",
@@ -2064,25 +2164,6 @@
       "confidence": 0.5257,
       "other_sources": [],
       "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Pence: US must prepare for ‘inevitable’ military action against Iran",
-      "url": "https://cryptobriefing.com/pence-us-must-prepare-for-inevitable-military-action-against-iran/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-23T15:36:57+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Pence's remarks may heighten geopolitical tensions, affecting diplomatic efforts and market stability, with implications for future U.S.-Iran relations. \n The post  Pence: US must prepare for &#8216;inevitable&#8217; military action against Iran  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.7009,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
       "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
@@ -2642,8 +2723,8 @@
       "source": "U.Today",
       "published": "2026-08-23T13:00:19+00:00",
       "tickers": [
-        "ATH",
-        "SOL"
+        "SOL",
+        "ATH"
       ],
       "currency_pairs": [],
       "summary": "A defining industry trend has been the growth of RWAs, with Solana doubling its momentum.",
@@ -2704,8 +2785,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-23T12:35:36+00:00",
       "tickers": [
-        "USDC",
-        "ETH"
+        "ETH",
+        "USDC"
       ],
       "currency_pairs": [],
       "summary": "DeFi lending protocol Term Labs lost roughly $8.5 million on Sunday after a governance exploit impacted its Term vaults, blockchain security firm PeckShield reported. The attacker pulled 2,843 Ethereum (ETH) and 1.68 million USDC (USDC) out of the protocol. Term Labs confirmed the incident and said",
@@ -2726,8 +2807,8 @@
       "source": "U.Today",
       "published": "2026-08-23T12:16:30+00:00",
       "tickers": [
-        "XRP",
-        "ZEC"
+        "ZEC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Zcash hits an 8-year high of $814 ahead of Grayscale’s August 25 ETF debut on NYSE Arca, sparking a massive community debate over flipping XRP.",
@@ -2820,8 +2901,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-23T12:00:00+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Rep. Rashida Tlaib holds up to $30,000 in iShares Bitcoin (BTC) Trust ETF positions and up to $15,000 in a Grayscale Ethereum (ETH) staking fund, her latest financial disclosure shows. The Michigan Democrat voted against the CLARITY Act in July 2025 and co-sponsored a resolution targeting crypto cor",
@@ -2973,8 +3054,8 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-23T11:30:19+00:00",
       "tickers": [
-        "USDC",
-        "USDT"
+        "USDT",
+        "USDC"
       ],
       "currency_pairs": [],
       "summary": "Stablecoins promise a constant $1, yet USDC has traded at $0.87, Tether&#8217;s USDT at $0.88, and Terra&#8217;s UST collapsed to virtually zero in a crash that erased roughly $40 billion. As recently as November 2025, a DeFi stablecoin called xUSD lost more than half its value in a single day. The",
@@ -3083,8 +3164,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-23T11:02:27+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "The funds tracking both assets recorded a perfect week of net inflows only.",
@@ -3504,8 +3585,8 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-23T09:30:15+00:00",
       "tickers": [
-        "BNB",
-        "SAND"
+        "SAND",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Metaverse platform The Sandbox confirmed recently that an exploited bridge let an attacker mint unbacked SAND on Base and BNB Smart Chain, prompting an immediate shutdown. Exploit Hits Base and BSC Bridges Sandbox, the metaverse gaming platform behind the SAND token, contained a vulnerability affect",
@@ -3526,11 +3607,11 @@
       "source": "CryptoPotato",
       "published": "2026-08-23T09:11:01+00:00",
       "tickers": [
-        "BTC",
-        "CRO",
-        "TRUMP",
         "HYPE",
-        "WLD"
+        "CRO",
+        "BTC",
+        "WLD",
+        "TRUMP"
       ],
       "currency_pairs": [],
       "summary": "TRUMP, CRO, and WLD have dumped the most during the Sunday correction.",
@@ -3591,8 +3672,8 @@
       "source": "CryptoSlate",
       "published": "2026-08-23T09:00:49+00:00",
       "tickers": [
-        "XRP",
-        "WLFI"
+        "WLFI",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Circle now has a federal bank charter. However, the charter provides no ordinary checking accounts, FDIC-insured savings accounts, or mortgages. Circle National Trust is part of a new federal cohort built around custody, fiduciary administration, stablecoin reserves, and settlement. Ripple, BitGo, F",
@@ -3987,27 +4068,6 @@
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Bitcoin surges past $76K with overbought RSI: Live levels",
-      "url": "https://www.investing.com/news/cryptocurrency-news/bitcoin-coiled-at-63591-with-volatility-at-6month-lows-live-levels-93CH-4862234",
-      "source": "Investing.com Crypto",
-      "published": "2026-08-23T07:02:36+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.6,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "groq",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -4518,8 +4578,8 @@
       "source": "AMBCrypto",
       "published": "2026-08-23T06:00:13+00:00",
       "tickers": [
-        "BTC",
-        "BCH"
+        "BCH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Cash follows the broader market trend, but investors still need to remain cautious.",
@@ -4616,9 +4676,9 @@
       "source": "CryptoPotato",
       "published": "2026-08-23T05:47:42+00:00",
       "tickers": [
+        "ETH",
         "XRP",
-        "BTC",
-        "ETH"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Nearly $100 million in longs were wrecked in the past hour.",
@@ -4729,25 +4789,6 @@
       "source_type": "rss",
       "event_source": "usgs",
       "magnitude": 4.6,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Big Banks Demand Identity Checks for Secondary Stablecoin Markets",
-      "url": "https://news.bitcoin.com/regulation-and-legal/big-banks-demand-identity-checks-for-secondary-stablecoin-markets/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-23T05:30:11+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The Bank Policy Institute, representing the massive U.S. banking lobby, filed a comment letter asking FinCEN to apply customer identification requirements to secondary stabilization markets, extending the provision applied to stablecoin issuers to exchanges with a direct relationship with retail cus",
-      "sentiment": "Neutral",
-      "confidence": 0.5257,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -5555,25 +5596,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Crypto App NoOnes Shuts Down After Sanctions, Affecting 2.5M Users",
-      "url": "https://beincrypto.com/noones-shutdown-2026-crypto-closures/",
-      "source": "BeInCrypto",
-      "published": "2026-08-23T00:14:29+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "NoOnes has shut down, telling users to withdraw funds immediately. The team warned that balances tied to the platform may be flagged after August 23. The peer-to-peer marketplace served more than 2.5 million users in three years. Sanctions cost it essential partners, leaving withdrawals as the only",
-      "sentiment": "Bearish",
-      "confidence": 0.8125,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Easy claim easy hold  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab some",
       "url": "https://x.com/SOLWhaleEntry/status/2091314063624089959",
       "source": "@SOLWhaleEntry",
@@ -5954,8 +5976,8 @@
       "source": "The Defiant",
       "published": "2026-08-22T21:21:36+00:00",
       "tickers": [
-        "TRUMP",
         "ETH",
+        "TRUMP",
         "MELANIA"
       ],
       "currency_pairs": [],
@@ -6124,8 +6146,8 @@
       "source": "The Block",
       "published": "2026-08-22T19:31:35+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Combined ETF weekly trading volume more than tripled to $29 billion as bitcoin and ether prices rallied, though both categories are negative on the year.",
@@ -6590,25 +6612,6 @@
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "I hold my mother-in-law’s power of attorney. I’m also her executor and trustee. Do I have too much power over her affairs?",
-      "url": "https://www.marketwatch.com/story/im-my-mother-in-laws-power-of-attorney-executor-and-trustee-do-i-hold-all-the-power-a11968a2?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "published": "2026-08-22T17:00:00+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "“There is a lot of legal and financial power in my hands.”",
-      "sentiment": "Bearish",
-      "confidence": 0.5021,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -7202,8 +7205,8 @@
       "source": "CoinDesk",
       "published": "2026-08-22T14:10:17+00:00",
       "tickers": [
-        "BNB",
-        "SAND"
+        "SAND",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -7722,8 +7725,8 @@
       "source": "CoinDesk",
       "published": "2026-08-22T12:00:00+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -7770,8 +7773,8 @@
       "source": "U.Today",
       "published": "2026-08-22T11:30:05+00:00",
       "tickers": [
-        "XRP",
-        "RLUSD"
+        "RLUSD",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple executive highlights feature that could reshape regulated assets on XRP Ledger.",
@@ -8031,9 +8034,9 @@
       "source": "Coingape",
       "published": "2026-08-22T10:39:24+00:00",
       "tickers": [
+        "RLUSD",
         "XLM",
-        "XRP",
-        "RLUSD"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "The XRP Ledger has overtaken Stellar in the stablecoin race with further growth in Ripple USD (RLUSD). This change spotlights with the increasing activity of stablecoins on XRP and the growing demand for Ripple&#8217;s stablecoin. Ad Ad XRP Ledger Outpaces Stellar In Terms of Stablecoin Supply Accor",
@@ -8614,10 +8617,10 @@
       "source": "CryptoPotato",
       "published": "2026-08-22T05:08:55+00:00",
       "tickers": [
+        "ZEC",
         "TRUMP",
-        "BNB",
         "XRP",
-        "ZEC"
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Official Trump (TRUMP) has reentered the top 100 alts after a massive 62% pump. ZCASH is up by 40%. Alts are on fire on Saturday morning.",
@@ -9231,10 +9234,10 @@
       "source": "U.Today",
       "published": "2026-08-22T00:01:00+00:00",
       "tickers": [
+        "DOGE",
         "SHIB",
-        "HYPE",
         "XRP",
-        "DOGE"
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "The picture on the market is certainly improving, but there's a long way to go forward.",
@@ -9865,8 +9868,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-21T21:56:30+00:00",
       "tickers": [
-        "ADA",
-        "ETH"
+        "ETH",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "Ethereum and Cardano are among the assets the analyst believes could benefit if the 2020 comparison holds.",
@@ -10681,8 +10684,8 @@
       "published": "2026-08-21T20:12:03+00:00",
       "tickers": [
         "PYUSD",
-        "XRP",
-        "RLUSD"
+        "RLUSD",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple's RLUSD stablecoin has crossed the $2 billion market capitalization milestone, rapidly closing the gap with PayPal USD (PYUSD).",
@@ -10971,141 +10974,6 @@
       "reposts": 0,
       "replies": 0,
       "follower_count": 14096,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Thai Baht: Extended policy pause expected from Bank of Thailand – DBS",
-      "url": "https://www.fxstreet.com/news/thai-baht-extended-policy-pause-expected-from-bank-of-thailand-dbs-202608211937",
-      "source": "FXStreet",
-      "published": "2026-08-21T19:37:00+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "DBS economists Taimur Baig and Radhika Rao expect the Bank of Thailand (BoT) to keep its policy rate unchanged at 1.00% in August, extending the pause after June’s unanimous decision.",
-      "sentiment": "Bearish",
-      "confidence": 0.7655,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "$SOL 30% 💰\n\nStill we can expect a pump, higher 📈",
-      "url": "https://x.com/THE_MAGNATE/status/2090885798266576944",
-      "source": "@THE_MAGNATE",
-      "published": "2026-08-21T19:36:35+00:00",
-      "tickers": [
-        "SOL"
-      ],
-      "currency_pairs": [],
-      "summary": "$SOL 30% 💰\n\nStill we can expect a pump, higher 📈",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 1,
-      "replies": 0,
-      "follower_count": 14868,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "No, because the real $CATE is the one shared by @chibawan_info, the rescue that named Kabosu and gave the world $DOGE,",
-      "url": "https://x.com/HexicanHeartel/status/2090885694923424205",
-      "source": "@HexicanHeartel",
-      "published": "2026-08-21T19:36:11+00:00",
-      "tickers": [
-        "DOGE"
-      ],
-      "currency_pairs": [],
-      "summary": "No, because the real $CATE is the one shared by @chibawan_info, the rescue that named Kabosu and gave the world $DOGE, $NEIRO, and $COCORO!\n\nThe one you’re advertising is defrauding people with a made up story and lied about @kabosumama.\n\nReal CA: 6YCYaiuXQubALutWr1eJB8HZ9i72hpTKgAvjR6qzpump",
-      "sentiment": "Bullish",
-      "confidence": 0.9388,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 2,
-      "reposts": 2,
-      "replies": 0,
-      "follower_count": 16579,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Japanese Yen neutral as it meets resilient US data",
-      "url": "https://www.fxstreet.com/news/japanese-yen-neutral-as-it-meets-resilient-us-data-202608211935",
-      "source": "FXStreet",
-      "published": "2026-08-21T19:35:57+00:00",
-      "tickers": [],
-      "currency_pairs": [
-        "USD",
-        "JPY"
-      ],
-      "summary": "The US Dollar (USD) is muted against the Japanese Yen (JPY). USD/JPY traded in the low 159.00s at the time of writing on Friday.",
-      "sentiment": "Bearish",
-      "confidence": 0.486,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "US",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "what happens next? $LTC",
-      "url": "https://x.com/Waleedahmed234/status/2090885576681562358",
-      "source": "@Waleedahmed234",
-      "published": "2026-08-21T19:35:42+00:00",
-      "tickers": [
-        "LTC"
-      ],
-      "currency_pairs": [],
-      "summary": "what happens next? $LTC",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 1,
-      "reposts": 0,
-      "replies": 1,
-      "follower_count": 17234,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Onchain, in court: What happened in crypto legal news this week",
-      "url": "https://cointelegraph.com/news/on-chain-in-court-crypto-legal-news5?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "CoinTelegraph",
-      "published": "2026-08-21T19:19:27+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The CFTC ordered a trading ban for former Alameda and FTX executives, and US prosecutors opposed a motion from a US soldier accused of profiting from the removal of Nicolas Maduro.",
-      "sentiment": "Bearish",
-      "confidence": 0.7009,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
