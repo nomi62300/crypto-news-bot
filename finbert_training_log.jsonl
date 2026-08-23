@@ -2563,3 +2563,6 @@
 {"headline": "Top global stories this week: Alibaba, Unitree Robotics among notable names", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.9202, "timestamp": "2026-08-23T16:24:07.258717+00:00"}
 {"headline": "Fed's Kashkari not worried about rising US Treasury yields", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.5237, "timestamp": "2026-08-23T16:50:54.085256+00:00"}
 {"headline": "Michael Burry dumps Alibaba for JD.com, says BABA would need to fall 50%", "summary": "", "finbert_label": "Bearish", "finbert_score": 0.4912, "timestamp": "2026-08-23T18:17:16.561149+00:00"}
+{"headline": "SA Asks: Will Bessent's recent moves to curb bond yields boost the stock market?", "summary": "", "finbert_label": "Bullish", "finbert_score": 0.9101, "timestamp": "2026-08-23T18:51:39.438461+00:00"}
+{"headline": "'Spider-Man: Brand New Day' continues to dominate box office", "summary": "", "finbert_label": "Bullish", "finbert_score": 0.9125, "timestamp": "2026-08-23T18:51:39.486991+00:00"}
+{"headline": "Hedge funds and mutual funds split on the AI trade - Goldman", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.9201, "timestamp": "2026-08-23T18:51:39.535959+00:00"}
