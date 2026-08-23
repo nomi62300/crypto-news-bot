@@ -1,7 +1,26 @@
 window.newsData = {
-  "updated_at": "2026-08-23T21:46:09.968086+00:00",
-  "total": 429,
+  "updated_at": "2026-08-23T22:00:39.346452+00:00",
+  "total": 426,
   "articles": [
+    {
+      "title": "OpenAI and Anthropic build out Washington lobbying machines to shape AI legislation",
+      "url": "https://cryptobriefing.com/openai-anthropic-lobbying-ai-legislation/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-23T21:44:31+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The increased lobbying by AI firms highlights the growing influence of tech companies in shaping regulatory landscapes, impacting future AI governance. \n The post  OpenAI and Anthropic build out Washington lobbying machines to shape AI legislation  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.6131,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "US",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Crypto Market Surge: $500B Added as Market Cap Hits $2.74T",
       "url": "https://news.bitcoin.com/market-updates/crypto-market-surge-500b-added-as-market-cap-hits-2-74t/",
@@ -68,6 +87,32 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
+      "title": "M 5.3 - 127 km W of Lata, Solomon Islands",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tn0t",
+      "source": "USGS",
+      "published": "2026-08-23T21:32:21.749000+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "127 km W of Lata, Solomon Islands",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmxn",
+          "published": "2026-08-23T08:12:38.133000+00:00"
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "usgs_magnitude",
+      "source_type": "rss",
+      "event_source": "usgs",
+      "magnitude": 5.3
+    },
+    {
       "title": "S&P 500 dividend yields fall below 10Y Treasury note income, fewest stocks outyielding bonds since 2007",
       "url": "https://cryptobriefing.com/sp500-dividend-yields-fall-below-treasury/",
       "source": "Crypto Briefing",
@@ -110,7 +155,8 @@ window.newsData = {
       "sentiment_engine": "usgs_magnitude",
       "source_type": "rss",
       "event_source": "usgs",
-      "magnitude": 5.2
+      "magnitude": 5.2,
+      "is_crypto_relevant": true
     },
     {
       "title": "Trump family moves into banking as OCC grants charter for stablecoin trust company",
@@ -137,13 +183,13 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-23T21:10:58+00:00",
       "tickers": [
+        "JST",
         "SOL",
-        "HYPE",
-        "ETH",
-        "XRP",
         "BTC",
+        "XRP",
+        "HYPE",
         "LINK",
-        "JST"
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "US-listed crypto exchange-traded funds outside Bitcoin and Ethereum drew nearly $90 million last week. Investors followed a sharp market rally into XRP, Solana, Chainlink and Hyperliquid. XRP products led the group with $39.78 million of net inflows in the week ended Aug. 21, their strongest showing",
@@ -177,6 +223,25 @@ window.newsData = {
       "other_sources": [],
       "category": "GEOPOLITICS",
       "region": "US",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "DeFi lending protocol Term Finance loses an estimated $8.5 million to governance exploit",
+      "url": "https://www.theblock.co/news/defi/2026-08-23-defi-lending-protocol-term-finance-loses-an-estimated-8-5-million-to-governance-exploit-412543",
+      "source": "The Block",
+      "published": "2026-08-23T20:50:45+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Term vault proposals face a seven-day delay and can be vetoed by liquidity providers, yet those controls apparently did not stop the exploit.",
+      "sentiment": "Bearish",
+      "confidence": 0.7706,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
@@ -435,8 +500,8 @@ window.newsData = {
       "published": "2026-08-23T20:05:10+00:00",
       "tickers": [
         "BTC",
-        "ETH",
-        "JST"
+        "JST",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "US spot Bitcoin and Ethereum ETFs recorded their strongest inflow week of 2026 as a sharp crypto rally pulled investors back into funds that had struggled to attract sustained demand for much of the year. Bitcoin ETFs drew $1.918 billion in the five trading sessions through Aug. 21, while funds hold",
@@ -1494,25 +1559,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Iran dismisses new US sanctions threat as ‘desperate’ effort",
-      "url": "https://cryptobriefing.com/iran-dismisses-new-us-sanctions-threat-as-desperate-effort/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-23T17:12:06+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The ongoing U.S.-Iran tensions may lead to increased geopolitical instability, affecting global markets and political dynamics in the region. \n The post  Iran dismisses new US sanctions threat as &#8216;desperate&#8217; effort  appeared first on  Crypto Briefing .",
-      "sentiment": "Bearish",
-      "confidence": 0.8715,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "$BNB Cat SZN Is Here\n\nBNB will have a 100M+ cat runner\n\nHard working devs, dedicated community & a viral meme on a top",
       "url": "https://x.com/JakeGagain/status/2091572752805224653",
       "source": "@JakeGagain",
@@ -1954,8 +2000,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-23T16:30:41+00:00",
       "tickers": [
-        "XRP",
         "BTC",
+        "XRP",
         "ETH"
       ],
       "currency_pairs": [],
@@ -3024,8 +3070,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-23T13:00:19+00:00",
       "tickers": [
-        "ATH",
-        "SOL"
+        "SOL",
+        "ATH"
       ],
       "currency_pairs": [],
       "summary": "A defining industry trend has been the growth of RWAs, with Solana doubling its momentum.",
@@ -3180,8 +3226,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-23T12:00:27+00:00",
       "tickers": [
-        "BNB",
-        "BTC"
+        "BTC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "BTC cools below $80,000 as Binance sellers challenge ETF-backed demand.",
@@ -3298,8 +3344,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-23T11:46:05+00:00",
       "tickers": [
-        "SHIB",
-        "JST"
+        "JST",
+        "SHIB"
       ],
       "currency_pairs": [],
       "summary": "Shiba Inu (SHIB) joins an elite 6-asset lineup as Japan ends its 4-year crypto licensing freeze.",
@@ -3360,8 +3406,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-23T11:30:19+00:00",
       "tickers": [
-        "USDC",
-        "USDT"
+        "USDT",
+        "USDC"
       ],
       "currency_pairs": [],
       "summary": "Stablecoins promise a constant $1, yet USDC has traded at $0.87, Tether&#8217;s USDT at $0.88, and Terra&#8217;s UST collapsed to virtually zero in a crash that erased roughly $40 billion. As recently as November 2025, a DeFi stablecoin called xUSD lost more than half its value in a single day. The",
@@ -3864,8 +3910,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-23T09:30:15+00:00",
       "tickers": [
-        "SAND",
-        "BNB"
+        "BNB",
+        "SAND"
       ],
       "currency_pairs": [],
       "summary": "Metaverse platform The Sandbox confirmed recently that an exploited bridge let an attacker mint unbacked SAND on Base and BNB Smart Chain, prompting an immediate shutdown. Exploit Hits Base and BSC Bridges Sandbox, the metaverse gaming platform behind the SAND token, contained a vulnerability affect",
@@ -3886,11 +3932,11 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-23T09:11:01+00:00",
       "tickers": [
+        "TRUMP",
         "CRO",
-        "WLD",
-        "HYPE",
         "BTC",
-        "TRUMP"
+        "HYPE",
+        "WLD"
       ],
       "currency_pairs": [],
       "summary": "TRUMP, CRO, and WLD have dumped the most during the Sunday correction.",
@@ -4108,27 +4154,6 @@ window.newsData = {
       "reposts": 4,
       "replies": 4,
       "follower_count": 76446,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "M 5.2 - 124 km ESE of Kirakira, Solomon Islands",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmxn",
-      "source": "USGS",
-      "published": "2026-08-23T08:12:38.133000+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "124 km ESE of Kirakira, Solomon Islands",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "usgs_magnitude",
-      "source_type": "rss",
-      "event_source": "usgs",
-      "magnitude": 5.2,
       "is_crypto_relevant": true
     },
     {
@@ -4786,8 +4811,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-23T06:00:13+00:00",
       "tickers": [
-        "BCH",
-        "BTC"
+        "BTC",
+        "BCH"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Cash follows the broader market trend, but investors still need to remain cautious.",
@@ -4884,8 +4909,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-23T05:47:42+00:00",
       "tickers": [
-        "XRP",
         "BTC",
+        "XRP",
         "ETH"
       ],
       "currency_pairs": [],
@@ -5073,8 +5098,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-23T05:00:18+00:00",
       "tickers": [
-        "ZRO",
-        "LINK"
+        "LINK",
+        "ZRO"
       ],
       "currency_pairs": [],
       "summary": "Chainlink has been the biggest winner of LayerZero's woes.",
@@ -6074,34 +6099,13 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "M 4.5 - 117 km SW of Puerto Madero, Mexico",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmuq",
-      "source": "USGS",
-      "published": "2026-08-22T21:53:41.193000+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "117 km SW of Puerto Madero, Mexico",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "geopolitics",
-      "source_flag": null,
-      "sentiment_engine": "usgs_magnitude",
-      "source_type": "rss",
-      "event_source": "usgs",
-      "magnitude": 4.5,
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Eric Trump Denies New Coin Launch as TRUMP Jumps 38%",
       "url": "https://thedefiant.io/news/tokens/eric-trump-denies-new-coin-launch-as-trump-jumps-38",
       "source": "The Defiant",
       "published": "2026-08-22T21:21:36+00:00",
       "tickers": [
-        "MELANIA",
         "TRUMP",
+        "MELANIA",
         "ETH"
       ],
       "currency_pairs": [],
@@ -7145,8 +7149,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-22T15:45:52+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP exploded to a six-month high on its Bitcoin chart, completing double golden cross signals.",
@@ -7329,8 +7333,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-22T14:10:17+00:00",
       "tickers": [
-        "SAND",
-        "BNB"
+        "BNB",
+        "SAND"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -7897,8 +7901,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-22T11:30:05+00:00",
       "tickers": [
-        "RLUSD",
-        "XRP"
+        "XRP",
+        "RLUSD"
       ],
       "currency_pairs": [],
       "summary": "Ripple executive highlights feature that could reshape regulated assets on XRP Ledger.",
@@ -8158,8 +8162,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-22T10:39:24+00:00",
       "tickers": [
-        "RLUSD",
         "XRP",
+        "RLUSD",
         "XLM"
       ],
       "currency_pairs": [],
@@ -8572,9 +8576,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-22T06:42:47+00:00",
       "tickers": [
-        "VSN",
-        "XRP",
         "BTC",
+        "XRP",
+        "VSN",
         "JST"
       ],
       "currency_pairs": [],
@@ -8719,8 +8723,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-22T05:37:43+00:00",
       "tickers": [
-        "ZEC",
-        "BTC"
+        "BTC",
+        "ZEC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -8741,10 +8745,10 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-22T05:08:55+00:00",
       "tickers": [
-        "TRUMP",
         "XRP",
-        "BNB",
-        "ZEC"
+        "TRUMP",
+        "ZEC",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Official Trump (TRUMP) has reentered the top 100 alts after a massive 62% pump. ZCASH is up by 40%. Alts are on fire on Saturday morning.",
@@ -8786,8 +8790,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-22T05:00:36+00:00",
       "tickers": [
-        "BGB",
-        "SPCXB"
+        "SPCXB",
+        "BGB"
       ],
       "currency_pairs": [],
       "summary": "For years, getting into a promising private company before it went public was something only a small group of investors could do. By the time companies like SpaceX or OpenAI list on public markets, most of the early gains have already gone. Venture capital firms and big institutional investors got t",
@@ -9358,10 +9362,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-22T00:01:00+00:00",
       "tickers": [
+        "DOGE",
         "XRP",
-        "HYPE",
         "SHIB",
-        "DOGE"
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "The picture on the market is certainly improving, but there's a long way to go forward.",
@@ -9966,66 +9970,21 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Bitcoin Posts Biggest Week Since 2024 as Trump Pushes Senate on CLARITY Act",
-      "url": "https://thedefiant.io/news/markets/bitcoin-reaches-79-500-as-2-75-billion-liquidation-claim-lacks-detail",
-      "source": "The Defiant",
-      "published": "2026-08-21T21:56:35+00:00",
-      "tickers": [
-        "BTC"
-      ],
+      "title": "Goldman flags China stimulus risk as growth slips further below target",
+      "url": "https://investinglive.com/central-banks/goldman-flags-china-stimulus-risk-as-growth-slips-further-below-target/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
       "currency_pairs": [],
-      "summary": "Bitcoin gained 22.6% over seven days, its largest advance over any seven-day window since November 2024, after the president told crypto executives at the White House that Congress needs to pass market structure legislation.",
-      "sentiment": "Bullish",
-      "confidence": 0.8607,
+      "summary": "",
+      "sentiment": "Bearish",
+      "confidence": 0.9375,
       "other_sources": [],
-      "category": "CRYPTO",
-      "region": "US",
-      "asset_class": "crypto",
+      "category": "FOREX",
+      "region": "ASIA",
+      "asset_class": "forex",
       "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Altcoins Could See Up to 1,000x Returns Post-Pullback, Analyst Predicts",
-      "url": "https://cryptopotato.com/altcoins-could-see-up-to-1000x-returns-post-pullback-analyst-predicts/",
-      "source": "CryptoPotato",
-      "published": "2026-08-21T21:56:30+00:00",
-      "tickers": [
-        "ETH",
-        "ADA"
-      ],
-      "currency_pairs": [],
-      "summary": "Ethereum and Cardano are among the assets the analyst believes could benefit if the 2020 comparison holds.",
-      "sentiment": "Bullish",
-      "confidence": 0.8454,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Smart Money Helping Support Bitcoin Rebound, Says Pantera Capital",
-      "url": "https://bitcoinmagazine.com/news/pantera-capital-says-bitcoin-to-go-higher",
-      "source": "Bitcoin Magazine",
-      "published": "2026-08-21T21:52:26+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitcoin Magazine  \n  \n Smart Money Helping Support Bitcoin Rebound, Says Pantera Capital  \n Pantera Capital's portfolio manager has said it's hard not to be bullish with bitcoin's recent price surges.  \n This post  Smart Money Helping Support Bitcoin Rebound, Says Pantera Capital  first appeared on",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
+      "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -10342,25 +10301,6 @@ window.newsData = {
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Goldman flags China stimulus risk as growth slips further below target",
-      "url": "https://investinglive.com/central-banks/goldman-flags-china-stimulus-risk-as-growth-slips-further-below-target/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.9375,
-      "other_sources": [],
-      "category": "FOREX",
-      "region": "ASIA",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
     }
