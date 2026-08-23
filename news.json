@@ -1,7 +1,100 @@
 {
-  "updated_at": "2026-08-23T08:58:27.003968+00:00",
-  "total": 580,
+  "updated_at": "2026-08-23T09:22:03.649125+00:00",
+  "total": 578,
   "articles": [
+    {
+      "title": "Hyperliquid (HYPE) Hits New All-Time High, Bitcoin (BTC) Cools Off: Weekend Watch",
+      "url": "https://cryptopotato.com/hyperliquid-hype-hits-new-all-time-high-bitcoin-btc-cools-off-weekend-watch/",
+      "source": "CryptoPotato",
+      "published": "2026-08-23T09:11:01+00:00",
+      "tickers": [
+        "BTC",
+        "HYPE",
+        "CRO",
+        "WLD",
+        "TRUMP"
+      ],
+      "currency_pairs": [],
+      "summary": "TRUMP, CRO, and WLD have dumped the most during the Sunday correction.",
+      "sentiment": "Bearish",
+      "confidence": 0.7294,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Ripple CEO: US Has Never Been Closer to Clear Crypto Rules",
+      "url": "https://u.today/ripple-ceo-us-has-never-been-closer-to-clear-crypto-rules",
+      "source": "U.Today",
+      "published": "2026-08-23T09:01:26+00:00",
+      "tickers": [
+        "XRP"
+      ],
+      "currency_pairs": [],
+      "summary": "Ripple CEO Brad Garlinghouse believes the United States is closer than ever to establishing clear rules for the cryptocurrency industry.",
+      "sentiment": "Bullish",
+      "confidence": 0.8953,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "US",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Why ZachXBT’s website may reject crypto fraud cases from 7 countries",
+      "url": "https://ambcrypto.com/why-zachxbts-website-may-reject-crypto-fraud-cases-from-7-countries/",
+      "source": "AMBCrypto",
+      "published": "2026-08-23T09:00:55+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Will ZachXBT's new website affect how crypto-fraud cases are investigated?",
+      "sentiment": "Bearish",
+      "confidence": 0.879,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "America is creating a new class of crypto banks – but they aren’t really banks",
+      "url": "https://cryptoslate.com/america-is-creating-a-new-class-of-crypto-banks-but-they-arent-really-banks/",
+      "source": "CryptoSlate",
+      "published": "2026-08-23T09:00:49+00:00",
+      "tickers": [
+        "XRP",
+        "WLFI"
+      ],
+      "currency_pairs": [],
+      "summary": "Circle now has a federal bank charter. However, the charter provides no ordinary checking accounts, FDIC-insured savings accounts, or mortgages. Circle National Trust is part of a new federal cohort built around custody, fiduciary administration, stablecoin reserves, and settlement. Ripple, BitGo, F",
+      "sentiment": "Bullish",
+      "confidence": 0.7511,
+      "other_sources": [
+        {
+          "source": "Crypto Slate (PR)",
+          "url": "https://cryptoslate.com/america-is-creating-a-new-class-of-crypto-banks-but-they-arent-really-banks/",
+          "published": "2026-08-23T09:00:49+00:00"
+        }
+      ],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "@cz_binance Just keeps getting better on $BNB",
       "url": "https://x.com/KMCrypton/status/2091449265272828363",
@@ -318,7 +411,8 @@
       "sentiment_engine": "usgs_magnitude",
       "source_type": "rss",
       "event_source": "usgs",
-      "magnitude": 5.2
+      "magnitude": 5.2,
+      "is_crypto_relevant": true
     },
     {
       "title": "🚨 TRON IS DOMINATING STABLECOIN GROWTH! 🚨\n\nTRON ADDED A MASSIVE $903.4M IN STABLECOIN MARKET CAP IN JUST 7 DAYS.\n\n🔥",
@@ -1526,8 +1620,8 @@
       "source": "AMBCrypto",
       "published": "2026-08-23T05:00:18+00:00",
       "tickers": [
-        "ZRO",
-        "LINK"
+        "LINK",
+        "ZRO"
       ],
       "currency_pairs": [],
       "summary": "Chainlink has been the biggest winner of LayerZero's woes.",
@@ -4066,8 +4160,8 @@
       "source": "AMBCrypto",
       "published": "2026-08-22T18:00:48+00:00",
       "tickers": [
-        "FORM",
         "BTC",
+        "FORM",
         "JST"
       ],
       "currency_pairs": [],
@@ -4844,33 +4938,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "How a former crypto user’s archived Binance data ended up in a foreign terrorism prosecution",
-      "url": "https://cryptoslate.com/binance-left-russia-years-ago-but-moscow-still-got-customer-records-used-in-a-terrorism-case/",
-      "source": "CryptoSlate",
-      "published": "2026-08-22T15:05:23+00:00",
-      "tickers": [
-        "BNB"
-      ],
-      "currency_pairs": [],
-      "summary": "When Russian investigators detained IT specialist Yuri Belenkiy in September 2025, Binance had been formally out of Russia for almost two years. Its customer records, however, were still available. Law enforcement documents reviewed by Reuters show that Binance supplied personal and transaction data",
-      "sentiment": "Bearish",
-      "confidence": 0.9295,
-      "other_sources": [
-        {
-          "source": "Crypto Slate (PR)",
-          "url": "https://cryptoslate.com/binance-left-russia-years-ago-but-moscow-still-got-customer-records-used-in-a-terrorism-case/",
-          "published": "2026-08-22T15:05:23+00:00"
-        }
-      ],
-      "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "You have 6 hour\n\nDrop your $SOL address\n\nLike & RT\n\nMust be following 🔔",
       "url": "https://x.com/AlphaLabx/status/2091178854056370199",
       "source": "@AlphaLabx",
@@ -4893,27 +4960,6 @@
       "reposts": 1,
       "replies": 1,
       "follower_count": 153951,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Why Galaxy Research believes THIS level could end Bitcoin’s bear market",
-      "url": "https://ambcrypto.com/why-galaxy-research-believes-this-level-could-end-bitcoins-bear-market/",
-      "source": "AMBCrypto",
-      "published": "2026-08-22T15:00:56+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "There was still no 'full participation' by institutions despite BTC's strong Q3 recovery.",
-      "sentiment": "Bearish",
-      "confidence": 0.8982,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -5040,8 +5086,8 @@
       "source": "CoinDesk",
       "published": "2026-08-22T14:10:17+00:00",
       "tickers": [
-        "SAND",
-        "BNB"
+        "BNB",
+        "SAND"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -5703,8 +5749,8 @@
       "source": "U.Today",
       "published": "2026-08-22T11:30:05+00:00",
       "tickers": [
-        "RLUSD",
-        "XRP"
+        "XRP",
+        "RLUSD"
       ],
       "currency_pairs": [],
       "summary": "Ripple executive highlights feature that could reshape regulated assets on XRP Ledger.",
@@ -5986,9 +6032,9 @@
       "source": "Coingape",
       "published": "2026-08-22T10:39:24+00:00",
       "tickers": [
-        "RLUSD",
         "XRP",
-        "XLM"
+        "XLM",
+        "RLUSD"
       ],
       "currency_pairs": [],
       "summary": "The XRP Ledger has overtaken Stellar in the stablecoin race with further growth in Ripple USD (RLUSD). This change spotlights with the increasing activity of stablecoins on XRP and the growing demand for Ripple&#8217;s stablecoin. Ad Ad XRP Ledger Outpaces Stellar In Terms of Stablecoin Supply Accor",
@@ -6224,11 +6270,11 @@
       "source": "BeInCrypto",
       "published": "2026-08-22T08:20:49+00:00",
       "tickers": [
+        "POL",
+        "BNB",
         "ETH",
         "MATIC",
-        "POL",
-        "SAND",
-        "BNB"
+        "SAND"
       ],
       "currency_pairs": [],
       "summary": "The Sandbox said it has contained a vulnerability in the SAND cross-chain bridge on Base and BNB Smart Chain after an attacker minted unbacked tokens on both networks. The project put the impact at under 0.01% of the total SAND supply. It said that tokens on Ethereum (ETH) and Polygon (POL) are unaf",
@@ -6473,8 +6519,8 @@
       "tickers": [
         "XRP",
         "BTC",
-        "VSN",
-        "JST"
+        "JST",
+        "VSN"
       ],
       "currency_pairs": [],
       "summary": "Vice President JD Vance sat down with Newsmax&#8217;s Carl Higbie Frontline on August 20, 2026, just hours after U.S. national debt topped $40 trillion. During the segment, Higbie asked Vance whether a crypto reserve, potentially holding Bitcoin, XRP, and other digital assets, could help bring down",
@@ -6618,8 +6664,8 @@
       "source": "CoinDesk",
       "published": "2026-08-22T05:37:43+00:00",
       "tickers": [
-        "BTC",
-        "ZEC"
+        "ZEC",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -6640,8 +6686,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-22T05:08:55+00:00",
       "tickers": [
-        "XRP",
         "TRUMP",
+        "XRP",
         "ZEC",
         "BNB"
       ],
@@ -6685,8 +6731,8 @@
       "source": "Coingape",
       "published": "2026-08-22T05:00:36+00:00",
       "tickers": [
-        "BGB",
-        "SPCXB"
+        "SPCXB",
+        "BGB"
       ],
       "currency_pairs": [],
       "summary": "For years, getting into a promising private company before it went public was something only a small group of investors could do. By the time companies like SpaceX or OpenAI list on public markets, most of the early gains have already gone. Venture capital firms and big institutional investors got t",
@@ -7279,8 +7325,8 @@
       "published": "2026-08-22T00:01:00+00:00",
       "tickers": [
         "XRP",
-        "SHIB",
         "HYPE",
+        "SHIB",
         "DOGE"
       ],
       "currency_pairs": [],
@@ -8727,8 +8773,8 @@
       "source": "U.Today",
       "published": "2026-08-21T20:12:03+00:00",
       "tickers": [
-        "RLUSD",
         "XRP",
+        "RLUSD",
         "PYUSD"
       ],
       "currency_pairs": [],
@@ -9930,11 +9976,11 @@
       "source": "The Block",
       "published": "2026-08-21T17:24:02+00:00",
       "tickers": [
-        "HYPE",
-        "BTC",
         "XRP",
+        "BTC",
+        "LINK",
         "ZEC",
-        "LINK"
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "Amid this week's crypto rally, HYPE is up nearly 40%, while other altcoins such as XRP, ZEC and LINK have risen over 30%.",
@@ -10001,8 +10047,8 @@
       "source": "Coingape",
       "published": "2026-08-21T17:12:17+00:00",
       "tickers": [
-        "BTC",
-        "OP"
+        "OP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin, Crypto LIVE Updates Today August 21, 2026: In the coming week, traders will be focused on U.S. PCE inflation, GDP growth and job data to gauge the potential of the latest crypto market rally continuing. Bitcoin rallied massively this week, as institutional demand for the crypto grew, liquid",
@@ -10745,8 +10791,8 @@
       "source": "Coingape",
       "published": "2026-08-21T16:02:42+00:00",
       "tickers": [
-        "PI",
-        "BTC"
+        "BTC",
+        "PI"
       ],
       "currency_pairs": [],
       "summary": "Pi Network price is nearing $0.10 as a cryptocurrency rally strengthens momentum across major digital assets.  Pi Coin is up by  4% to $0.0939 in 24 hours following recovery.  The crypto market rose by 6.09% over the past 24 hours and currently has a market cap of $2.57 trillion. Bitcoin price reach",
@@ -10857,8 +10903,8 @@
       "source": "CoinTelegraph",
       "published": "2026-08-21T15:50:08+00:00",
       "tickers": [
-        "BTC",
-        "ZEC"
+        "ZEC",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin rallied as Treasury bond buybacks fueled the “not-QE” trade, while Metaplanet expanded to the US and Cypherpunk made a $33 million Zcash mining bet.",
@@ -11528,8 +11574,8 @@
       "source": "Decrypt",
       "published": "2026-08-21T14:27:31+00:00",
       "tickers": [
-        "BTC",
-        "ZEC"
+        "ZEC",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Meanwhile crypto majors and alts continue to soar, with BTC nearing $80k and alts like Pump and ZEC putting up big candles.",
@@ -11818,8 +11864,8 @@
       "source": "U.Today",
       "published": "2026-08-21T13:30:00+00:00",
       "tickers": [
-        "RLUSD",
         "ETH",
+        "RLUSD",
         "XRP"
       ],
       "currency_pairs": [],
@@ -12784,8 +12830,8 @@
       "source": "Coingape",
       "published": "2026-08-21T10:27:34+00:00",
       "tickers": [
-        "FORM",
         "ETH",
+        "FORM",
         "JST"
       ],
       "currency_pairs": [],
@@ -13273,8 +13319,8 @@
       "source": "U.Today",
       "published": "2026-08-21T09:25:30+00:00",
       "tickers": [
-        "BUIDL",
-        "SOL"
+        "SOL",
+        "BUIDL"
       ],
       "currency_pairs": [],
       "summary": "Shinhan replicates BlackRock’s BUIDL fund model on Solana, launching an offshore won RWA pilot to capture a share of the projected $30 trillion tokenization boom.",
@@ -13308,92 +13354,6 @@
       "source_flag": null,
       "sentiment_engine": "vader",
       "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Upbit trading volume spikes 273% as South Korean investors re-enter crypto",
-      "url": "https://www.theblock.co/news/markets/2026-08-21-upbit-trading-volume-spikes-412435",
-      "source": "The Block",
-      "published": "2026-08-21T09:17:58+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "One analyst said South Korean capital is slowly moving back to crypto, as investors are 'return-chasing' rather than 'asset-loyal.'",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Treasury's latest measure isn't QE or YCC. Still, bitcoin is skyrocketing. Here's why.",
-      "url": "https://www.coindesk.com/markets/2026/08/21/treasury-s-latest-measure-isn-t-qe-or-ycc-still-bitcoin-is-skyrocketing-here-s-why",
-      "source": "CoinDesk",
-      "published": "2026-08-21T09:17:15+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Avalanche’s Nahas: Token prices are down, but ‘I’ve never seen more opportunities’ in crypto",
-      "url": "https://www.theblock.co/news/ecosystems/2026-08-21-avalanches-nahas-token-prices-are-down-but-ive-never-seen-more-opportunities-in-crypto-412431",
-      "source": "The Block",
-      "published": "2026-08-21T09:00:26+00:00",
-      "tickers": [
-        "AVAX"
-      ],
-      "currency_pairs": [],
-      "summary": "Ava Labs CBO John Nahas says crypto prices are down, but real-world adoption is creating more opportunities across the sector.",
-      "sentiment": "Bullish",
-      "confidence": 0.9047,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "$BTC says hello \n\nAre you still waiting for 50k ?",
-      "url": "https://x.com/the_jujukey/status/2090724943554126172",
-      "source": "@the_jujukey",
-      "published": "2026-08-21T08:57:24+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "$BTC says hello \n\nAre you still waiting for 50k ?",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 10249,
       "is_crypto_relevant": true
     },
     {
@@ -13771,7 +13731,7 @@
     }
   ],
   "forex_sentiment": {
-    "updated_at": "2026-08-23T08:20:51.674258+00:00",
+    "updated_at": "2026-08-23T09:20:58.509294+00:00",
     "pairs": [
       {
         "symbol": "GBPUSD",
@@ -15305,11 +15265,11 @@
     ]
   },
   "crypto_global_snapshot": {
-    "updated_at": "2026-08-23T08:21:56.773684+00:00",
+    "updated_at": "2026-08-23T09:22:03.646968+00:00",
     "source": "coingecko",
-    "market_cap": 2580145123193.489,
-    "market_cap_change_pct_24h": -4.925183783594355,
-    "volume_24h": 90868493520.32417,
-    "btc_dominance": 59.14651170276113
+    "market_cap": 2586988815482.2695,
+    "market_cap_change_pct_24h": -3.9635180935855407,
+    "volume_24h": 88164590596.74345,
+    "btc_dominance": 59.19771420294752
   }
 }
