@@ -1,7 +1,151 @@
 window.newsData = {
-  "updated_at": "2026-08-23T15:01:45.567875+00:00",
-  "total": 521,
+  "updated_at": "2026-08-23T15:22:59.813901+00:00",
+  "total": 515,
   "articles": [
+    {
+      "title": "Brighton thrashes 10-man Aston Villa 4-0 in Premier League season opener",
+      "url": "https://cryptobriefing.com/brighton-thrashes-aston-villa-season-opener/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-23T15:10:08+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Brighton's dominant win sets a strong tone for their season, while Villa faces early pressure to address defensive vulnerabilities. \n The post  Brighton thrashes 10-man Aston Villa 4-0 in Premier League season opener  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.8298,
+      "other_sources": [
+        {
+          "source": "Crypto Briefing",
+          "url": "https://cryptobriefing.com/brighton-early-lead-aston-villa-premier-league/",
+          "published": "2026-08-23T13:28:16+00:00"
+        }
+      ],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Solana RWA value surpasses $4B, setting new all-time high",
+      "url": "https://cryptobriefing.com/solana-rwa-value-surpasses-4-billion/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-23T15:06:32+00:00",
+      "tickers": [
+        "ETH",
+        "SOL"
+      ],
+      "currency_pairs": [],
+      "summary": "Solana's rapid RWA growth highlights its potential to challenge Ethereum's dominance, reshaping the competitive landscape of tokenized assets. \n The post  Solana RWA value surpasses $4B, setting new all-time high  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.936,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Nvidia to compete with US, Chinese AI models under $6B Poolside deal",
+      "url": "https://seekingalpha.com/news/4636058-nvidia-compete-us-chinese-ai-models-under-6b-poolside-deal?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-23T15:05:59+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bullish",
+      "confidence": 0.8451,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Zelenskyy seeks more Patriot missiles amid Russia-Ukraine conflict: Pence",
+      "url": "https://cryptobriefing.com/zelenskyy-seeks-more-patriot-missiles-amid-russia-ukraine-conflict-pence/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-23T15:00:43+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Zelenskyy's missile request underscores Ukraine's reliance on Western aid, heightening NATO-Russia tensions and potential military escalation. \n The post  Zelenskyy seeks more Patriot missiles amid Russia-Ukraine conflict: Pence  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.8715,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Manchester City secures late winner against Bournemouth via VAR",
+      "url": "https://cryptobriefing.com/manchester-city-late-winner-bournemouth-var/",
+      "source": "Crypto Briefing",
+      "published": "2026-08-23T15:00:37+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "City's late VAR-assisted win highlights their resilience and tactical depth, while Bournemouth's strong showing signals potential for future upsets. \n The post  Manchester City secures late winner against Bournemouth via VAR  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "SA Asks: How concerned should Meta investors be about child safety lawsuits?",
+      "url": "https://seekingalpha.com/news/4636047-sa-asks-how-concerned-should-meta-investors-be-about-child-safety-lawsuits?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-08-23T15:00:35+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.867,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Crypto card spending tops $1 billion as stablecoins move into everyday purchases",
+      "url": "https://www.coindesk.com/business/2026/08/23/crypto-card-spending-tops-usd1-billion-as-stablecoins-move-into-everyday-purchases",
+      "source": "CoinDesk",
+      "published": "2026-08-23T15:00:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bullish",
+      "confidence": 0.7553,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Liverpool announces starting lineup for match against Newcastle",
       "url": "https://cryptobriefing.com/liverpool-starting-lineup-newcastle-premier-league/",
@@ -637,8 +781,8 @@ window.newsData = {
       "source": "Crypto Briefing",
       "published": "2026-08-23T13:48:48+00:00",
       "tickers": [
-        "BTC",
-        "STX"
+        "STX",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Stacks' integration with Bitcoin enhances security and trust, potentially boosting adoption of decentralized applications and financial products. \n The post  Stacks enables Bitcoin finality for all transactions  appeared first on  Crypto Briefing .",
@@ -703,25 +847,6 @@ window.newsData = {
       "summary": "Bournemouth's early lead against Manchester City highlights potential vulnerabilities in the champions, challenging their dominance narrative. \n The post  Bournemouth takes early lead against Manchester City with Tavernier goal  appeared first on  Crypto Briefing .",
       "sentiment": "Bullish",
       "confidence": 0.8185,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Brighton races to early 2-0 lead against Aston Villa in Premier League season opener",
-      "url": "https://cryptobriefing.com/brighton-early-lead-aston-villa-premier-league/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-23T13:28:16+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Brighton's early dominance may set a confident tone for their season, but past comebacks remind them to maintain focus throughout matches. \n The post  Brighton races to early 2-0 lead against Aston Villa in Premier League season opener  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.6806,
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
@@ -899,8 +1024,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-23T13:00:19+00:00",
       "tickers": [
-        "ATH",
-        "SOL"
+        "SOL",
+        "ATH"
       ],
       "currency_pairs": [],
       "summary": "A defining industry trend has been the growth of RWAs, with Solana doubling its momentum.",
@@ -933,6 +1058,25 @@ window.newsData = {
       "asset_class": "stocks",
       "source_flag": null,
       "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Crypto’s next billion users might be AI agents, and they’re paying with stablecoins",
+      "url": "https://www.coindesk.com/business/2026/08/23/crypto-s-next-billion-users-might-be-ai-agents-and-they-re-paying-with-stablecoins",
+      "source": "CoinDesk",
+      "published": "2026-08-23T13:00:00+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -1091,48 +1235,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "TI 2026 Grand Final goes the distance as Team Spirit faces Team Vision in Game 5",
-      "url": "https://cryptobriefing.com/ti-2026-grand-final-game-5/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-23T12:44:11+00:00",
-      "tickers": [
-        "VSN"
-      ],
-      "currency_pairs": [],
-      "summary": "The intense TI 2026 Grand Final highlights the growing global appeal and competitive depth of Dota 2, setting new standards for esports events. \n The post  TI 2026 Grand Final goes the distance as Team Spirit faces Team Vision in Game 5  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Binance bStocks and xStocks account for 70% of DEX trading volume in tokenized equities",
-      "url": "https://cryptobriefing.com/binance-bstocks-xstocks-dex-trading-volume/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-23T12:38:51+00:00",
-      "tickers": [
-        "BNB"
-      ],
-      "currency_pairs": [],
-      "summary": "The dominance of Binance's bStocks in tokenized equities trading highlights the potential for decentralized finance to reshape traditional stock markets. \n The post  Binance bStocks and xStocks account for 70% of DEX trading volume in tokenized equities  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.6011,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Another DeFi Hack: Term Labs Loses $8.5 Million in Governance Exploit",
       "url": "https://beincrypto.com/term-labs-defi-exploit-vaults/",
       "source": "BeInCrypto",
@@ -1155,25 +1257,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Norway commits $9.2B in Ukraine aid for 2027, matching current year’s spending",
-      "url": "https://cryptobriefing.com/norway-9b-ukraine-aid-2027/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-23T12:29:53+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Norway's sustained aid to Ukraine underscores a strategic investment in European security, highlighting regional solidarity against aggression. \n The post  Norway commits $9.2B in Ukraine aid for 2027, matching current year&#8217;s spending  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.6909,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Trump June stock disclosure: more than 1,000 trades, big in the VIG",
       "url": "https://seekingalpha.com/news/4636053-trump-june-stock-disclosure-more-than-1000-trades-big-in-the-vig?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
       "source": "Seeking Alpha",
@@ -1189,25 +1272,6 @@ window.newsData = {
       "asset_class": "stocks",
       "source_flag": null,
       "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Microsoft introduces ThinkingBox to assess AI agent reliability",
-      "url": "https://cryptobriefing.com/microsoft-thinkingbox-ai-agent-reliability/",
-      "source": "Crypto Briefing",
-      "published": "2026-08-23T12:27:55+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Microsoft's ThinkingBox highlights the need for improved AI reliability, emphasizing the importance of robust evaluation methods for consistent performance. \n The post  Microsoft introduces ThinkingBox to assess AI agent reliability  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8953,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -1259,46 +1323,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Earnings Week Ahead: NVDA, MRVL, ZM, XPEV, and more",
-      "url": "https://seekingalpha.com/news/4635856-earnings-week-ahead-nvda-mrvl-zm-xpev-and-more?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-23T12:07:29+00:00",
-      "tickers": [
-        "NVDA"
-      ],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.9262,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Trump accuses Canada of charging tariffs on farmers for years",
-      "url": "https://seekingalpha.com/news/4636054-trump-accuses-canada-charging-tariffs-farmers-for-years?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-08-23T12:06:42+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.758,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "我们四亿用户啦 👏👏👏",
       "url": "https://x.com/justinsuntron/status/2091496288265359372",
       "source": "@justinsuntron",
@@ -1329,8 +1353,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-23T12:00:27+00:00",
       "tickers": [
-        "BTC",
-        "BNB"
+        "BNB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "BTC cools below $80,000 as Binance sellers challenge ETF-backed demand.",
@@ -1461,8 +1485,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-23T11:46:05+00:00",
       "tickers": [
-        "SHIB",
-        "JST"
+        "JST",
+        "SHIB"
       ],
       "currency_pairs": [],
       "summary": "Shiba Inu (SHIB) joins an elite 6-asset lineup as Japan ends its 4-year crypto licensing freeze.",
@@ -2094,8 +2118,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-23T09:30:15+00:00",
       "tickers": [
-        "SAND",
-        "BNB"
+        "BNB",
+        "SAND"
       ],
       "currency_pairs": [],
       "summary": "Metaverse platform The Sandbox confirmed recently that an exploited bridge let an attacker mint unbacked SAND on Base and BNB Smart Chain, prompting an immediate shutdown. Exploit Hits Base and BSC Bridges Sandbox, the metaverse gaming platform behind the SAND token, contained a vulnerability affect",
@@ -2116,11 +2140,11 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-23T09:11:01+00:00",
       "tickers": [
-        "HYPE",
+        "WLD",
+        "BTC",
         "TRUMP",
         "CRO",
-        "BTC",
-        "WLD"
+        "HYPE"
       ],
       "currency_pairs": [],
       "summary": "TRUMP, CRO, and WLD have dumped the most during the Sunday correction.",
@@ -3439,8 +3463,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-08-23T05:00:18+00:00",
       "tickers": [
-        "ZRO",
-        "LINK"
+        "LINK",
+        "ZRO"
       ],
       "currency_pairs": [],
       "summary": "Chainlink has been the biggest winner of LayerZero's woes.",
@@ -3756,8 +3780,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-23T04:00:46+00:00",
       "tickers": [
-        "XEC",
-        "BTC"
+        "BTC",
+        "XEC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin holders are lined up to receive a matching balance of a new asset called ecash (ECX) when the project kicks off its three-stage hard-fork rollout with an alpha launch around Bitcoin block height 963648. The launch comes from Layertwo Labs, founded and led by longtime Bitcoin developer Paul S",
@@ -5253,8 +5277,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-08-22T18:32:04+00:00",
       "tickers": [
-        "ETH",
         "SN44",
+        "ETH",
         "BTC"
       ],
       "currency_pairs": [],
@@ -6209,8 +6233,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-22T14:10:17+00:00",
       "tickers": [
-        "SAND",
-        "BNB"
+        "BNB",
+        "SAND"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -7039,8 +7063,8 @@ window.newsData = {
       "published": "2026-08-22T10:39:24+00:00",
       "tickers": [
         "XRP",
-        "XLM",
-        "RLUSD"
+        "RLUSD",
+        "XLM"
       ],
       "currency_pairs": [],
       "summary": "The XRP Ledger has overtaken Stellar in the stablecoin race with further growth in Ripple USD (RLUSD). This change spotlights with the increasing activity of stablecoins on XRP and the growing demand for Ripple&#8217;s stablecoin. Ad Ad XRP Ledger Outpaces Stellar In Terms of Stablecoin Supply Accor",
@@ -7452,9 +7476,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-22T06:42:47+00:00",
       "tickers": [
+        "JST",
         "VSN",
         "XRP",
-        "JST",
         "BTC"
       ],
       "currency_pairs": [],
@@ -7599,8 +7623,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-08-22T05:37:43+00:00",
       "tickers": [
-        "ZEC",
-        "BTC"
+        "BTC",
+        "ZEC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -7623,8 +7647,8 @@ window.newsData = {
       "tickers": [
         "TRUMP",
         "XRP",
-        "ZEC",
-        "BNB"
+        "BNB",
+        "ZEC"
       ],
       "currency_pairs": [],
       "summary": "Official Trump (TRUMP) has reentered the top 100 alts after a massive 62% pump. ZCASH is up by 40%. Alts are on fire on Saturday morning.",
@@ -8238,10 +8262,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-22T00:01:00+00:00",
       "tickers": [
-        "DOGE",
-        "SHIB",
         "XRP",
-        "HYPE"
+        "SHIB",
+        "HYPE",
+        "DOGE"
       ],
       "currency_pairs": [],
       "summary": "The picture on the market is certainly improving, but there's a long way to go forward.",
@@ -8872,8 +8896,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-21T21:56:30+00:00",
       "tickers": [
-        "ETH",
-        "ADA"
+        "ADA",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Ethereum and Cardano are among the assets the analyst believes could benefit if the 2020 comparison holds.",
@@ -9687,8 +9711,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T20:12:03+00:00",
       "tickers": [
-        "XRP",
         "PYUSD",
+        "XRP",
         "RLUSD"
       ],
       "currency_pairs": [],
@@ -10233,8 +10257,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-08-21T18:45:01+00:00",
       "tickers": [
-        "JST",
-        "SOL"
+        "SOL",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Solana has activated the first reduction in its block timing since launch, speeding up transactions on the network.",
@@ -10343,8 +10367,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-21T18:20:21+00:00",
       "tickers": [
-        "DOGE",
-        "BTC"
+        "BTC",
+        "DOGE"
       ],
       "currency_pairs": [],
       "summary": "Dogecoin price could climb toward $0.10 if Bitcoin breaks $80,000 and keeps that level as support. The meme coin&#8217;s price rose to around $0.083, an increase of 5% over the last 24 hours. Bitcoin price, on the other hand, was around $77,500 after touching a high of $79,200 in its most recent ral",
@@ -10890,9 +10914,9 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-08-21T17:24:02+00:00",
       "tickers": [
-        "ZEC",
         "LINK",
         "BTC",
+        "ZEC",
         "XRP",
         "HYPE"
       ],
@@ -11260,8 +11284,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-21T16:40:36+00:00",
       "tickers": [
-        "DOGE",
-        "BTC"
+        "BTC",
+        "DOGE"
       ],
       "currency_pairs": [],
       "summary": "Dogecoin (DOGE) could be preparing for a major comeback, according to crypto trader and analyst Josh Olszewicz.",
@@ -11817,8 +11841,8 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-08-21T15:50:08+00:00",
       "tickers": [
-        "ZEC",
-        "BTC"
+        "BTC",
+        "ZEC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin rallied as Treasury bond buybacks fueled the “not-QE” trade, while Metaplanet expanded to the US and Cypherpunk made a $33 million Zcash mining bet.",
@@ -11962,166 +11986,6 @@ window.newsData = {
       "source_flag": null,
       "sentiment_engine": "vader",
       "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Anything short of atomic settlement is an Obsolete Distribution of Liquidity.\n\nIts all tokens and stablecoins as far as",
-      "url": "https://x.com/nullpackets/status/2090820964875669781",
-      "source": "@nullpackets",
-      "published": "2026-08-21T15:18:58+00:00",
-      "tickers": [
-        "LINK"
-      ],
-      "currency_pairs": [],
-      "summary": "Anything short of atomic settlement is an Obsolete Distribution of Liquidity.\n\nIts all tokens and stablecoins as far as the eye can see.\n\nPowered by $LINK",
-      "sentiment": "Bearish",
-      "confidence": 0.7633,
-      "other_sources": [],
-      "category": "REGULATORY",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 5,
-      "reposts": 0,
-      "replies": 1,
-      "follower_count": 31871,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "$NEAR attempting to break its 1st strong resistance level on the 1D",
-      "url": "https://x.com/BullChain/status/2090819595254775831",
-      "source": "@BullChain",
-      "published": "2026-08-21T15:13:31+00:00",
-      "tickers": [
-        "NEAR"
-      ],
-      "currency_pairs": [],
-      "summary": "$NEAR attempting to break its 1st strong resistance level on the 1D",
-      "sentiment": "Bullish",
-      "confidence": 0.8825,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 2,
-      "reposts": 1,
-      "replies": 0,
-      "follower_count": 58081,
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "BTC Hit 3-Month High, ETH Topped $2.4K, XRP Soared 40% in 48 Hours: Weekly Crypto Recap",
-      "url": "https://cryptopotato.com/btc-hit-3-month-high-eth-topped-2-4k-xrp-soared-40-in-48-hours-weekly-crypto-recap/",
-      "source": "CryptoPotato",
-      "published": "2026-08-21T15:04:52+00:00",
-      "tickers": [
-        "XRP",
-        "ETH",
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "It was one of the most impressive endings to a business week in a long, long time. Let's dive in.",
-      "sentiment": "Bullish",
-      "confidence": 0.9179,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Illuvium Team Cuts Wages To Extend Runway",
-      "url": "https://thedefiant.io/news/nfts-and-web3/illuvium-team-cuts-wages-to-extend-runway",
-      "source": "The Defiant",
-      "published": "2026-08-21T15:03:45+00:00",
-      "tickers": [
-        "ETH"
-      ],
-      "currency_pairs": [],
-      "summary": "Co-founder Kieran Warwick says the reduction puts the Ethereum game studio past 12 months of runway, with the remaining team working almost entirely on its Overworld MMO.",
-      "sentiment": "Neutral",
-      "confidence": 0.532,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Why MSTR Stock Price is Rising Today?",
-      "url": "https://coingape.com/markets/why-mstr-stock-price-is-rising-today/",
-      "source": "Coingape",
-      "published": "2026-08-21T15:03:21+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Strategy (NASDAQ: MSTR) stock price is up by 6% today, August 21, to trade at $118 at the time of writing. MSTR stock is now up by 27% in five trading days since August 17, as the bullish sentiment across the crypto market pushes crypto stocks higher. Ad Ad Bullish Crypto Market Sentiment Aids Gains",
-      "sentiment": "Bullish",
-      "confidence": 0.95,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Euro area: Manufacturing strengthens as services stall – Commerzbank",
-      "url": "https://www.fxstreet.com/news/euro-area-manufacturing-strengthens-as-services-stall-commerzbank-202608211501",
-      "source": "FXStreet",
-      "published": "2026-08-21T15:01:58+00:00",
-      "tickers": [],
-      "currency_pairs": [
-        "EUR"
-      ],
-      "summary": "Commerzbank’s Senior Economist Dr. Vincent Stamer notes that Euro area business sentiment has stabilized at a moderate level, with the composite PMI edging up from 52.0 to 52.1 in August, slightly above consensus.",
-      "sentiment": "Bullish",
-      "confidence": 0.9422,
-      "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "$NEAR has hit target one of four so far. ✅\n\nSeveral reasons why we see price hit the yellow box.\n\nRetest the blue line",
-      "url": "https://x.com/JesseOlson/status/2090816444607127931",
-      "source": "@JesseOlson",
-      "published": "2026-08-21T15:01:00+00:00",
-      "tickers": [
-        "NEAR",
-        "FORM"
-      ],
-      "currency_pairs": [],
-      "summary": "$NEAR has hit target one of four so far. ✅\n\nSeveral reasons why we see price hit the yellow box.\n\nRetest the blue line again?",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 8,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 81084,
       "is_crypto_relevant": true
     },
     {
