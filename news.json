@@ -1,7 +1,28 @@
 {
-  "updated_at": "2026-08-22T23:46:11.894643+00:00",
-  "total": 604,
+  "updated_at": "2026-08-23T00:01:43.024102+00:00",
+  "total": 646,
   "articles": [
+    {
+      "title": "Bitcoin’s $100K Forecast May Be Too Low After Record Short Squeeze",
+      "url": "https://news.bitcoin.com/market-updates/bitcoins-100k-forecast-may-be-too-low-after-record-short-squeeze/",
+      "source": "Bitcoin.com News",
+      "published": "2026-08-22T23:45:31+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Standard Chartered’s Geoffrey Kendrick says record bitcoin short liquidations and renewed ETF demand have increased the market’s upside risk. He now sees a possible year-end run from $79,500 toward bitcoin&#8217;s $126,000 record, a 58% climb. Record Short Liquidations Reshape Bitcoin Outlook Bitcoi",
+      "sentiment": "Bearish",
+      "confidence": 0.9113,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Hull City stuns Manchester United, impacting EPL title odds",
       "url": "https://cryptobriefing.com/hull-city-stuns-manchester-united-impacting-epl-title-odds/",
@@ -113,8 +134,8 @@
       "source": "Bitcoin.com News",
       "published": "2026-08-22T22:48:35+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Ethereum (ETH) surged 29.8% higher over the past seven days, smoking bitcoin’s 22.9% gain as returning exchange-traded fund (ETF) buyers, squeezed shorts, and a shrinking pile of readily tradable coins drove ETH to a weekly high of $2,546 on Saturday afternoon. ETH was trading around $2,435 late Sat",
@@ -1278,8 +1299,8 @@
       "source": "The Block",
       "published": "2026-08-22T19:31:35+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Combined ETF weekly trading volume more than tripled to $29 billion as bitcoin and ether prices rallied, though both categories are negative on the year.",
@@ -1712,8 +1733,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-22T18:32:04+00:00",
       "tickers": [
-        "BTC",
         "ETH",
+        "BTC",
         "SN44"
       ],
       "currency_pairs": [],
@@ -1921,9 +1942,9 @@
       "source": "AMBCrypto",
       "published": "2026-08-22T18:00:48+00:00",
       "tickers": [
+        "FORM",
         "JST",
-        "BTC",
-        "FORM"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "How did Bitcoin erase 3 months of underperformance against the S&#038;P 500 in just four trading sessions?",
@@ -2708,8 +2729,8 @@
       "tickers": [
         "SOL",
         "XRP",
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "U.S. spot bitcoin ETFs closed Friday with $307.45 million in net inflows, completing five consecutive positive sessions worth $1.92 billion. Ether funds added $184.93 million, while XRP and solana ETFs also drew fresh capital. Ether ETFs Add $184.93M as Demand Stays Strong Wall Street’s crypto bid h",
@@ -2999,8 +3020,8 @@
       "source": "CoinDesk",
       "published": "2026-08-22T14:10:17+00:00",
       "tickers": [
-        "BNB",
-        "SAND"
+        "SAND",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -3354,27 +3375,6 @@
       "is_crypto_relevant": true
     },
     {
-      "title": "Bitcoin Jumps $10,000 in a Week as Shorts Lose $3 Billion",
-      "url": "https://news.bitcoin.com/crypto-news/bitcoin-jumps-10000-week-shorts-lose-2-7-billion/",
-      "source": "Bitcoin.com News",
-      "published": "2026-08-22T13:30:37+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitcoin has surged roughly $10,000 over the past week, breaking above $77,000 for the first time since May after the U.S. Treasury doubled its long-dated bond buybacks. The rally briefly touched $79,500 yesterday, wiping out billions in short bets along the way. The Treasury Trigger Bitcoin had spen",
-      "sentiment": "Bullish",
-      "confidence": 0.9221,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Kalshi off-limits in multiple states as prediction markets, CFTC team up for battle",
       "url": "https://www.coindesk.com/news-analysis/2026/08/21/kalshi-off-limits-in-multiple-states-as-prediction-markets-cftc-team-up-for-battle",
       "source": "CoinDesk",
@@ -3691,8 +3691,8 @@
       "source": "CoinDesk",
       "published": "2026-08-22T12:00:00+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -3758,8 +3758,8 @@
       "source": "U.Today",
       "published": "2026-08-22T11:30:05+00:00",
       "tickers": [
-        "XRP",
-        "RLUSD"
+        "RLUSD",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple executive highlights feature that could reshape regulated assets on XRP Ledger.",
@@ -3959,8 +3959,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-22T10:59:29+00:00",
       "tickers": [
-        "XRP",
-        "JST"
+        "JST",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP price suffered a brutal 37% flash crash on Saturday, August 22, as roughly $500 million in leveraged long positions were liquidated across the crypto market within minutes. The move came just days after XRP had rallied more than 60% over the past week, leaving traders dangerously overexposed. Wh",
@@ -4062,8 +4062,8 @@
       "source": "Coingape",
       "published": "2026-08-22T10:39:24+00:00",
       "tickers": [
-        "XRP",
         "XLM",
+        "XRP",
         "RLUSD"
       ],
       "currency_pairs": [],
@@ -4348,9 +4348,9 @@
       "source": "BeInCrypto",
       "published": "2026-08-22T08:20:49+00:00",
       "tickers": [
-        "SAND",
-        "BNB",
         "POL",
+        "BNB",
+        "SAND",
         "ETH",
         "MATIC"
       ],
@@ -4728,10 +4728,10 @@
       "source": "Coingape",
       "published": "2026-08-22T06:42:47+00:00",
       "tickers": [
-        "XRP",
+        "VSN",
         "JST",
-        "BTC",
-        "VSN"
+        "XRP",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Vice President JD Vance sat down with Newsmax&#8217;s Carl Higbie Frontline on August 20, 2026, just hours after U.S. national debt topped $40 trillion. During the segment, Higbie asked Vance whether a crypto reserve, potentially holding Bitcoin, XRP, and other digital assets, could help bring down",
@@ -5557,8 +5557,8 @@
       "published": "2026-08-22T00:01:00+00:00",
       "tickers": [
         "DOGE",
-        "XRP",
         "HYPE",
+        "XRP",
         "SHIB"
       ],
       "currency_pairs": [],
@@ -6089,8 +6089,8 @@
       "source": "BeInCrypto",
       "published": "2026-08-21T23:00:00+00:00",
       "tickers": [
-        "BTC",
-        "SPCXB"
+        "SPCXB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Elon Musk said Bitcoin has no throat to choke. Filings show Tesla sold 75% and SpaceX never sold a coin. \n The post  Elon Musk Said Bitcoin Has No Throat to Choke: Why Does That Matter?  appeared first on  BeInCrypto .",
@@ -6231,8 +6231,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-21T21:56:30+00:00",
       "tickers": [
-        "ADA",
-        "ETH"
+        "ETH",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "Ethereum and Cardano are among the assets the analyst believes could benefit if the 2020 comparison holds.",
@@ -6963,8 +6963,8 @@
       "source": "CoinTelegraph",
       "published": "2026-08-21T20:26:16+00:00",
       "tickers": [
-        "BTC",
-        "BGB"
+        "BGB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Gracy Chen says macroeconomic uncertainty could keep Bitcoin within $10,000 to $20,000 of current levels, while US government purchases remain unlikely within the next two years.",
@@ -7046,9 +7046,9 @@
       "source": "U.Today",
       "published": "2026-08-21T20:12:03+00:00",
       "tickers": [
-        "XRP",
+        "PYUSD",
         "RLUSD",
-        "PYUSD"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple's RLUSD stablecoin has crossed the $2 billion market capitalization milestone, rapidly closing the gap with PayPal USD (PYUSD).",
@@ -7770,8 +7770,8 @@
       "source": "NewsBTC",
       "published": "2026-08-21T18:15:00+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "SEC Opens Comment Period On Cboe 3x Bitcoin And Ethereum ETF Proposal - Read the full analysis.",
@@ -8249,11 +8249,11 @@
       "source": "The Block",
       "published": "2026-08-21T17:24:02+00:00",
       "tickers": [
-        "LINK",
-        "XRP",
         "ZEC",
+        "XRP",
+        "HYPE",
         "BTC",
-        "HYPE"
+        "LINK"
       ],
       "currency_pairs": [],
       "summary": "Amid this week's crypto rally, HYPE is up nearly 40%, while other altcoins such as XRP, ZEC and LINK have risen over 30%.",
@@ -9064,8 +9064,8 @@
       "source": "Coingape",
       "published": "2026-08-21T16:02:42+00:00",
       "tickers": [
-        "BTC",
-        "PI"
+        "PI",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Pi Network price is nearing $0.10 as a cryptocurrency rally strengthens momentum across major digital assets.  Pi Coin is up by  4% to $0.0939 in 24 hours following recovery.  The crypto market rose by 6.09% over the past 24 hours and currently has a market cap of $2.57 trillion. Bitcoin price reach",
@@ -9380,8 +9380,8 @@
       "published": "2026-08-21T15:04:52+00:00",
       "tickers": [
         "XRP",
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "It was one of the most impressive endings to a business week in a long, long time. Let's dive in.",
@@ -9819,8 +9819,8 @@
       "source": "NewsBTC",
       "published": "2026-08-21T14:30:00+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin And Ethereum ETFs Pull $825M As Institutional Demand Returns - Read the full analysis.",
@@ -10137,9 +10137,9 @@
       "source": "U.Today",
       "published": "2026-08-21T13:30:00+00:00",
       "tickers": [
-        "XRP",
         "RLUSD",
-        "ETH"
+        "ETH",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ethereum overtakes XRP Ledger in RLUSD supply with total Ripple USD stablecoin value now approaching $2 billion.",
@@ -10724,8 +10724,8 @@
       "source": "Coingape",
       "published": "2026-08-21T11:52:22+00:00",
       "tickers": [
-        "SOL",
-        "FORM"
+        "FORM",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "&#160; Solana price climbed 5% to $91.28 on Friday, extending its four-day advance to roughly 21% in active trading. SOL is back above $90 for the first time in over 3 months. The gain came after the strongest net inflows into U.S. spot Solana ETFs in three weeks, of 14.59 million. SOL was supported",
@@ -11140,8 +11140,8 @@
       "source": "Coingape",
       "published": "2026-08-21T10:27:34+00:00",
       "tickers": [
-        "JST",
         "FORM",
+        "JST",
         "ETH"
       ],
       "currency_pairs": [],
@@ -11650,8 +11650,8 @@
       "source": "U.Today",
       "published": "2026-08-21T09:25:30+00:00",
       "tickers": [
-        "SOL",
-        "BUIDL"
+        "BUIDL",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Shinhan replicates BlackRock’s BUIDL fund model on Solana, launching an offshore won RWA pilot to capture a share of the projected $30 trillion tokenization boom.",
@@ -12016,12 +12016,12 @@
       "source": "CryptoPotato",
       "published": "2026-08-21T08:43:16+00:00",
       "tickers": [
-        "BNB",
         "XRP",
+        "HYPE",
+        "BNB",
         "BTC",
         "ADA",
-        "ETH",
-        "HYPE"
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "This Friday, we examine Ethereum, Ripple, Cardano, Binance Coin, and Hyperliquid in greater detail. Ethereum (ETH) In a major reversal, ETH has pumped 27% this week after sentiment turned positive, with Bitcoin leading and pulling most of the market higher. Ethereum shot up from $1,800 and did not s",
@@ -12241,8 +12241,8 @@
       "published": "2026-08-21T08:20:33+00:00",
       "tickers": [
         "XRP",
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Key takeaways Bitcoin, Ethereum, and XRP have gained nearly 20%, over 25%, and almost 30%, respectively, this week. Expanded U.S. Treasury debt buybacks have improved liquidity expectations and boosted demand for risk assets. Bitcoin trades around $76,800 after breaking above its 50-day, 100-day, an",
@@ -12310,8 +12310,8 @@
       "published": "2026-08-21T07:53:43+00:00",
       "tickers": [
         "JST",
-        "OP",
-        "ADA"
+        "ADA",
+        "OP"
       ],
       "currency_pairs": [],
       "summary": "Cardano (ADA) traded mostly sideways on Thursday, although the token remained just over 9% higher over the past week as optimism around its growing ecosystem continued to build. The improving momentum could be linked to optimism surrounding President Trump’s broader positive stance on crypto followi",
@@ -12332,8 +12332,8 @@
       "source": "CoinTelegraph",
       "published": "2026-08-21T07:50:01+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin ETF inflows pushed August’s total to a 2026 high of $2.07 billion as Bitcoin traded above $75,000 and Ether climbed to $2,357.",
@@ -12776,8 +12776,8 @@
       "source": "CryptoPotato",
       "published": "2026-08-21T07:11:46+00:00",
       "tickers": [
-        "SOL",
-        "USDC"
+        "USDC",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "[PRESS RELEASE &#8211; Panama City, Panama, August 21st, 2026] Finassets.io, a crypto payment gateway for businesses, has added USDC (SOL) to its Back Office, giving merchants a cost-effective network for stablecoin payments. Solana is among the fastest, lowest-cost networks for settling USDC today,",
@@ -12943,8 +12943,8 @@
       "source": "CoinDesk",
       "published": "2026-08-21T06:43:24+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -13088,10 +13088,10 @@
       "source": "U.Today",
       "published": "2026-08-21T06:10:58+00:00",
       "tickers": [
+        "FORM",
         "SOL",
-        "BTC",
         "ETH",
-        "FORM"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin has surged above $75,000, extending a sharp four-day rebound of roughly 20% and reaching its highest level since late May.",
@@ -13204,8 +13204,8 @@
       "published": "2026-08-21T04:56:30+00:00",
       "tickers": [
         "SOL",
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -13784,11 +13784,11 @@
       "source": "U.Today",
       "published": "2026-08-21T00:01:00+00:00",
       "tickers": [
-        "NEAR",
-        "BTC",
-        "ETH",
+        "JST",
         "HYPE",
-        "JST"
+        "BTC",
+        "NEAR",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "The cryptocurrency market just became spicier following the rapid and unexpected surge of volatility.",
@@ -13801,53 +13801,6 @@
       "source_flag": null,
       "sentiment_engine": "vader",
       "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "My jimothy bag thriving  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab some",
-      "url": "https://x.com/SOLWhaleEntry/status/2090587361230929942",
-      "source": "@SOLWhaleEntry",
-      "published": "2026-08-20T23:50:42+00:00",
-      "tickers": [
-        "APT",
-        "SN44"
-      ],
-      "currency_pairs": [],
-      "summary": "My jimothy bag thriving  🔥\n\nthere's a game. you play with a raccoon, catching trash.\nscore 1000+ and you can grab some $JIMOTHY.\n\nGot it here https://jimothys.xyz\n\n$APT",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [
-        {
-          "source": "@SOLWhaleEntry",
-          "url": "https://x.com/SOLWhaleEntry/status/2090586186968416343",
-          "published": "2026-08-20T23:46:02+00:00"
-        },
-        {
-          "source": "@SOLWhaleEntry",
-          "url": "https://x.com/SOLWhaleEntry/status/2090585284287098916",
-          "published": "2026-08-20T23:42:27+00:00"
-        },
-        {
-          "source": "@SOLWhaleEntry",
-          "url": "https://x.com/SOLWhaleEntry/status/2090597826363367909",
-          "published": "2026-08-21T00:32:17+00:00"
-        },
-        {
-          "source": "@SOLWhaleEntry",
-          "url": "https://x.com/SOLWhaleEntry/status/2090563064991019057",
-          "published": "2026-08-20T22:14:10+00:00"
-        }
-      ],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 0,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 27990,
       "is_crypto_relevant": true
     },
     {
@@ -14222,6 +14175,862 @@
       "sentiment_engine": "vader",
       "source_type": "rss",
       "is_crypto_relevant": true
+    },
+    {
+      "title": "Iran Sanctions : Countries Joining US Will Be Enemies , Iran W",
+      "url": "https://punchng.com/countries-joining-us-sanctions-will-be-considered-enemies-iran-warns/",
+      "source": "punchng.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Iran warns US over toughest - ever sanctions",
+      "url": "https://www.2lt.com.au/iran-warns-us-over-toughest-ever-sanctions/",
+      "source": "2lt.com.au",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Iran warns of crushing response to US threats",
+      "url": "http://www.japanherald.com/news/279256711/iran-threatens-tough-response-to-new-us-sanctions",
+      "source": "japanherald.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Israel deadly Gaza strikes cast doubt on ceasefire progress days after Kushner visit",
+      "url": "https://www.durangoherald.com/articles/associated-press/israels-deadly-gaza-strikes-cast-doubt-on-ceasefire-progress-days-after-kushner-visit/",
+      "source": "durangoherald.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "leadertelegram.com",
+          "url": "http://www.leadertelegram.com/news/world/israels-deadly-gaza-strikes-cast-doubt-on-ceasefire-progress-days-after-kushner-visit/article_294cac3f-01a0-5307-9e85-e0b61ab07667.html",
+          "published": null
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Iran warns neighbours against joining US economic war , threatens action over oil routes",
+      "url": "https://news.webindia123.com/news/Articles/World/20260823/4489929.html",
+      "source": "news.webindia123.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "bignewsnetwork.com",
+          "url": "http://www.bignewsnetwork.com/news/279258917/iran-warns-neighbours-against-joining-us-economic-war-threatens-action-over-oil-routes",
+          "published": null
+        },
+        {
+          "source": "austinglobe.com",
+          "url": "http://www.austinglobe.com/news/279258917/iran-warns-neighbours-against-joining-us-economic-war-threatens-action-over-oil-routes",
+          "published": null
+        },
+        {
+          "source": "heraldglobe.com",
+          "url": "http://www.heraldglobe.com/news/279258917/iran-warns-neighbours-against-joining-us-economic-war-threatens-action-over-oil-routes",
+          "published": null
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Macron Pledges Delivery Of French Air Interceptors Following Deadly Wave Of Russian Attacks",
+      "url": "https://www.rferl.org/a/macron-interceptor-missiles-ukraine-zelenskyy-russia-kryviy-rih/33836260.html",
+      "source": "rferl.org",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Israeli strikes kill two and injure others as Gaza attacks continue",
+      "url": "https://www.aljazeera.com/news/2026/8/22/israeli-strikes-kill-two-and-injure-others-as-gaza-attacks-continue",
+      "source": "aljazeera.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "While You Were Sleeping : 5 stories you might have missed , Aug 23 , 2026",
+      "url": "https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-aug-23-2026",
+      "source": "straitstimes.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Trump has created nuclear insecurity instead of nuclear security : Iran security council chief Mohsen Rezaei",
+      "url": "https://news.webindia123.com/news/Articles/World/20260823/4489928.html",
+      "source": "news.webindia123.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "austinglobe.com",
+          "url": "http://www.austinglobe.com/news/279258918/trump-has-created-nuclear-insecurity-instead-of-nuclear-security-iran-security-council-chief-mohsen-rezaei",
+          "published": null
+        },
+        {
+          "source": "heraldglobe.com",
+          "url": "http://www.heraldglobe.com/news/279258918/trump-has-created-nuclear-insecurity-instead-of-nuclear-security-iran-security-council-chief-mohsen-rezaei",
+          "published": null
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Revealed : Zelensky drone blitzkrieg on the  Russian Amazon  is turning shellshocked public against Putin war",
+      "url": "https://www.dailymail.com/news/article-16072611/Zelenskys-drone-blitzkrieg-Russian-Amazon-turning-shellshocked-Putins-war.html",
+      "source": "dailymail.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Iran security chief threatens neighbors against economic measures , and other Mideast developments",
+      "url": "https://kdhnews.com/news/nation/iran-security-chief-threatens-neighbors-against-economic-measures-and-other-mideast-developments/article_3af4e10a-7585-5326-923f-69fdc66d4f72.html",
+      "source": "kdhnews.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Argentina Paredes banned for 10 matches after World Cup final clashes",
+      "url": "https://www.fijivillage.com/news/argentina-s-paredes-banned-for-10-matches-after-world-cup-final-clashes-40a163/",
+      "source": "fijivillage.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "What to know about Trump 50 % tariffs on Canadian goods that just went into effect",
+      "url": "https://www.durangoherald.com/articles/associated-press/what-to-know-about-trumps-50-tariffs-on-canadian-goods-that-just-went-into-effect/",
+      "source": "durangoherald.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "thepeterboroughexaminer.com",
+          "url": "https://www.thepeterboroughexaminer.com/business/what-to-know-about-trumps-50-tariffs-on-canadian-goods-that-just-went-into-effect/article_d27530b1-9d4d-5159-8271-622ecdb1b35d.html",
+          "published": null
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Iran releases video of underground missile production facility",
+      "url": "https://www.jpost.com/middle-east/iran-news/article-906266",
+      "source": "jpost.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Dan Walters : California midterm election could shape national political conflicts – Marin Independent Journal",
+      "url": "https://www.marinij.com/2026/08/22/how-californias-midterm-election-could-shape-national-political-conflicts/",
+      "source": "marinij.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Army Secretary eyes exit around end of year amid Hegseth tensions",
+      "url": "https://www.aol.com/articles/army-secretary-eyes-exit-around-022613000.html",
+      "source": "aol.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Job losses , inflation and bail - outs – high costs of all - out trade war",
+      "url": "https://torontosun.com/opinion/columnists/job-losses-inflation-bail-outs-high-costs-all-out-trade-war",
+      "source": "torontosun.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Iran grants permission for some Iraqi oil tankers to pass through Hormuz",
+      "url": "https://www.aljazeera.com/news/2026/8/22/iran-grants-permission-for-some-iraqi-oil-tankers-to-pass-through-hormuz",
+      "source": "aljazeera.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "WWE Nattie Recalls Animosity Between Vince McMahon & Hart Family",
+      "url": "https://www.wrestlinginc.com/2239127/wwe-nattie-natalya-neidhart-vince-mcmahon-bret-hart-family-animosity/",
+      "source": "wrestlinginc.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Canada walks away from US trade talks , retaliates against tariffs",
+      "url": "https://www.brisbanetimes.com.au/world/north-america/at-war-canada-walks-away-from-us-trade-talks-retaliates-to-tariffs-20260823-p60qnc.html",
+      "source": "brisbanetimes.com.au",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Syria says Israeli strike near Damascus violation of international law",
+      "url": "https://www.yahoo.com/news/world/articles/syria-says-israeli-strike-near-214328159.html",
+      "source": "yahoo.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "How Pacific nations walk a tightrope between Western security and Chinese trade",
+      "url": "https://www.scmp.com/news/china/diplomacy/article/3364908/how-pacific-nations-walk-tightrope-between-western-security-and-chinese-trade",
+      "source": "scmp.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Canada Retaliates as Trade War With US Escalates",
+      "url": "https://punchng.com/canada-retaliates-as-trade-war-with-us-escalates/",
+      "source": "punchng.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Deadline",
+      "url": "https://deadline.com/print-article/1237048114/",
+      "source": "deadline.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Maine leaders react to US and Canada retaliatory tariffs",
+      "url": "https://www.wmtw.com/article/maine-leaders-react-to-us-and-canada-retaliatory-tariffs/73501824",
+      "source": "wmtw.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Israel criminal investigations into two high - profile attacks ....",
+      "url": "https://www.yourdemocracy.net.au/drupal/node/60884",
+      "source": "yourdemocracy.net.au",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Mark Ruffalo hits back at Paramount :  The accusation that I am antisemitic is appalli",
+      "url": "https://www.ynetnews.com/culture/article/h1irffdpgl",
+      "source": "ynetnews.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "After 272 Days at Sea , USS Abraham Lincoln Is Finally Coming Home",
+      "url": "https://www.hngn.com/articles/272863/20260822/after-272-days-sea-uss-abraham-lincoln-finally-coming-home.htm",
+      "source": "hngn.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Can This 6 . 3 % Yield Survive if Oil Crashes Again ?",
+      "url": "https://www.fool.com/investing/2026/08/22/can-this-6-3-yield-survive-if-oil-crashes-again/?source=iedfolrf0000001",
+      "source": "fool.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Anti - Venom Unleashes Permanent New Power Were Begging the MCU to Adapt",
+      "url": "https://screenrant.com/anti-venom-symbiote-power-dragon/",
+      "source": "screenrant.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Tariff talks that you assumed already collapsed collapse",
+      "url": "https://www.thebeaverton.com/2026/08/tariff-talks-that-you-assumed-already-collapsed-collapse/",
+      "source": "thebeaverton.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Kehlani Brings Out Cardi B at Brooklyn Concert : Best Moments",
+      "url": "https://www.billboard.com/lists/kehlani-brooklyn-concert-best-moments-cardi-b/",
+      "source": "billboard.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "RAF Salutes 6th  Bomber Command Day  in Lincoln , England",
+      "url": "https://vintageaviationnews.com/warbirds-news/raf-salutes-6th-bomber-command-day-in-lincoln-england.html",
+      "source": "vintageaviationnews.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Chinese humanoid robots smash human records in 100m sprint and high jump at Beijing robot games",
+      "url": "https://abc7ny.com/post/chinese-humanoid-robots-smash-human-records-100m-sprint-high-jump-beijing-robot-games/19719176/",
+      "source": "abc7ny.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Canada premiers react to U . S . trade war with calls for unity and economic support",
+      "url": "https://www.thepeterboroughexaminer.com/business/canadas-premiers-react-to-us-trade-war-with-calls-for-unity-and-economic-support/article_a1db3359-3cc8-561a-ae18-f0d1c8a214ef.html",
+      "source": "thepeterboroughexaminer.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "No deal over a bad deal ? Canada is about to find out",
+      "url": "https://torontosun.com/opinion/columnists/carney-walks-away-trade-talks-canada-faces-tariff-fallout",
+      "source": "torontosun.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Tom Barrack caught between Israel and Donald Trump allies over Syria policy",
+      "url": "https://www.jpost.com/middle-east/article-906268",
+      "source": "jpost.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Unifor , General Motors reach tentative agreements",
+      "url": "https://www.thepeterboroughexaminer.com/news/ontario/unifor-general-motors-reach-tentative-agreements-covering-4600-ontario-autoworkers/article_9d72e886-ca1a-5912-b8c1-0dbaffe97a9a.html",
+      "source": "thepeterboroughexaminer.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "A trade war between Canada and the US further ruptures a once - close and durable alliance",
+      "url": "https://www.durangoherald.com/articles/associated-press/a-trade-war-between-canada-and-the-us-further-ruptures-a-once-close-and-durable-alliance/",
+      "source": "durangoherald.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Israelis worry about weakening connection with younger Jewish Americans",
+      "url": "https://kdhnews.com/news/world/israelis-worry-about-weakening-connection-with-younger-jewish-americans/article_27f17c68-69a9-5e4a-96bf-4d0795971dd8.html",
+      "source": "kdhnews.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Alpha Metallurgical Resources Director Courtis Buys $2 . 9 Million Shares . What Does This Mean for Investors ?",
+      "url": "https://www.fool.com/coverage/filings/2026/08/22/alpha-metallurgical-resources-director-courtis-buys-usd2-9-million-shares-what-does-this-mean-for-investors/?source=iedfolrf0000001",
+      "source": "fool.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "Danielle Smith admits U . S . trade demands were  too painful",
+      "url": "https://torontosun.com/news/politics/smith-carney-u-s-retaliatory-tariffs/wcm/ce26f5c4-13c3-4ec7-922e-7de4fd06dc9a",
+      "source": "torontosun.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
+    },
+    {
+      "title": "To understand the US economy , just board an airplane",
+      "url": "https://www.eagletribune.com/opinion/to-understand-the-us-economy-just-board-an-airplane/article_02ca76bf-e060-4cac-b83f-5ee5b3eccb98.html",
+      "source": "eagletribune.com",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "gdelt_tone",
+      "source_type": "rss",
+      "event_source": "gdelt"
     }
   ],
   "forex_sentiment": {
@@ -15450,17 +16259,17 @@
     ]
   },
   "macro_snapshot": {
-    "updated_at": "2026-08-22T00:02:53.529728+00:00",
+    "updated_at": "2026-08-23T00:00:07.728074+00:00",
     "source": "fmp",
-    "treasury_yield_10y": 4.65,
+    "treasury_yield_10y": 4.69,
     "treasury_yield_10y_sparkline": [
-      4.7,
       4.68,
       4.63,
       4.68,
       4.72,
       4.71,
-      4.65
+      4.65,
+      4.69
     ],
     "fed_funds_rate": 3.88,
     "fed_funds_rate_sparkline": [
@@ -15475,7 +16284,7 @@
     "nonfarm_payroll": null
   },
   "commodity_snapshot": {
-    "updated_at": "2026-08-22T00:03:00.437313+00:00",
+    "updated_at": "2026-08-23T00:00:14.935907+00:00",
     "source": "api_ninjas+twelvedata",
     "items": [
       {
@@ -15484,7 +16293,6 @@
         "price": 134.64,
         "changes_percentage": 0.074331878,
         "sparkline": [
-          81.305,
           82.372,
           82.31,
           84.055,
@@ -15500,7 +16308,6 @@
         "price": 53.8,
         "changes_percentage": 0.579543,
         "sparkline": [
-          86.934,
           88.582,
           91.044,
           91.274,
@@ -15515,7 +16322,6 @@
         "price": 423.35999,
         "changes_percentage": 1.95058,
         "sparkline": [
-          4356.035,
           4374.205,
           4370.125,
           4425.605,
@@ -15531,7 +16337,6 @@
         "price": 62.72,
         "changes_percentage": 1.71911,
         "sparkline": [
-          64.522,
           64.62,
           64.804,
           65.949,
@@ -15545,9 +16350,8 @@
         "symbol": "NATURAL_GAS",
         "label": "Natural Gas",
         "price": 2.773,
-        "changes_percentage": 0.3619254433586765,
+        "changes_percentage": 0.0,
         "sparkline": [
-          2.7299,
           2.7099,
           2.6662,
           2.6939,
@@ -15563,7 +16367,6 @@
         "price": 39.99,
         "changes_percentage": 1.62644,
         "sparkline": [
-          6.5834,
           6.6047,
           6.6278,
           6.6126,
@@ -15576,7 +16379,7 @@
     ]
   },
   "index_snapshot": {
-    "updated_at": "2026-08-22T00:04:09.387645+00:00",
+    "updated_at": "2026-08-23T00:01:24.286984+00:00",
     "source": "twelvedata",
     "items": [
       {
@@ -15585,7 +16388,6 @@
         "price": 765.71997,
         "changes_percentage": 0.40912604,
         "sparkline": [
-          7804.491,
           7779.969,
           7791.406,
           7747.872,
@@ -15601,7 +16403,6 @@
         "price": 713.44,
         "changes_percentage": 0.35306005,
         "sparkline": [
-          30105.198,
           30035.521,
           30119.875,
           30001.997,
@@ -15617,7 +16418,6 @@
         "price": 532.21997,
         "changes_percentage": 0.89286665,
         "sparkline": [
-          53867.851,
           53701.527,
           53741.399,
           53466.875,
@@ -15633,7 +16433,6 @@
         "price": 299.95999,
         "changes_percentage": 0.76930088,
         "sparkline": [
-          3050.472,
           3067.662,
           3069.367,
           3057.774,
@@ -15649,7 +16448,6 @@
         "price": 18.21,
         "changes_percentage": -1.2473,
         "sparkline": [
-          15.88,
           15.53,
           15.52,
           17.93,
@@ -15662,7 +16460,7 @@
     ]
   },
   "stocks_snapshot": {
-    "updated_at": "2026-08-22T00:04:28.591553+00:00",
+    "updated_at": "2026-08-23T00:01:43.022556+00:00",
     "source": "finnhub",
     "items": [
       {
