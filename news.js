@@ -1,7 +1,223 @@
 window.newsData = {
-  "updated_at": "2026-08-23T22:48:05.722025+00:00",
-  "total": 429,
+  "updated_at": "2026-08-23T23:02:19.813213+00:00",
+  "total": 440,
   "articles": [
+    {
+      "title": "Volatility in the stock market next week\n\nEveryone is already playing the guessing game \n\nMainly watching these:\n\n1.",
+      "url": "https://x.com/stockplaymaker1/status/2091661954943266937",
+      "source": "@stockplaymaker1",
+      "published": "2026-08-23T23:00:45+00:00",
+      "tickers": [
+        "BTC",
+        "USDE",
+        "BIO"
+      ],
+      "currency_pairs": [],
+      "summary": "Volatility in the stock market next week\n\nEveryone is already playing the guessing game \n\nMainly watching these:\n\n1. $BTC Bitcoin and all of the crypto related \n👉🏼 Many are talking about $BTOG $CIFR $USDE\n\n2. $NVDA Earnings \n👉🏼 $MU $SNDK $AVGO\n\n3. $MRNA Moderna with big PR last week\n👉🏼 BIO stocks",
+      "sentiment": "Bullish",
+      "confidence": 0.6909,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 1,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 124587,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Meta Pool turns 5 🎉\n\nTwo collectibles are live:\n\n🔹Connect your wallet → Anniversary Edition\n🔹Stake $25 in $NEAR or $SOL",
+      "url": "https://x.com/meta_pool/status/2091661776563863614",
+      "source": "@meta_pool",
+      "published": "2026-08-23T23:00:03+00:00",
+      "tickers": [
+        "SOL",
+        "NEAR"
+      ],
+      "currency_pairs": [],
+      "summary": "Meta Pool turns 5 🎉\n\nTwo collectibles are live:\n\n🔹Connect your wallet → Anniversary Edition\n🔹Stake $25 in $NEAR or $SOL → Gold Edition\n\nUnlock them now. They could open rewards in future campaigns 👀\n\nAvailable until Aug 31.\n\nGet yours → https://referrals.metapool.app/",
+      "sentiment": "Bullish",
+      "confidence": 0.9088,
+      "other_sources": [
+        {
+          "source": "@meta_pool",
+          "url": "https://x.com/meta_pool/status/2091661776563863614",
+          "published": "2026-08-23T23:00:03+00:00"
+        }
+      ],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 56506,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Do you own any crypto currencies? I have about $15,000 invested into ethereum:native  $BTC $SOL",
+      "url": "https://x.com/RoaringHammy/status/2091661763435766142",
+      "source": "@RoaringHammy",
+      "published": "2026-08-23T23:00:00+00:00",
+      "tickers": [
+        "BTC",
+        "ETH",
+        "SOL"
+      ],
+      "currency_pairs": [],
+      "summary": "Do you own any crypto currencies? I have about $15,000 invested into ethereum:native  $BTC $SOL",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 14501,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Had someone in my DM convinced 150k $BTC this year if you want to get a sense of sentiment",
+      "url": "https://x.com/BigCheds/status/2091661545038029135",
+      "source": "@BigCheds",
+      "published": "2026-08-23T22:59:08+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Had someone in my DM convinced 150k $BTC this year if you want to get a sense of sentiment",
+      "sentiment": "Bullish",
+      "confidence": 0.8592,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 9,
+      "reposts": 0,
+      "replies": 3,
+      "follower_count": 375945,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Eğer net servetin 10 bin dolardan azsa ve $ETH, $SOL veya $BNB gibi büyük sermayeli coinleri alıyorsan...\n\nBu coinlerle",
+      "url": "https://x.com/smurfypappa/status/2091661455141597516",
+      "source": "@smurfypappa",
+      "published": "2026-08-23T22:58:46+00:00",
+      "tickers": [
+        "ETH",
+        "BNB",
+        "SOL"
+      ],
+      "currency_pairs": [],
+      "summary": "Eğer net servetin 10 bin dolardan azsa ve $ETH, $SOL veya $BNB gibi büyük sermayeli coinleri alıyorsan...\n\nBu coinlerle kısa sürede zengin olmayı beklemeyin.\n\nBu boğa koşusunda bu coinlerin 10-20x yapması bile oldukça güçlü bir performans olur.\n\nAsıl fırsat, mega boğa başlamadan önce hikâyesi ve",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [
+        {
+          "source": "@smurfypappa",
+          "url": "https://x.com/smurfypappa/status/2091661455141597516",
+          "published": "2026-08-23T22:58:46+00:00"
+        }
+      ],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 11,
+      "reposts": 3,
+      "replies": 3,
+      "follower_count": 79152,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Keep moving and boost your profits.\n\nbitcoin:native \n$SOL \n$AVAX \n$HYPE \n$DOG \n$TURBRO\n$ZIGGY \n$CLUSSY \n\nShould I add",
+      "url": "https://x.com/Lina_CryptoA/status/2091661349793202210",
+      "source": "@Lina_CryptoA",
+      "published": "2026-08-23T22:58:21+00:00",
+      "tickers": [
+        "BTC",
+        "SOL",
+        "HYPE",
+        "AVAX"
+      ],
+      "currency_pairs": [],
+      "summary": "Keep moving and boost your profits.\n\nbitcoin:native \n$SOL \n$AVAX \n$HYPE \n$DOG \n$TURBRO\n$ZIGGY \n$CLUSSY \n\nShould I add another gem?",
+      "sentiment": "Bullish",
+      "confidence": 0.9404,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 3,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 25453,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "$LTC / $USD - Update \n\nIf we can hold over $50, then $60 is the next range high target.",
+      "url": "https://x.com/CryptoTony__/status/2091660756504731962",
+      "source": "@CryptoTony__",
+      "published": "2026-08-23T22:56:00+00:00",
+      "tickers": [
+        "LTC"
+      ],
+      "currency_pairs": [],
+      "summary": "$LTC / $USD - Update \n\nIf we can hold over $50, then $60 is the next range high target.",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 3,
+      "reposts": 1,
+      "replies": 4,
+      "follower_count": 569538,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "New Zealand Retail Sales fall 0.5% QoQ in Q2, vs 0.1 expected",
+      "url": "https://www.fxstreet.com/news/new-zealand-retail-sales-fall-05-qoq-in-q2-vs-01-expected-202608232249",
+      "source": "FXStreet",
+      "published": "2026-08-23T22:49:41+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "Retail Sales,a measures of the volume of sales of goods by retailers in New Zealand, fell 0.1% QoQ in the second quarter (Q2) of 2026 after rising 1.0% in Q1 (revised from 0.9%), the latest data published by the Statistics New Zealand showed on Monday.",
+      "sentiment": "Bearish",
+      "confidence": 0.9743,
+      "other_sources": [],
+      "category": "FOREX",
+      "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
     {
       "title": "Shein launches up to $2B Hong Kong IPO after failed US and London attempts",
       "url": "https://cryptobriefing.com/shein-hong-kong-ipo-launch/",
@@ -19,6 +235,31 @@ window.newsData = {
       "source_flag": null,
       "sentiment_engine": "vader",
       "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Added more $UNI today.\n\nIt's utility season baby.",
+      "url": "https://x.com/venturefounder/status/2091657819732730114",
+      "source": "@venturefounder",
+      "published": "2026-08-23T22:44:20+00:00",
+      "tickers": [
+        "UNI"
+      ],
+      "currency_pairs": [],
+      "summary": "Added more $UNI today.\n\nIt's utility season baby.",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 0,
+      "reposts": 0,
+      "replies": 0,
+      "follower_count": 19259,
       "is_crypto_relevant": true
     },
     {
@@ -77,8 +318,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-08-23T22:29:35+00:00",
       "tickers": [
-        "BTC",
-        "HYPE"
+        "HYPE",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "This week’s stories centered on liquidity, regulation, and signs of a possible market turn. Scott Bessent moved to expand Treasury buybacks as long-term yields came under pressure, while bitcoin surged toward $70,000 in a $1.3 billion short squeeze. Trump’s Hyperliquid comments sent HYPE higher, the",
@@ -110,6 +351,58 @@ window.newsData = {
       "source_flag": null,
       "sentiment_engine": "vader",
       "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "A PUMP whale just bought $3K of $NEAR at $2.02M MC 🐳",
+      "url": "https://x.com/whalewatchalert/status/2091653435632300467",
+      "source": "@whalewatchalert",
+      "published": "2026-08-23T22:26:54+00:00",
+      "tickers": [
+        "NEAR",
+        "PUMP",
+        "JST"
+      ],
+      "currency_pairs": [],
+      "summary": "A PUMP whale just bought $3K of $NEAR at $2.02M MC 🐳",
+      "sentiment": "Bullish",
+      "confidence": 0.7633,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 1,
+      "reposts": 0,
+      "replies": 1,
+      "follower_count": 187568,
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "$APT is finally waking up! 💪 We should test (at least) $3.9 in short term and (up to) $69 in HTF! \n\nNot Fa! \n\n#APTOS",
+      "url": "https://x.com/VuoriTrading/status/2091653119801238002",
+      "source": "@VuoriTrading",
+      "published": "2026-08-23T22:25:39+00:00",
+      "tickers": [
+        "APT"
+      ],
+      "currency_pairs": [],
+      "summary": "$APT is finally waking up! 💪 We should test (at least) $3.9 in short term and (up to) $69 in HTF! \n\nNot Fa! \n\n#APTOS",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "x",
+      "likes": 3,
+      "reposts": 1,
+      "replies": 0,
+      "follower_count": 12753,
       "is_crypto_relevant": true
     },
     {
@@ -193,11 +486,11 @@ window.newsData = {
       "source": "@DyorNetCrypto",
       "published": "2026-08-23T22:03:41+00:00",
       "tickers": [
-        "BTC",
-        "UNI",
-        "TAO",
         "AAVE",
+        "BTC",
+        "TAO",
         "INJ",
+        "UNI",
         "PENDLE"
       ],
       "currency_pairs": [],
@@ -511,13 +804,13 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-08-23T21:10:58+00:00",
       "tickers": [
-        "ETH",
-        "BTC",
         "JST",
-        "XRP",
-        "HYPE",
+        "BTC",
+        "LINK",
+        "ETH",
         "SOL",
-        "LINK"
+        "HYPE",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "US-listed crypto exchange-traded funds outside Bitcoin and Ethereum drew nearly $90 million last week. Investors followed a sharp market rally into XRP, Solana, Chainlink and Hyperliquid. XRP products led the group with $39.78 million of net inflows in the week ended Aug. 21, their strongest showing",
@@ -2250,9 +2543,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-23T16:30:41+00:00",
       "tickers": [
-        "XRP",
         "ETH",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Unlike the BTC and ETH ETF inflows, Friday was actually the best day for the XRP ETFs.",
@@ -3404,8 +3697,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-23T12:16:30+00:00",
       "tickers": [
-        "XRP",
-        "ZEC"
+        "ZEC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Zcash hits an 8-year high of $814 ahead of Grayscale’s August 25 ETF debut on NYSE Arca, sparking a massive community debate over flipping XRP.",
@@ -4116,11 +4409,11 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-23T09:11:01+00:00",
       "tickers": [
-        "BTC",
         "TRUMP",
-        "WLD",
+        "BTC",
+        "CRO",
         "HYPE",
-        "CRO"
+        "WLD"
       ],
       "currency_pairs": [],
       "summary": "TRUMP, CRO, and WLD have dumped the most during the Sunday correction.",
@@ -5093,9 +5386,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-08-23T05:47:42+00:00",
       "tickers": [
-        "XRP",
         "ETH",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Nearly $100 million in longs were wrecked in the past hour.",
@@ -6911,8 +7204,8 @@ window.newsData = {
       "source": "The Defiant",
       "published": "2026-08-22T17:08:34+00:00",
       "tickers": [
-        "SAND",
-        "ETH"
+        "ETH",
+        "SAND"
       ],
       "currency_pairs": [],
       "summary": "Upbit and Bithumb froze SAND transfers under South Korea's user-protection law, with Upbit halting deposits and withdrawals on Ethereum — the chain the studio says was not affected.",
@@ -7333,8 +7626,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-22T15:45:52+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP exploded to a six-month high on its Bitcoin chart, completing double golden cross signals.",
@@ -8085,8 +8378,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-22T11:30:05+00:00",
       "tickers": [
-        "XRP",
-        "RLUSD"
+        "RLUSD",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Ripple executive highlights feature that could reshape regulated assets on XRP Ledger.",
@@ -8347,8 +8640,8 @@ window.newsData = {
       "published": "2026-08-22T10:39:24+00:00",
       "tickers": [
         "XLM",
-        "XRP",
-        "RLUSD"
+        "RLUSD",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "The XRP Ledger has overtaken Stellar in the stablecoin race with further growth in Ripple USD (RLUSD). This change spotlights with the increasing activity of stablecoins on XRP and the growing demand for Ripple&#8217;s stablecoin. Ad Ad XRP Ledger Outpaces Stellar In Terms of Stablecoin Supply Accor",
@@ -8760,10 +9053,10 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-08-22T06:42:47+00:00",
       "tickers": [
-        "VSN",
-        "XRP",
         "JST",
-        "BTC"
+        "VSN",
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Vice President JD Vance sat down with Newsmax&#8217;s Carl Higbie Frontline on August 20, 2026, just hours after U.S. national debt topped $40 trillion. During the segment, Higbie asked Vance whether a crypto reserve, potentially holding Bitcoin, XRP, and other digital assets, could help bring down",
@@ -8930,9 +9223,9 @@ window.newsData = {
       "published": "2026-08-22T05:08:55+00:00",
       "tickers": [
         "BNB",
-        "XRP",
+        "TRUMP",
         "ZEC",
-        "TRUMP"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Official Trump (TRUMP) has reentered the top 100 alts after a massive 62% pump. ZCASH is up by 40%. Alts are on fire on Saturday morning.",
@@ -9546,10 +9839,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-08-22T00:01:00+00:00",
       "tickers": [
-        "XRP",
         "HYPE",
         "SHIB",
-        "DOGE"
+        "DOGE",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "The picture on the market is certainly improving, but there's a long way to go forward.",
@@ -10048,29 +10341,22 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Two anniversary collectibles 🏆\n\nConnect your wallet → claim the Anniversary Edition\n\nStake $25 in $NEAR or $SOL →",
-      "url": "https://x.com/meta_pool/status/2090937003898753118",
-      "source": "@meta_pool",
-      "published": "2026-08-21T23:00:04+00:00",
-      "tickers": [
-        "NEAR",
-        "SOL"
-      ],
+      "title": "Retail sales data due from New Zealand imminently",
+      "url": "https://investinglive.com/news/retail-sales-data-due-from-new-zealand-imminently/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
       "currency_pairs": [],
-      "summary": "Two anniversary collectibles 🏆\n\nConnect your wallet → claim the Anniversary Edition\n\nStake $25 in $NEAR or $SOL → unlock the Special Gold Edition\n\nThese collectibles are built for what’s next: future Meta Pool campaigns and rewards 👀\n\nUnlock now 👇\nhttps://referrals.metapool.app/",
-      "sentiment": "Bullish",
-      "confidence": 0.793,
+      "summary": "",
+      "sentiment": "Neutral",
+      "confidence": 0.8953,
       "other_sources": [],
-      "category": "GEOPOLITICS",
+      "category": "FOREX",
       "region": "GLOBAL",
-      "asset_class": "crypto",
+      "asset_class": "forex",
       "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "x",
-      "likes": 2,
-      "reposts": 0,
-      "replies": 0,
-      "follower_count": 56498,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -10131,25 +10417,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Going nuclear ... Iran security chief warns Tehran may seek nuclear weapons after US strikes",
-      "url": "https://investinglive.com/commodities/going-nuclear-iran-security-chief-warns-tehran-may-seek-nuclear-weapons-after-us-strikes/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.6546,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Field Notes from an A-Book Operations Floor:  The Real Decisions Behind \"Pure\" Execution",
       "url": "https://investinglive.com/education/field-notes-from-an-a-book-operations-floor-the-real-decisions-behind-pure-execution/",
       "source": "InvestingLive",
@@ -10161,6 +10428,25 @@ window.newsData = {
       "confidence": 0.9346,
       "other_sources": [],
       "category": "FOREX",
+      "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Going nuclear ... Iran security chief warns Tehran may seek nuclear weapons after US strikes",
+      "url": "https://investinglive.com/commodities/going-nuclear-iran-security-chief-warns-tehran-may-seek-nuclear-weapons-after-us-strikes/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bearish",
+      "confidence": 0.6546,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
       "region": "GLOBAL",
       "asset_class": "forex",
       "source_flag": null,
@@ -10197,27 +10483,6 @@ window.newsData = {
       "summary": "",
       "sentiment": "Bearish",
       "confidence": 0.9306,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "forex",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Monday open indicative forex prices, 24 August 2026 - CAD weaker on trade war",
-      "url": "https://investinglive.com/forex/monday-open-indicative-forex-prices-24-august-2026-cad-weaker-on-trade-war/",
-      "source": "InvestingLive",
-      "published": null,
-      "tickers": [],
-      "currency_pairs": [
-        "CAD"
-      ],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.9464,
       "other_sources": [],
       "category": "GEOPOLITICS",
       "region": "GLOBAL",
@@ -10277,6 +10542,27 @@ window.newsData = {
       "confidence": 0.925,
       "other_sources": [],
       "category": "FOREX",
+      "region": "GLOBAL",
+      "asset_class": "forex",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Monday open indicative forex prices, 24 August 2026 - CAD weaker on trade war",
+      "url": "https://investinglive.com/forex/monday-open-indicative-forex-prices-24-august-2026-cad-weaker-on-trade-war/",
+      "source": "InvestingLive",
+      "published": null,
+      "tickers": [],
+      "currency_pairs": [
+        "CAD"
+      ],
+      "summary": "",
+      "sentiment": "Bearish",
+      "confidence": 0.9464,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
       "region": "GLOBAL",
       "asset_class": "forex",
       "source_flag": null,
@@ -10390,15 +10676,15 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Retail sales data due from New Zealand imminently",
-      "url": "https://investinglive.com/news/retail-sales-data-due-from-new-zealand-imminently/",
+      "title": "New Zealand Q2 retail sales have slowed much worse than expected",
+      "url": "https://investinglive.com/news/new-zealand-q2-retail-sales-have-slowed-much-worse-than-expected/",
       "source": "InvestingLive",
       "published": null,
       "tickers": [],
       "currency_pairs": [],
       "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.8953,
+      "sentiment": "Bearish",
+      "confidence": 0.9748,
       "other_sources": [],
       "category": "FOREX",
       "region": "GLOBAL",
