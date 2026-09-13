@@ -6418,3 +6418,4 @@
 {"headline": "SA Asks: What are the pros and cons of allowing 23-hour US equities trading?", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.8572, "timestamp": "2026-09-12T21:33:49.561620+00:00"}
 {"headline": "Christine Lagarde: Interview with Ouest-France", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.9422, "timestamp": "2026-09-12T21:33:49.609309+00:00"}
 {"headline": "Why OpenAI’s Sam Altman says an IPO isn’t in the cards this year", "summary": "Concerns about AI safety have ramped up, and OpenAI’s CEO says now would be an ‘ill-advised’ time for the ChatGPT creator to go public", "finbert_label": "Neutral", "finbert_score": 0.9319, "timestamp": "2026-09-12T23:22:49.711426+00:00"}
+{"headline": "Oil tanker rates reach record highs on surging risks to Middle East shipping", "summary": "", "finbert_label": "Bullish", "finbert_score": 0.508, "timestamp": "2026-09-13T01:16:56.035310+00:00"}

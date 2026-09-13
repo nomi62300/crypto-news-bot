@@ -1,12 +1,12 @@
 window.newsData = {
-  "updated_at": "2026-09-12T23:23:54.905904+00:00",
+  "updated_at": "2026-09-13T01:18:31.824375+00:00",
   "total": 332,
   "articles": [
     {
       "title": "SEC Crypto Custody Rewrite Enters White House Review",
       "url": "https://thedefiant.io/converge/regulation/sec-crypto-custody-rewrite-enters-white-house-review",
       "source": "The Defiant",
-      "published": "2026-09-12T23:21:46+00:00",
+      "published": "2026-09-13T01:15:53+00:00",
       "tickers": [],
       "currency_pairs": [],
       "summary": "The planned rule would cover advisers and investment companies and clarify digital-asset custody, following the withdrawal of a separate 2023 proposal.",
@@ -25,11 +25,11 @@ window.newsData = {
       "title": "Brent Tops $106 And Hike Odds Reach 64% As Crypto Sells Off",
       "url": "https://thedefiant.io/news/markets/brent-tops-106-hike-odds-reach-64-crypto-sells-off-sep-10-2026",
       "source": "The Defiant",
-      "published": "2026-09-12T23:21:46+00:00",
+      "published": "2026-09-13T01:15:53+00:00",
       "tickers": [
         "ETHFI",
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "One hundred and three of the 125 largest non-stablecoin tokens were lower on the day after August producer prices came in at 0.4% and the 30-year Treasury yield passed every close of the past five years. Bitcoin traded at $77,120. Ether.fi rose 14.2% on a buyback vote that closed a week ago.",
@@ -38,6 +38,228 @@ window.newsData = {
       "other_sources": [],
       "category": "CRYPTO",
       "region": "US",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Korea Exchange extends trading hours to attract global investors",
+      "url": "https://cryptobriefing.com/korea-exchange-extends-trading-hours-global-investors/",
+      "source": "Crypto Briefing",
+      "published": "2026-09-13T01:06:24+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "KRX's extended trading hours could enhance global investor engagement, potentially reducing the \"Korea discount\" and boosting market competitiveness. \n The post  Korea Exchange extends trading hours to attract global investors  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.943,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "South Korea’s expanded espionage law takes effect to protect chip technology",
+      "url": "https://cryptobriefing.com/south-korea-espionage-law-chip-technology/",
+      "source": "Crypto Briefing",
+      "published": "2026-09-13T01:05:14+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "South Korea's new espionage law underscores the strategic importance of safeguarding chip technology, impacting global tech relations and security. \n The post  South Korea&#8217;s expanded espionage law takes effect to protect chip technology  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.9404,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Can BNB reclaim $780? THESE levels stand between Binance Coin and $1K",
+      "url": "https://ambcrypto.com/can-bnb-reclaim-780-these-levels-stand-between-binance-coin-and-1k/",
+      "source": "AMBCrypto",
+      "published": "2026-09-13T01:00:07+00:00",
+      "tickers": [
+        "BNB"
+      ],
+      "currency_pairs": [],
+      "summary": "The Binance Coin long-term trend has shifted bullishly following the break of the $745 resistance.",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "241 Billion Shiba Inu Netflow Threatens Rally",
+      "url": "https://u.today/241-billion-shiba-inu-netflow-threatens-rally",
+      "source": "U.Today",
+      "published": "2026-09-13T01:00:00+00:00",
+      "tickers": [
+        "SHIB"
+      ],
+      "currency_pairs": [],
+      "summary": "Shiba Inu is seeing its exchange activity turn bearish over the last day as traders appear to be taking caution amid the growing market uncertainty.",
+      "sentiment": "Bearish",
+      "confidence": 0.7553,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Beijing warns US arms deals with Taiwan may cancel Trump-Xi summit",
+      "url": "https://cryptobriefing.com/beijing-warns-us-arms-deals-with-taiwan-may-cancel-trump-xi-summit/",
+      "source": "Crypto Briefing",
+      "published": "2026-09-13T00:53:44+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "The potential cancellation of the summit highlights escalating U.S.-China tensions, impacting diplomatic relations and market confidence. \n The post  Beijing warns US arms deals with Taiwan may cancel Trump-Xi summit  appeared first on  Crypto Briefing .",
+      "sentiment": "Bearish",
+      "confidence": 0.747,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "ASIA",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Grayscale Says US Crypto Rules Can Advance Without CLARITY Act",
+      "url": "https://news.bitcoin.com/regulation-and-legal/grayscale-says-us-crypto-rules-can-advance-without-clarity-act/",
+      "source": "Bitcoin.com News",
+      "published": "2026-09-13T00:45:18+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "U.S. crypto regulation is becoming clearer even as the CLARITY Act faces an uncertain path through Congress, according to Grayscale. Stablecoin legislation and agency initiatives are advancing, though several changes remain proposals rather than final rules. Grayscale Sees Regulatory Progress Beyond",
+      "sentiment": "Bullish",
+      "confidence": 0.6517,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Grayscale files to rename Litecoin Trust as Grayscale Litecoin Trust ETF",
+      "url": "https://cryptobriefing.com/grayscale-litecoin-trust-etf-filing/",
+      "source": "Crypto Briefing",
+      "published": "2026-09-13T00:34:49+00:00",
+      "tickers": [
+        "LTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Approval of the Grayscale Litecoin Trust ETF could enhance market efficiency, broaden crypto investment options, and influence LTCN pricing. \n The post  Grayscale files to rename Litecoin Trust as Grayscale Litecoin Trust ETF  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.95,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Oil tanker rates reach record highs on surging risks to Middle East shipping",
+      "url": "https://seekingalpha.com/news/4642257-oil-tanker-rates-reach-record-highs-on-surging-risks-to-middle-east-shipping?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-09-13T00:25:14+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bullish",
+      "confidence": 0.508,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "MENA",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Ethereum volatility spikes after Wintermute’s $160M deposit – ETH rebound possible IF…",
+      "url": "https://ambcrypto.com/ethereum-volatility-spikes-after-wintermutes-160m-deposit-eth-rebound-possible-if/",
+      "source": "AMBCrypto",
+      "published": "2026-09-13T00:00:27+00:00",
+      "tickers": [
+        "ETH"
+      ],
+      "currency_pairs": [],
+      "summary": "Can 196 distributing whales overpower Ethereum’s deepest exchange supply contraction since 2016?",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Nike Price Forecast: Can NKE Recover After Becoming the Dow’s Worst Stock?",
+      "url": "https://beincrypto.com/nike-price-prediction-dow-worst-stock/",
+      "source": "BeInCrypto",
+      "published": "2026-09-12T23:53:11+00:00",
+      "tickers": [
+        "JST"
+      ],
+      "currency_pairs": [],
+      "summary": "Nike stock has fallen into one of its deepest downturns in years, with NKE dropping roughly 40% in 2026 and becoming the worst-performing stock in the Dow Jones Industrial Average. Shares closed Friday at $38.40, leaving the sportswear giant with a market capitalization of just $56.97 billion, down",
+      "sentiment": "Bearish",
+      "confidence": 0.8753,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Ripple Breaks Down Stablecoin Rules as Institutions Evaluate RLUSD",
+      "url": "https://news.bitcoin.com/featured/ripple-breaks-down-stablecoin-rules-as-institutions-evaluate-rlusd/",
+      "source": "Bitcoin.com News",
+      "published": "2026-09-12T23:40:44+00:00",
+      "tickers": [
+        "XRP",
+        "RLUSD"
+      ],
+      "currency_pairs": [],
+      "summary": "Stablecoin licenses carry different reserve and oversight requirements, Ripple emphasized as it outlined RLUSD&#8217;s regulatory structure. The company also distinguished its conditional federal bank approval from a completed charter and clarified the scope of derivatives collateral rules. Ripple E",
+      "sentiment": "Bullish",
+      "confidence": 0.6366,
+      "other_sources": [],
+      "category": "REGULATORY",
+      "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
@@ -109,9 +331,9 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-09-12T22:36:57+00:00",
       "tickers": [
-        "BTC",
+        "FORM",
         "ZEC",
-        "FORM"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Zcash mining rewards are roughly twice Bitcoin&#8217;s per machine and four times higher per unit of electricity, Grayscale estimates. Strong token prices are encouraging more mining activity, with the firm linking that expansion to stronger network security. Grayscale Details Zcash&#8217;s Mining A",
@@ -887,10 +1109,10 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-09-12T19:24:55+00:00",
       "tickers": [
-        "XRP",
         "LINK",
+        "BTC",
         "ETH",
-        "BTC"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Chainlink price has gained 35% over the past 30 days, strengthening expectations for a move above $15. LINK is attracting attention as institutional flows improve market confidence ahead of major catalysts.  Bitcoin price was trading under $78,000, Ethereum was close to $2,500, and XRP was trading a",
@@ -1239,54 +1461,14 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "SpaceX set for larger weighting in Nasdaq 100 this month as lockup expirations expand float",
-      "url": "https://cryptobriefing.com/spacex-nasdaq-100-weight-increase-rebalance/",
-      "source": "Crypto Briefing",
-      "published": "2026-09-12T18:14:32+00:00",
-      "tickers": [
-        "SPCXB"
-      ],
-      "currency_pairs": [],
-      "summary": "SpaceX's increased Nasdaq 100 weighting may drive significant market activity, impacting passive funds and investor strategies. \n The post  SpaceX set for larger weighting in Nasdaq 100 this month as lockup expirations expand float  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.9037,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Fed rate hikes unlikely due to rising interest payments, political factors: analyst",
-      "url": "https://cryptobriefing.com/fed-rate-hikes-unlikely-due-to-rising-interest-payments-political-factors/",
-      "source": "Crypto Briefing",
-      "published": "2026-09-12T18:08:58+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The potential pause in Fed rate hikes could ease financial strain but may raise concerns about political influence over monetary policy. \n The post  Fed rate hikes unlikely due to rising interest payments, political factors: analyst  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8842,
-      "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Bitcoin Price Prediction as September 15 Could Decide CLARITY Act’s Next Move",
       "url": "https://coingape.com/markets/bitcoin-price-prediction-as-september-15-could-decide-clarity-acts-next-move/",
       "source": "Coingape",
       "published": "2026-09-12T18:07:46+00:00",
       "tickers": [
-        "XRP",
+        "BTC",
         "ETH",
-        "BTC"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin traded near $77,351 as investors balanced regulatory uncertainty before the Federal Reserve meeting. Ethereum price traded around $2,531, while XRP held near $1.37 during a cautious session. The FOMC meets September 15–16, placing monetary policy alongside the Senate vote as another major ca",
@@ -1295,44 +1477,6 @@ window.newsData = {
       "other_sources": [],
       "category": "REGULATORY",
       "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Rising energy costs may drive up US apparel prices amid Iran tensions, El Niño",
-      "url": "https://cryptobriefing.com/rising-energy-costs-may-drive-up-us-apparel-prices-amid-iran-tensions-el-nio/",
-      "source": "Crypto Briefing",
-      "published": "2026-09-12T18:02:19+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Rising costs could strain consumer budgets, influence inflation trends, and affect global market stability amid geopolitical and climate challenges. \n The post  Rising energy costs may drive up US apparel prices amid Iran tensions, El Niño  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.6131,
-      "other_sources": [],
-      "category": "ECONOMIC",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Base records $100M in daily DEX trading volume for tokenized stocks",
-      "url": "https://cryptobriefing.com/base-100m-dex-tokenized-stocks/",
-      "source": "Crypto Briefing",
-      "published": "2026-09-12T17:59:39+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "The rapid rise in tokenized stock trading on Base highlights a growing demand for 24/7 equity trading, potentially reshaping traditional markets. \n The post  Base records $100M in daily DEX trading volume for tokenized stocks  appeared first on  Crypto Briefing .",
-      "sentiment": "Neutral",
-      "confidence": 0.5129,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
@@ -1429,8 +1573,8 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-09-12T17:01:04+00:00",
       "tickers": [
-        "ID",
-        "BTC"
+        "BTC",
+        "ID"
       ],
       "currency_pairs": [],
       "summary": "The fintech company fulfilled a fraudulent information request sent from a government agency's own email domain, exposing ID documents and full crypto transaction histories for a \"limited\" number of users.",
@@ -1585,8 +1729,8 @@ window.newsData = {
       "source": "Bitcoin.com News",
       "published": "2026-09-12T16:17:00+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "U.S. bitcoin ETFs posted a fourth straight day of outflows on Friday, losing $13.29 million. In contrast, ether funds moved sharply in the opposite direction, attracting $216.41 million and closing a fourth consecutive week with net inflows. Bitcoin ETFs Stay Negative With Bitcoin&#8217;s Price Stuc",
@@ -1753,8 +1897,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-09-12T16:00:00+00:00",
       "tickers": [
-        "RLUSD",
-        "XRP"
+        "XRP",
+        "RLUSD"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -1870,9 +2014,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-09-12T15:19:07+00:00",
       "tickers": [
-        "XRP",
+        "BTC",
         "ETH",
-        "BTC"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP price traded near $1.37 as Bitcoin hovered around $77,321 and Ethereum held near $2,536. The CLARITY Act continued to be a top priority since it has the potential to establish a federal framework for oversight of digital assets.  The uncertainty about the operating rules has been extended for ex",
@@ -1914,8 +2058,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-09-12T15:10:39+00:00",
       "tickers": [
-        "MSTRB",
-        "BTC"
+        "BTC",
+        "MSTRB"
       ],
       "currency_pairs": [],
       "summary": "It's a simple yet very effective strategy. At least, it has been for the past decade.",
@@ -1994,32 +2138,13 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Anthropic CEO Amodei calls to 'slow the pace' of AI model improvements",
-      "url": "https://seekingalpha.com/news/4642266-anthropic-ceo-amodei-calls-slow-pace-ai-model-improvements?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-09-12T14:44:05+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Bearish",
-      "confidence": 0.6812,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "XRP Ledger just quietly activated critical foundation for its upcoming new lending protocol",
       "url": "https://cryptoslate.com/xrp-ledger-just-quietly-activated-critical-foundation-for-its-upcoming-new-lending-protocol/",
       "source": "CryptoSlate",
       "published": "2026-09-12T14:40:43+00:00",
       "tickers": [
-        "JST",
-        "XRP"
+        "XRP",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "fixCleanup3_3_0 corrects AMM, vault, lending, Checks and pseudo-account code paths without launching XRPL’s pending feature amendments. \n The post  XRP Ledger just quietly activated critical foundation for its upcoming new lending protocol  appeared first on  CryptoSlate .",
@@ -2046,8 +2171,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-09-12T14:38:41+00:00",
       "tickers": [
-        "MSTRB",
-        "BTC"
+        "BTC",
+        "MSTRB"
       ],
       "currency_pairs": [],
       "summary": "Strategy (NASDAQ: MSTR) stock price is gaining attention after the STRC preferred stock soared to its highest price since June 1. STRC’s gains have fuelled bullish forecasts for the MSTR stock, with one analyst noting that the price could reach $185. Meanwhile, the recent drop in Bitcoin has shrunk",
@@ -2125,28 +2250,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Bitcoin Price Takes a $3,215 Ride Just to Land Back at $77K",
-      "url": "https://news.bitcoin.com/market-updates/bitcoin-price-takes-a-3215-ride-just-to-land-back-at-77k/",
-      "source": "Bitcoin.com News",
-      "published": "2026-09-12T14:15:23+00:00",
-      "tickers": [
-        "JST",
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitcoin’s price is hanging around $77,300 on Saturday morning, after somehow squeezing a $3,215 intraday adventure into a 24-hour gain of just 0.2%. That tiny move does a pretty good job of hiding what has actually been a wild ride underneath, as bitcoin’s longer-term structure remains intact while",
-      "sentiment": "Bullish",
-      "confidence": 0.943,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "This Textbook XRP Chart Pattern Could Trigger Rally Toward $60, Analyst Asserts",
       "url": "https://zycrypto.com/this-textbook-xrp-chart-pattern-could-trigger-rally-toward-60-analyst-asserts/",
       "source": "ZyCrypto",
@@ -2213,8 +2316,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-09-12T13:50:52+00:00",
       "tickers": [
-        "SOL",
-        "BNB"
+        "BNB",
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "BNB Chain emerges as the largest blockchain by real world asset growth, accounting for a massive $3.6 billion in the metric amid growing adoption.",
@@ -2250,30 +2353,6 @@ window.newsData = {
       ],
       "category": "CRYPTO",
       "region": "US",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Bitcoin’s Price Just Drew an $85M Bet From Last Year’s ETH Top-Caller",
-      "url": "https://news.bitcoin.com/crypto-news/eth-whale-buys-85m-bitcoin-thorchain/",
-      "source": "Bitcoin.com News",
-      "published": "2026-09-12T13:30:33+00:00",
-      "tickers": [
-        "JST",
-        "ETH",
-        "BTC",
-        "FORM"
-      ],
-      "currency_pairs": [],
-      "summary": "An address that sold 50,600 ETH near the top in late 2025 has spent four days converting $85.42 million in stablecoins into 1,075.6 BTC, and it still holds $74.32 million in unspent dry powder. The Trade That Earned the Attention In late 2025, the whale liquidated 50,600 ETH at an average price of $",
-      "sentiment": "Bearish",
-      "confidence": 0.7787,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
@@ -2328,8 +2407,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-09-12T13:17:47+00:00",
       "tickers": [
-        "SHIB",
-        "ETH"
+        "ETH",
+        "SHIB"
       ],
       "currency_pairs": [],
       "summary": "SHIB holder count could be understated with 1.8 million addresses highlighted.",
@@ -2475,9 +2554,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-09-12T12:18:49+00:00",
       "tickers": [
+        "BTC",
         "ETH",
-        "ADA",
-        "BTC"
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "Cardano (ADA) price is up by 2% today, September 12, to trade at $0.208 at the time of writing, with the gains mirroring an uptrend across the broader crypto market. Bitcoin (BTC) had gained to $77,300 while Ethereum (ETH) had rallied to $2,530, with the total market cap reaching $2.65 trillion. Car",
@@ -2498,8 +2577,8 @@ window.newsData = {
       "source": "Unchained Crypto",
       "published": "2026-09-12T12:03:16+00:00",
       "tickers": [
-        "BTC",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Producer prices stayed hot on Thursday morning. Gold, the Nasdaq-100 and bitcoin each fell more than 1%. The 30-year Treasury yield closed at 5.37%. That was its highest close since Treasury resumed selling the bond in 2006. Three of those four are supposed to move that way on a day ... \n The post",
@@ -2561,9 +2640,9 @@ window.newsData = {
       "published": "2026-09-12T11:31:26+00:00",
       "tickers": [
         "USDT",
+        "BNB",
         "TRX",
-        "ENA",
-        "BNB"
+        "ENA"
       ],
       "currency_pairs": [],
       "summary": "Geneva and Lisbon, Sept. 12, 2026 – TRON DAO (“TRON”) and Ethena Labs (“Ethena”) today announced that USDe and sUSDe are live on the TRON network, expanding access to Ethena’s digital dollar products across one of the world’s largest stablecoin settlement networks. &#160; Users can now bridge USDe a",
@@ -2773,10 +2852,10 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-09-12T10:13:01+00:00",
       "tickers": [
-        "ETH",
-        "XMR",
+        "ZEC",
         "BTC",
-        "ZEC"
+        "ETH",
+        "XMR"
       ],
       "currency_pairs": [],
       "summary": "The privacy coins ZEC and XMR have rocketed once again on a daily scale.",
@@ -2995,8 +3074,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-09-12T07:40:37+00:00",
       "tickers": [
-        "JST",
-        "ETH"
+        "ETH",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "What happened within the ETH ecosystem on Friday when the asset rocketed to an 8-month high?",
@@ -3459,8 +3538,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-09-12T04:00:55+00:00",
       "tickers": [
-        "ETH",
-        "BNB"
+        "BNB",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "Ethereum’s liquid supply tightened as record staking and falling Binance reserves strengthened its underlying setup.",
@@ -3593,27 +3672,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Meteora’s $20M fee surge fuels 18% rally – But MET’s next leg faces THIS hurdle",
-      "url": "https://ambcrypto.com/meteoras-20m-fee-surge-fuels-18-rally-but-mets-next-leg-faces-this-hurdle/",
-      "source": "AMBCrypto",
-      "published": "2026-09-12T01:00:46+00:00",
-      "tickers": [
-        "MET"
-      ],
-      "currency_pairs": [],
-      "summary": "For now, Spot Market Netflow would need to shift toward outflows to support a sustained MET rally.",
-      "sentiment": "Bullish",
-      "confidence": 0.9472,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Will Gold Price Fall Below $4,000 Amid Renewed Economic Risks?",
       "url": "https://beincrypto.com/gold-price-risk-fed-rate-hike-september-2026/",
       "source": "BeInCrypto",
@@ -3633,37 +3691,15 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Bitcoin vs Zcash: Grayscale Reveals Which Is More Profitable to Mine",
-      "url": "https://beincrypto.com/bitcoin-zcash-mining-profitability-grayscale/",
-      "source": "BeInCrypto",
-      "published": "2026-09-12T00:42:40+00:00",
-      "tickers": [
-        "ZEC",
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Zcash mining has become significantly more profitable than Bitcoin mining for individuals. That is the finding of a new analysis from Grayscale Research. Research director Zach Pandl found that Bitcoin dominates in total scale. ZEC, however, currently delivers stronger returns per machine and per un",
-      "sentiment": "Bullish",
-      "confidence": 0.9238,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Shiba Inu (SHIB), Hyperliquid (HYPE), Binance Coin (BNB) and Zcash (ZEC) Price Analysis for September 12: Sudden Surge",
       "url": "https://u.today/shiba-inu-shib-hyperliquid-hype-binance-coin-bnb-and-zcash-zec-price-analysis-for-september-12",
       "source": "U.Today",
       "published": "2026-09-12T00:01:00+00:00",
       "tickers": [
-        "HYPE",
         "ZEC",
-        "SHIB",
-        "BNB"
+        "BNB",
+        "HYPE",
+        "SHIB"
       ],
       "currency_pairs": [],
       "summary": "Zcash leads the market with a powerful rebound, while BNB and HYPE retain bullish structures and SHIB attempts to recover.",
@@ -3709,28 +3745,6 @@ window.newsData = {
       "summary": "",
       "sentiment": "Bearish",
       "confidence": 0.67,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Analyzing Bitcoin Cash’s 10% drop: What’s next for BCH whales?",
-      "url": "https://ambcrypto.com/analyzing-bitcoin-cashs-10-drop-whats-next-for-bch-whales/",
-      "source": "AMBCrypto",
-      "published": "2026-09-11T23:00:05+00:00",
-      "tickers": [
-        "BCH",
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "The same whales dominated both markets. Why did their footprints point in opposite directions?",
-      "sentiment": "Bearish",
-      "confidence": 0.6764,
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
@@ -4080,8 +4094,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-09-11T20:17:50+00:00",
       "tickers": [
-        "JST",
-        "DOGE"
+        "DOGE",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Dogecoin ETF investors have pulled more than $343 million so far in September.",
@@ -4123,8 +4137,8 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-09-11T20:09:04+00:00",
       "tickers": [
-        "XRP",
-        "BTC"
+        "BTC",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Could XRP one day dethrone Bitcoin? Former Ripple CTO David Schwartz has entertained the possibility, fueling one of the community’s boldest long-term bets. Speaking on X Spaces, Schwartz suggested XRP could surge sooner if the XRP Ledger continues gaining traction and adoption. However, he pointed",
@@ -4497,9 +4511,9 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-09-11T17:40:54+00:00",
       "tickers": [
-        "BGB",
+        "BTC",
         "ETH",
-        "BTC"
+        "BGB"
       ],
       "currency_pairs": [],
       "summary": "Bitget analyst Lewis Huang noted the divergence between headline inflation accelerating on energy while core inflation continues to ease.",
@@ -4583,8 +4597,8 @@ window.newsData = {
       "source": "Bitcoin Magazine",
       "published": "2026-09-11T17:28:32+00:00",
       "tickers": [
-        "MSTRB",
-        "BTC"
+        "BTC",
+        "MSTRB"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Government Defeated as Lords Back UK Digital Assets Strategy  \n The act would force the UK Treasury to consult a strategy for the regulation of cryptoassets, stablecoins, tokenized securities and digital financial infrastructure.  \n This post  Government Defeated as Lords Back",
@@ -4855,8 +4869,8 @@ window.newsData = {
       "source": "Protos",
       "published": "2026-09-11T15:59:39+00:00",
       "tickers": [
-        "ATOM",
-        "BTC"
+        "BTC",
+        "ATOM"
       ],
       "currency_pairs": [],
       "summary": "Two more projects in the Cosmos ecosystem affected by an exploit which saw 40 BTC of unbacked nBTC minted in late June. \n The post  Osmosis took 74 days to discover 40-BTC Nomic exploit  appeared first on  Protos .",
@@ -4898,8 +4912,8 @@ window.newsData = {
       "source": "Bitcoin Magazine",
       "published": "2026-09-11T15:46:05+00:00",
       "tickers": [
-        "JST",
-        "BTC"
+        "BTC",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin Magazine  \n  \n Bitcoin Price Spikes, Shrugs off Hot US Inflation Data  \n The price of bitcoin is up, despite the fact that an interest rate hike could be just around the corner.  \n This post  Bitcoin Price Spikes, Shrugs off Hot US Inflation Data  first appeared on  Bitcoin Magazine  and is",
@@ -5024,9 +5038,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-09-11T15:27:28+00:00",
       "tickers": [
-        "XRP",
+        "BTC",
         "ETH",
-        "BTC"
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin price climbed sharply after fresh United States inflation data eased concerns about persistent annual pressures.  The leading cryptocurrency traded at $79,387.86, gaining 2.89% over 24 hours. Its advance lifted the crypto market 2.36% to $2.69 trillion. XRP price hovered near $1.40, while Et",
@@ -5107,10 +5121,10 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-09-11T15:11:25+00:00",
       "tickers": [
-        "ICP",
-        "BTC",
-        "NEAR",
         "ETH",
+        "NEAR",
+        "BTC",
+        "ICP",
         "ZEC"
       ],
       "currency_pairs": [],
@@ -5359,8 +5373,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-09-11T14:08:55+00:00",
       "tickers": [
-        "ETH",
-        "BTC"
+        "BTC",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "ETH has soared hard, hitting its highest level since January.",
@@ -5501,11 +5515,11 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-09-11T13:41:39+00:00",
       "tickers": [
-        "XRP",
-        "ADA",
-        "HYPE",
+        "BNB",
         "ETH",
-        "BNB"
+        "HYPE",
+        "XRP",
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "This Friday, we examine Ethereum, Ripple, Cardano, Binance Coin, and Hyperliquid in greater detail. Ethereum (ETH) Ethereum fell 3% this week as the price curved down once it touched $2,500. The current support is found at $2,400 and may soon be tested, considering that momentum has turned somewhat",
@@ -5612,8 +5626,8 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-09-11T12:55:00+00:00",
       "tickers": [
-        "XRP",
-        "BNB"
+        "BNB",
+        "XRP"
       ],
       "currency_pairs": [],
       "summary": "XRP might eventually overtake Binance Chain, but it requires serious architectural move up.",
@@ -5634,8 +5648,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-09-11T12:37:28+00:00",
       "tickers": [
-        "JST",
-        "BTC"
+        "BTC",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "The CPI data came just a day after the PPI report - both showing inflation is still persistent.",
@@ -5656,9 +5670,9 @@ window.newsData = {
       "source": "CoinTelegraph",
       "published": "2026-09-11T12:33:38+00:00",
       "tickers": [
-        "SOL",
+        "BTC",
         "ETH",
-        "BTC"
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "ARK 21Shares accounted for $164 million of Thursday’s Bitcoin ETF withdrawals, while Ether and Solana funds also recorded net outflows.",
@@ -6128,8 +6142,8 @@ window.newsData = {
       "source": "Unchained Crypto",
       "published": "2026-09-11T10:45:56+00:00",
       "tickers": [
-        "ETH",
         "BTC",
+        "ETH",
         "AI"
       ],
       "currency_pairs": [],
@@ -6218,9 +6232,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-09-11T10:36:29+00:00",
       "tickers": [
+        "ZEC",
         "ETH",
-        "ADA",
-        "ZEC"
+        "ADA"
       ],
       "currency_pairs": [],
       "summary": "Here's everything most interesting related to the performance of ZEC, ADA, and ETH.",
@@ -6321,11 +6335,11 @@ window.newsData = {
       "source": "NewsBTC",
       "published": "2026-09-11T10:11:20+00:00",
       "tickers": [
-        "USDT",
-        "HOOD",
+        "JST",
         "AI",
         "SPCXB",
-        "JST"
+        "HOOD",
+        "USDT"
       ],
       "currency_pairs": [],
       "summary": "Mutsamudu, Comoros, September 11, 2026 — MEXC, a pioneer in 0-fee digital asset trading, released its August TradFi trading data. Trading volume across stock, index, and ETF Futures rose 130% month-on-month, while the number of available contracts grew 35% to over 400. Tokenized stocks and ETF Spot",
@@ -6388,12 +6402,12 @@ window.newsData = {
       "source": "NewsBTC",
       "published": "2026-09-11T10:03:56+00:00",
       "tickers": [
-        "USDT",
         "BTT",
+        "ETH",
         "AI",
         "TRX",
-        "ETH",
-        "MKR"
+        "MKR",
+        "USDT"
       ],
       "currency_pairs": [],
       "summary": "Geneva, Switzerland, September 11, 2026 — TRON DAO, the community-governed DAO dedicated to accelerating the decentralization of the internet through blockchain technology and decentralized applications (dApps), today announced expanded support for MetaMask across the TRON ecosystem, with B.AI, SUN.",
@@ -6414,18 +6428,18 @@ window.newsData = {
       "source": "NewsBTC",
       "published": "2026-09-11T10:02:20+00:00",
       "tickers": [
-        "USDT",
-        "FORM",
         "BTT",
+        "BNB",
+        "ETH",
+        "JST",
         "AI",
         "TRX",
-        "JST",
-        "USDD",
-        "ETH",
+        "MKR",
+        "FORM",
         "TUSD",
         "NFT",
-        "MKR",
-        "BNB"
+        "USDT",
+        "USDD"
       ],
       "currency_pairs": [],
       "summary": "Singapore, September 11, 2026 — B.AI, SUN.io, JustLend DAO, and BitTorrent, four leading decentralized applications (dApps) across the TRON ecosystem, now support MetaMask connectivity. MetaMask, one of the world&#8217;s largest consumer platforms for onchain finance, giving users direct control ove",
@@ -6769,30 +6783,6 @@ window.newsData = {
       "follower_count": 4289383,
       "is_whale_account": true,
       "whale_label": "Justin Sun",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Bitcoin (BTC), Ethereum (ETH), XRP and Shiba Inu (SHIB) Price Analysis For September 11: Bears May Take the Upper Hand",
-      "url": "https://u.today/price-analysis/bitcoin-btc-ethereum-eth-xrp-and-shiba-inu-shib-price-analysis-for-september-11-bears-may-take-the",
-      "source": "U.Today",
-      "published": "2026-09-11T00:01:00+00:00",
-      "tickers": [
-        "XRP",
-        "SHIB",
-        "ETH",
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Bitcoin and Ethereum are losing short-term momentum after their August rallies, while XRP and Shiba Inu are testing important support levels.",
-      "sentiment": "Bullish",
-      "confidence": 0.9221,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
       "is_crypto_relevant": true
     },
     {
@@ -8414,17 +8404,17 @@ window.newsData = {
     ]
   },
   "macro_snapshot": {
-    "updated_at": "2026-09-12T01:36:09.682824+00:00",
+    "updated_at": "2026-09-13T01:16:56.648998+00:00",
     "source": "fmp",
-    "treasury_yield_10y": 4.83,
+    "treasury_yield_10y": 4.95,
     "treasury_yield_10y_sparkline": [
-      4.75,
       4.79,
       4.79,
       4.77,
       4.78,
       4.8,
-      4.83
+      4.83,
+      4.95
     ],
     "fed_funds_rate": 3.72,
     "fed_funds_rate_sparkline": [
@@ -8439,16 +8429,15 @@ window.newsData = {
     "nonfarm_payroll": null
   },
   "commodity_snapshot": {
-    "updated_at": "2026-09-12T01:36:19.872832+00:00",
+    "updated_at": "2026-09-13T01:17:03.908712+00:00",
     "source": "api_ninjas",
     "items": [
       {
         "symbol": "CRUDE_OIL",
         "label": "Crude Oil (WTI)",
         "price": 100.05,
-        "changes_percentage": -2.371194379391107,
+        "changes_percentage": 0.0,
         "sparkline": [
-          91.816,
           91.187,
           92.065,
           92.5,
@@ -8462,9 +8451,8 @@ window.newsData = {
         "symbol": "BRENT_CRUDE",
         "label": "Brent Crude",
         "price": 104.61,
-        "changes_percentage": -2.8059091331413137,
+        "changes_percentage": 0.0,
         "sparkline": [
-          95.784,
           95.822,
           97.235,
           99.314,
@@ -8477,9 +8465,8 @@ window.newsData = {
         "symbol": "GOLD",
         "label": "Gold",
         "price": 4408.9,
-        "changes_percentage": 0.03630340571323609,
+        "changes_percentage": 0.0,
         "sparkline": [
-          4479.805,
           4430.455,
           4423.015,
           4422.505,
@@ -8493,9 +8480,8 @@ window.newsData = {
         "symbol": "SILVER",
         "label": "Silver",
         "price": 65.188,
-        "changes_percentage": 0.4019899271489452,
+        "changes_percentage": 0.0,
         "sparkline": [
-          66.954,
           66.204,
           66.138,
           66.537,
@@ -8509,9 +8495,8 @@ window.newsData = {
         "symbol": "NATURAL_GAS",
         "label": "Natural Gas",
         "price": 2.831,
-        "changes_percentage": -0.10585744530699061,
+        "changes_percentage": 0.0,
         "sparkline": [
-          2.9219,
           2.9331,
           2.9213,
           2.9809,
@@ -8525,9 +8510,8 @@ window.newsData = {
         "symbol": "COPPER",
         "label": "Copper",
         "price": 6.548,
-        "changes_percentage": 0.007636502481859073,
+        "changes_percentage": 0.0,
         "sparkline": [
-          6.6722,
           6.6668,
           6.6629,
           6.7292,
@@ -8540,7 +8524,7 @@ window.newsData = {
     ]
   },
   "index_snapshot": {
-    "updated_at": "2026-09-12T01:37:30.816867+00:00",
+    "updated_at": "2026-09-13T01:18:13.190694+00:00",
     "source": "twelvedata",
     "items": [
       {
@@ -8549,7 +8533,6 @@ window.newsData = {
         "price": 764.28998,
         "changes_percentage": 0.85242875,
         "sparkline": [
-          7746.125,
           7712.428,
           7713.984,
           7707.079,
@@ -8565,7 +8548,6 @@ window.newsData = {
         "price": 714.88,
         "changes_percentage": 0.87344289,
         "sparkline": [
-          29461.787,
           29503.375,
           29522.953,
           29551.519,
@@ -8581,7 +8563,6 @@ window.newsData = {
         "price": 525.78998,
         "changes_percentage": 0.96783063,
         "sparkline": [
-          53686.999,
           53359.687,
           53272.999,
           53116.403,
@@ -8597,7 +8578,6 @@ window.newsData = {
         "price": 288.89001,
         "changes_percentage": 0.41362614,
         "sparkline": [
-          2964.869,
           2972.964,
           2972.674,
           2966.866,
@@ -8613,7 +8593,6 @@ window.newsData = {
         "price": 17.3,
         "changes_percentage": -4.73569,
         "sparkline": [
-          16.03,
           16.17,
           16.18,
           16.23,
@@ -8626,7 +8605,7 @@ window.newsData = {
     ]
   },
   "stocks_snapshot": {
-    "updated_at": "2026-09-12T01:37:50.356476+00:00",
+    "updated_at": "2026-09-13T01:18:31.723462+00:00",
     "source": "finnhub",
     "items": [
       {
@@ -8734,11 +8713,11 @@ window.newsData = {
     ]
   },
   "crypto_global_snapshot": {
-    "updated_at": "2026-09-12T23:23:54.900194+00:00",
+    "updated_at": "2026-09-13T01:18:31.820207+00:00",
     "source": "coingecko",
-    "market_cap": 2658719541673.3916,
-    "market_cap_change_pct_24h": -2.3961311404908163,
-    "volume_24h": 46635136784.20442,
-    "btc_dominance": 58.236131236952005
+    "market_cap": 2659699797946.261,
+    "market_cap_change_pct_24h": -2.55664484508338,
+    "volume_24h": 46125610749.2141,
+    "btc_dominance": 58.230639999622994
   }
 };
