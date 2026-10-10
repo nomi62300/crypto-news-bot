@@ -10825,3 +10825,4 @@
 {"headline": "investingLive Americas FX news wrap 9 Oct: It’s a Wrap: Stocks rebound despite weak sentiment; Canadian dollar falls on jobs miss", "summary": "", "finbert_label": "Bearish", "finbert_score": 0.9408, "timestamp": "2026-10-09T23:45:08.698325+00:00"}
 {"headline": "US stocks close higher; Nasdaq gains for fourth straight week", "summary": "", "finbert_label": "Bullish", "finbert_score": 0.927, "timestamp": "2026-10-09T23:45:08.736338+00:00"}
 {"headline": "Week ahead: US inflation and retail sales lead a busy economic calendar. Be aware.", "summary": "", "finbert_label": "Neutral", "finbert_score": 0.8329, "timestamp": "2026-10-09T23:45:08.767880+00:00"}
+{"headline": "Trump turns to Russia in bid to lower diesel prices, but analysts see minimal impact", "summary": "", "finbert_label": "Bearish", "finbert_score": 0.5323, "timestamp": "2026-10-10T02:48:41.734961+00:00"}
