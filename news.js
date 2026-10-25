@@ -1,20 +1,20 @@
 window.newsData = {
-  "updated_at": "2026-10-24T23:32:45.474547+00:00",
-  "total": 304,
+  "updated_at": "2026-10-25T01:29:30.328290+00:00",
+  "total": 302,
   "articles": [
     {
-      "title": "Nvidia H200 rental costs rise about 160% since January",
-      "url": "https://cryptobriefing.com/nvidia-h200-rental-costs-rise-160-percent/",
-      "source": "Crypto Briefing",
-      "published": "2026-10-24T23:19:56+00:00",
+      "title": "Aave Opens Its First Externally Curated V4 Markets With Sentora",
+      "url": "https://www.newsbtc.com/news/defi/aave-v4-sentora-externally-curated-markets/",
+      "source": "NewsBTC",
+      "published": "2026-10-25T01:00:00+00:00",
       "tickers": [
-        "AI",
-        "NVDAB"
+        "ETH",
+        "MSTRB"
       ],
       "currency_pairs": [],
-      "summary": "Rising rental costs for Nvidia chips highlight the growing demand and potential strain on AI infrastructure, impacting tech innovation pace. \n The post  Nvidia H200 rental costs rise about 160% since January  appeared first on  Crypto Briefing .",
-      "sentiment": "Bullish",
-      "confidence": 0.8062,
+      "summary": "Sentora is managing Aave V4’s first externally curated markets, bringing a new division of lending strategy, liquidity and governance controls to Ethereum.",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
@@ -25,19 +25,37 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Grayscale Names 3 Cryptocurrencies That Could Benefit From AI Growth",
-      "url": "https://beincrypto.com/grayscale-3-crypto-benefit-ai-boom/",
-      "source": "BeInCrypto",
-      "published": "2026-10-24T22:50:26+00:00",
+      "title": "Audi to build $4.2B auto plant in Georgia, pledging long-term investment in U.S. market",
+      "url": "https://seekingalpha.com/news/4656939-audi-to-build-42b-auto-plant-in-georgia-pledging-long-term-investment-in-us-market?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-10-25T00:50:22+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "",
+      "sentiment": "Bullish",
+      "confidence": 0.7833,
+      "other_sources": [],
+      "category": "STOCKS",
+      "region": "GLOBAL",
+      "asset_class": "stocks",
+      "source_flag": null,
+      "sentiment_engine": "finbert",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Tell Me Lies: Grok, GPT and Claude Voice Modes Guess Bitcoin’s Price",
+      "url": "https://news.bitcoin.com/price-predictions/tell-me-lies-grok-gpt-and-claude-voice-modes-guess-bitcoins-price/",
+      "source": "Bitcoin.com News",
+      "published": "2026-10-25T00:30:23+00:00",
       "tickers": [
-        "PEARL",
-        "CHIP",
+        "BTC",
         "AI"
       ],
       "currency_pairs": [],
-      "summary": "The AI boom is creating huge demand for training data and the expensive computers that power it. Grayscale has identified three cryptocurrencies targeting these growing needs. Their prices, however, tell very different stories. In an October 23 research note, Grayscale Head of Research Zach Pandl hi",
-      "sentiment": "Bullish",
-      "confidence": 0.926,
+      "summary": "Can artificial intelligence (AI) think as well out loud as it does in writing? A bitcoin forecasting experiment conducted by Bitcoin.com News put ChatGPT, Grok, and Claude Opus 5.5 to the test, exposing shaky predictions, questionable reasoning, and a surprising twist: Claude&#8217;s voice model pro",
+      "sentiment": "Neutral",
+      "confidence": 0.5445,
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
@@ -48,16 +66,89 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "M 5.0 - 210 km NW of Port-Olry, Vanuatu",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4q8",
+      "title": "Bitcoin – Why Coinbase warns BTC could fall to $75K amid macro risks",
+      "url": "https://ambcrypto.com/bitcoin-why-coinbase-warns-btc-could-fall-to-75k-amid-macro-risks/",
+      "source": "AMBCrypto",
+      "published": "2026-10-25T00:00:46+00:00",
+      "tickers": [
+        "BTC"
+      ],
+      "currency_pairs": [],
+      "summary": "Options traders were actively hedging against downside risks.",
+      "sentiment": "Bearish",
+      "confidence": 0.7553,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Circle Gateway Adds Bitcoin And Euro Balances With cirBTC And EURC",
+      "url": "https://www.newsbtc.com/crypto-news/circle-gateway-cirbtc-eurc-balances/",
+      "source": "NewsBTC",
+      "published": "2026-10-25T00:00:00+00:00",
+      "tickers": [
+        "BTC",
+        "EURC"
+      ],
+      "currency_pairs": [],
+      "summary": "Circle has expanded Gateway to cirBTC and EURC, bringing bitcoin and euro assets into its unified-balance system with different network and payment limits.",
+      "sentiment": "Neutral",
+      "confidence": 0.5445,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "M 5.3 - 44 km ESE of Miyazaki, Japan",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4qq",
       "source": "USGS",
-      "published": "2026-10-24T22:47:08.577000+00:00",
+      "published": "2026-10-24T23:59:36.599000+00:00",
       "tickers": [],
       "currency_pairs": [],
-      "summary": "210 km NW of Port-Olry, Vanuatu",
+      "summary": "44 km ESE of Miyazaki, Japan",
+      "sentiment": "Neutral",
+      "confidence": 0.5,
+      "other_sources": [],
+      "category": "GEOPOLITICS",
+      "region": "GLOBAL",
+      "asset_class": "geopolitics",
+      "source_flag": null,
+      "sentiment_engine": "usgs_magnitude",
+      "source_type": "rss",
+      "event_source": "usgs",
+      "magnitude": 5.3
+    },
+    {
+      "title": "M 5.0 - 192 km NW of Port-Olry, Vanuatu",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4qp",
+      "source": "USGS",
+      "published": "2026-10-24T23:44:57.729000+00:00",
+      "tickers": [],
+      "currency_pairs": [],
+      "summary": "192 km NW of Port-Olry, Vanuatu",
       "sentiment": "Neutral",
       "confidence": 0.5,
       "other_sources": [
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4qm",
+          "published": "2026-10-24T23:39:07.167000+00:00"
+        },
+        {
+          "source": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4q8",
+          "published": "2026-10-24T22:47:08.577000+00:00"
+        },
         {
           "source": "USGS",
           "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4nv",
@@ -222,11 +313,6 @@ window.newsData = {
           "source": "USGS",
           "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4j2",
           "published": "2026-10-24T02:31:28.641000+00:00"
-        },
-        {
-          "source": "USGS",
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4ib",
-          "published": "2026-10-24T00:27:44.940000+00:00"
         }
       ],
       "category": "GEOPOLITICS",
@@ -237,6 +323,51 @@ window.newsData = {
       "source_type": "rss",
       "event_source": "usgs",
       "magnitude": 5
+    },
+    {
+      "title": "Nvidia H200 rental costs rise about 160% since January",
+      "url": "https://cryptobriefing.com/nvidia-h200-rental-costs-rise-160-percent/",
+      "source": "Crypto Briefing",
+      "published": "2026-10-24T23:19:56+00:00",
+      "tickers": [
+        "NVDAB",
+        "AI"
+      ],
+      "currency_pairs": [],
+      "summary": "Rising rental costs for Nvidia chips highlight the growing demand and potential strain on AI infrastructure, impacting tech innovation pace. \n The post  Nvidia H200 rental costs rise about 160% since January  appeared first on  Crypto Briefing .",
+      "sentiment": "Bullish",
+      "confidence": 0.8062,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
+    },
+    {
+      "title": "Grayscale Names 3 Cryptocurrencies That Could Benefit From AI Growth",
+      "url": "https://beincrypto.com/grayscale-3-crypto-benefit-ai-boom/",
+      "source": "BeInCrypto",
+      "published": "2026-10-24T22:50:26+00:00",
+      "tickers": [
+        "CHIP",
+        "PEARL",
+        "AI"
+      ],
+      "currency_pairs": [],
+      "summary": "The AI boom is creating huge demand for training data and the expensive computers that power it. Grayscale has identified three cryptocurrencies targeting these growing needs. Their prices, however, tell very different stories. In an October 23 research note, Grayscale Head of Research Zach Pandl hi",
+      "sentiment": "Bullish",
+      "confidence": 0.926,
+      "other_sources": [],
+      "category": "CRYPTO",
+      "region": "GLOBAL",
+      "asset_class": "crypto",
+      "source_flag": null,
+      "sentiment_engine": "vader",
+      "source_type": "rss",
+      "is_crypto_relevant": true
     },
     {
       "title": "Morgan Stanley-led credit line for TeraWulf grows to $400 million",
@@ -369,11 +500,11 @@ window.newsData = {
       "source": "ZyCrypto",
       "published": "2026-10-24T21:43:17+00:00",
       "tickers": [
+        "XLM",
+        "AVAX",
         "ETH",
         "BNB",
-        "SOL",
-        "XLM",
-        "AVAX"
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "The RWA market is evolving rapidly, according to a new report shared today by institutional platform GSR. Although Ethereum continues to lead the sector, the new data revealed that its dominance has declined as other major crypto networks gain significant market relevance. Ethereum’s grip loosens in",
@@ -406,7 +537,8 @@ window.newsData = {
       "sentiment_engine": "usgs_magnitude",
       "source_type": "rss",
       "event_source": "usgs",
-      "magnitude": 4.9
+      "magnitude": 4.9,
+      "is_crypto_relevant": true
     },
     {
       "title": "Tesla unveils Optimus Academy to let humanoid robots teach themselves",
@@ -476,8 +608,8 @@ window.newsData = {
       "source": "Crypto Briefing",
       "published": "2026-10-24T21:23:06+00:00",
       "tickers": [
-        "AI",
-        "NVDAB"
+        "NVDAB",
+        "AI"
       ],
       "currency_pairs": [],
       "summary": "The expansion of optical networking capacity could significantly enhance AI data center efficiency, driving technological and infrastructure growth. \n The post  Nvidia and SPIL plan 15x expansion of co-packaged optics capacity by mid-2027  appeared first on  Crypto Briefing .",
@@ -640,8 +772,8 @@ window.newsData = {
       "source": "Crypto Briefing",
       "published": "2026-10-24T20:32:20+00:00",
       "tickers": [
-        "PUMP",
-        "HYPE"
+        "HYPE",
+        "PUMP"
       ],
       "currency_pairs": [],
       "summary": "Pump.fun's revenue surge underscores memecoin sector's growing influence, potentially reshaping decentralized finance dynamics and market confidence. \n The post  Pump.fun surpasses Hyperliquid in daily revenue with $2M in 24 hours  appeared first on  Crypto Briefing .",
@@ -908,8 +1040,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-10-24T19:40:56+00:00",
       "tickers": [
-        "JST",
-        "ETH"
+        "ETH",
+        "JST"
       ],
       "currency_pairs": [],
       "summary": "Ethereum (ETH) saw roughly 169,770 coins leave exchanges on net, per Santiment. That marked its largest outflow day in over 4 months, a pattern last seen just before June&#8217;s rebound. Fewer coins on exchanges usually means less supply ready for sellers. However, US spot Ethereum funds have bled",
@@ -1285,9 +1417,9 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-10-24T18:00:27+00:00",
       "tickers": [
-        "UNI",
         "ETH",
-        "ENA"
+        "ENA",
+        "UNI"
       ],
       "currency_pairs": [],
       "summary": "Arthur Hayes has exited Maelstrom&#039;s directional crypto positions, and on-chain analysts are tracking about $26 million in token sales. In an Oct. 24 statement, Hayes said he had taken profits on Ethereum (ETH), Ethena (ENA), Uniswap (UNI), and other cryptocurrencies, citing mounting macroeconom",
@@ -1411,8 +1543,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-10-24T17:44:36+00:00",
       "tickers": [
-        "BTC",
         "SOSO",
+        "BTC",
         "FORM"
       ],
       "currency_pairs": [],
@@ -1593,12 +1725,12 @@ window.newsData = {
       "source": "The Defiant",
       "published": "2026-10-24T16:50:46+00:00",
       "tickers": [
-        "FORM",
+        "POL",
         "ARB",
-        "OP",
-        "BTC",
         "ETH",
-        "POL"
+        "FORM",
+        "BTC",
+        "OP"
       ],
       "currency_pairs": [],
       "summary": "OP and POL also lost more than a quarter over matched four-week windows, while Arbitrum One's active-address count rose.",
@@ -1651,25 +1783,6 @@ window.newsData = {
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Couche-Tard makes bid for Cumberland Farms: report",
-      "url": "https://seekingalpha.com/news/4656933-couche-tard-makes-bid-cumberland-farms?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "source": "Seeking Alpha",
-      "published": "2026-10-24T16:30:05+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "",
-      "sentiment": "Neutral",
-      "confidence": 0.9162,
-      "other_sources": [],
-      "category": "STOCKS",
-      "region": "GLOBAL",
-      "asset_class": "stocks",
-      "source_flag": null,
-      "sentiment_engine": "finbert",
       "source_type": "rss",
       "is_crypto_relevant": true
     },
@@ -1807,8 +1920,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-10-24T16:00:05+00:00",
       "tickers": [
-        "USDC",
-        "USDT"
+        "USDT",
+        "USDC"
       ],
       "currency_pairs": [],
       "summary": "South Korea’s stablecoin move could reshape the race beyond USDT and USDC.",
@@ -1829,8 +1942,8 @@ window.newsData = {
       "source": "CoinDesk",
       "published": "2026-10-24T16:00:00+00:00",
       "tickers": [
-        "BTC",
-        "MSTRB"
+        "MSTRB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "",
@@ -1851,8 +1964,8 @@ window.newsData = {
       "source": "BeInCrypto",
       "published": "2026-10-24T15:47:22+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Bitcoin (BTC) slipped below $80,000 on Saturday as more than $200 million in crypto positions were liquidated within an hour. Traders betting on higher prices accounted for $191.33 million of that total. Ethereum (ETH) fell alongside the leading crypto. BeInCrypto Markets data shows the total crypto",
@@ -1873,9 +1986,9 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-10-24T15:45:44+00:00",
       "tickers": [
+        "WLFI",
         "USD1",
-        "USDC",
-        "WLFI"
+        "USDC"
       ],
       "currency_pairs": [],
       "summary": "A Circle shareholder sued President Donald Trump, alleging UAE-linked cryptocurrency payments enriched his family and diverted business from USDC. The complaint, filed Oct. 22 in Washington federal court, challenges a $500 million investment in Trump&#039;s World Liberty Financial and a separate $2",
@@ -1896,9 +2009,9 @@ window.newsData = {
       "source": "The Defiant",
       "published": "2026-10-24T15:43:40+00:00",
       "tickers": [
-        "BTC",
+        "FORM",
         "ETH",
-        "FORM"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "ETH lagged bitcoin by 9.15 percentage points over matched nearly four-week windows, while US ether ETFs recorded another outflow on Oct. 22.",
@@ -2025,8 +2138,8 @@ window.newsData = {
       "source": "The Defiant",
       "published": "2026-10-24T15:17:43+00:00",
       "tickers": [
-        "UNI",
-        "USDT"
+        "USDT",
+        "UNI"
       ],
       "currency_pairs": [],
       "summary": "A different sender routed about 549,916 X and 1,909 USDT to a new beneficiary, while the affected pool held less than 200 USDT.",
@@ -2124,27 +2237,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Sygnum Launches Bitcoin Loans With Collateral Keys Shared Across Parties",
-      "url": "https://www.newsbtc.com/bitcoin-news/sygnum-multisyg-bitcoin-loans-shared-collateral-keys/",
-      "source": "NewsBTC",
-      "published": "2026-10-24T15:00:00+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Sygnum’s MultiSYG lending service distributes Bitcoin collateral keys among clients, the bank and independent institutional key holders.",
-      "sentiment": "Bullish",
-      "confidence": 0.8125,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "X100 Exploit Nets 4.85 Million USDT After Governance Takeover",
       "url": "https://thedefiant.io/news/hacks/x100-exploit-nets-4-85-million-usdt-after-governance-takeover",
       "source": "The Defiant",
@@ -2215,37 +2307,15 @@ window.newsData = {
       "published": "2026-10-24T14:34:28+00:00",
       "tickers": [
         "JST",
-        "SOL",
         "ZEC",
+        "ETH",
         "BTC",
-        "ETH"
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "ETH slides further away from $2,400, SOL just dipped below $100. ZEC is down by over 7%.",
       "sentiment": "Bearish",
       "confidence": 0.7107,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "BNB Chain Tops Solana, Robinhood as Equity Volume Jumps 11x to $25.6B",
-      "url": "https://news.bitcoin.com/defi/bnb-chain-tops-solana-robinhood-as-equity-volume-jumps-11x-to-25-6b/",
-      "source": "Bitcoin.com News",
-      "published": "2026-10-24T14:30:53+00:00",
-      "tickers": [
-        "BNB",
-        "SOL"
-      ],
-      "currency_pairs": [],
-      "summary": "BNB Chain emerged as the leading blockchain for tokenized equities in the third quarter, with trading volume surging to about $25.6 billion and supply reaching $1.13 billion. BNB Chain Widens Tokenized-Stock Lead BNB Chain’s tokenized-stock market went from experiment to major business in a single q",
-      "sentiment": "Bullish",
-      "confidence": 0.8125,
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
@@ -2378,27 +2448,6 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "Franklin Moves Bitcoin DRIP ETFs Toward Nasdaq With Dividend Reinvestment Plan",
-      "url": "https://www.newsbtc.com/bitcoin-news/franklin-bitcoin-drip-etfs-nasdaq-dividend-reinvestment/",
-      "source": "NewsBTC",
-      "published": "2026-10-24T14:00:00+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "Two Franklin ETF filings combine US equities with a Bitcoin allocation funded through dividends, adding a different route to crypto exposure.",
-      "sentiment": "Neutral",
-      "confidence": 0.5,
-      "other_sources": [],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Union Leader endorses Sununu in 2026 US Senate race",
       "url": "https://cryptobriefing.com/union-leader-endorses-sununu-in-2026-us-senate-race/",
       "source": "Crypto Briefing",
@@ -2423,36 +2472,13 @@ window.newsData = {
       "source": "CryptoSlate",
       "published": "2026-10-24T13:30:53+00:00",
       "tickers": [
-        "ETH",
-        "FORM"
+        "FORM",
+        "ETH"
       ],
       "currency_pairs": [],
       "summary": "About 169,770 ETH left centralized exchanges on net in one day, Santiment reported Oct. 23, the largest daily withdrawal in more than four months and worth about $407 million at the $2,400 reference price. The last bigger episode came June 5, when roughly 223,800 ETH left exchanges near what Santime",
       "sentiment": "Neutral",
       "confidence": 0.5445,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Arthur Hayes Dumps $22.28M in ETH, ENA, UNI as Scammers Move In Fast",
-      "url": "https://news.bitcoin.com/featured/arthur-hayes-dumps-22-million-eth-altcoins-address-poisoning/",
-      "source": "Bitcoin.com News",
-      "published": "2026-10-24T13:30:07+00:00",
-      "tickers": [
-        "UNI",
-        "ETH",
-        "ENA"
-      ],
-      "currency_pairs": [],
-      "summary": "Arthur Hayes says he has closed Maelstrom&#8217;s entire directional book, and onchain trackers counted about $22 million in tokens leaving his wallets on Saturday morning. &#8216;I Dumped It All&#8217; Hayes, the BitMEX co-founder who runs family office Maelstrom, did not bother with nuance. &#8220",
-      "sentiment": "Bearish",
-      "confidence": 0.8038,
       "other_sources": [],
       "category": "CRYPTO",
       "region": "GLOBAL",
@@ -2932,10 +2958,10 @@ window.newsData = {
       "source": "The Defiant",
       "published": "2026-10-24T09:26:24+00:00",
       "tickers": [
-        "BTC",
-        "UNI",
+        "FORM",
         "ETH",
-        "FORM"
+        "BTC",
+        "UNI"
       ],
       "currency_pairs": [],
       "summary": "The token has underperformed bitcoin and ether, while Uniswap still holds about $4 billion in liquidity.",
@@ -3018,9 +3044,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-10-24T08:14:50+00:00",
       "tickers": [
+        "ETH",
         "BTC",
-        "PI",
-        "ETH"
+        "PI"
       ],
       "currency_pairs": [],
       "summary": "Pi Network (PI) is down 2% today, October 24, to trade at $0.078 at the time of writing. This dip mirrors the downtrend across the broader crypto market, where the total market cap has fallen by 1.37% to $2.7 trillion. Bitcoin (BTC) had dropped below $81,000 at the time of writing, while Ethereum al",
@@ -3041,9 +3067,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-10-24T08:13:33+00:00",
       "tickers": [
-        "UNI",
         "ETH",
-        "ENA"
+        "ENA",
+        "UNI"
       ],
       "currency_pairs": [],
       "summary": "Arthur Hayes, co-founder of BitMEX and chief investment officer of Maelstrom Fund, has exited his entire directional trading book. On October 24, 2026, he confirmed the move on X, selling Ethereum (ETH), Ethena (ENA), Uniswap (UNI), and other altcoins worth roughly $22.28 million. The exit signals a",
@@ -3064,8 +3090,8 @@ window.newsData = {
       "source": "AMBCrypto",
       "published": "2026-10-24T08:00:51+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Ethereum whales turn bullish as ETH/BTC mirrors its 2021 setup.",
@@ -3148,8 +3174,8 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-10-24T06:34:19+00:00",
       "tickers": [
-        "BTC",
-        "SPCXB"
+        "SPCXB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Musk's merger idea could unite 30,221 BTC across Tesla and SpaceX, but \"adding the balances together is not itself a bullish flow.\"",
@@ -3165,34 +3191,13 @@ window.newsData = {
       "is_crypto_relevant": true
     },
     {
-      "title": "TON Casino payments: Transaction memos and withdrawal checks",
-      "url": "https://ambcrypto.com/ton-casino-payments-transaction-memos-and-withdrawal-checks/",
-      "source": "AMBCrypto",
-      "published": "2026-10-24T06:30:53+00:00",
-      "tickers": [
-        "TON"
-      ],
-      "currency_pairs": [],
-      "summary": "TON is a quickly growing payment option in the world of crypto casinos. It&#8217;s been helped along, in terms of player popularity, by its ties to Telegram. The benefits for crypto gaming in particular are clear: TON is fast. It&#8217;s cheap. And because of the Telegram affiliation, it&#8217;s als",
-      "sentiment": "Bullish",
-      "confidence": 0.9221,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
       "title": "Arthur Hayes Says He Sold Maelstrom’s Directional Book",
       "url": "https://thedefiant.io/news/markets/arthur-hayes-says-he-sold-maelstrom-s-directional-book",
       "source": "The Defiant",
       "published": "2026-10-24T06:28:11+00:00",
       "tickers": [
-        "BTC",
-        "ETH"
+        "ETH",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Hayes-linked wallets transferred 8,000 ETH and six other tokens, contrasting with his Oct. 15 declaration that he was long Bitcoin and Ether.",
@@ -3253,11 +3258,11 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-10-24T04:47:34+00:00",
       "tickers": [
+        "STRK",
+        "XRP",
         "LIT",
         "WLD",
-        "STRK",
-        "BTC",
-        "XRP"
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "M is the only major exception in the green today, while WLD has plummeted hard, followed by LIT, DOT, STRK, and many others.",
@@ -3297,8 +3302,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-10-24T03:09:03+00:00",
       "tickers": [
-        "HTX",
-        "BGB"
+        "BGB",
+        "HTX"
       ],
       "currency_pairs": [],
       "summary": "Cryptocurrency exchange HTX has added Russia to its restricted jurisdictions list, limiting access to trading and other services for Russian users. The move follows similar restrictions by Bitget and MEXC, which announced plans to discontinue services in Russia during October. Ad Ad HTX Adds Russia",
@@ -3338,8 +3343,8 @@ window.newsData = {
       "source": "Unchained Crypto",
       "published": "2026-10-24T02:35:00+00:00",
       "tickers": [
-        "ZRO",
-        "ETH"
+        "ETH",
+        "ZRO"
       ],
       "currency_pairs": [],
       "summary": "Co-founder Zon's preliminary read points to a MoveVM flaw, while D2 Finance traced the payouts to LayerZero adapters on Ethereum. \n The post  Initia Has No Restart Date After Attacker Mints Tokens and Bridges Out $2.7 Million  appeared first on  Unchained .",
@@ -3500,9 +3505,9 @@ window.newsData = {
       "published": "2026-10-24T00:01:00+00:00",
       "tickers": [
         "BNB",
-        "SHIB",
+        "XRP",
         "DOGE",
-        "XRP"
+        "SHIB"
       ],
       "currency_pairs": [],
       "summary": "Crypto majors remain under pressure as resistance caps recovery attempts and trading volume fades, though BNB shows relative strength.",
@@ -4060,8 +4065,8 @@ window.newsData = {
       "source": "The Defiant",
       "published": "2026-10-23T17:27:28+00:00",
       "tickers": [
-        "AUSD",
-        "ETH"
+        "ETH",
+        "AUSD"
       ],
       "currency_pairs": [],
       "summary": "Ethereum records show 1.4 million AUSD left a bridge adapter, while Agora says it has no smart contracts deployed on Initia.",
@@ -4146,8 +4151,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-10-23T17:10:12+00:00",
       "tickers": [
-        "BTC",
-        "ADA"
+        "ADA",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Cardano Price hovered above $0.21 on Friday, rising 0.99% over the past 24 hours to trade at around $0.216. The move coincided with progress on the Dijkstra testnet and Node 11.2 for Cardano’s protocol upgrade.  The broader cryptocurrency market reached a valuation of $2.73 trillion as major digital",
@@ -4168,8 +4173,8 @@ window.newsData = {
       "source": "The Defiant",
       "published": "2026-10-23T17:08:01+00:00",
       "tickers": [
-        "AUSD",
-        "ETH"
+        "ETH",
+        "AUSD"
       ],
       "currency_pairs": [],
       "summary": "Agora says it has no contracts on Initia; the targeted Ethereum account had already swapped 1.4 million AUSD for ETH.",
@@ -4459,9 +4464,9 @@ window.newsData = {
       "source": "Decrypt",
       "published": "2026-10-23T15:50:41+00:00",
       "tickers": [
+        "ETH",
         "BTC",
-        "SOL",
-        "ETH"
+        "SOL"
       ],
       "currency_pairs": [],
       "summary": "Spot Bitcoin ETFs lost $635.6 million on Thursday, their biggest outflow of the month, pushing October flows back to a loss of about $176 million as Ethereum and Solana funds also bled.",
@@ -4747,10 +4752,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-10-23T13:45:30+00:00",
       "tickers": [
-        "NEAR",
-        "BTC",
         "ZEC",
-        "XRP"
+        "BTC",
+        "XRP",
+        "NEAR"
       ],
       "currency_pairs": [],
       "summary": "Key crypto updates of morning Oct 23: Institutional funds exit Bitcoin for XRP and Zcash as DFINITY accuses NEAR Protocol of code theft.",
@@ -4853,11 +4858,11 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-10-23T13:27:19+00:00",
       "tickers": [
+        "XRP",
         "HYPE",
-        "BNB",
-        "ETH",
         "ADA",
-        "XRP"
+        "ETH",
+        "BNB"
       ],
       "currency_pairs": [],
       "summary": "Today, we examine Ethereum, Ripple, Cardano, Binance Coin, and Hyperliquid in greater detail. Ethereum (ETH) This week, the correction that started in early October continued, and ETH closed 2% lower. While this is a modest drop, the price has arrived at the $2,400 support, which appears to be holdi",
@@ -5105,8 +5110,8 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-10-23T12:54:18+00:00",
       "tickers": [
-        "BTC",
-        "MSTRB"
+        "MSTRB",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "Franklin Templeton, a $1.8 trillion AUM global asset manager, has received approval from Nasdaq to list two new Bitcoin ETFs with a DRIP strategy. This brings the company closer to launching Bitcoin ETFs that systematically convert stock dividends into BTC exposure. According to the latest SEC filin",
@@ -5230,9 +5235,9 @@ window.newsData = {
       "source": "CryptoPotato",
       "published": "2026-10-23T11:45:04+00:00",
       "tickers": [
+        "ZEC",
         "BTC",
-        "XMR",
-        "ZEC"
+        "XMR"
       ],
       "currency_pairs": [],
       "summary": "Here's everything most interesting surrounding XMR, ZEC, and BTC.",
@@ -5253,9 +5258,9 @@ window.newsData = {
       "source": "Coingape",
       "published": "2026-10-23T11:43:24+00:00",
       "tickers": [
-        "BTC",
-        "ETH",
         "FORM",
+        "ETH",
+        "BTC",
         "XRP"
       ],
       "currency_pairs": [],
@@ -5277,8 +5282,8 @@ window.newsData = {
       "source": "The Block",
       "published": "2026-10-23T11:39:45+00:00",
       "tickers": [
-        "BTC",
-        "FORM"
+        "FORM",
+        "BTC"
       ],
       "currency_pairs": [],
       "summary": "BlackRock's IBIT led Thursday's net outflows with $254.1 million, while four other funds also witnessed withdrawals.",
@@ -5749,8 +5754,8 @@ window.newsData = {
       "source": "Crypto News",
       "published": "2026-10-23T08:32:01+00:00",
       "tickers": [
-        "PUMP",
-        "ENA"
+        "ENA",
+        "PUMP"
       ],
       "currency_pairs": [],
       "summary": "Crypto whale activity shows PUMP and ENA selling pressure, a $7.2M altcoin buying spree, and historical whale interest. \n The post  Crypto Whale Activity: $7.2M Flows Into 9 Altcoins as PUMP and ENA Face Selling Pressure  appeared first on  Cryptonews .",
@@ -5792,8 +5797,8 @@ window.newsData = {
       "source": "CoinJournal",
       "published": "2026-10-23T08:14:05+00:00",
       "tickers": [
-        "BTC",
         "ETH",
+        "BTC",
         "XRP"
       ],
       "currency_pairs": [],
@@ -6085,10 +6090,10 @@ window.newsData = {
       "source": "U.Today",
       "published": "2026-10-23T04:55:00+00:00",
       "tickers": [
+        "HYPE",
         "XLM",
         "BTC",
-        "XMR",
-        "HYPE"
+        "XMR"
       ],
       "currency_pairs": [],
       "summary": "Volatility has returned to crypto, but sentiment remains depressed: Monero extends its rally, while Stellar, Bitcoin, and Hyperliquid struggle near key support levels.",
@@ -6254,52 +6259,6 @@ window.newsData = {
       "other_sources": [],
       "category": "GEOPOLITICS",
       "region": "MENA",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Switzerland’s first retail spot Bitcoin ETF targets November launch",
-      "url": "https://cointelegraph.com/news/switzerland-approves-first-spot-bitcoin-etf-for-retail-investors?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "CoinTelegraph",
-      "published": "2026-10-23T00:59:35+00:00",
-      "tickers": [
-        "BTC"
-      ],
-      "currency_pairs": [],
-      "summary": "BIT Asset Management’s Bitcoin Fund ETF is expected to begin trading on SIX Swiss Exchange in November, with its public offering restricted to Switzerland.",
-      "sentiment": "Bullish",
-      "confidence": 0.6909,
-      "other_sources": [],
-      "category": "CRYPTO",
-      "region": "GLOBAL",
-      "asset_class": "crypto",
-      "source_flag": null,
-      "sentiment_engine": "vader",
-      "source_type": "rss",
-      "is_crypto_relevant": true
-    },
-    {
-      "title": "Pentagon bans US forces from using military info to bet in prediction markets",
-      "url": "https://cointelegraph.com/news/pentagon-bans-us-forces-from-using-military-info-to-bet-in-prediction-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "CoinTelegraph",
-      "published": "2026-10-22T23:50:42+00:00",
-      "tickers": [],
-      "currency_pairs": [],
-      "summary": "Hegseth warned that prediction market wagers could expose military operations to adversaries.",
-      "sentiment": "Bearish",
-      "confidence": 0.7859,
-      "other_sources": [
-        {
-          "source": "Crypto Briefing",
-          "url": "https://cryptobriefing.com/pentagon-bans-personnel-using-insider-information-trade-prediction-markets/",
-          "published": "2026-10-23T12:51:44+00:00"
-        }
-      ],
-      "category": "GEOPOLITICS",
-      "region": "GLOBAL",
       "asset_class": "crypto",
       "source_flag": null,
       "sentiment_engine": "vader",
@@ -6669,15 +6628,15 @@ window.newsData = {
     }
   ],
   "forex_sentiment": {
-    "updated_at": "2026-10-24T23:31:40.379320+00:00",
+    "updated_at": "2026-10-25T01:27:52.680541+00:00",
     "pairs": [
       {
         "symbol": "EURUSD",
         "short_pct": 16.0,
         "long_pct": 84.0,
-        "short_volume_lots": 3358.66,
+        "short_volume_lots": 3358.76,
         "long_volume_lots": 17000.15,
-        "short_positions": 10464,
+        "short_positions": 10465,
         "long_positions": 30778,
         "popularity_rank": 1
       },
@@ -6686,9 +6645,9 @@ window.newsData = {
         "short_pct": 4.0,
         "long_pct": 96.0,
         "short_volume_lots": 159.18,
-        "long_volume_lots": 3540.93,
+        "long_volume_lots": 3540.98,
         "short_positions": 907,
-        "long_positions": 11583,
+        "long_positions": 11584,
         "popularity_rank": 2
       },
       {
@@ -6753,21 +6712,21 @@ window.newsData = {
       },
       {
         "symbol": "ETHUSD",
-        "short_pct": 18.0,
-        "long_pct": 82.0,
-        "short_volume_lots": 44.97,
-        "long_volume_lots": 208.91,
+        "short_pct": 17.0,
+        "long_pct": 83.0,
+        "short_volume_lots": 44.23,
+        "long_volume_lots": 208.89,
         "short_positions": 129,
-        "long_positions": 788,
+        "long_positions": 786,
         "popularity_rank": 9
       },
       {
         "symbol": "SOLUSD",
         "short_pct": 5.0,
         "long_pct": 95.0,
-        "short_volume_lots": 10.83,
+        "short_volume_lots": 10.85,
         "long_volume_lots": 196.86,
-        "short_positions": 15,
+        "short_positions": 17,
         "long_positions": 167,
         "popularity_rank": 10
       },
@@ -7234,17 +7193,17 @@ window.newsData = {
     ]
   },
   "macro_snapshot": {
-    "updated_at": "2026-10-24T00:02:43.612744+00:00",
+    "updated_at": "2026-10-25T01:27:53.294159+00:00",
     "source": "fmp",
-    "treasury_yield_10y": 5.13,
+    "treasury_yield_10y": 4.96,
     "treasury_yield_10y_sparkline": [
-      5.21,
       5.19,
       5.1,
       5.09,
       5.15,
       5.12,
-      5.13
+      5.13,
+      4.96
     ],
     "fed_funds_rate": 3.75,
     "fed_funds_rate_sparkline": [
@@ -7258,16 +7217,15 @@ window.newsData = {
     "nonfarm_payroll": null
   },
   "commodity_snapshot": {
-    "updated_at": "2026-10-24T00:02:53.090149+00:00",
+    "updated_at": "2026-10-25T01:28:02.259860+00:00",
     "source": "api_ninjas",
     "items": [
       {
         "symbol": "CRUDE_OIL",
         "label": "Crude Oil (WTI)",
         "price": 103.27,
-        "changes_percentage": 3.8202473107469563,
+        "changes_percentage": 0.0,
         "sparkline": [
-          96.136,
           98.997,
           97.664,
           98.205,
@@ -7281,9 +7239,8 @@ window.newsData = {
         "symbol": "BRENT_CRUDE",
         "label": "Brent Crude",
         "price": 116.72,
-        "changes_percentage": 3.1368737297870437,
+        "changes_percentage": 0.0,
         "sparkline": [
-          105.694,
           109.647,
           109.214,
           109.074,
@@ -7296,9 +7253,8 @@ window.newsData = {
         "symbol": "GOLD",
         "label": "Gold",
         "price": 4007.9,
-        "changes_percentage": -1.292976061471776,
+        "changes_percentage": 0.0,
         "sparkline": [
-          4155.865,
           4165.275,
           4184.735,
           4132.085,
@@ -7312,9 +7268,8 @@ window.newsData = {
         "symbol": "SILVER",
         "label": "Silver",
         "price": 53.949,
-        "changes_percentage": -1.9233915683458467,
+        "changes_percentage": 0.0,
         "sparkline": [
-          57.075,
           56.836,
           57.357,
           56.869,
@@ -7328,9 +7283,8 @@ window.newsData = {
         "symbol": "NATURAL_GAS",
         "label": "Natural Gas",
         "price": 2.64,
-        "changes_percentage": -5.579399141630891,
+        "changes_percentage": 0.0,
         "sparkline": [
-          3.2073,
           3.1114,
           3.0443,
           3.0364,
@@ -7344,9 +7298,8 @@ window.newsData = {
         "symbol": "COPPER",
         "label": "Copper",
         "price": 6.5075,
-        "changes_percentage": 1.7114723351047296,
+        "changes_percentage": 0.0,
         "sparkline": [
-          6.5502,
           6.5611,
           6.5777,
           6.5691,
@@ -7359,7 +7312,7 @@ window.newsData = {
     ]
   },
   "index_snapshot": {
-    "updated_at": "2026-10-24T00:04:03.101444+00:00",
+    "updated_at": "2026-10-25T01:29:11.606089+00:00",
     "source": "twelvedata",
     "items": [
       {
@@ -7368,7 +7321,6 @@ window.newsData = {
         "price": 759.96997,
         "changes_percentage": -0.52228535,
         "sparkline": [
-          7730.926,
           7652.332,
           7696.139,
           7702.131,
@@ -7384,7 +7336,6 @@ window.newsData = {
         "price": 704.40002,
         "changes_percentage": -0.0099289242,
         "sparkline": [
-          29786.231,
           29167.643,
           29434.42,
           29558.72,
@@ -7400,7 +7351,6 @@ window.newsData = {
         "price": 521.37,
         "changes_percentage": -1.23511,
         "sparkline": [
-          52157.103,
           51935.387,
           52171.115,
           52058.115,
@@ -7416,7 +7366,6 @@ window.newsData = {
         "price": 275.75,
         "changes_percentage": -0.33253095,
         "sparkline": [
-          2763.773,
           2721.57,
           2740.571,
           2732.566,
@@ -7432,7 +7381,6 @@ window.newsData = {
         "price": 17.92,
         "changes_percentage": 1.24293,
         "sparkline": [
-          17.43,
           19.83,
           18.93,
           18.53,
@@ -7445,7 +7393,7 @@ window.newsData = {
     ]
   },
   "stocks_snapshot": {
-    "updated_at": "2026-10-24T00:04:22.791567+00:00",
+    "updated_at": "2026-10-25T01:29:30.224571+00:00",
     "source": "finnhub",
     "items": [
       {
@@ -7553,11 +7501,11 @@ window.newsData = {
     ]
   },
   "crypto_global_snapshot": {
-    "updated_at": "2026-10-24T23:32:45.468779+00:00",
+    "updated_at": "2026-10-25T01:29:30.323047+00:00",
     "source": "coingecko",
-    "market_cap": 2717062212046.818,
-    "market_cap_change_pct_24h": -2.8222439112110016,
-    "volume_24h": 57943907883.0445,
-    "btc_dominance": 59.50269976253746
+    "market_cap": 2721442603859.6953,
+    "market_cap_change_pct_24h": -2.5096709585091683,
+    "volume_24h": 56444475662.09499,
+    "btc_dominance": 59.47838424044226
   }
 };
